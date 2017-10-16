@@ -9,12 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @class SimpleButtonModel;
+@class SimpleButtonsTableViewCell;
+
+@protocol SimpleButtonsTableViewCellDelegate <NSObject>
+
+@optional
+-(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell*)cell didSelectedModel:(SimpleButtonModel*)model;
+
+@end
 
 @interface SimpleButtonsTableViewCell : BaseTableViewCell
 
 +(CGFloat)heightWithButtonsCount:(NSInteger)count;
 
 @property (nonatomic,strong) NSArray<SimpleButtonModel*>* buttons;
+@property (nonatomic,weak) id<SimpleButtonsTableViewCellDelegate> delegate;
 
 @end
 

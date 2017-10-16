@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     MainPageSectionTotalCount,
 };
 
-@interface MainPageTableViewController ()
+@interface MainPageTableViewController ()<SimpleButtonsTableViewCellDelegate>
 {
     UIBarButtonItem* locationItem;
     NSArray* arrayWithSimpleButtons;
@@ -67,6 +67,8 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     NSLog(@"select location");
 }
 
+#pragma mark UITableViewDelegate&Datasource
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return MainPageSectionTotalCount;
@@ -102,6 +104,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     {
         SimpleButtonsTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"SimpleButtonsTableViewCell" forIndexPath:indexPath];
         cell.buttons=[self arrayWithSimpleButtons];
+        cell.delegate=self;
         return cell;
     }
     else if(sec==MainPageSectionExhibition)
@@ -110,6 +113,14 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         return cell;
     }
     return [[UITableViewCell alloc]init];
+}
+
+
+#pragma mark SimpleButtonsTableViewCellDelegate
+
+-(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
+{
+    NSLog(@"%@",model.title);
 }
 
 @end

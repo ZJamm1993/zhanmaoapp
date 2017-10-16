@@ -72,7 +72,11 @@ const NSInteger simpleButtonRowCount=4;
 {
     NSInteger tag=button.tag;
     SimpleButtonModel* mo=[self.buttons objectAtIndex:tag];
-    NSLog(@"%@,%@",mo.title,mo.identifier);
+//    NSLog(@"%@,%@",mo.title,mo.identifier);
+    if([self.delegate respondsToSelector:@selector(simpleButtonsTableViewCell:didSelectedModel:)])
+    {
+        [self.delegate simpleButtonsTableViewCell:self didSelectedModel:mo];
+    }
 }
 
 @end
