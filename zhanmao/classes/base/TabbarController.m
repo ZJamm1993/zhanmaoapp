@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
     self.tabBar.translucent=NO;
     
-    self.tabBar.tintColor=mainColor;
+    self.tabBar.tintColor=_mainColor;
     
     NSArray* childs=self.childViewControllers;
     

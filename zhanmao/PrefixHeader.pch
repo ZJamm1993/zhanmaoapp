@@ -26,6 +26,8 @@
 
 #import "NaviController.h"
 
+#import "BaseTableViewCell.h"
+
 //UIcolors
 
 #define rgba(a, b, c, d) ([UIColor colorWithRed:(a/255.0) green:(b/255.0) blue:(c/255.0) alpha:d])
@@ -34,12 +36,12 @@
 #define graya(w,a) [UIColor colorWithWhite:(w/255.0) alpha:a]
 #define gray(w) [UIColor colorWithWhite:(w/255.0) alpha:1]
 
-#define pinkColor rgb(233,0,117)
+#define _pinkColor rgb(233,0,117)
+#define _redColor rgb(218,0,0)
+#define _blueColor rgb(50,170,230)
 
-#define blueColor rgb(50,170,230)
+#define _mainColor _blueColor
 
-#define mainColor blueColor
-
-
+#define _randomColor [UIColor colorWithHue:((CGFloat)(arc4random())/255.0) saturation:1 brightness:1 alpha:1]
 
 #endif /* PrefixHeader_pch */

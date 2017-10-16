@@ -79,7 +79,7 @@ const CGFloat advertiseViewAutoScrollTime=3.0;
     pageControl=[[UIPageControl alloc]init];
     pageControl.numberOfPages=_picturesUrls.count;
     pageControl.pageIndicatorTintColor=[UIColor whiteColor];
-    pageControl.currentPageIndicatorTintColor=pinkColor;
+    pageControl.currentPageIndicatorTintColor=_redColor;
     pageControl.center=CGPointMake(w/2, h-20);
     [self addSubview:pageControl];
     

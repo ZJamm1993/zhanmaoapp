@@ -25,8 +25,17 @@
     
     self.navigationBar.shadowImage=[UIImage imageWithColor:[UIColor groupTableViewBackgroundColor] size:CGSizeMake(self.navigationBar.bounds.size.width, 0.5)];
     
-    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:mainColor size:CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+20)] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[UIImage imageWithColor:_mainColor size:CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+20)] forBarMetrics:UIBarMetricsDefault];
+    
+    [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil]];
     // Do any additional setup after loading the view.
+    
+    
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
