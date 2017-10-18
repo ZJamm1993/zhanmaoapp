@@ -45,7 +45,7 @@ const NSInteger simpleButtonRowCount=4;
         SimpleButtonModel* mo=[buttons objectAtIndex:i];
 //        NSLog(@"%d,%d",col,row);
         UIView* bbg=[[UIView alloc]initWithFrame:CGRectMake(col*widthPerEach, row*(heightPerEach+simpleButtonMarginY)+simpleButtonMarginY, widthPerEach, heightPerEach)];
-        bbg.backgroundColor=_randomColor;
+//        bbg.backgroundColor=_randomColor;
         [self.contentView addSubview:bbg];
         
         UILabel* titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, heightPerEach-titleHeight, widthPerEach, titleHeight)];

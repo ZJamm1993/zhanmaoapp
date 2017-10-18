@@ -11,14 +11,16 @@
 #import "Reachability.h"
 #import "BaseModel.h"
 #import "NothingWarningView.h"
+#import "BaseLoadMoreFooterView.h"
 
-@interface BaseTableViewController ()
+@interface BaseTableViewController ()<BaseLoadMoreFooterViewDelegate>
 {
     AdvertiseView* advHeader;
     NSInteger lastCount;
     BOOL hasNetwork;
     NothingWarningView* nothingView;
     BOOL isManualReload;
+    BaseLoadMoreFooterView* loadMoreFooter;
 }
 @end
 
@@ -58,13 +60,12 @@
     self.tableView.estimatedRowHeight=100;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
     
-    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    
     self.refreshControl=[[UIRefreshControl alloc]init];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.tableFooterView=[[UIView alloc]init];
+    [self showLoadMoreView];
     
     self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
     
@@ -84,7 +85,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
+//    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
 -(NSInteger)pageSize
@@ -135,7 +136,10 @@
         {
             isManualReload=YES;
         }
+        
+        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"加载更多" afterDelay:1];
     }
+    
 }
 
 -(void)dealloc
@@ -189,19 +193,19 @@
     bg.backgroundColor=[UIColor groupTableViewBackgroundColor];
     cell.selectedBackgroundView=bg;
 //    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1)) {
-        self.shouldLoadMore=_dataSource.count!=lastCount;
-        lastCount=_dataSource.count;
-//        NSString* loadmoreText=@"正在加载...";
-        if (self.shouldLoadMore) {
-            [self loadMore];
-        }
-//        else
-//        {
-//            loadmoreText=@"";
+//    if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1)) {
+//        self.shouldLoadMore=_dataSource.count!=lastCount;
+//        lastCount=_dataSource.count;
+////        NSString* loadmoreText=@"正在加载...";
+//        if (self.shouldLoadMore) {
+//            [self loadMore];
 //        }
-//        [self setNothingFooterViewWithText:loadmoreText];
-    }
+////        else
+////        {
+////            loadmoreText=@"";
+////        }
+////        [self setNothingFooterViewWithText:loadmoreText];
+//    }
 }
 
 #pragma mark - table view delegate
@@ -209,6 +213,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 8;
 }
 
 #pragma mark - Advertiseview header
@@ -268,6 +277,31 @@
 -(void)hideNothingLabel
 {
     [nothingView removeFromSuperview];
+}
+
+#pragma mark - loadmore something
+
+-(void)showLoadMoreView
+{
+    if (loadMoreFooter==nil) {
+        loadMoreFooter=[BaseLoadMoreFooterView defaultFooter];
+        loadMoreFooter.delegate=self;
+    }
+    self.tableView.tableFooterView=nil;
+    self.tableView.tableFooterView=loadMoreFooter;
+}
+
+-(void)hideLoadMoreView
+{
+    if (self.tableView.tableFooterView==loadMoreFooter) {
+        self.tableView.tableFooterView=nil;
+    }
+}
+
+-(void)loadMoreFooterViewShouldStartLoadMore:(BaseLoadMoreFooterView *)footerView
+{
+    footerView.loading=YES;
+    [self loadMore];
 }
 
 @end

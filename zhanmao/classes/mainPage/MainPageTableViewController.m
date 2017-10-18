@@ -9,6 +9,7 @@
 #import "MainPageTableViewController.h"
 #import "SimpleButtonsTableViewCell.h"
 #import "ExhibitionLargeTableViewCell.h"
+#import "SimpleHeaderTableViewCell.h"
 
 typedef NS_ENUM(NSInteger,MainPageSection)
 {
@@ -32,13 +33,18 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     self.tabBarItem.title=@"主页";
     
     locationItem=[[UIBarButtonItem alloc]initWithTitle:@"广州" style:UIBarButtonItemStylePlain target:self action:@selector(selectLocation)];
-    UIBarButtonItem* downInd=[[UIBarButtonItem alloc]initWithTitle:@"⌄" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:locationItem, downInd, nil];
+//    locationItem.image=[UIImage imageNamed:@"a.png"];
+//    UIBarButtonItem* downInd=[[UIBarButtonItem alloc]initWithTitle:@"V" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:locationItem, nil];
     
     [self setAdvertiseHeaderViewWithPicturesUrls:[NSArray arrayWithObjects:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1508124415&di=5db22a966bc422bbb5ff5d141c72a784&src=http://img0.pconline.com.cn/pconline/1612/22/8693800_tupian9_fuben_thumb.png", @"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2458910651,1579540110&fm=27&gp=0.jpg", nil]];
     
     [self.tableView registerClass:[SimpleButtonsTableViewCell class] forCellReuseIdentifier:@"SimpleButtonsTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SimpleHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"SimpleHeaderTableViewCell"];
+    
+//    self.tableView.sectionHeaderHeight=44;
 }
 
 -(NSArray*)arrayWithSimpleButtons
@@ -98,7 +104,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger sec=indexPath.section;
-    NSInteger row=indexPath.row;
+//    NSInteger row=indexPath.row;
     
     if(sec==MainPageSectionEights)
     {
@@ -115,6 +121,24 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     return [[UITableViewCell alloc]init];
 }
 
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if(section!=0)
+    {
+        SimpleHeaderTableViewCell* hea=[tableView dequeueReusableCellWithIdentifier:@"SimpleHeaderTableViewCell" forIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+        return hea;
+    }
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section==0)
+    {
+        return 0.01;
+    }
+    return 44;
+}
 
 #pragma mark SimpleButtonsTableViewCellDelegate
 
