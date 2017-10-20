@@ -18,7 +18,7 @@
 
 @end
 
-@interface SimpleButtonsTableViewCell : BaseTableViewCell
+@interface SimpleButtonsTableViewCell : UIView
 
 +(CGFloat)heightWithButtonsCount:(NSInteger)count;
 

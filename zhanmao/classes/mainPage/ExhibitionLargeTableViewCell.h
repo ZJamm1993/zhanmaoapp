@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExhibitionLargeTableViewCell : BaseTableViewCell
+@interface ExhibitionLargeTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+
+-(void)setCornerRadius;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end

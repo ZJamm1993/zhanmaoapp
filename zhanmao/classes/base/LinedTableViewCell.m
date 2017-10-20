@@ -6,9 +6,9 @@
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "BaseTableViewCell.h"
+#import "LinedTableViewCell.h"
 
-@implementation BaseTableViewCell
+@implementation LinedTableViewCell
 {
     
 }
@@ -30,7 +30,7 @@
     {
         _bottomSeperateLine=[[UIView alloc]initWithFrame:CGRectZero];
         _bottomSeperateLine.backgroundColor=[UIColor groupTableViewBackgroundColor];
-        [self.contentView addSubview:_bottomSeperateLine];
+        [self addSubview:_bottomSeperateLine];
     }
     return _bottomSeperateLine;
 }
@@ -39,8 +39,8 @@
 {
     [super layoutSubviews];
     
-    CGFloat he=0.5;
-    self.bottomSeperateLine.frame=CGRectMake(0, self.contentView.bounds.size.height-he, self.contentView.bounds.size.width, he);
+    CGFloat he=1/[[UIScreen mainScreen]scale];
+    self.bottomSeperateLine.frame=CGRectMake(0, self.bounds.size.height-he, self.bounds.size.width, he);
 }
 
 @end

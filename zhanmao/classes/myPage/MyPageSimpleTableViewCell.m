@@ -1,14 +1,14 @@
 //
-//  ProductSmallTableViewCell.m
+//  MyPageSimpleTableViewCell.m
 //  zhanmao
 //
-//  Created by bangju on 2017/10/18.
+//  Created by bangju on 2017/10/20.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "ProductSmallTableViewCell.h"
+#import "MyPageSimpleTableViewCell.h"
 
-@implementation ProductSmallTableViewCell
+@implementation MyPageSimpleTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

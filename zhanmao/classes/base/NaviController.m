@@ -23,7 +23,7 @@
     
     self.navigationBar.tintColor=[UIColor whiteColor];
     
-    self.navigationBar.shadowImage=[UIImage imageWithColor:[UIColor groupTableViewBackgroundColor] size:CGSizeMake(self.navigationBar.bounds.size.width, 0.5)];
+    self.navigationBar.shadowImage=[UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(self.navigationBar.bounds.size.width, 0.5)];
     
     [self.navigationBar setBackgroundImage:[UIImage imageWithColor:_mainColor size:CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+20)] forBarMetrics:UIBarMetricsDefault];
     

@@ -17,7 +17,7 @@
 		8E2E409F1F9460B300B42477 /* SimpleButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */; };
 		8E2E40A41F949C0C00B42477 /* ExhibitionLargeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A21F949C0C00B42477 /* ExhibitionLargeTableViewCell.m */; };
 		8E2E40A51F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2E40A31F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib */; };
-		8E2E40A91F94A46B00B42477 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A71F94A46B00B42477 /* BaseTableViewCell.m */; };
+		8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */; };
 		8E99A8CF1F90664D0078C452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A8CE1F90664D0078C452 /* main.m */; };
 		8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A8D11F90664D0078C452 /* AppDelegate.m */; };
 		8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E99A8D61F90664D0078C452 /* Main.storyboard */; };
@@ -68,10 +68,20 @@
 		8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674BE1F973818008CC196 /* BaseLoadMoreFooterView.m */; };
 		8EB674C31F973818008CC196 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C01F973818008CC196 /* BaseTableViewController.m */; };
 		8EB674C51F973CE8008CC196 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674C41F973CE8008CC196 /* a.png */; };
-		8EB674C91F97416B008CC196 /* ProductSmallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C71F97416B008CC196 /* ProductSmallTableViewCell.m */; };
-		8EB674CA1F97416B008CC196 /* ProductSmallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674C81F97416B008CC196 /* ProductSmallTableViewCell.xib */; };
+		8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */; };
+		8EB674CA1F97416B008CC196 /* MessageSmallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */; };
 		8EB674CE1F974214008CC196 /* SimpleHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */; };
 		8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */; };
+		8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674D11F99A991008CC196 /* MainPageHeaderTableViewCell.m */; };
+		8EB674D41F99A991008CC196 /* MainPageHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674D21F99A991008CC196 /* MainPageHeaderTableViewCell.xib */; };
+		8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674D71F99D003008CC196 /* CorneredImageView.m */; };
+		8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674DE1F99E83F008CC196 /* MainPage.storyboard */; };
+		8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */; };
+		8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674E51F99EB35008CC196 /* MyPageHeaderTableViewCell.xib */; };
+		8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674E61F99EB35008CC196 /* MyPageHeaderTableViewCell.m */; };
+		8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */; };
+		8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */; };
+		8EB674F11F99F85D008CC196 /* MyPageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674F01F99F85D008CC196 /* MyPageCellModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,8 +102,8 @@
 		8E2E40A11F949C0C00B42477 /* ExhibitionLargeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionLargeTableViewCell.h; sourceTree = "<group>"; };
 		8E2E40A21F949C0C00B42477 /* ExhibitionLargeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionLargeTableViewCell.m; sourceTree = "<group>"; };
 		8E2E40A31F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExhibitionLargeTableViewCell.xib; sourceTree = "<group>"; };
-		8E2E40A61F94A46B00B42477 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
-		8E2E40A71F94A46B00B42477 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		8E2E40A61F94A46B00B42477 /* LinedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinedTableViewCell.h; sourceTree = "<group>"; };
+		8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinedTableViewCell.m; sourceTree = "<group>"; };
 		8E99A8CA1F90664D0078C452 /* zhanmao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhanmao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E99A8CE1F90664D0078C452 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E99A8D01F90664D0078C452 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -188,12 +198,28 @@
 		8EB674BF1F973818008CC196 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		8EB674C01F973818008CC196 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		8EB674C41F973CE8008CC196 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
-		8EB674C61F97416B008CC196 /* ProductSmallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSmallTableViewCell.h; sourceTree = "<group>"; };
-		8EB674C71F97416B008CC196 /* ProductSmallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSmallTableViewCell.m; sourceTree = "<group>"; };
-		8EB674C81F97416B008CC196 /* ProductSmallTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductSmallTableViewCell.xib; sourceTree = "<group>"; };
+		8EB674C61F97416B008CC196 /* MessageSmallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSmallTableViewCell.h; sourceTree = "<group>"; };
+		8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSmallTableViewCell.m; sourceTree = "<group>"; };
+		8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageSmallTableViewCell.xib; sourceTree = "<group>"; };
 		8EB674CB1F974214008CC196 /* SimpleHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleHeaderTableViewCell.h; sourceTree = "<group>"; };
 		8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleHeaderTableViewCell.m; sourceTree = "<group>"; };
 		8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		8EB674D01F99A991008CC196 /* MainPageHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageHeaderTableViewCell.h; sourceTree = "<group>"; };
+		8EB674D11F99A991008CC196 /* MainPageHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageHeaderTableViewCell.m; sourceTree = "<group>"; };
+		8EB674D21F99A991008CC196 /* MainPageHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPageHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		8EB674D61F99D003008CC196 /* CorneredImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorneredImageView.h; sourceTree = "<group>"; };
+		8EB674D71F99D003008CC196 /* CorneredImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorneredImageView.m; sourceTree = "<group>"; };
+		8EB674DE1F99E83F008CC196 /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
+		8EB674E11F99E9EA008CC196 /* MyPageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageTableViewController.h; sourceTree = "<group>"; };
+		8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageTableViewController.m; sourceTree = "<group>"; };
+		8EB674E41F99EB35008CC196 /* MyPageHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHeaderTableViewCell.h; sourceTree = "<group>"; };
+		8EB674E51F99EB35008CC196 /* MyPageHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		8EB674E61F99EB35008CC196 /* MyPageHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHeaderTableViewCell.m; sourceTree = "<group>"; };
+		8EB674EA1F99F523008CC196 /* MyPageSimpleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageSimpleTableViewCell.h; sourceTree = "<group>"; };
+		8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageSimpleTableViewCell.m; sourceTree = "<group>"; };
+		8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageSimpleTableViewCell.xib; sourceTree = "<group>"; };
+		8EB674EF1F99F85D008CC196 /* MyPageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageCellModel.h; sourceTree = "<group>"; };
+		8EB674F01F99F85D008CC196 /* MyPageCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageCellModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,20 +236,11 @@
 		8E2E40821F94597B00B42477 /* mainPage */ = {
 			isa = PBXGroup;
 			children = (
+				8EB674D51F99CB76008CC196 /* views */,
 				8EB674C41F973CE8008CC196 /* a.png */,
 				8E2E40991F945AB700B42477 /* MainPageTableViewController.h */,
 				8E2E409A1F945AB700B42477 /* MainPageTableViewController.m */,
-				8E2E409C1F9460B300B42477 /* SimpleButtonsTableViewCell.h */,
-				8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */,
-				8E2E40A11F949C0C00B42477 /* ExhibitionLargeTableViewCell.h */,
-				8E2E40A21F949C0C00B42477 /* ExhibitionLargeTableViewCell.m */,
-				8E2E40A31F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib */,
-				8EB674C61F97416B008CC196 /* ProductSmallTableViewCell.h */,
-				8EB674C71F97416B008CC196 /* ProductSmallTableViewCell.m */,
-				8EB674C81F97416B008CC196 /* ProductSmallTableViewCell.xib */,
-				8EB674CB1F974214008CC196 /* SimpleHeaderTableViewCell.h */,
-				8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */,
-				8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */,
+				8EB674DE1F99E83F008CC196 /* MainPage.storyboard */,
 			);
 			path = mainPage;
 			sourceTree = "<group>";
@@ -272,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2E40821F94597B00B42477 /* mainPage */,
+				8EB674E01F99E9C8008CC196 /* myPage */,
 				8E99A8E51F9068910078C452 /* base */,
 				8E99A9151F9068910078C452 /* custom */,
 				8E99A92E1F9068910078C452 /* ext */,
@@ -297,8 +315,8 @@
 				8E99AAC01F9069AC0078C452 /* NaviController.m */,
 				8E99AAC11F9069AC0078C452 /* TabbarController.h */,
 				8E99AAC21F9069AC0078C452 /* TabbarController.m */,
-				8E2E40A61F94A46B00B42477 /* BaseTableViewCell.h */,
-				8E2E40A71F94A46B00B42477 /* BaseTableViewCell.m */,
+				8E2E40A61F94A46B00B42477 /* LinedTableViewCell.h */,
+				8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -319,6 +337,8 @@
 				8E99A92B1F9068910078C452 /* ZZPagerController.m */,
 				8E99A92C1F9068910078C452 /* ZZSearchBar.h */,
 				8E99A92D1F9068910078C452 /* ZZSearchBar.m */,
+				8EB674D61F99D003008CC196 /* CorneredImageView.h */,
+				8EB674D71F99D003008CC196 /* CorneredImageView.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -428,6 +448,52 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		8EB674D51F99CB76008CC196 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				8EB674D01F99A991008CC196 /* MainPageHeaderTableViewCell.h */,
+				8EB674D11F99A991008CC196 /* MainPageHeaderTableViewCell.m */,
+				8EB674D21F99A991008CC196 /* MainPageHeaderTableViewCell.xib */,
+				8E2E409C1F9460B300B42477 /* SimpleButtonsTableViewCell.h */,
+				8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */,
+				8EB674CB1F974214008CC196 /* SimpleHeaderTableViewCell.h */,
+				8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */,
+				8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */,
+				8E2E40A11F949C0C00B42477 /* ExhibitionLargeTableViewCell.h */,
+				8E2E40A21F949C0C00B42477 /* ExhibitionLargeTableViewCell.m */,
+				8E2E40A31F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib */,
+				8EB674C61F97416B008CC196 /* MessageSmallTableViewCell.h */,
+				8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */,
+				8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		8EB674E01F99E9C8008CC196 /* myPage */ = {
+			isa = PBXGroup;
+			children = (
+				8EB674E91F99EB7B008CC196 /* views */,
+				8EB674E11F99E9EA008CC196 /* MyPageTableViewController.h */,
+				8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */,
+			);
+			path = myPage;
+			sourceTree = "<group>";
+		};
+		8EB674E91F99EB7B008CC196 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				8EB674E41F99EB35008CC196 /* MyPageHeaderTableViewCell.h */,
+				8EB674E61F99EB35008CC196 /* MyPageHeaderTableViewCell.m */,
+				8EB674E51F99EB35008CC196 /* MyPageHeaderTableViewCell.xib */,
+				8EB674EA1F99F523008CC196 /* MyPageSimpleTableViewCell.h */,
+				8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */,
+				8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */,
+				8EB674EF1F99F85D008CC196 /* MyPageCellModel.h */,
+				8EB674F01F99F85D008CC196 /* MyPageCellModel.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -494,12 +560,16 @@
 				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
 				8E99AA9F1F9068920078C452 /* Checkmark@2x.png in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
-				8EB674CA1F97416B008CC196 /* ProductSmallTableViewCell.xib in Resources */,
+				8EB674CA1F97416B008CC196 /* MessageSmallTableViewCell.xib in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
+				8EB674D41F99A991008CC196 /* MainPageHeaderTableViewCell.xib in Resources */,
 				8EB674C51F973CE8008CC196 /* a.png in Resources */,
+				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
+				8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */,
+				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +584,7 @@
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
 				8E99AAA11F9068920078C452 /* MBProgressHUD+ZZCustom.m in Sources */,
 				8E99AAB31F9068920078C452 /* UIImageView+HighlightedWebCache.m in Sources */,
+				8EB674F11F99F85D008CC196 /* MyPageCellModel.m in Sources */,
 				8EB674C31F973818008CC196 /* BaseTableViewController.m in Sources */,
 				8E99AAA61F9068920078C452 /* NSImage+WebCache.m in Sources */,
 				8E99AAA91F9068920078C452 /* SDWebImageCompat.m in Sources */,
@@ -526,14 +597,16 @@
 				8E99A8CF1F90664D0078C452 /* main.m in Sources */,
 				8E99AABD1F9068920078C452 /* ZZUrlTool.m in Sources */,
 				8E99AABA1F9068920078C452 /* ZZHttpTool.m in Sources */,
+				8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */,
 				8E2E408E1F9459F500B42477 /* BaseViewController.m in Sources */,
 				8E99AAB21F9068920078C452 /* UIImage+WebP.m in Sources */,
 				8E99AAB11F9068920078C452 /* UIImage+MultiFormat.m in Sources */,
-				8E2E40A91F94A46B00B42477 /* BaseTableViewCell.m in Sources */,
+				8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */,
 				8E2E40971F945A2E00B42477 /* NothingWarningView.m in Sources */,
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
 				8E99AAB01F9068920078C452 /* UIImage+GIF.m in Sources */,
 				8E99AAAD1F9068920078C452 /* SDWebImageManager.m in Sources */,
+				8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */,
 				8EB674CE1F974214008CC196 /* SimpleHeaderTableViewCell.m in Sources */,
 				8E99AA9D1F9068920078C452 /* JRSwizzle.m in Sources */,
 				8E99AA491F9068920078C452 /* UIImage+ext.m in Sources */,
@@ -543,8 +616,9 @@
 				8E99AAA41F9068920078C452 /* MKAnnotationView+WebCache.m in Sources */,
 				8E2E408B1F9459ED00B42477 /* BaseModel.m in Sources */,
 				8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */,
+				8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */,
 				8E99AAA51F9068920078C452 /* NSData+ImageContentType.m in Sources */,
-				8EB674C91F97416B008CC196 /* ProductSmallTableViewCell.m in Sources */,
+				8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */,
 				8EB674C11F973818008CC196 /* BaseCollectionViewController.m in Sources */,
 				8E99AAAE1F9068920078C452 /* SDWebImagePrefetcher.m in Sources */,
 				8E99AAC41F9069AC0078C452 /* TabbarController.m in Sources */,
@@ -553,10 +627,12 @@
 				8E99AAAB1F9068920078C452 /* SDWebImageDownloader.m in Sources */,
 				8E99AAB61F9068920078C452 /* UIView+WebCacheOperation.m in Sources */,
 				8E99AAB51F9068920078C452 /* UIView+WebCache.m in Sources */,
+				8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				8E99AAA31F9068920078C452 /* Reachability.m in Sources */,
 				8E99AA481F9068920078C452 /* NSString+ext.m in Sources */,
 				8E99AAAF1F9068920078C452 /* UIButton+WebCache.m in Sources */,
+				8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */,
 				8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */,
 				8E99AA451F9068920078C452 /* ZZSearchBar.m in Sources */,
 				8E99AA461F9068920078C452 /* NSDictionary+ext.m in Sources */,

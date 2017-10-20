@@ -162,6 +162,7 @@
 
 -(void)refresh
 {
+    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
 }
 
 -(void)stopRefreshAfterSeconds
@@ -171,7 +172,7 @@
 
 -(void)loadMore
 {
-    
+    [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"" afterDelay:1];
 }
 
 -(void)reloadWithDictionary:(NSDictionary*)dict
@@ -218,6 +219,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 8;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.0001;
 }
 
 #pragma mark - Advertiseview header

@@ -26,7 +26,8 @@
 
 #import "NaviController.h"
 
-#import "BaseTableViewCell.h"
+#import "LinedTableViewCell.h"
+#import "CorneredImageView.h"
 
 //UIcolors
 
@@ -38,7 +39,7 @@
 
 #define _pinkColor rgb(233,0,117)
 #define _redColor rgb(218,0,0)
-#define _blueColor rgb(50,170,230)
+#define _blueColor rgb(50,121,230)
 
 #define _mainColor _blueColor
 

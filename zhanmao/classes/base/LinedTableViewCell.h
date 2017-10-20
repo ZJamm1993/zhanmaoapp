@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseTableViewCell : UITableViewCell
+@interface LinedTableViewCell : UITableViewCell
 
 @property (nonatomic,strong) UIView* bottomSeperateLine;
 

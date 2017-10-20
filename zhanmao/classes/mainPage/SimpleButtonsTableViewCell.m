@@ -8,11 +8,23 @@
 
 #import "SimpleButtonsTableViewCell.h"
 
-const CGFloat simpleButtonMarginY=14;
-const CGFloat simpleButtonHeight=78;
+const CGFloat simpleButtonMarginY=20;
+const CGFloat simpleButtonHeight=64;
+const CGFloat simpleButtonWidth=74;
 const NSInteger simpleButtonRowCount=4;
 
+@interface SimpleButtonsTableViewCell()
+
+@property (nonatomic,weak) UIView* contentView;
+
+@end
+
 @implementation SimpleButtonsTableViewCell
+
+-(UIView*)contentView
+{
+    return self;
+}
 
 +(CGFloat)heightWithButtonsCount:(NSInteger)count
 {
@@ -28,10 +40,10 @@ const NSInteger simpleButtonRowCount=4;
 {
     _buttons=buttons;
     [self.contentView removeAllSubviews];
+    self.backgroundColor=[UIColor clearColor];
+    self.contentView.backgroundColor=[UIColor clearColor];
     
-    CGFloat totalWidth=[[UIScreen mainScreen]bounds].size.width;
-    CGFloat widthPerEach=totalWidth/simpleButtonRowCount;
-//    CGFloat widthPerEach_2=widthPerEach/2;
+    CGFloat widthPerEach=simpleButtonWidth;
     CGFloat heightPerEach=simpleButtonHeight;
 //    CGFloat height_2=heightPerEach/2;
     
@@ -40,11 +52,11 @@ const NSInteger simpleButtonRowCount=4;
     
     NSInteger counts=buttons.count;
     for (NSInteger i=0; i<counts; i++) {
-        NSInteger col=i%simpleButtonRowCount;
         NSInteger row=i/simpleButtonRowCount;
         SimpleButtonModel* mo=[buttons objectAtIndex:i];
 //        NSLog(@"%d,%d",col,row);
-        UIView* bbg=[[UIView alloc]initWithFrame:CGRectMake(col*widthPerEach, row*(heightPerEach+simpleButtonMarginY)+simpleButtonMarginY, widthPerEach, heightPerEach)];
+        
+        UIView* bbg=[[UIView alloc]initWithFrame:CGRectMake(0, row*(heightPerEach+simpleButtonMarginY)+simpleButtonMarginY, widthPerEach, heightPerEach)];
 //        bbg.backgroundColor=_randomColor;
         [self.contentView addSubview:bbg];
         
@@ -56,7 +68,7 @@ const NSInteger simpleButtonRowCount=4;
         [bbg addSubview:titleLabel];
         
         UIImageView* imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, widthPerEach, imageHeight)];
-        imageView.backgroundColor=_randomColor;
+//        imageView.backgroundColor=_randomColor;
         imageView.contentMode=UIViewContentModeScaleAspectFit;
         imageView.image=[UIImage imageNamed:mo.imageName];
         [bbg addSubview:imageView];
@@ -76,6 +88,22 @@ const NSInteger simpleButtonRowCount=4;
     if([self.delegate respondsToSelector:@selector(simpleButtonsTableViewCell:didSelectedModel:)])
     {
         [self.delegate simpleButtonsTableViewCell:self didSelectedModel:mo];
+    }
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGFloat totalWidth=self.contentView.frame.size.width;
+    CGFloat wid=totalWidth/simpleButtonRowCount;
+    CGFloat wid2=wid/2;
+    NSInteger counts=[self.contentView subviews].count;
+    for (NSInteger i=0; i<counts; i++) {
+        NSInteger col=i%simpleButtonRowCount;
+        
+        UIView* vi=[[self.contentView subviews]objectAtIndex:i];
+        vi.center=CGPointMake(wid2+wid*col, vi.center.y);
     }
 }
 
