@@ -7,11 +7,14 @@
 //
 
 #import "MainPageTableViewController.h"
+
 #import "SimpleButtonsTableViewCell.h"
 #import "ExhibitionLargeTableViewCell.h"
 #import "SimpleHeaderTableViewCell.h"
 #import "MainPageHeaderTableViewCell.h"
 #import "MessageSmallTableViewCell.h"
+
+#import "ImageTitleBarButtonItem.h"
 
 typedef NS_ENUM(NSInteger,MainPageSection)
 {
@@ -23,7 +26,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 @interface MainPageTableViewController ()<SimpleButtonsTableViewCellDelegate>
 {
-    UIBarButtonItem* locationItem;
+//    UIBarButtonItem* locationItem;
     NSArray* arrayWithSimpleButtons;
     NSMutableArray* messagesArray;
 }
@@ -36,11 +39,12 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     self.navigationItem.title=@"展贸在线";
     self.tabBarItem.title=@"主页";
     
-    locationItem=[[UIBarButtonItem alloc]initWithTitle:@"广州" style:UIBarButtonItemStylePlain target:self action:@selector(selectLocation)];
+    [self setLocation:@"guangz"];
+    
 //    locationItem.image=[UIImage imageNamed:@"a.png"];
 //    UIBarButtonItem* downInd=[[UIBarButtonItem alloc]initWithTitle:@"V" style:UIBarButtonItemStylePlain target:nil action:nil];
     
-    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:locationItem, nil];
+//    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:locationItem, nil];
     
 //    [self setAdvertiseHeaderViewWithPicturesUrls:[NSArray arrayWithObjects:@"https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1508124415&di=5db22a966bc422bbb5ff5d141c72a784&src=http://img0.pconline.com.cn/pconline/1612/22/8693800_tupian9_fuben_thumb.png", @"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2458910651,1579540110&fm=27&gp=0.jpg", nil]];
     
@@ -59,15 +63,21 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 //    self.tableView.sectionHeaderHeight=44;
 }
 
+-(void)setLocation:(NSString*)location
+{
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"a.png" title:location target:self selector:@selector(selectLocation)];
+    self.navigationItem.leftBarButtonItem=it;
+}
+
 -(NSArray*)arrayWithSimpleButtons
 {
     if (arrayWithSimpleButtons.count==0) {
         
         NSMutableArray* array=[NSMutableArray array];
         NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"演艺",@"舞台",@"会议",@"保洁",@"物流",@"",@"", nil];
-        
+        NSArray* identis=[NSArray arrayWithObjects:@"ExhibitionListViewController", nil];
         for (NSInteger i=0; i<8; i++) {
-            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:@"a" identifier:[NSString stringWithFormat:@"%ld",(long)i]];
+            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:@"a" identifier:i<identis.count?[identis objectAtIndex:i]:@""];
             [array addObject:mo];
         }
         arrayWithSimpleButtons=array;
@@ -83,6 +93,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(void)selectLocation
 {
     NSLog(@"select location");
+    [self setLocation:[NSString stringWithFormat:@"%ld",(long)arc4random()%1000000000000000]];
 }
 
 #pragma mark UITableViewDelegate&Datasource
@@ -182,7 +193,12 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
     NSLog(@"%@",model.title);
-    [self.navigationController pushViewController:[[UIViewController alloc]init] animated:YES];
+    if (model.identifier.length>0) {
+        UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MainPage" bundle:nil];
+        
+        UIViewController* viewController=[sb instantiateViewControllerWithIdentifier:model.identifier];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 @end

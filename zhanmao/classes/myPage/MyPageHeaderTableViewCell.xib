@@ -60,7 +60,7 @@
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.066989166500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.38778144120000002" green="0.5786264539" blue="0.95286971330000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="p9K-ii-vnl" secondAttribute="height" multiplier="1:1" id="5rI-Rt-yxk"/>
                                     <constraint firstAttribute="height" constant="86" id="7gr-fF-vlh"/>

@@ -27,6 +27,7 @@
 #import "NaviController.h"
 
 #import "LinedTableViewCell.h"
+#import "FormBaseTableViewCell.h"
 #import "CorneredImageView.h"
 
 //UIcolors
