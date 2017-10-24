@@ -15,8 +15,8 @@
 		8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2E40941F945A2E00B42477 /* NothingWarningView.xib */; };
 		8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E409A1F945AB700B42477 /* MainPageTableViewController.m */; };
 		8E2E409F1F9460B300B42477 /* SimpleButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */; };
-		8E2E40A41F949C0C00B42477 /* ExhibitionLargeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A21F949C0C00B42477 /* ExhibitionLargeTableViewCell.m */; };
-		8E2E40A51F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2E40A31F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib */; };
+		8E2E40A41F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A21F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m */; };
+		8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */; };
 		8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */; };
 		8E6C73F51F9D9280004B33D1 /* ImageTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */; };
 		8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F81F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m */; };
@@ -31,6 +31,23 @@
 		8E6C74101F9DBD9E004B33D1 /* BaseFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C740F1F9DBD9E004B33D1 /* BaseFormTableViewController.m */; };
 		8E6C74131F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74121F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m */; };
 		8E6C74181F9DD785004B33D1 /* ExhibitionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74171F9DD785004B33D1 /* ExhibitionListViewController.m */; };
+		8E6C741D1F9DF0E2004B33D1 /* OnlineRentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C741C1F9DF0E2004B33D1 /* OnlineRentTableViewController.m */; };
+		8E6C74251F9DF537004B33D1 /* MenuHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74241F9DF537004B33D1 /* MenuHeaderTableViewCell.m */; };
+		8E6C74291F9ED49D004B33D1 /* SimpleTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */; };
+		8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C74281F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib */; };
+		8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */; };
+		8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C742D1F9EDB68004B33D1 /* GoodsTableViewCell.xib */; };
+		8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */; };
+		8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */; };
+		8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */; };
+		8E6C74751F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C74731F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib */; };
+		8E6C74781F9F3B77004B33D1 /* BaseToolBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74771F9F3B77004B33D1 /* BaseToolBarTableViewController.m */; };
+		8E6C747B1F9F40CD004B33D1 /* ExhibitionPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */; };
+		8E6C74811F9F42E8004B33D1 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747C1F9F42E8004B33D1 /* 0.jpg */; };
+		8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747D1F9F42E8004B33D1 /* 1.jpg */; };
+		8E6C74831F9F42E8004B33D1 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747E1F9F42E8004B33D1 /* 2.jpg */; };
+		8E6C74841F9F42E8004B33D1 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747F1F9F42E8004B33D1 /* 3.jpg */; };
+		8E6C74851F9F42E8004B33D1 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C74801F9F42E8004B33D1 /* 4.jpg */; };
 		8E99A8CF1F90664D0078C452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A8CE1F90664D0078C452 /* main.m */; };
 		8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A8D11F90664D0078C452 /* AppDelegate.m */; };
 		8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E99A8D61F90664D0078C452 /* Main.storyboard */; };
@@ -112,9 +129,9 @@
 		8E2E409A1F945AB700B42477 /* MainPageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageTableViewController.m; sourceTree = "<group>"; };
 		8E2E409C1F9460B300B42477 /* SimpleButtonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleButtonsTableViewCell.h; sourceTree = "<group>"; };
 		8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleButtonsTableViewCell.m; sourceTree = "<group>"; };
-		8E2E40A11F949C0C00B42477 /* ExhibitionLargeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionLargeTableViewCell.h; sourceTree = "<group>"; };
-		8E2E40A21F949C0C00B42477 /* ExhibitionLargeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionLargeTableViewCell.m; sourceTree = "<group>"; };
-		8E2E40A31F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExhibitionLargeTableViewCell.xib; sourceTree = "<group>"; };
+		8E2E40A11F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionLargeCardTableViewCell.h; sourceTree = "<group>"; };
+		8E2E40A21F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionLargeCardTableViewCell.m; sourceTree = "<group>"; };
+		8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExhibitionLargeCardTableViewCell.xib; sourceTree = "<group>"; };
 		8E2E40A61F94A46B00B42477 /* LinedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinedTableViewCell.h; sourceTree = "<group>"; };
 		8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinedTableViewCell.m; sourceTree = "<group>"; };
 		8E6C73F31F9D9280004B33D1 /* ImageTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTitleBarButtonItem.h; sourceTree = "<group>"; };
@@ -139,6 +156,32 @@
 		8E6C74121F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuchangFormTableViewController.m; sourceTree = "<group>"; };
 		8E6C74161F9DD785004B33D1 /* ExhibitionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionListViewController.h; sourceTree = "<group>"; };
 		8E6C74171F9DD785004B33D1 /* ExhibitionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionListViewController.m; sourceTree = "<group>"; };
+		8E6C741B1F9DF0E2004B33D1 /* OnlineRentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnlineRentTableViewController.h; sourceTree = "<group>"; };
+		8E6C741C1F9DF0E2004B33D1 /* OnlineRentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnlineRentTableViewController.m; sourceTree = "<group>"; };
+		8E6C74231F9DF537004B33D1 /* MenuHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuHeaderTableViewCell.h; sourceTree = "<group>"; };
+		8E6C74241F9DF537004B33D1 /* MenuHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeaderTableViewCell.m; sourceTree = "<group>"; };
+		8E6C74261F9ED49D004B33D1 /* SimpleTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTitleTableViewCell.h; sourceTree = "<group>"; };
+		8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTitleTableViewCell.m; sourceTree = "<group>"; };
+		8E6C74281F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTitleTableViewCell.xib; sourceTree = "<group>"; };
+		8E6C742B1F9EDB68004B33D1 /* GoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsTableViewCell.h; sourceTree = "<group>"; };
+		8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsTableViewCell.m; sourceTree = "<group>"; };
+		8E6C742D1F9EDB68004B33D1 /* GoodsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsTableViewCell.xib; sourceTree = "<group>"; };
+		8E6C746B1F9F2B23004B33D1 /* PhotoSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSliderView.h; sourceTree = "<group>"; };
+		8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSliderView.m; sourceTree = "<group>"; };
+		8E6C746E1F9F3020004B33D1 /* ExhibitionExamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionExamplesViewController.h; sourceTree = "<group>"; };
+		8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionExamplesViewController.m; sourceTree = "<group>"; };
+		8E6C74711F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionLargeRectTableViewCell.h; sourceTree = "<group>"; };
+		8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionLargeRectTableViewCell.m; sourceTree = "<group>"; };
+		8E6C74731F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExhibitionLargeRectTableViewCell.xib; sourceTree = "<group>"; };
+		8E6C74761F9F3B77004B33D1 /* BaseToolBarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseToolBarTableViewController.h; sourceTree = "<group>"; };
+		8E6C74771F9F3B77004B33D1 /* BaseToolBarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseToolBarTableViewController.m; sourceTree = "<group>"; };
+		8E6C74791F9F40CD004B33D1 /* ExhibitionPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionPictureViewController.h; sourceTree = "<group>"; };
+		8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionPictureViewController.m; sourceTree = "<group>"; };
+		8E6C747C1F9F42E8004B33D1 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
+		8E6C747D1F9F42E8004B33D1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		8E6C747E1F9F42E8004B33D1 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		8E6C747F1F9F42E8004B33D1 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		8E6C74801F9F42E8004B33D1 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		8E99A8CA1F90664D0078C452 /* zhanmao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = zhanmao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E99A8CE1F90664D0078C452 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E99A8D01F90664D0078C452 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -315,12 +358,48 @@
 		8E6C74151F9DD6FF004B33D1 /* zhuchang */ = {
 			isa = PBXGroup;
 			children = (
+				8E6C747C1F9F42E8004B33D1 /* 0.jpg */,
+				8E6C747D1F9F42E8004B33D1 /* 1.jpg */,
+				8E6C747E1F9F42E8004B33D1 /* 2.jpg */,
+				8E6C747F1F9F42E8004B33D1 /* 3.jpg */,
+				8E6C74801F9F42E8004B33D1 /* 4.jpg */,
 				8E6C74111F9DC0C4004B33D1 /* ZhuchangFormTableViewController.h */,
 				8E6C74121F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m */,
 				8E6C74161F9DD785004B33D1 /* ExhibitionListViewController.h */,
 				8E6C74171F9DD785004B33D1 /* ExhibitionListViewController.m */,
+				8E6C746E1F9F3020004B33D1 /* ExhibitionExamplesViewController.h */,
+				8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */,
+				8E6C74761F9F3B77004B33D1 /* BaseToolBarTableViewController.h */,
+				8E6C74771F9F3B77004B33D1 /* BaseToolBarTableViewController.m */,
+				8E6C74791F9F40CD004B33D1 /* ExhibitionPictureViewController.h */,
+				8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */,
 			);
 			name = zhuchang;
+			sourceTree = "<group>";
+		};
+		8E6C74191F9DEFE8004B33D1 /* onlineRent */ = {
+			isa = PBXGroup;
+			children = (
+				8E6C741A1F9DF025004B33D1 /* view */,
+				8E6C741B1F9DF0E2004B33D1 /* OnlineRentTableViewController.h */,
+				8E6C741C1F9DF0E2004B33D1 /* OnlineRentTableViewController.m */,
+			);
+			path = onlineRent;
+			sourceTree = "<group>";
+		};
+		8E6C741A1F9DF025004B33D1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				8E6C74231F9DF537004B33D1 /* MenuHeaderTableViewCell.h */,
+				8E6C74241F9DF537004B33D1 /* MenuHeaderTableViewCell.m */,
+				8E6C74261F9ED49D004B33D1 /* SimpleTitleTableViewCell.h */,
+				8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */,
+				8E6C74281F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib */,
+				8E6C742B1F9EDB68004B33D1 /* GoodsTableViewCell.h */,
+				8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */,
+				8E6C742D1F9EDB68004B33D1 /* GoodsTableViewCell.xib */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		8E99A8C11F90664D0078C452 = {
@@ -368,6 +447,7 @@
 			children = (
 				8E6C73F61F9D9983004B33D1 /* formsTableViewCells */,
 				8E2E40821F94597B00B42477 /* mainPage */,
+				8E6C74191F9DEFE8004B33D1 /* onlineRent */,
 				8EB674E01F99E9C8008CC196 /* myPage */,
 				8E99A8E51F9068910078C452 /* base */,
 				8E99A9151F9068910078C452 /* custom */,
@@ -418,6 +498,8 @@
 				8E99A92D1F9068910078C452 /* ZZSearchBar.m */,
 				8EB674D61F99D003008CC196 /* CorneredImageView.h */,
 				8EB674D71F99D003008CC196 /* CorneredImageView.m */,
+				8E6C746B1F9F2B23004B33D1 /* PhotoSliderView.h */,
+				8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */,
 				8E6C73F31F9D9280004B33D1 /* ImageTitleBarButtonItem.h */,
 				8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */,
 			);
@@ -540,9 +622,12 @@
 				8EB674CB1F974214008CC196 /* SimpleHeaderTableViewCell.h */,
 				8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */,
 				8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */,
-				8E2E40A11F949C0C00B42477 /* ExhibitionLargeTableViewCell.h */,
-				8E2E40A21F949C0C00B42477 /* ExhibitionLargeTableViewCell.m */,
-				8E2E40A31F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib */,
+				8E2E40A11F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.h */,
+				8E2E40A21F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m */,
+				8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */,
+				8E6C74711F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.h */,
+				8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */,
+				8E6C74731F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib */,
 				8EB674C61F97416B008CC196 /* MessageSmallTableViewCell.h */,
 				8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */,
 				8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */,
@@ -634,24 +719,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E2E40A51F949C0C00B42477 /* ExhibitionLargeTableViewCell.xib in Resources */,
+				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
+				8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
+				8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
 				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
+				8E6C74811F9F42E8004B33D1 /* 0.jpg in Resources */,
 				8E99AA9F1F9068920078C452 /* Checkmark@2x.png in Resources */,
+				8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */,
+				8E6C74851F9F42E8004B33D1 /* 4.jpg in Resources */,
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
+				8E6C74831F9F42E8004B33D1 /* 2.jpg in Resources */,
 				8EB674CA1F97416B008CC196 /* MessageSmallTableViewCell.xib in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
 				8EB674D41F99A991008CC196 /* MainPageHeaderTableViewCell.xib in Resources */,
 				8EB674C51F973CE8008CC196 /* a.png in Resources */,
 				8E6C74031F9D9CA0004B33D1 /* TitleSelectionHeaderTableViewCell.xib in Resources */,
+				8E6C74841F9F42E8004B33D1 /* 3.jpg in Resources */,
 				8E6C74081F9D9E4D004B33D1 /* TitleSelectionItemTableViewCell.xib in Resources */,
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
 				8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */,
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
+				8E6C74751F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
@@ -687,20 +780,27 @@
 				8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */,
 				8E2E408E1F9459F500B42477 /* BaseViewController.m in Sources */,
 				8E99AAB21F9068920078C452 /* UIImage+WebP.m in Sources */,
+				8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */,
 				8E99AAB11F9068920078C452 /* UIImage+MultiFormat.m in Sources */,
+				8E6C741D1F9DF0E2004B33D1 /* OnlineRentTableViewController.m in Sources */,
+				8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */,
 				8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */,
 				8E2E40971F945A2E00B42477 /* NothingWarningView.m in Sources */,
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
+				8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */,
 				8E99AAB01F9068920078C452 /* UIImage+GIF.m in Sources */,
 				8E99AAAD1F9068920078C452 /* SDWebImageManager.m in Sources */,
 				8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */,
 				8EB674CE1F974214008CC196 /* SimpleHeaderTableViewCell.m in Sources */,
+				8E6C747B1F9F40CD004B33D1 /* ExhibitionPictureViewController.m in Sources */,
 				8E6C74071F9D9E4D004B33D1 /* TitleSelectionItemTableViewCell.m in Sources */,
+				8E6C74251F9DF537004B33D1 /* MenuHeaderTableViewCell.m in Sources */,
 				8E99AA9D1F9068920078C452 /* JRSwizzle.m in Sources */,
 				8E99AA491F9068920078C452 /* UIImage+ext.m in Sources */,
 				8E2E409F1F9460B300B42477 /* SimpleButtonsTableViewCell.m in Sources */,
-				8E2E40A41F949C0C00B42477 /* ExhibitionLargeTableViewCell.m in Sources */,
+				8E2E40A41F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m in Sources */,
 				8E99AAB41F9068920078C452 /* UIImageView+WebCache.m in Sources */,
+				8E6C74781F9F3B77004B33D1 /* BaseToolBarTableViewController.m in Sources */,
 				8E99AAA41F9068920078C452 /* MKAnnotationView+WebCache.m in Sources */,
 				8E2E408B1F9459ED00B42477 /* BaseModel.m in Sources */,
 				8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */,
@@ -709,6 +809,7 @@
 				8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */,
 				8EB674C11F973818008CC196 /* BaseCollectionViewController.m in Sources */,
 				8E99AAAE1F9068920078C452 /* SDWebImagePrefetcher.m in Sources */,
+				8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */,
 				8E99AAC41F9069AC0078C452 /* TabbarController.m in Sources */,
 				8E6C74131F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m in Sources */,
 				8E99AAA71F9068920078C452 /* SDImageCache.m in Sources */,
@@ -717,6 +818,7 @@
 				8E99AAB61F9068920078C452 /* UIView+WebCacheOperation.m in Sources */,
 				8E6C74181F9DD785004B33D1 /* ExhibitionListViewController.m in Sources */,
 				8E99AAB51F9068920078C452 /* UIView+WebCache.m in Sources */,
+				8E6C74291F9ED49D004B33D1 /* SimpleTitleTableViewCell.m in Sources */,
 				8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				8E6C74021F9D9CA0004B33D1 /* TitleSelectionHeaderTableViewCell.m in Sources */,

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Online Rent Table View Controller-->
         <scene sceneID="HQg-mC-sSB">
             <objects>
-                <viewController id="IdE-S0-Nw9" sceneMemberID="viewController">
+                <viewController id="IdE-S0-Nw9" customClass="OnlineRentTableViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1R2-Vm-OF1"/>
                         <viewControllerLayoutGuide type="bottom" id="AUs-41-wgF"/>
@@ -20,13 +20,47 @@
                     <view key="view" contentMode="scaleToFill" id="NKT-2A-UXy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9nx-m6-UNI">
+                                <rect key="frame" x="0.0" y="64" width="100" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ZrA-6M-2oc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="IdE-S0-Nw9" id="MvH-jJ-jz0"/>
+                                    <outlet property="delegate" destination="IdE-S0-Nw9" id="GLm-YZ-0R1"/>
+                                </connections>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-y7-EFf">
+                                <rect key="frame" x="100" y="64" width="220" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IdE-S0-Nw9" id="amm-8e-EIn"/>
+                                    <outlet property="delegate" destination="IdE-S0-Nw9" id="IuK-aX-LPb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YEq-y7-EFf" secondAttribute="trailing" id="9ok-8s-Vse"/>
+                            <constraint firstItem="AUs-41-wgF" firstAttribute="top" secondItem="YEq-y7-EFf" secondAttribute="bottom" id="NCb-I8-2P9"/>
+                            <constraint firstItem="YEq-y7-EFf" firstAttribute="top" secondItem="1R2-Vm-OF1" secondAttribute="bottom" id="Rz7-Pp-jcF"/>
+                            <constraint firstItem="YEq-y7-EFf" firstAttribute="leading" secondItem="9nx-m6-UNI" secondAttribute="trailing" constant="0.5" id="Ujg-ny-YHH"/>
+                            <constraint firstItem="9nx-m6-UNI" firstAttribute="leading" secondItem="NKT-2A-UXy" secondAttribute="leading" id="c2Q-W7-xrJ"/>
+                            <constraint firstItem="9nx-m6-UNI" firstAttribute="top" secondItem="1R2-Vm-OF1" secondAttribute="bottom" id="pRP-PM-3yQ"/>
+                            <constraint firstItem="AUs-41-wgF" firstAttribute="top" secondItem="9nx-m6-UNI" secondAttribute="bottom" id="zG1-PO-JI7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2RJ-2L-7AI"/>
+                    <connections>
+                        <outlet property="catesTableView" destination="9nx-m6-UNI" id="Sne-sR-7ov"/>
+                        <outlet property="goodsTableView" destination="YEq-y7-EFf" id="gne-mF-dQp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3G-GH-4nN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="372"/>
+            <point key="canvasLocation" x="1021.875" y="371.83098591549299"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="brg-3t-afn">

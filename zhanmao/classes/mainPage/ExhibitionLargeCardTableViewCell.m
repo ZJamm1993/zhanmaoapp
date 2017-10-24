@@ -1,14 +1,14 @@
 //
-//  ExhibitionLargeTableViewCell.m
+//  ExhibitionLargeCardTableViewCell.m
 //  zhanmao
 //
 //  Created by bangju on 2017/10/16.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "ExhibitionLargeTableViewCell.h"
+#import "ExhibitionLargeCardTableViewCell.h"
 
-@implementation ExhibitionLargeTableViewCell
+@implementation ExhibitionLargeCardTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

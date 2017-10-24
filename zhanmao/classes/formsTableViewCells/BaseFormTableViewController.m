@@ -43,6 +43,10 @@
     bottomView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:bottomView];
     
+    UIView* line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bottomView.frame.size.width, 1/[[UIScreen mainScreen]scale])];
+    line.backgroundColor=[UIColor lightGrayColor];
+    [bottomView addSubview:line];
+    
     UIButton* submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, bottomView.frame.size.width-20, bottomView.frame.size.height-20)];
     submitButton.backgroundColor=_mainColor;
     [submitButton setTitle:@"提交" forState:UIControlStateNormal];

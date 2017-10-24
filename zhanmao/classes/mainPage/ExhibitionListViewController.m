@@ -7,7 +7,9 @@
 //
 
 #import "ExhibitionListViewController.h"
-#import "ExhibitionLargeTableViewCell.h"
+#import "ExhibitionLargeCardTableViewCell.h"
+
+#import "ZhuchangFormTableViewController.h"
 
 @interface ExhibitionListViewController ()
 
@@ -18,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeCardTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeCardTableViewCell"];
     // Do any additional setup after loading the view.
 }
 
@@ -39,13 +41,14 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ExhibitionLargeTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeTableViewCell" forIndexPath:indexPath];
+    ExhibitionLargeCardTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeCardTableViewCell" forIndexPath:indexPath];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"ExhibitionExamplesViewController"] animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -56,6 +59,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 1;
+}
+
+-(void)bottomToolBarButtonClicked
+{
+    [self.navigationController pushViewController:[[ZhuchangFormTableViewController alloc]init] animated:YES];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ExhibitionLargeTableViewCell.h
+//  ExhibitionLargeCardTableViewCell.h
 //  zhanmao
 //
 //  Created by bangju on 2017/10/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExhibitionLargeTableViewCell : UITableViewCell
+@interface ExhibitionLargeCardTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 
 -(void)setCornerRadius;

@@ -9,7 +9,7 @@
 #import "MainPageTableViewController.h"
 
 #import "SimpleButtonsTableViewCell.h"
-#import "ExhibitionLargeTableViewCell.h"
+#import "ExhibitionLargeCardTableViewCell.h"
 #import "SimpleHeaderTableViewCell.h"
 #import "MainPageHeaderTableViewCell.h"
 #import "MessageSmallTableViewCell.h"
@@ -52,7 +52,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SimpleHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"SimpleHeaderTableViewCell"];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeCardTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeCardTableViewCell"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MessageSmallTableViewCell" bundle:nil] forCellReuseIdentifier:@"MessageSmallTableViewCell"];
     
@@ -157,7 +157,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         else if(sec==MainPageSectionExhibitions)
         {
             
-            ExhibitionLargeTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeTableViewCell" forIndexPath:indexPath];
+            ExhibitionLargeCardTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeCardTableViewCell" forIndexPath:indexPath];
             return cell;
         }
         else
@@ -183,8 +183,8 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([cell isKindOfClass:[ExhibitionLargeTableViewCell class]]) {
-        [((ExhibitionLargeTableViewCell*)cell) setCornerRadius];
+    if ([cell isKindOfClass:[ExhibitionLargeCardTableViewCell class]]) {
+        [((ExhibitionLargeCardTableViewCell*)cell) setCornerRadius];
     }
 }
 
