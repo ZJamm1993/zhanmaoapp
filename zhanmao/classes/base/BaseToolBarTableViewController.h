@@ -11,6 +11,7 @@
 @interface BaseToolBarTableViewController : BaseTableViewController
 
 @property (nonatomic,strong) UIView* bottomToolBar;
+@property (nonatomic,strong) UIButton* bottomButton;
 
 -(void)bottomToolBarButtonClicked;
 

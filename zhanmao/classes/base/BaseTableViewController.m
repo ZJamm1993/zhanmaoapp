@@ -65,7 +65,7 @@
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.tableFooterView=[[UIView alloc]init];
-    [self showLoadMoreView];
+//    [self showLoadMoreView];
     
     self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
     

@@ -16,10 +16,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="204"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="204"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="203.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-GH-avV">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="y8B-GH-avV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -37,10 +37,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFQ-O0-Oip">
-                                <rect key="frame" x="252" y="12.5" width="58" height="20"/>
+                                <rect key="frame" x="248" y="12.5" width="62" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图(10张)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-1G-M79">
-                                        <rect key="frame" x="4" y="2" width="50" height="16"/>
+                                        <rect key="frame" x="6" y="2" width="50" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="8ZZ-lB-ktb"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -48,9 +51,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="fcm-1G-M79" secondAttribute="trailing" constant="4" id="WVc-rs-iyS"/>
+                                    <constraint firstAttribute="trailing" secondItem="fcm-1G-M79" secondAttribute="trailing" constant="6" id="WVc-rs-iyS"/>
                                     <constraint firstAttribute="bottom" secondItem="fcm-1G-M79" secondAttribute="bottom" constant="2" id="afD-kY-q11"/>
-                                    <constraint firstItem="fcm-1G-M79" firstAttribute="leading" secondItem="KFQ-O0-Oip" secondAttribute="leading" constant="4" id="gdM-1t-OPB"/>
+                                    <constraint firstItem="fcm-1G-M79" firstAttribute="leading" secondItem="KFQ-O0-Oip" secondAttribute="leading" constant="6" id="gdM-1t-OPB"/>
                                     <constraint firstItem="fcm-1G-M79" firstAttribute="top" secondItem="KFQ-O0-Oip" secondAttribute="top" constant="2" id="qnF-o4-W0g"/>
                                 </constraints>
                             </view>
@@ -75,7 +78,16 @@
                     <constraint firstItem="1SB-im-OmY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nmY-PO-Eob"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="detailTitle" destination="fcm-1G-M79" id="d9X-3T-UzI"/>
+                <outlet property="detailTitleBg" destination="KFQ-O0-Oip" id="PgG-ua-OR2"/>
+                <outlet property="image" destination="y8B-GH-avV" id="QLc-nU-lM5"/>
+                <outlet property="title" destination="9He-jQ-dBk" id="mf9-Yi-wIm"/>
+            </connections>
             <point key="canvasLocation" x="63" y="140"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="1.jpg" width="640" height="480"/>
+    </resources>
 </document>

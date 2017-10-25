@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-I0-Xuh" customClass="CorneredImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-I0-Xuh" customClass="CorneredImageView">
                         <rect key="frame" x="10" y="2" width="82" height="82"/>
                         <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
                         <constraints>
@@ -103,4 +103,7 @@
             <point key="canvasLocation" x="93" y="61"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="1.jpg" width="640" height="480"/>
+    </resources>
 </document>

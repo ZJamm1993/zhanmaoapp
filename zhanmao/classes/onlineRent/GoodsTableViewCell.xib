@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="unO-Zd-kuf" customClass="CorneredImageView">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="unO-Zd-kuf" customClass="CorneredImageView">
                         <rect key="frame" x="8" y="12" width="116" height="81.5"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -34,14 +34,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.0亿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI4-Ja-hTY">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="13.0亿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI4-Ja-hTY">
                         <rect key="frame" x="132" y="66.5" width="36" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.96731191873550415" green="0.36028417944908142" blue="0.16180282831192017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="人租用过" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpl-z9-nbN">
-                        <rect key="frame" x="168" y="66.5" width="144" height="27"/>
+                        <rect key="frame" x="168" y="66.5" width="49.5" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -50,13 +50,12 @@
                 <constraints>
                     <constraint firstItem="Fpl-z9-nbN" firstAttribute="bottom" secondItem="eI4-Ja-hTY" secondAttribute="bottom" id="07M-WX-V6D"/>
                     <constraint firstItem="unO-Zd-kuf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1EJ-Iq-V5P"/>
+                    <constraint firstItem="Fpl-z9-nbN" firstAttribute="leading" secondItem="eI4-Ja-hTY" secondAttribute="trailing" id="2k9-TW-sq6"/>
                     <constraint firstItem="eI4-Ja-hTY" firstAttribute="top" secondItem="G6V-uY-b1Y" secondAttribute="bottom" id="He2-Fk-rd7"/>
                     <constraint firstItem="G6V-uY-b1Y" firstAttribute="top" secondItem="unO-Zd-kuf" secondAttribute="top" id="Md7-uD-JEj"/>
                     <constraint firstItem="G6V-uY-b1Y" firstAttribute="height" secondItem="unO-Zd-kuf" secondAttribute="height" multiplier="2:3" id="Rbf-wb-hpp"/>
                     <constraint firstItem="unO-Zd-kuf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="TcS-Nb-rnC"/>
-                    <constraint firstAttribute="trailing" secondItem="Fpl-z9-nbN" secondAttribute="trailing" constant="8" id="UmG-nG-rzn"/>
                     <constraint firstItem="eI4-Ja-hTY" firstAttribute="bottom" secondItem="unO-Zd-kuf" secondAttribute="bottom" id="akj-uu-oGd"/>
-                    <constraint firstItem="Fpl-z9-nbN" firstAttribute="leading" secondItem="eI4-Ja-hTY" secondAttribute="trailing" id="cDA-vw-0SY"/>
                     <constraint firstItem="Fpl-z9-nbN" firstAttribute="top" secondItem="eI4-Ja-hTY" secondAttribute="top" id="jjV-lk-TG2"/>
                     <constraint firstAttribute="bottom" secondItem="unO-Zd-kuf" secondAttribute="bottom" constant="12" id="lGb-5m-woj"/>
                     <constraint firstItem="eI4-Ja-hTY" firstAttribute="leading" secondItem="G6V-uY-b1Y" secondAttribute="leading" id="tG1-OP-VUe"/>
@@ -72,4 +71,7 @@
             <point key="canvasLocation" x="25" y="83"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="1.jpg" width="640" height="480"/>
+    </resources>
 </document>

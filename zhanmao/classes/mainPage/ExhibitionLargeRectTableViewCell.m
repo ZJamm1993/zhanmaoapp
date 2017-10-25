@@ -12,6 +12,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.detailTitle.textColor=_mainColor;
+    
+    self.detailTitleBg.layer.borderColor=_mainColor.CGColor;
+    self.detailTitleBg.layer.borderWidth=1/[[UIScreen mainScreen]scale];
+    self.detailTitleBg.layer.cornerRadius=self.detailTitleBg.frame.size.height/2;
     // Initialization code
 }
 

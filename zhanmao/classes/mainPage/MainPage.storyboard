@@ -10,22 +10,22 @@
     </dependencies>
     <scenes>
         <!--Exhibition List View Controller-->
-        <scene sceneID="4I3-ka-xYG">
+        <scene sceneID="P7l-VF-TTa">
             <objects>
-                <tableViewController storyboardIdentifier="ExhibitionListViewController" id="tCi-kb-Eba" customClass="ExhibitionListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xm0-5c-amm">
+                <tableViewController storyboardIdentifier="ExhibitionListViewController" id="jYG-ha-qsK" customClass="ExhibitionListViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="hbR-cY-6XZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <connections>
-                            <outlet property="dataSource" destination="tCi-kb-Eba" id="xzj-mW-VNS"/>
-                            <outlet property="delegate" destination="tCi-kb-Eba" id="cKr-br-O45"/>
+                            <outlet property="dataSource" destination="jYG-ha-qsK" id="zCp-vL-e5H"/>
+                            <outlet property="delegate" destination="jYG-ha-qsK" id="lhi-GY-6pr"/>
                         </connections>
                     </tableView>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jji-rW-QfZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwN-90-2md" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220" y="-176"/>
+            <point key="canvasLocation" x="-237" y="-174"/>
         </scene>
         <!--Exhibition Examples View Controller-->
         <scene sceneID="2QZ-tz-UAb">

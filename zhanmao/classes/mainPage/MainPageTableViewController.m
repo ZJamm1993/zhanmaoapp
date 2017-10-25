@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     if (arrayWithSimpleButtons.count==0) {
         
         NSMutableArray* array=[NSMutableArray array];
-        NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"演艺",@"舞台",@"会议",@"保洁",@"物流",@"",@"", nil];
+        NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"舞台",@"演艺",@"邀约",@"保洁",@"物流",@"",@"", nil];
         NSArray* identis=[NSArray arrayWithObjects:@"ExhibitionListViewController", nil];
         for (NSInteger i=0; i<8; i++) {
             SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:@"a" identifier:i<identis.count?[identis objectAtIndex:i]:@""];

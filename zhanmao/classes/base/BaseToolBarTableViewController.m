@@ -9,9 +9,7 @@
 #import "BaseToolBarTableViewController.h"
 
 @interface BaseToolBarTableViewController ()
-{
-    UIButton* submitButton;
-}
+
 @end
 
 @implementation BaseToolBarTableViewController
@@ -29,7 +27,7 @@
     line.backgroundColor=[UIColor lightGrayColor];
     [self.bottomToolBar addSubview:line];
     
-    submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomToolBar.frame.size.width-20, self.bottomToolBar.frame.size.height-20)];
+    UIButton* submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomToolBar.frame.size.width-20, self.bottomToolBar.frame.size.height-20)];
     submitButton.backgroundColor=_mainColor;
     [submitButton setTitle:@"立即定制" forState:UIControlStateNormal];
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -38,6 +36,8 @@
     [submitButton.layer setCornerRadius:4];
     [submitButton.layer setMasksToBounds:YES];
     [self.bottomToolBar addSubview:submitButton];
+    
+    self.bottomButton=submitButton;
 //    [self.tableView insertSubview:self.bottomToolBar atIndex:1000];
     
     // Do any additional setup after loading the view.

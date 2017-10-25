@@ -8,6 +8,8 @@
 
 #import "OnlineRentTableViewController.h"
 
+#import "ProductDetailViewController.h"
+
 #import "SimpleTitleTableViewCell.h"
 #import "GoodsTableViewCell.h"
 #import "MenuHeaderTableViewCell.h"
@@ -98,6 +100,9 @@ const CGFloat categoriesHeaderHeight=60;
     else if(tableView==self.goodsTableView)
     {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        ProductDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductDetailViewController"];
+        [self.navigationController pushViewController:prod animated:YES];
     }
 }
 

@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
 
 
 
-@interface MyPageTableViewController ()<SimpleButtonsTableViewCellDelegate>
+@interface MyPageTableViewController ()<SimpleButtonsTableViewCellDelegate,MyPageHeaderTableViewCellDelegate>
 {
     NSArray* arrayWithSimpleButtons;
     NSArray* cellModelsArray;
@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
     [super viewDidLoad];
     
     self.tabBarItem.title=@"我的";
+    
+    self.tableView.contentInset=UIEdgeInsetsMake(-21,0, 0, 0);
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageHeaderTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
@@ -53,6 +55,23 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
             nil];
     
     // Do any additional setup after loading the view.
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,6 +123,7 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
         MyPageHeaderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageHeaderTableViewCell" forIndexPath:indexPath];
         [cell setButtons:[self arrayWithSimpleButtons]];
         [cell setDelegate:self];
+        [cell setSimpleButtonsCellDelegate:self];
         return cell;
     }
     else

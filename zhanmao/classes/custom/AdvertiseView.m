@@ -60,7 +60,15 @@ const CGFloat advertiseViewAutoScrollTime=3.0;
         UIImageView* img=[[UIImageView alloc]initWithFrame:CGRectMake(w*i, 0, w, h)];
         img.contentMode=UIViewContentModeScaleAspectFill;
         img.clipsToBounds=YES;
-        [img sd_setImageWithURL:[NSURL URLWithString:[picturesUrls objectAtIndex:i]]];
+        NSString* url=[picturesUrls objectAtIndex:i];
+        UIImage* ig=[UIImage imageNamed:url];
+        if (ig!=nil) {
+            img.image=ig;
+        }
+        else
+        {
+            [img sd_setImageWithURL:[NSURL URLWithString:[picturesUrls objectAtIndex:i]]];
+        }
         [scroll addSubview:img];
     }
     
@@ -78,8 +86,8 @@ const CGFloat advertiseViewAutoScrollTime=3.0;
     
     pageControl=[[UIPageControl alloc]init];
     pageControl.numberOfPages=_picturesUrls.count;
-    pageControl.pageIndicatorTintColor=[UIColor whiteColor];
-    pageControl.currentPageIndicatorTintColor=_redColor;
+    pageControl.pageIndicatorTintColor=[UIColor colorWithWhite:1 alpha:0.5];
+    pageControl.currentPageIndicatorTintColor=_mainColor;
     pageControl.center=CGPointMake(w/2, h-20);
     [self addSubview:pageControl];
     

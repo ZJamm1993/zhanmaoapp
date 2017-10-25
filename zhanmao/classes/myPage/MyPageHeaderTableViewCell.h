@@ -9,15 +9,28 @@
 #import <UIKit/UIKit.h>
 #import "SimpleButtonsTableViewCell.h"
 
+@class MyPageHeaderTableViewCell;
+
+@protocol MyPageHeaderTableViewCellDelegate <NSObject>
+
+@optional
+-(void)myPageHeaderTableViewCellSettingButtonClicked:(MyPageHeaderTableViewCell*)cell;
+-(void)myPageHeaderTableViewCellPersonalButtonClicked:(MyPageHeaderTableViewCell*)cell;
+
+@end
+
 @interface MyPageHeaderTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) id<MyPageHeaderTableViewCellDelegate>delegate;
 
 @property (weak, nonatomic) IBOutlet UIView *cardBg;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UIView *headImageBg;
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@property (weak, nonatomic) IBOutlet UIButton *settingButton;
 
 -(void)setButtons:(NSArray<SimpleButtonModel*>*)buttons;
--(void)setDelegate:(id<SimpleButtonsTableViewCellDelegate>)delegate;
+-(void)setSimpleButtonsCellDelegate:(id<SimpleButtonsTableViewCellDelegate>)delegate;
 
 @end

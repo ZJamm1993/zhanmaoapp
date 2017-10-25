@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ExhibitionLargeRectTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UIView *detailTitleBg;
+@property (weak, nonatomic) IBOutlet UILabel *detailTitle;
 
 @end
