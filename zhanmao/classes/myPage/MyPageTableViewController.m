@@ -26,6 +26,8 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
 {
     NSArray* arrayWithSimpleButtons;
     NSArray* cellModelsArray;
+    
+    NSMutableDictionary* cachesControllers;
 }
 @end
 
@@ -36,7 +38,10 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
     
     self.tabBarItem.title=@"我的";
     
+    cachesControllers=[NSMutableDictionary dictionary];
+    
     self.tableView.contentInset=UIEdgeInsetsMake(-21,0, 0, 0);
+    
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageHeaderTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
@@ -84,10 +89,11 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
     if (arrayWithSimpleButtons.count==0) {
         
         NSMutableArray* array=[NSMutableArray array];
-        NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单",@"舞台",@"会议",@"保洁",@"物流",@"",@"", nil];
+        NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单", nil];
+        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"",@"",@"", nil];
         
         for (NSInteger i=0; i<4; i++) {
-            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:@"a" identifier:[NSString stringWithFormat:@"%ld",(long)i]];
+            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:@"a" identifier:[ides objectAtIndex:i]];
             [array addObject:mo];
         }
         arrayWithSimpleButtons=array;
@@ -153,7 +159,19 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
     NSLog(@"%@",model.title);
-    [self.navigationController pushViewController:[[UIViewController alloc]init] animated:YES];
+    if (model.identifier.length>0) {
+        
+        
+        UIViewController* viewController=[cachesControllers valueForKey:model.identifier];
+        if (viewController==nil) {
+            UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MyPage" bundle:nil];
+            NSLog(@"%@",sb);
+            viewController=[sb instantiateViewControllerWithIdentifier:model.identifier];
+            [cachesControllers setValue:viewController forKey:model.identifier];
+        }
+        
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 

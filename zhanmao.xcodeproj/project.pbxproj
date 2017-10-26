@@ -125,6 +125,13 @@
 		8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */; };
 		8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */; };
 		8EB674F11F99F85D008CC196 /* MyPageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674F01F99F85D008CC196 /* MyPageCellModel.m */; };
+		8EDBF4CA1FA17F600073F37D /* RentOrderPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4C91FA17F600073F37D /* RentOrderPagerViewController.m */; };
+		8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */; };
+		8EDBF4D21FA181D60073F37D /* RentOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */; };
+		8EDBF4D31FA181D60073F37D /* RentOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D11FA181D60073F37D /* RentOrderTableViewCell.xib */; };
+		8EDBF4D61FA181EE0073F37D /* RentOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D51FA181EE0073F37D /* RentOrderTableViewController.m */; };
+		8EDBF4D91FA183F30073F37D /* RentOrderDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D81FA183F30073F37D /* RentOrderDataSource.m */; };
+		8EDBF4DC1FA18C110073F37D /* RentOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4DB1FA18C110073F37D /* RentOrderModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -332,6 +339,18 @@
 		8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageSimpleTableViewCell.xib; sourceTree = "<group>"; };
 		8EB674EF1F99F85D008CC196 /* MyPageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageCellModel.h; sourceTree = "<group>"; };
 		8EB674F01F99F85D008CC196 /* MyPageCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageCellModel.m; sourceTree = "<group>"; };
+		8EDBF4C81FA17F600073F37D /* RentOrderPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderPagerViewController.h; sourceTree = "<group>"; };
+		8EDBF4C91FA17F600073F37D /* RentOrderPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderPagerViewController.m; sourceTree = "<group>"; };
+		8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		8EDBF4CF1FA181D60073F37D /* RentOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderTableViewCell.h; sourceTree = "<group>"; };
+		8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderTableViewCell.m; sourceTree = "<group>"; };
+		8EDBF4D11FA181D60073F37D /* RentOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentOrderTableViewCell.xib; sourceTree = "<group>"; };
+		8EDBF4D41FA181EE0073F37D /* RentOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderTableViewController.h; sourceTree = "<group>"; };
+		8EDBF4D51FA181EE0073F37D /* RentOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderTableViewController.m; sourceTree = "<group>"; };
+		8EDBF4D71FA183F30073F37D /* RentOrderDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderDataSource.h; sourceTree = "<group>"; };
+		8EDBF4D81FA183F30073F37D /* RentOrderDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderDataSource.m; sourceTree = "<group>"; };
+		8EDBF4DA1FA18C110073F37D /* RentOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderModel.h; sourceTree = "<group>"; };
+		8EDBF4DB1FA18C110073F37D /* RentOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -709,9 +728,11 @@
 		8EB674E01F99E9C8008CC196 /* myPage */ = {
 			isa = PBXGroup;
 			children = (
+				8EDBF4CD1FA1816F0073F37D /* orders */,
 				8EB674E91F99EB7B008CC196 /* views */,
 				8EB674E11F99E9EA008CC196 /* MyPageTableViewController.h */,
 				8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */,
+				8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */,
 			);
 			path = myPage;
 			sourceTree = "<group>";
@@ -729,6 +750,32 @@
 				8EB674F01F99F85D008CC196 /* MyPageCellModel.m */,
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		8EDBF4CD1FA1816F0073F37D /* orders */ = {
+			isa = PBXGroup;
+			children = (
+				8EDBF4CE1FA181930073F37D /* rentorder */,
+			);
+			name = orders;
+			sourceTree = "<group>";
+		};
+		8EDBF4CE1FA181930073F37D /* rentorder */ = {
+			isa = PBXGroup;
+			children = (
+				8EDBF4C81FA17F600073F37D /* RentOrderPagerViewController.h */,
+				8EDBF4C91FA17F600073F37D /* RentOrderPagerViewController.m */,
+				8EDBF4CF1FA181D60073F37D /* RentOrderTableViewCell.h */,
+				8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */,
+				8EDBF4D11FA181D60073F37D /* RentOrderTableViewCell.xib */,
+				8EDBF4D41FA181EE0073F37D /* RentOrderTableViewController.h */,
+				8EDBF4D51FA181EE0073F37D /* RentOrderTableViewController.m */,
+				8EDBF4D71FA183F30073F37D /* RentOrderDataSource.h */,
+				8EDBF4D81FA183F30073F37D /* RentOrderDataSource.m */,
+				8EDBF4DA1FA18C110073F37D /* RentOrderModel.h */,
+				8EDBF4DB1FA18C110073F37D /* RentOrderModel.m */,
+			);
+			name = rentorder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -793,6 +840,7 @@
 				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
 				8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
+				8EDBF4D31FA181D60073F37D /* RentOrderTableViewCell.xib in Resources */,
 				8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				8E6C74991FA03E9B004B33D1 /* ProductParameterTableViewCell.xib in Resources */,
@@ -801,6 +849,7 @@
 				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
 				8E6C74A11FA06B45004B33D1 /* OnlineRent.storyboard in Resources */,
 				8E6C74811F9F42E8004B33D1 /* 0.jpg in Resources */,
+				8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */,
 				8E6C748E1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.xib in Resources */,
 				8E99AA9F1F9068920078C452 /* Checkmark@2x.png in Resources */,
 				8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */,
@@ -871,12 +920,16 @@
 				8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */,
 				8E99AAB01F9068920078C452 /* UIImage+GIF.m in Sources */,
 				8E99AAAD1F9068920078C452 /* SDWebImageManager.m in Sources */,
+				8EDBF4DC1FA18C110073F37D /* RentOrderModel.m in Sources */,
 				8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */,
 				8E6C749C1FA041C0004B33D1 /* ZZStepper.m in Sources */,
 				8EB674CE1F974214008CC196 /* SimpleHeaderTableViewCell.m in Sources */,
 				8E6C747B1F9F40CD004B33D1 /* ExhibitionPictureViewController.m in Sources */,
+				8EDBF4CA1FA17F600073F37D /* RentOrderPagerViewController.m in Sources */,
 				8E6C74071F9D9E4D004B33D1 /* TitleSelectionItemTableViewCell.m in Sources */,
+				8EDBF4D21FA181D60073F37D /* RentOrderTableViewCell.m in Sources */,
 				8E6C74251F9DF537004B33D1 /* MenuHeaderTableViewCell.m in Sources */,
+				8EDBF4D61FA181EE0073F37D /* RentOrderTableViewController.m in Sources */,
 				8E99AA9D1F9068920078C452 /* JRSwizzle.m in Sources */,
 				8E99AA491F9068920078C452 /* UIImage+ext.m in Sources */,
 				8E2E409F1F9460B300B42477 /* SimpleButtonsTableViewCell.m in Sources */,
@@ -903,6 +956,7 @@
 				8E99AAB51F9068920078C452 /* UIView+WebCache.m in Sources */,
 				8E6C74291F9ED49D004B33D1 /* SimpleTitleTableViewCell.m in Sources */,
 				8E6C74891FA0243E004B33D1 /* TravellingRootViewController.m in Sources */,
+				8EDBF4D91FA183F30073F37D /* RentOrderDataSource.m in Sources */,
 				8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				8E6C74021F9D9CA0004B33D1 /* TitleSelectionHeaderTableViewCell.m in Sources */,

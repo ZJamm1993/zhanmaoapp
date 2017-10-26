@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(void)selectLocation
 {
     NSLog(@"select location");
-    [self setLocation:[NSString stringWithFormat:@"%ld",(long)arc4random()%1000000000000000]];
+    [self setLocation:[NSString stringWithFormat:@"%ld",(long)(arc4random()%1000000)]];
 }
 
 #pragma mark UITableViewDelegate&Datasource

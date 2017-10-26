@@ -47,7 +47,7 @@
         menuView.normalColor= [UIColor grayColor];;
     }
     if (!self.menuSelectedColor) {
-        menuView.selectedColor=[UIColor redColor];;
+        menuView.selectedColor=_mainColor;;
     }
     menuView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:menuView];
