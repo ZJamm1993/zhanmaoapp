@@ -9,14 +9,18 @@
 #import "OnlineRentTableViewController.h"
 
 #import "ProductDetailViewController.h"
+#import "RentCartViewController.h"
 
 #import "SimpleTitleTableViewCell.h"
 #import "GoodsTableViewCell.h"
 #import "MenuHeaderTableViewCell.h"
 
+#import "ImageBadgeBarButtonItem.h"
+#import "ZZSearchBar.h"
+
 const CGFloat categoriesHeaderHeight=60;
 
-@interface OnlineRentTableViewController ()<UITableViewDelegate,UITableViewDataSource,MenuHeaderTableViewCellDelegate>
+@interface OnlineRentTableViewController ()<UITableViewDelegate,UITableViewDataSource,MenuHeaderTableViewCellDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *goodsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *catesTableView;
@@ -34,12 +38,22 @@ const CGFloat categoriesHeaderHeight=60;
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
+    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"a" count:999 target:self selector:@selector(cartItemClicked)];
+    self.navigationItem.rightBarButtonItem=cartItem;
+    
+    ZZSearchBar* searchBar=[ZZSearchBar defaultBar];
+    searchBar.placeholder=@"请输入您想要的商品";
+    searchBar.delegate=self;
+    self.navigationItem.titleView=searchBar;
+    
     menuHeaderButtonModels=[NSMutableArray arrayWithObjects:
                             [MenuHeaderButtonModel modelWithTitle:@"日期" selected:NO ordered:YES ascending:NO],
                             [MenuHeaderButtonModel modelWithTitle:@"价格" selected:NO ordered:YES ascending:NO],
                             [MenuHeaderButtonModel modelWithTitle:@"销量" selected:NO ordered:NO ascending:NO], nil];
     
     [self.catesTableView registerNib:[UINib nibWithNibName:@"SimpleTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"SimpleTitleTableViewCell"];
+    self.catesTableView.showsVerticalScrollIndicator=NO;
+    self.catesTableView.scrollsToTop=NO;
     
     [self.goodsTableView registerNib:[UINib nibWithNibName:@"GoodsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GoodsTableViewCell"];
     [self.goodsTableView registerClass:[MenuHeaderTableViewCell class] forHeaderFooterViewReuseIdentifier:@"MenuHeaderTableViewCell"];
@@ -56,6 +70,21 @@ const CGFloat categoriesHeaderHeight=60;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"] animated:YES];
+    return NO;
+}
+
+-(void)cartItemClicked
+{
+//    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"a" count:arc4random()%120 target:self selector:@selector(cartItemClicked)];
+//    self.navigationItem.rightBarButtonItem=cartItem;
+    
+    RentCartViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartViewController"];
+    [self.navigationController pushViewController:rent animated:YES];
 }
 
 #pragma mark tableviews

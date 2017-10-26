@@ -45,5 +45,23 @@
             </objects>
             <point key="canvasLocation" x="602" y="25"/>
         </scene>
+        <!--Product Search Table View Controller-->
+        <scene sceneID="9zQ-0D-bQ7">
+            <objects>
+                <tableViewController storyboardIdentifier="ProductSearchTableViewController" id="mOE-s3-KVB" customClass="ProductSearchTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Abt-ZU-JnC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="mOE-s3-KVB" id="NZh-aQ-p1t"/>
+                            <outlet property="delegate" destination="mOE-s3-KVB" id="W2D-a2-IND"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wfd-BC-g3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1299" y="25"/>
+        </scene>
     </scenes>
 </document>

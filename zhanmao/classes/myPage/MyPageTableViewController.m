@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
         
         NSMutableArray* array=[NSMutableArray array];
         NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单", nil];
-        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"",@"",@"", nil];
+        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"",@"", nil];
         
         for (NSInteger i=0; i<4; i++) {
             SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:@"a" identifier:[ides objectAtIndex:i]];
@@ -167,6 +167,7 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
             UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MyPage" bundle:nil];
             NSLog(@"%@",sb);
             viewController=[sb instantiateViewControllerWithIdentifier:model.identifier];
+            viewController.title=model.title;
             [cachesControllers setValue:viewController forKey:model.identifier];
         }
         

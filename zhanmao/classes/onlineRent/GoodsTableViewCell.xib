@@ -17,11 +17,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="105.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="unO-Zd-kuf" customClass="CorneredImageView">
-                        <rect key="frame" x="8" y="12" width="116" height="81.5"/>
+                        <rect key="frame" x="10" y="12" width="116" height="81.5"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="unO-Zd-kuf" secondAttribute="height" multiplier="10:7" id="dFT-WE-HmX"/>
@@ -29,19 +29,19 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="德国家用木电工维修组合套装XXXXXXXL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6V-uY-b1Y">
-                        <rect key="frame" x="132" y="12" width="180" height="54.5"/>
+                        <rect key="frame" x="134" y="12" width="176" height="54.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="13.0亿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI4-Ja-hTY">
-                        <rect key="frame" x="132" y="66.5" width="36" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="13.0亿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eI4-Ja-hTY">
+                        <rect key="frame" x="134" y="66.5" width="36" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.96731191873550415" green="0.36028417944908142" blue="0.16180282831192017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="人租用过" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpl-z9-nbN">
-                        <rect key="frame" x="168" y="66.5" width="49.5" height="27"/>
+                        <rect key="frame" x="170" y="66.5" width="140" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -49,8 +49,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Fpl-z9-nbN" firstAttribute="bottom" secondItem="eI4-Ja-hTY" secondAttribute="bottom" id="07M-WX-V6D"/>
-                    <constraint firstItem="unO-Zd-kuf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1EJ-Iq-V5P"/>
+                    <constraint firstItem="unO-Zd-kuf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="1EJ-Iq-V5P"/>
                     <constraint firstItem="Fpl-z9-nbN" firstAttribute="leading" secondItem="eI4-Ja-hTY" secondAttribute="trailing" id="2k9-TW-sq6"/>
+                    <constraint firstItem="Fpl-z9-nbN" firstAttribute="trailing" secondItem="G6V-uY-b1Y" secondAttribute="trailing" id="39J-eu-z8m"/>
                     <constraint firstItem="eI4-Ja-hTY" firstAttribute="top" secondItem="G6V-uY-b1Y" secondAttribute="bottom" id="He2-Fk-rd7"/>
                     <constraint firstItem="G6V-uY-b1Y" firstAttribute="top" secondItem="unO-Zd-kuf" secondAttribute="top" id="Md7-uD-JEj"/>
                     <constraint firstItem="G6V-uY-b1Y" firstAttribute="height" secondItem="unO-Zd-kuf" secondAttribute="height" multiplier="2:3" id="Rbf-wb-hpp"/>
@@ -59,7 +60,7 @@
                     <constraint firstItem="Fpl-z9-nbN" firstAttribute="top" secondItem="eI4-Ja-hTY" secondAttribute="top" id="jjV-lk-TG2"/>
                     <constraint firstAttribute="bottom" secondItem="unO-Zd-kuf" secondAttribute="bottom" constant="12" id="lGb-5m-woj"/>
                     <constraint firstItem="eI4-Ja-hTY" firstAttribute="leading" secondItem="G6V-uY-b1Y" secondAttribute="leading" id="tG1-OP-VUe"/>
-                    <constraint firstAttribute="trailing" secondItem="G6V-uY-b1Y" secondAttribute="trailing" constant="8" id="uJJ-Wh-o5l"/>
+                    <constraint firstAttribute="trailing" secondItem="G6V-uY-b1Y" secondAttribute="trailing" constant="10" id="uJJ-Wh-o5l"/>
                     <constraint firstItem="G6V-uY-b1Y" firstAttribute="leading" secondItem="unO-Zd-kuf" secondAttribute="trailing" constant="8" id="ueE-Z0-Iui"/>
                 </constraints>
             </tableViewCellContentView>

@@ -14,7 +14,7 @@
 {
     ZZSearchBar* bar=[[ZZSearchBar alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 30)];
     bar.layer.cornerRadius=bar.frame.size.height/2;
-//    bar.backgroundColor=gray(240);
+    bar.backgroundColor=[UIColor whiteColor];
 //    bar.textColor=pinkColor;
     bar.font=[UIFont systemFontOfSize:13];
     bar.returnKeyType=UIReturnKeySearch;
