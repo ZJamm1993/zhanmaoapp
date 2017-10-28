@@ -140,6 +140,10 @@
 		8EDBF4EE1FA1B58D0073F37D /* TransportOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4ED1FA1B58D0073F37D /* TransportOrderModel.m */; };
 		8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F01FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m */; };
 		8EDBF4F41FA1E5660073F37D /* ProductSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F31FA1E5660073F37D /* ProductSearchTableViewController.m */; };
+		8EDBF4F71FA2D95E0073F37D /* SearchTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F61FA2D95E0073F37D /* SearchTipsView.m */; };
+		8EDBF4F91FA31D610073F37D /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F81FA31D610073F37D /* 10.png */; };
+		8EDBF4FD1FA42F570073F37D /* RentProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4FC1FA42F570073F37D /* RentProductModel.m */; };
+		8EDBF5001FA42F7A0073F37D /* RentCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4FF1FA42F7A0073F37D /* RentCartModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -374,6 +378,13 @@
 		8EDBF4F01FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		8EDBF4F21FA1E5660073F37D /* ProductSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSearchTableViewController.h; sourceTree = "<group>"; };
 		8EDBF4F31FA1E5660073F37D /* ProductSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSearchTableViewController.m; sourceTree = "<group>"; };
+		8EDBF4F51FA2D95E0073F37D /* SearchTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTipsView.h; sourceTree = "<group>"; };
+		8EDBF4F61FA2D95E0073F37D /* SearchTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTipsView.m; sourceTree = "<group>"; };
+		8EDBF4F81FA31D610073F37D /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		8EDBF4FB1FA42F570073F37D /* RentProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentProductModel.h; sourceTree = "<group>"; };
+		8EDBF4FC1FA42F570073F37D /* RentProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentProductModel.m; sourceTree = "<group>"; };
+		8EDBF4FE1FA42F7A0073F37D /* RentCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentCartModel.h; sourceTree = "<group>"; };
+		8EDBF4FF1FA42F7A0073F37D /* RentCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentCartModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +450,7 @@
 				8E6C747E1F9F42E8004B33D1 /* 2.jpg */,
 				8E6C747F1F9F42E8004B33D1 /* 3.jpg */,
 				8E6C74801F9F42E8004B33D1 /* 4.jpg */,
+				8EDBF4F81FA31D610073F37D /* 10.png */,
 				8E6C74111F9DC0C4004B33D1 /* ZhuchangFormTableViewController.h */,
 				8E6C74121F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m */,
 				8E6C74161F9DD785004B33D1 /* ExhibitionListViewController.h */,
@@ -454,6 +466,7 @@
 		8E6C74191F9DEFE8004B33D1 /* onlineRent */ = {
 			isa = PBXGroup;
 			children = (
+				8EDBF4FA1FA42F310073F37D /* model */,
 				8E6C741A1F9DF025004B33D1 /* view */,
 				8E6C74A01FA06B45004B33D1 /* OnlineRent.storyboard */,
 				8E6C741B1F9DF0E2004B33D1 /* OnlineRentTableViewController.h */,
@@ -488,6 +501,8 @@
 				8E6C74A51FA071B4004B33D1 /* RentCartEditTableViewCell.h */,
 				8E6C74A61FA071B4004B33D1 /* RentCartEditTableViewCell.m */,
 				8E6C74A71FA071B4004B33D1 /* RentCartEditTableViewCell.xib */,
+				8EDBF4F51FA2D95E0073F37D /* SearchTipsView.h */,
+				8EDBF4F61FA2D95E0073F37D /* SearchTipsView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -824,6 +839,17 @@
 			name = transportorder;
 			sourceTree = "<group>";
 		};
+		8EDBF4FA1FA42F310073F37D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8EDBF4FB1FA42F570073F37D /* RentProductModel.h */,
+				8EDBF4FC1FA42F570073F37D /* RentProductModel.m */,
+				8EDBF4FE1FA42F7A0073F37D /* RentCartModel.h */,
+				8EDBF4FF1FA42F7A0073F37D /* RentCartModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -919,6 +945,7 @@
 				8E6C74751F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */,
+				8EDBF4F91FA31D610073F37D /* 10.png in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,6 +957,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDBF4FD1FA42F570073F37D /* RentProductModel.m in Sources */,
 				8E6C748D1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.m in Sources */,
 				8E6C73F51F9D9280004B33D1 /* ImageTitleBarButtonItem.m in Sources */,
 				8E2E40951F945A2E00B42477 /* NothingFooterCell.m in Sources */,
@@ -1004,6 +1032,7 @@
 				8E99AAA71F9068920078C452 /* SDImageCache.m in Sources */,
 				8E99AAAA1F9068920078C452 /* SDWebImageDecoder.m in Sources */,
 				8E99AAAB1F9068920078C452 /* SDWebImageDownloader.m in Sources */,
+				8EDBF5001FA42F7A0073F37D /* RentCartModel.m in Sources */,
 				8E99AAB61F9068920078C452 /* UIView+WebCacheOperation.m in Sources */,
 				8E6C74181F9DD785004B33D1 /* ExhibitionListViewController.m in Sources */,
 				8E99AAB51F9068920078C452 /* UIView+WebCache.m in Sources */,
@@ -1016,6 +1045,7 @@
 				8E99AAA31F9068920078C452 /* Reachability.m in Sources */,
 				8E99AA481F9068920078C452 /* NSString+ext.m in Sources */,
 				8EDBF4E01FA1B44D0073F37D /* TransportOrderPagerViewController.m in Sources */,
+				8EDBF4F71FA2D95E0073F37D /* SearchTipsView.m in Sources */,
 				8E99AAAF1F9068920078C452 /* UIButton+WebCache.m in Sources */,
 				8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */,
 				8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */,
@@ -1163,6 +1193,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1186,6 +1217,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

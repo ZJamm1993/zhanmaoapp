@@ -7,6 +7,7 @@
 //
 
 #import "BaseToolBarTableViewController.h"
+#import "RentCartModel.h"
 
 @interface RentCartViewController : BaseToolBarTableViewController
 

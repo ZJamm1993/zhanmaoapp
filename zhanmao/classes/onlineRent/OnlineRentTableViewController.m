@@ -18,7 +18,7 @@
 #import "ImageBadgeBarButtonItem.h"
 #import "ZZSearchBar.h"
 
-const CGFloat categoriesHeaderHeight=60;
+const CGFloat categoriesHeaderHeight=50;
 
 @interface OnlineRentTableViewController ()<UITableViewDelegate,UITableViewDataSource,MenuHeaderTableViewCellDelegate,UITextFieldDelegate>
 

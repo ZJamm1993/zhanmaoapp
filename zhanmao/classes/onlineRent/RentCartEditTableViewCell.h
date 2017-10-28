@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RentCartModel.h"
 #import "ZZStepper.h"
+
+@class RentCartEditTableViewCell;
+
+@protocol RentCartEditTableViewCellDelegate <NSObject>
+
+-(void)rentCartEditTableViewCell:(RentCartEditTableViewCell*)cell deleteCartModel:(RentCartModel*)cartModel;
+
+@end
 
 @interface RentCartEditTableViewCell : UITableViewCell
 
@@ -25,5 +34,9 @@
 //@property (weak, nonatomic) IBOutlet UILabel *deposit;
 @property (weak, nonatomic) IBOutlet UILabel *count;
 @property (weak, nonatomic) IBOutlet UILabel *days;
+
+@property (strong,nonatomic) RentCartModel* cartModel;
+
+@property (weak,nonatomic) id<RentCartEditTableViewCellDelegate>delegate;
 
 @end

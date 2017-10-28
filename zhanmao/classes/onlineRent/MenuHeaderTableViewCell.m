@@ -76,13 +76,13 @@
             doImg.hidden=YES;
         }
         if (model.selected) {
-            ti.textColor=[UIColor orangeColor];
+            ti.textColor=_mainColor;
             if (model.ascending) {
-                upImg.textColor=[UIColor orangeColor];
+                upImg.textColor=_mainColor;
             }
             else
             {
-                doImg.textColor=[UIColor orangeColor];
+                doImg.textColor=_mainColor;
             }
         }
         

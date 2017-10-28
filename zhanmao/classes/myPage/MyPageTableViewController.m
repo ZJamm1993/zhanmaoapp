@@ -152,6 +152,9 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
     NSArray* arr=[cellModelsArray objectAtIndex:indexPath.section];
     MyPageCellModel* mo=[arr objectAtIndex:indexPath.row];
     NSLog(@"%@",mo.identifier);
+    if (indexPath.section==1) {
+        //requires loging
+    }
 }
 
 #pragma mark SimpleButtonsTableViewCellDelegate

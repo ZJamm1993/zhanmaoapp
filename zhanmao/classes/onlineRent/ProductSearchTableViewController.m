@@ -7,8 +7,9 @@
 //
 
 #import "ProductSearchTableViewController.h"
+#import "SearchTipsView.h"
 
-@interface ProductSearchTableViewController ()
+@interface ProductSearchTableViewController ()<SearchTipsViewDelegate>
 
 @end
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    SearchTipsView* tip=[SearchTipsView searchTipsViewWithRecentlyStrings:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] trendyString:@[@"1-",@"2-",@"3-",@"4-",@"5-",@"6-"] delegate:self];
+    [self.tableView addSubview:tip];
     // Do any additional setup after loading the view.
 }
 
