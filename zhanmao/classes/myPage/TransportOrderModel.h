@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseTypeObject.h"
 
 typedef NS_ENUM(NSInteger,TransportOrderType)
 {
@@ -14,8 +15,6 @@ typedef NS_ENUM(NSInteger,TransportOrderType)
     TransportOrderTypeHistory,
 };
 
-@interface TransportOrderModel : NSObject
-
-+(NSString*)controllerTitleForType:(TransportOrderType)type;
+@interface TransportOrderModel : BaseTypeObject
 
 @end

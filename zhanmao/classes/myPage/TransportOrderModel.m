@@ -10,7 +10,7 @@
 
 @implementation TransportOrderModel
 
-+(NSString*)controllerTitleForType:(TransportOrderType)type
++(NSString*)controllerTitleForType:(NSInteger)type
 {
     if (type==TransportOrderTypeNow) {
         return @"当前订单";

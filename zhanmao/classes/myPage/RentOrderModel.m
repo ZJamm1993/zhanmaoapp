@@ -10,7 +10,7 @@
 
 @implementation RentOrderModel
 
-+(NSString*)controllerTitleForType:(RentOrderType)type
++(NSString*)controllerTitleForType:(NSInteger)type
 {
     if (type==RentOrderTypeAll) {
         return @"全部";
@@ -30,7 +30,7 @@
     return @"";
 }
 
-+(NSString*)cellTitleForType:(RentOrderType)type{
++(NSString*)cellTitleForType:(NSInteger)type{
     if (type==RentOrderTypeNotPaid) {
         return @"待付款";
     }

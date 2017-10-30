@@ -25,8 +25,8 @@
     self.cardBg.layer.cornerRadius=8;
     self.cardBg.layer.shadowColor=[UIColor grayColor].CGColor;
     self.cardBg.layer.shadowOffset=CGSizeZero;
-    self.cardBg.layer.shadowRadius=8;
-    self.cardBg.layer.shadowOpacity=1;
+    self.cardBg.layer.shadowRadius=2;
+    self.cardBg.layer.shadowOpacity=0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

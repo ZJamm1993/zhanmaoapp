@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseTypeObject.h"
 
 typedef NS_ENUM(NSInteger,RentOrderType)
 {
@@ -17,13 +18,8 @@ typedef NS_ENUM(NSInteger,RentOrderType)
     RentOrderTypeFinished,
 };
 
-@interface RentOrderModel : NSObject
+@interface RentOrderModel : BaseTypeObject
 
-@property (nonatomic,assign) RentOrderType type;
 @property (nonatomic,strong) NSString* title;
-
-+(NSString*)controllerTitleForType:(RentOrderType)type;
-
-+(NSString*)cellTitleForType:(RentOrderType)type;
 
 @end

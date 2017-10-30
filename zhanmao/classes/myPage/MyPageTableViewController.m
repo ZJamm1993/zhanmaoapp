@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
     
     MyPageSectionHeaders,
     MyPageSectionPersonals,
+    MyPageSectionInvoices,
     MyPageSectionHelps,
     
     MyPageSectionTotalCount,
@@ -52,6 +53,8 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"地址管理" image:@"" detail:@"" identifier:@""],
              [MyPageCellModel modelWithTitle:@"个人资料" image:@"" detail:@"" identifier:@""], nil],
+            [NSArray arrayWithObjects:
+             [MyPageCellModel modelWithTitle:@"申请发票" image:@"" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"帮助中心" image:@"" detail:@"" identifier:@""],
              [MyPageCellModel modelWithTitle:@"意见反馈" image:@"" detail:@"" identifier:@""],
@@ -154,7 +157,9 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
     NSLog(@"%@",mo.identifier);
     if (indexPath.section==1) {
         //requires loging
+        return;
     }
+    [self pushToViewControllerId:mo.identifier];
 }
 
 #pragma mark SimpleButtonsTableViewCellDelegate
@@ -162,21 +167,34 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
     NSLog(@"%@",model.title);
-    if (model.identifier.length>0) {
-        
-        
-        UIViewController* viewController=[cachesControllers valueForKey:model.identifier];
+    [self pushToViewControllerId:model.identifier];
+}
+
+-(void)pushToViewControllerId:(NSString*)identifier
+{
+    if (identifier.length>0) {
+        UIViewController* viewController=[cachesControllers valueForKey:identifier];
         if (viewController==nil) {
             UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MyPage" bundle:nil];
             NSLog(@"%@",sb);
-            viewController=[sb instantiateViewControllerWithIdentifier:model.identifier];
-            viewController.title=model.title;
-            [cachesControllers setValue:viewController forKey:model.identifier];
+            viewController=[sb instantiateViewControllerWithIdentifier:identifier];
+            [cachesControllers setValue:viewController forKey:identifier];
         }
         
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
 
+#pragma headerCellDelegate
+
+-(void)myPageHeaderTableViewCellSettingButtonClicked:(MyPageHeaderTableViewCell *)cell
+{
+    [self pushToViewControllerId:@"MySettingTableViewController"];
+}
+
+-(void)myPageHeaderTableViewCellPersonalButtonClicked:(MyPageHeaderTableViewCell *)cell
+{
+    
+}
 
 @end

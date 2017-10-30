@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音响套装v3专业版" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJf-Kg-5AS">
-                        <rect key="frame" x="15" y="15" width="132.5" height="19.5"/>
+                        <rect key="frame" x="15" y="15" width="133" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="LBW-oL-mhh"/>
                         </constraints>
@@ -28,16 +28,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="租金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdM-tb-SPa">
-                        <rect key="frame" x="15" y="44.5" width="40" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="VHc-W9-079"/>
-                        </constraints>
+                        <rect key="frame" x="15" y="46" width="40" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tel-7K-dwF">
-                        <rect key="frame" x="208" y="44.5" width="40" height="21"/>
+                        <rect key="frame" x="208" y="49.5" width="40" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="WQU-g2-Qwk"/>
                         </constraints>
@@ -46,13 +43,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥500.0/天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbk-ke-crH">
-                        <rect key="frame" x="59" y="47" width="65.5" height="17"/>
+                        <rect key="frame" x="59" y="51.5" width="66" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.9673119187" green="0.36028417940000002" blue="0.16180282830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥1000.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-9d-6Vz">
-                        <rect key="frame" x="252" y="47" width="53" height="17"/>
+                        <rect key="frame" x="252" y="51.5" width="53" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

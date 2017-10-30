@@ -18,6 +18,9 @@
 		8E2E40A41F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A21F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m */; };
 		8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */; };
 		8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */; };
+		8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */; };
+		8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */; };
+		8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */; };
 		8E6C73F51F9D9280004B33D1 /* ImageTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */; };
 		8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F81F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m */; };
 		8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C73F91F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib */; };
@@ -144,6 +147,12 @@
 		8EDBF4F91FA31D610073F37D /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F81FA31D610073F37D /* 10.png */; };
 		8EDBF4FD1FA42F570073F37D /* RentProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4FC1FA42F570073F37D /* RentProductModel.m */; };
 		8EDBF5001FA42F7A0073F37D /* RentCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4FF1FA42F7A0073F37D /* RentCartModel.m */; };
+		8EDCF5B51FA6D42100AA4359 /* MyInvoicePagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5B41FA6D42100AA4359 /* MyInvoicePagerViewController.m */; };
+		8EDCF5B81FA6D44100AA4359 /* MyInvoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5B71FA6D44100AA4359 /* MyInvoiceTableViewController.m */; };
+		8EDCF5BD1FA6D5C500AA4359 /* BaseTypeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5BC1FA6D5C500AA4359 /* BaseTypeObject.m */; };
+		8EDCF5C01FA6D76B00AA4359 /* InvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */; };
+		8EDCF5C41FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */; };
+		8EDCF5C51FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDCF5C31FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -166,6 +175,11 @@
 		8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExhibitionLargeCardTableViewCell.xib; sourceTree = "<group>"; };
 		8E2E40A61F94A46B00B42477 /* LinedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinedTableViewCell.h; sourceTree = "<group>"; };
 		8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinedTableViewCell.m; sourceTree = "<group>"; };
+		8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
+		8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewController.m; sourceTree = "<group>"; };
+		8E3779CE1FA7195B00A3BBEB /* MyPageButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageButtonTableViewCell.h; sourceTree = "<group>"; };
+		8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageButtonTableViewCell.m; sourceTree = "<group>"; };
+		8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageButtonTableViewCell.xib; sourceTree = "<group>"; };
 		8E6C73F31F9D9280004B33D1 /* ImageTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTitleBarButtonItem.h; sourceTree = "<group>"; };
 		8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTitleBarButtonItem.m; sourceTree = "<group>"; };
 		8E6C73F71F9D99B6004B33D1 /* TitleTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTextFieldTableViewCell.h; sourceTree = "<group>"; };
@@ -385,6 +399,17 @@
 		8EDBF4FC1FA42F570073F37D /* RentProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentProductModel.m; sourceTree = "<group>"; };
 		8EDBF4FE1FA42F7A0073F37D /* RentCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentCartModel.h; sourceTree = "<group>"; };
 		8EDBF4FF1FA42F7A0073F37D /* RentCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentCartModel.m; sourceTree = "<group>"; };
+		8EDCF5B31FA6D42100AA4359 /* MyInvoicePagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvoicePagerViewController.h; sourceTree = "<group>"; };
+		8EDCF5B41FA6D42100AA4359 /* MyInvoicePagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvoicePagerViewController.m; sourceTree = "<group>"; };
+		8EDCF5B61FA6D44100AA4359 /* MyInvoiceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvoiceTableViewController.h; sourceTree = "<group>"; };
+		8EDCF5B71FA6D44100AA4359 /* MyInvoiceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvoiceTableViewController.m; sourceTree = "<group>"; };
+		8EDCF5BB1FA6D5C500AA4359 /* BaseTypeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTypeObject.h; sourceTree = "<group>"; };
+		8EDCF5BC1FA6D5C500AA4359 /* BaseTypeObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTypeObject.m; sourceTree = "<group>"; };
+		8EDCF5BE1FA6D76B00AA4359 /* InvoiceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoiceModel.h; sourceTree = "<group>"; };
+		8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceModel.m; sourceTree = "<group>"; };
+		8EDCF5C11FA6DB4F00AA4359 /* MyInvoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvoiceTableViewCell.h; sourceTree = "<group>"; };
+		8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvoiceTableViewCell.m; sourceTree = "<group>"; };
+		8EDCF5C31FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInvoiceTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -770,11 +795,15 @@
 		8EB674E01F99E9C8008CC196 /* myPage */ = {
 			isa = PBXGroup;
 			children = (
+				8EDCF5BA1FA6D55A00AA4359 /* model */,
+				8EDCF5B91FA6D45000AA4359 /* MyInvoice */,
 				8EDBF4CD1FA1816F0073F37D /* orders */,
 				8EB674E91F99EB7B008CC196 /* views */,
 				8EB674E11F99E9EA008CC196 /* MyPageTableViewController.h */,
 				8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */,
 				8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */,
+				8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */,
+				8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */,
 			);
 			path = myPage;
 			sourceTree = "<group>";
@@ -790,6 +819,9 @@
 				8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */,
 				8EB674EF1F99F85D008CC196 /* MyPageCellModel.h */,
 				8EB674F01F99F85D008CC196 /* MyPageCellModel.m */,
+				8E3779CE1FA7195B00A3BBEB /* MyPageButtonTableViewCell.h */,
+				8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */,
+				8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -797,13 +829,13 @@
 		8EDBF4CD1FA1816F0073F37D /* orders */ = {
 			isa = PBXGroup;
 			children = (
-				8EDBF4DD1FA1B3FB0073F37D /* transportorder */,
-				8EDBF4CE1FA181930073F37D /* rentorder */,
+				8EDBF4DD1FA1B3FB0073F37D /* TransportOrder */,
+				8EDBF4CE1FA181930073F37D /* RentOrder */,
 			);
 			name = orders;
 			sourceTree = "<group>";
 		};
-		8EDBF4CE1FA181930073F37D /* rentorder */ = {
+		8EDBF4CE1FA181930073F37D /* RentOrder */ = {
 			isa = PBXGroup;
 			children = (
 				8EDBF4C81FA17F600073F37D /* RentOrderPagerViewController.h */,
@@ -818,10 +850,10 @@
 				8EDBF4DA1FA18C110073F37D /* RentOrderModel.h */,
 				8EDBF4DB1FA18C110073F37D /* RentOrderModel.m */,
 			);
-			name = rentorder;
+			name = RentOrder;
 			sourceTree = "<group>";
 		};
-		8EDBF4DD1FA1B3FB0073F37D /* transportorder */ = {
+		8EDBF4DD1FA1B3FB0073F37D /* TransportOrder */ = {
 			isa = PBXGroup;
 			children = (
 				8EDBF4DE1FA1B44D0073F37D /* TransportOrderPagerViewController.h */,
@@ -836,7 +868,7 @@
 				8EDBF4EC1FA1B58D0073F37D /* TransportOrderModel.h */,
 				8EDBF4ED1FA1B58D0073F37D /* TransportOrderModel.m */,
 			);
-			name = transportorder;
+			name = TransportOrder;
 			sourceTree = "<group>";
 		};
 		8EDBF4FA1FA42F310073F37D /* model */ = {
@@ -846,6 +878,31 @@
 				8EDBF4FC1FA42F570073F37D /* RentProductModel.m */,
 				8EDBF4FE1FA42F7A0073F37D /* RentCartModel.h */,
 				8EDBF4FF1FA42F7A0073F37D /* RentCartModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		8EDCF5B91FA6D45000AA4359 /* MyInvoice */ = {
+			isa = PBXGroup;
+			children = (
+				8EDCF5B31FA6D42100AA4359 /* MyInvoicePagerViewController.h */,
+				8EDCF5B41FA6D42100AA4359 /* MyInvoicePagerViewController.m */,
+				8EDCF5B61FA6D44100AA4359 /* MyInvoiceTableViewController.h */,
+				8EDCF5B71FA6D44100AA4359 /* MyInvoiceTableViewController.m */,
+				8EDCF5BE1FA6D76B00AA4359 /* InvoiceModel.h */,
+				8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */,
+				8EDCF5C11FA6DB4F00AA4359 /* MyInvoiceTableViewCell.h */,
+				8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */,
+				8EDCF5C31FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib */,
+			);
+			name = MyInvoice;
+			sourceTree = "<group>";
+		};
+		8EDCF5BA1FA6D55A00AA4359 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8EDCF5BB1FA6D5C500AA4359 /* BaseTypeObject.h */,
+				8EDCF5BC1FA6D5C500AA4359 /* BaseTypeObject.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -909,10 +966,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */,
 				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
 				8EDBF4E51FA1B47C0073F37D /* TransportOrderTableViewCell.xib in Resources */,
 				8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
+				8EDCF5C51FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib in Resources */,
 				8EDBF4D31FA181D60073F37D /* RentOrderTableViewCell.xib in Resources */,
 				8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
@@ -992,11 +1051,13 @@
 				8E6C749F1FA0669D004B33D1 /* ProductDetailViewController.m in Sources */,
 				8EDBF4E81FA1B4D20073F37D /* TransportOrderTableViewController.m in Sources */,
 				8E6C74931FA03E69004B33D1 /* ProductDetailTableViewCell.m in Sources */,
+				8EDCF5BD1FA6D5C500AA4359 /* BaseTypeObject.m in Sources */,
 				8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */,
 				8E2E40971F945A2E00B42477 /* NothingWarningView.m in Sources */,
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
 				8E6C74981FA03E9B004B33D1 /* ProductParameterTableViewCell.m in Sources */,
 				8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */,
+				8EDCF5C41FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m in Sources */,
 				8EDBF4F41FA1E5660073F37D /* ProductSearchTableViewController.m in Sources */,
 				8E99AAB01F9068920078C452 /* UIImage+GIF.m in Sources */,
 				8E99AAAD1F9068920078C452 /* SDWebImageManager.m in Sources */,
@@ -1033,24 +1094,29 @@
 				8E99AAAA1F9068920078C452 /* SDWebImageDecoder.m in Sources */,
 				8E99AAAB1F9068920078C452 /* SDWebImageDownloader.m in Sources */,
 				8EDBF5001FA42F7A0073F37D /* RentCartModel.m in Sources */,
+				8EDCF5B81FA6D44100AA4359 /* MyInvoiceTableViewController.m in Sources */,
 				8E99AAB61F9068920078C452 /* UIView+WebCacheOperation.m in Sources */,
 				8E6C74181F9DD785004B33D1 /* ExhibitionListViewController.m in Sources */,
 				8E99AAB51F9068920078C452 /* UIView+WebCache.m in Sources */,
 				8E6C74291F9ED49D004B33D1 /* SimpleTitleTableViewCell.m in Sources */,
 				8E6C74891FA0243E004B33D1 /* TravellingRootViewController.m in Sources */,
 				8EDBF4D91FA183F30073F37D /* RentOrderDataSource.m in Sources */,
+				8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */,
 				8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				8E6C74021F9D9CA0004B33D1 /* TitleSelectionHeaderTableViewCell.m in Sources */,
 				8E99AAA31F9068920078C452 /* Reachability.m in Sources */,
+				8EDCF5C01FA6D76B00AA4359 /* InvoiceModel.m in Sources */,
 				8E99AA481F9068920078C452 /* NSString+ext.m in Sources */,
 				8EDBF4E01FA1B44D0073F37D /* TransportOrderPagerViewController.m in Sources */,
 				8EDBF4F71FA2D95E0073F37D /* SearchTipsView.m in Sources */,
 				8E99AAAF1F9068920078C452 /* UIButton+WebCache.m in Sources */,
+				8EDCF5B51FA6D42100AA4359 /* MyInvoicePagerViewController.m in Sources */,
 				8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */,
 				8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */,
 				8E6C73FE1F9D9B18004B33D1 /* FormBaseTableViewCell.m in Sources */,
 				8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */,
+				8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */,
 				8E99AA451F9068920078C452 /* ZZSearchBar.m in Sources */,
 				8E6C740C1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.m in Sources */,
 				8E99AA461F9068920078C452 /* NSDictionary+ext.m in Sources */,
