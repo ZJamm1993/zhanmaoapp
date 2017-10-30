@@ -93,7 +93,7 @@
         cell.title.text=mo.title;
         cell.image.image=[UIImage imageNamed:mo.image];
         cell.detail.text=mo.detail;
-        cell.accessoryType=mo.detail.length>0?UITableViewCellAccessoryNone:UITableViewCellAccessoryDisclosureIndicator;
+//        cell.accessoryType=mo.detail.length>0?UITableViewCellAccessoryNone:UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }
     return [[UITableViewCell alloc]init];

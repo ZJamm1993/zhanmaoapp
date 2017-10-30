@@ -15,18 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZY9-xr-9wX">
-                        <rect key="frame" x="20" y="0.0" width="30" height="43.5"/>
+                        <rect key="frame" x="15" y="0.0" width="30" height="43.5"/>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="FIt-kb-vCd"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的钱包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-hO-zHl">
-                        <rect key="frame" x="58" y="0.0" width="61.5" height="43.5"/>
+                        <rect key="frame" x="53" y="0.0" width="61.5" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="43.5" id="ZbN-8D-jFu"/>
                         </constraints>
@@ -43,7 +43,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZY9-xr-9wX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="J3V-A2-jsn"/>
-                    <constraint firstItem="ZY9-xr-9wX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="S2W-Dr-J1O"/>
+                    <constraint firstItem="ZY9-xr-9wX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="S2W-Dr-J1O"/>
                     <constraint firstItem="ddm-hO-zHl" firstAttribute="leading" secondItem="ZY9-xr-9wX" secondAttribute="trailing" constant="8" id="TTa-NQ-Egd"/>
                     <constraint firstAttribute="bottom" secondItem="ZY9-xr-9wX" secondAttribute="bottom" id="Zzg-lX-tGC"/>
                     <constraint firstAttribute="bottom" secondItem="ddm-hO-zHl" secondAttribute="bottom" id="ckj-Oa-9Lj"/>
