@@ -69,7 +69,7 @@ const NSInteger simpleButtonRowCount=4;
         
         UIImageView* imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, widthPerEach, imageHeight)];
 //        imageView.backgroundColor=_randomColor;
-        imageView.contentMode=UIViewContentModeScaleAspectFit;
+        imageView.contentMode=UIViewContentModeCenter;
         imageView.image=[UIImage imageNamed:mo.imageName];
         [bbg addSubview:imageView];
         

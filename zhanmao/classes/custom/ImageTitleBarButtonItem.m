@@ -13,10 +13,12 @@
 +(instancetype)itemWithImageName:(NSString *)imageName title:(NSString *)title target:(id)target selector:(SEL)selector
 {
     UIImageView* img=[[UIImageView alloc]initWithImage:[UIImage imageNamed:imageName]];
-    img.frame=CGRectMake(0, 0, 20, 30);
+    img.frame=CGRectMake(0, 0, 30, 30);
     img.contentMode=UIViewContentModeCenter;
+    [img sizeToFit];
+    img.frame=CGRectMake(0, 0, img.frame.size.width, 30);
     
-    UILabel* lab=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(img.frame), 0, 100, CGRectGetMaxY(img.frame))];
+    UILabel* lab=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(img.frame)+10, 0, 100, CGRectGetMaxY(img.frame))];
     lab.text=title;
     lab.textColor=[UIColor whiteColor];
     lab.font=[UIFont systemFontOfSize:13];

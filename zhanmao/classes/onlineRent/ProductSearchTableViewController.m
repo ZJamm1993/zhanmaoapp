@@ -8,9 +8,13 @@
 
 #import "ProductSearchTableViewController.h"
 #import "SearchTipsView.h"
+#import "ZZSearchBar.h"
 
-@interface ProductSearchTableViewController ()<SearchTipsViewDelegate>
-
+@interface ProductSearchTableViewController ()<SearchTipsViewDelegate,UITextFieldDelegate>
+{
+    SearchTipsView* tip;
+    ZZSearchBar* searchBar;
+}
 @end
 
 @implementation ProductSearchTableViewController
@@ -18,8 +22,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    SearchTipsView* tip=[SearchTipsView searchTipsViewWithRecentlyStrings:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] trendyString:@[@"1-",@"2-",@"3-",@"4-",@"5-",@"6-"] delegate:self];
+    tip=[SearchTipsView searchTipsViewWithRecentlyStrings:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] trendyString:@[@"1-",@"2-",@"3-",@"4-",@"5-",@"6-"] delegate:self];
     [self.tableView addSubview:tip];
+    
+    searchBar=[ZZSearchBar defaultBar];
+    searchBar.delegate=self;
+    self.navigationItem.titleView=searchBar;
+    
+    UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"搜索" style:UIBarButtonItemStylePlain target:self action:@selector(searchPress)];
+    self.navigationItem.rightBarButtonItem=searchBtn;
     // Do any additional setup after loading the view.
 }
 
@@ -28,6 +39,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)searchTipsView:(SearchTipsView *)tipsview selectedString:(NSString *)string
+{
+    NSLog(@"%@",string);
+    searchBar.text=string;
+    [self goSearchString:string];
+}
 
+-(void)searchPress
+{
+    [self goSearchString:searchBar.text];
+    [searchBar resignFirstResponder];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self goSearchString:textField.text];
+    return NO;
+}
+
+-(void)goSearchString:(NSString*)str
+{
+    
+}
 
 @end

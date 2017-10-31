@@ -12,6 +12,7 @@
 @interface MainPageHeaderTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *cardBg;
+@property (weak, nonatomic) IBOutlet UIView *titleBg;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardHeightConstraint;
 
 -(void)setButtons:(NSArray<SimpleButtonModel*>*)buttons;

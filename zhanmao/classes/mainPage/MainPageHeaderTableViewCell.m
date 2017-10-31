@@ -27,6 +27,8 @@
     self.cardBg.layer.shadowOffset=CGSizeZero;
     self.cardBg.layer.shadowRadius=2;
     self.cardBg.layer.shadowOpacity=0.5;
+    
+    self.titleBg.backgroundColor=_mainColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

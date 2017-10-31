@@ -46,13 +46,8 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DR3-u2-Hpm">
-                                <rect key="frame" x="71" y="1" width="20" height="20"/>
-                                <color key="backgroundColor" name="keyboardFocusIndicatorColor" catalog="System" colorSpace="catalog"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="Jqd-dm-ILa"/>
-                                    <constraint firstAttribute="height" constant="20" id="vPs-eI-70a"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eyeGray" translatesAutoresizingMaskIntoConstraints="NO" id="DR3-u2-Hpm">
+                                <rect key="frame" x="74" y="5" width="17" height="12"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,5 +100,6 @@
     </objects>
     <resources>
         <image name="1.jpg" width="640" height="480"/>
+        <image name="eyeGray" width="17" height="12"/>
     </resources>
 </document>

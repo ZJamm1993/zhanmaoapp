@@ -13,6 +13,7 @@
 +(instancetype)searchTipsViewWithRecentlyStrings:(NSArray<NSString *> *)recently trendyString:(NSArray<NSString *> *)trendy delegate:(id<SearchTipsViewDelegate>)delegate
 {
     SearchTipsView* view=[[SearchTipsView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    view.delegate=delegate;
     view.backgroundColor=[UIColor whiteColor];
     
     
@@ -113,7 +114,12 @@
 
 -(void)stringButtonClick:(UIButton*)btn
 {
-    
+    NSString* str=[btn titleForState:UIControlStateNormal];
+    if (str.length>0) {
+        if ([self.delegate respondsToSelector:@selector(searchTipsView:selectedString:)]) {
+            [self.delegate searchTipsView:self selectedString:str];
+        }
+    }
 }
 
 -(void)deleteButtonClick:(UIButton*)btn

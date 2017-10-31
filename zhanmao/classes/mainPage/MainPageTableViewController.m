@@ -41,6 +41,9 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     
     [self setLocation:@"guangz"];
     
+    UIBarButtonItem* searchItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchWhite"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
+    self.navigationItem.rightBarButtonItem=searchItem;
+    
 //    locationItem.image=[UIImage imageNamed:@"a.png"];
 //    UIBarButtonItem* downInd=[[UIBarButtonItem alloc]initWithTitle:@"V" style:UIBarButtonItemStylePlain target:nil action:nil];
     
@@ -65,8 +68,13 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 -(void)setLocation:(NSString*)location
 {
-    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"a.png" title:location target:self selector:@selector(selectLocation)];
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" title:location target:self selector:@selector(selectLocation)];
     self.navigationItem.leftBarButtonItem=it;
+}
+
+-(void)goSearch
+{
+    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"] animated:YES];
 }
 
 -(NSArray*)arrayWithSimpleButtons
@@ -74,10 +82,11 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     if (arrayWithSimpleButtons.count==0) {
         
         NSMutableArray* array=[NSMutableArray array];
-        NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"舞台",@"演艺",@"邀约",@"保洁",@"物流",@"",@"", nil];
+        NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"舞台",@"演艺",@"会议",@"保洁",@"物流",@"",@"", nil];
+        NSArray* images=[NSArray arrayWithObjects:@"zhuchang",@"zhantai",@"zhanting",@"wutai",@"yanyi",@"huiyi",@"baojie",@"wuliu",@"",@"", nil];
         NSArray* identis=[NSArray arrayWithObjects:@"ExhibitionListViewController", nil];
         for (NSInteger i=0; i<8; i++) {
-            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:@"a" identifier:i<identis.count?[identis objectAtIndex:i]:@""];
+            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:[images objectAtIndex:i] identifier:i<identis.count?[identis objectAtIndex:i]:@""];
             [array addObject:mo];
         }
         arrayWithSimpleButtons=array;
