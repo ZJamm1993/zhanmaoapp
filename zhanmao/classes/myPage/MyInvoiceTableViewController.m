@@ -17,8 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"MyInvoiceTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyInvoiceTableViewCell"];
     // Do any additional setup after loading the view.
 }
 

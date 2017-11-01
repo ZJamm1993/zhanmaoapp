@@ -15,6 +15,7 @@
 @protocol RentCartEditTableViewCellDelegate <NSObject>
 
 -(void)rentCartEditTableViewCell:(RentCartEditTableViewCell*)cell deleteCartModel:(RentCartModel*)cartModel;
+-(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell didChangeModel:(RentCartModel *)cartModel;
 
 @end
 

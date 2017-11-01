@@ -77,4 +77,9 @@
     [self.tableView addSubview:self.bottomToolBar];
 }
 
+-(CGRect)bottomViewFrame
+{
+    return CGRectMake(10, 10, self.bottomToolBar.frame.size.width-20, self.bottomToolBar.frame.size.height-20);
+}
+
 @end

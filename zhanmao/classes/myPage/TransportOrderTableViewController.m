@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"TransportOrderTableViewCell" bundle:nil] forCellReuseIdentifier:@"TransportOrderTableViewCell"];
     
     // Do any additional setup after loading the view.
 }

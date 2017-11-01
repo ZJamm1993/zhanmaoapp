@@ -22,6 +22,8 @@
     self.backgroundColor=[UIColor clearColor];
     self.contentView.backgroundColor=[UIColor clearColor];
     
+    self.personalBg.backgroundColor=_mainColor;
+    
     self.selectionStyle=UITableViewCellSelectionStyleNone;
     
     self.cardBg.layer.cornerRadius=8;

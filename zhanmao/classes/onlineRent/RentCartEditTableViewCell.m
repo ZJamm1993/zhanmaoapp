@@ -58,6 +58,7 @@
 - (IBAction)selectedButtonClick:(id)sender {
     self.cartModel.selected=!self.cartModel.selected;
     self.cartModel=self.cartModel;
+    [self modelChanged];
 }
 
 - (IBAction)deleteButtonClick:(id)sender {
@@ -69,11 +70,20 @@
 - (IBAction)countStepperValueChanged:(ZZStepper*)sender {
     self.cartModel.count=sender.value;
     self.cartModel=self.cartModel;
+    [self modelChanged];
 }
 
 - (IBAction)daysStepperValueChanged:(ZZStepper*)sender {
     self.cartModel.days=sender.value;
     self.cartModel=self.cartModel;
+    [self modelChanged];
+}
+
+-(void)modelChanged
+{
+    if ([self.delegate respondsToSelector:@selector(rentCartEditTableViewCell:didChangeModel:)]) {
+        [self.delegate rentCartEditTableViewCell:self didChangeModel:self.cartModel];
+    }
 }
 
 @end

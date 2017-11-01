@@ -23,6 +23,7 @@
 #import "MBProgressHUD+ZZCustom.h"
 #import "NSString+ext.h"
 #import "UIImage+ext.h"
+#import "UITableView+Ext.h"
 
 #import "NaviController.h"
 
@@ -40,7 +41,7 @@
 
 #define _pinkColor rgb(233,0,117)
 #define _redColor rgb(218,0,0)
-#define _blueColor rgb(56,121,232)
+#define _blueColor rgb(59,119,240)
 
 #define _mainColor _blueColor
 

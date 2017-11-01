@@ -22,7 +22,6 @@
     [super viewDidLoad];
     
     self.tableView.separatorColor=[UIColor lightGrayColor];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeRectTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeRectTableViewCell"];
     // Do any additional setup after loading the view.
 }
 

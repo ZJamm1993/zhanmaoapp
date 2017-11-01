@@ -43,7 +43,6 @@
 		8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */; };
 		8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */; };
 		8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */; };
-		8E6C74751F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C74731F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib */; };
 		8E6C747B1F9F40CD004B33D1 /* ExhibitionPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */; };
 		8E6C74811F9F42E8004B33D1 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747C1F9F42E8004B33D1 /* 0.jpg */; };
 		8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747D1F9F42E8004B33D1 /* 1.jpg */; };
@@ -110,6 +109,12 @@
 		8E99AAC41F9069AC0078C452 /* TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99AAC21F9069AC0078C452 /* TabbarController.m */; };
 		8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99AAC61F906B190078C452 /* ZZnotificationName.m */; };
 		8E99AACA1F906E660078C452 /* AdvertiseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99AAC91F906E660078C452 /* AdvertiseView.m */; };
+		8E9B0CB91FA9614800770F8D /* MyAddressEditTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CB81FA9614800770F8D /* MyAddressEditTableViewController.m */; };
+		8E9B0CBD1FA962A000770F8D /* AddressListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CBB1FA962A000770F8D /* AddressListTableViewCell.m */; };
+		8E9B0CC21FA964E700770F8D /* AddressOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CC01FA964E700770F8D /* AddressOptionTableViewCell.m */; };
+		8E9B0CC61FA9680200770F8D /* UITableView+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CC51FA9680200770F8D /* UITableView+Ext.m */; };
+		8E9B0CC91FA97D1600770F8D /* RentCartEditToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CC81FA97D1600770F8D /* RentCartEditToolBar.m */; };
+		8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B0CCA1FA97D2B00770F8D /* RentCartEditToolBar.xib */; };
 		8EB674C11F973818008CC196 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674BC1F973818008CC196 /* BaseCollectionViewController.m */; };
 		8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674BE1F973818008CC196 /* BaseLoadMoreFooterView.m */; };
 		8EB674C31F973818008CC196 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C01F973818008CC196 /* BaseTableViewController.m */; };
@@ -130,13 +135,11 @@
 		8EDBF4CA1FA17F600073F37D /* RentOrderPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4C91FA17F600073F37D /* RentOrderPagerViewController.m */; };
 		8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */; };
 		8EDBF4D21FA181D60073F37D /* RentOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */; };
-		8EDBF4D31FA181D60073F37D /* RentOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D11FA181D60073F37D /* RentOrderTableViewCell.xib */; };
 		8EDBF4D61FA181EE0073F37D /* RentOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D51FA181EE0073F37D /* RentOrderTableViewController.m */; };
 		8EDBF4D91FA183F30073F37D /* RentOrderDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D81FA183F30073F37D /* RentOrderDataSource.m */; };
 		8EDBF4DC1FA18C110073F37D /* RentOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4DB1FA18C110073F37D /* RentOrderModel.m */; };
 		8EDBF4E01FA1B44D0073F37D /* TransportOrderPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4DF1FA1B44D0073F37D /* TransportOrderPagerViewController.m */; };
 		8EDBF4E41FA1B47C0073F37D /* TransportOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4E21FA1B47C0073F37D /* TransportOrderTableViewCell.m */; };
-		8EDBF4E51FA1B47C0073F37D /* TransportOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4E31FA1B47C0073F37D /* TransportOrderTableViewCell.xib */; };
 		8EDBF4E81FA1B4D20073F37D /* TransportOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4E71FA1B4D20073F37D /* TransportOrderTableViewController.m */; };
 		8EDBF4EB1FA1B57C0073F37D /* TransportOrderDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4EA1FA1B57C0073F37D /* TransportOrderDataSource.m */; };
 		8EDBF4EE1FA1B58D0073F37D /* TransportOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4ED1FA1B58D0073F37D /* TransportOrderModel.m */; };
@@ -151,7 +154,6 @@
 		8EDCF5BD1FA6D5C500AA4359 /* BaseTypeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5BC1FA6D5C500AA4359 /* BaseTypeObject.m */; };
 		8EDCF5C01FA6D76B00AA4359 /* InvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */; };
 		8EDCF5C41FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */; };
-		8EDCF5C51FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EDCF5C31FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,7 +219,6 @@
 		8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionExamplesViewController.m; sourceTree = "<group>"; };
 		8E6C74711F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionLargeRectTableViewCell.h; sourceTree = "<group>"; };
 		8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionLargeRectTableViewCell.m; sourceTree = "<group>"; };
-		8E6C74731F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExhibitionLargeRectTableViewCell.xib; sourceTree = "<group>"; };
 		8E6C74791F9F40CD004B33D1 /* ExhibitionPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionPictureViewController.h; sourceTree = "<group>"; };
 		8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionPictureViewController.m; sourceTree = "<group>"; };
 		8E6C747C1F9F42E8004B33D1 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
@@ -335,6 +336,17 @@
 		8E99AAC61F906B190078C452 /* ZZnotificationName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZnotificationName.m; sourceTree = "<group>"; };
 		8E99AAC81F906E660078C452 /* AdvertiseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiseView.h; sourceTree = "<group>"; };
 		8E99AAC91F906E660078C452 /* AdvertiseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiseView.m; sourceTree = "<group>"; };
+		8E9B0CB71FA9614800770F8D /* MyAddressEditTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddressEditTableViewController.h; sourceTree = "<group>"; };
+		8E9B0CB81FA9614800770F8D /* MyAddressEditTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddressEditTableViewController.m; sourceTree = "<group>"; };
+		8E9B0CBA1FA962A000770F8D /* AddressListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressListTableViewCell.h; sourceTree = "<group>"; };
+		8E9B0CBB1FA962A000770F8D /* AddressListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressListTableViewCell.m; sourceTree = "<group>"; };
+		8E9B0CBF1FA964E700770F8D /* AddressOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressOptionTableViewCell.h; sourceTree = "<group>"; };
+		8E9B0CC01FA964E700770F8D /* AddressOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressOptionTableViewCell.m; sourceTree = "<group>"; };
+		8E9B0CC41FA9680200770F8D /* UITableView+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Ext.h"; sourceTree = "<group>"; };
+		8E9B0CC51FA9680200770F8D /* UITableView+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Ext.m"; sourceTree = "<group>"; };
+		8E9B0CC71FA97D1600770F8D /* RentCartEditToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentCartEditToolBar.h; sourceTree = "<group>"; };
+		8E9B0CC81FA97D1600770F8D /* RentCartEditToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentCartEditToolBar.m; sourceTree = "<group>"; };
+		8E9B0CCA1FA97D2B00770F8D /* RentCartEditToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentCartEditToolBar.xib; sourceTree = "<group>"; };
 		8EB674BB1F973818008CC196 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
 		8EB674BC1F973818008CC196 /* BaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewController.m; sourceTree = "<group>"; };
 		8EB674BD1F973818008CC196 /* BaseLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoadMoreFooterView.h; sourceTree = "<group>"; };
@@ -368,7 +380,6 @@
 		8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		8EDBF4CF1FA181D60073F37D /* RentOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderTableViewCell.h; sourceTree = "<group>"; };
 		8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderTableViewCell.m; sourceTree = "<group>"; };
-		8EDBF4D11FA181D60073F37D /* RentOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentOrderTableViewCell.xib; sourceTree = "<group>"; };
 		8EDBF4D41FA181EE0073F37D /* RentOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderTableViewController.h; sourceTree = "<group>"; };
 		8EDBF4D51FA181EE0073F37D /* RentOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderTableViewController.m; sourceTree = "<group>"; };
 		8EDBF4D71FA183F30073F37D /* RentOrderDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderDataSource.h; sourceTree = "<group>"; };
@@ -379,7 +390,6 @@
 		8EDBF4DF1FA1B44D0073F37D /* TransportOrderPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportOrderPagerViewController.m; sourceTree = "<group>"; };
 		8EDBF4E11FA1B47C0073F37D /* TransportOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportOrderTableViewCell.h; sourceTree = "<group>"; };
 		8EDBF4E21FA1B47C0073F37D /* TransportOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportOrderTableViewCell.m; sourceTree = "<group>"; };
-		8EDBF4E31FA1B47C0073F37D /* TransportOrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportOrderTableViewCell.xib; sourceTree = "<group>"; };
 		8EDBF4E61FA1B4D20073F37D /* TransportOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportOrderTableViewController.h; sourceTree = "<group>"; };
 		8EDBF4E71FA1B4D20073F37D /* TransportOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportOrderTableViewController.m; sourceTree = "<group>"; };
 		8EDBF4E91FA1B57C0073F37D /* TransportOrderDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportOrderDataSource.h; sourceTree = "<group>"; };
@@ -407,7 +417,6 @@
 		8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceModel.m; sourceTree = "<group>"; };
 		8EDCF5C11FA6DB4F00AA4359 /* MyInvoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvoiceTableViewCell.h; sourceTree = "<group>"; };
 		8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvoiceTableViewCell.m; sourceTree = "<group>"; };
-		8EDCF5C31FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInvoiceTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -525,6 +534,9 @@
 				8E6C74A71FA071B4004B33D1 /* RentCartEditTableViewCell.xib */,
 				8EDBF4F51FA2D95E0073F37D /* SearchTipsView.h */,
 				8EDBF4F61FA2D95E0073F37D /* SearchTipsView.m */,
+				8E9B0CC71FA97D1600770F8D /* RentCartEditToolBar.h */,
+				8E9B0CC81FA97D1600770F8D /* RentCartEditToolBar.m */,
+				8E9B0CCA1FA97D2B00770F8D /* RentCartEditToolBar.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -673,6 +685,8 @@
 				8E99A9361F9068910078C452 /* UIImage+ext.m */,
 				8E99A9371F9068910078C452 /* UIView+ext.h */,
 				8E99A9381F9068910078C452 /* UIView+ext.m */,
+				8E9B0CC41FA9680200770F8D /* UITableView+Ext.h */,
+				8E9B0CC51FA9680200770F8D /* UITableView+Ext.m */,
 			);
 			path = ext;
 			sourceTree = "<group>";
@@ -765,6 +779,19 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		8E9B0CB61FA9611800770F8D /* myaddress */ = {
+			isa = PBXGroup;
+			children = (
+				8E9B0CB71FA9614800770F8D /* MyAddressEditTableViewController.h */,
+				8E9B0CB81FA9614800770F8D /* MyAddressEditTableViewController.m */,
+				8E9B0CBA1FA962A000770F8D /* AddressListTableViewCell.h */,
+				8E9B0CBB1FA962A000770F8D /* AddressListTableViewCell.m */,
+				8E9B0CBF1FA964E700770F8D /* AddressOptionTableViewCell.h */,
+				8E9B0CC01FA964E700770F8D /* AddressOptionTableViewCell.m */,
+			);
+			name = myaddress;
+			sourceTree = "<group>";
+		};
 		8EB674D51F99CB76008CC196 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,7 +808,6 @@
 				8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */,
 				8E6C74711F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.h */,
 				8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */,
-				8E6C74731F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib */,
 				8EB674C61F97416B008CC196 /* MessageSmallTableViewCell.h */,
 				8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */,
 				8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */,
@@ -792,9 +818,10 @@
 		8EB674E01F99E9C8008CC196 /* myPage */ = {
 			isa = PBXGroup;
 			children = (
+				8E9B0CB61FA9611800770F8D /* myaddress */,
+				8EDCF5B91FA6D45000AA4359 /* myinvoice */,
+				8EDBF4CD1FA1816F0073F37D /* myorders */,
 				8EDCF5BA1FA6D55A00AA4359 /* model */,
-				8EDCF5B91FA6D45000AA4359 /* MyInvoice */,
-				8EDBF4CD1FA1816F0073F37D /* orders */,
 				8EB674E91F99EB7B008CC196 /* views */,
 				8EB674E11F99E9EA008CC196 /* MyPageTableViewController.h */,
 				8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */,
@@ -823,13 +850,13 @@
 			name = views;
 			sourceTree = "<group>";
 		};
-		8EDBF4CD1FA1816F0073F37D /* orders */ = {
+		8EDBF4CD1FA1816F0073F37D /* myorders */ = {
 			isa = PBXGroup;
 			children = (
 				8EDBF4DD1FA1B3FB0073F37D /* TransportOrder */,
 				8EDBF4CE1FA181930073F37D /* RentOrder */,
 			);
-			name = orders;
+			name = myorders;
 			sourceTree = "<group>";
 		};
 		8EDBF4CE1FA181930073F37D /* RentOrder */ = {
@@ -839,7 +866,6 @@
 				8EDBF4C91FA17F600073F37D /* RentOrderPagerViewController.m */,
 				8EDBF4CF1FA181D60073F37D /* RentOrderTableViewCell.h */,
 				8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */,
-				8EDBF4D11FA181D60073F37D /* RentOrderTableViewCell.xib */,
 				8EDBF4D41FA181EE0073F37D /* RentOrderTableViewController.h */,
 				8EDBF4D51FA181EE0073F37D /* RentOrderTableViewController.m */,
 				8EDBF4D71FA183F30073F37D /* RentOrderDataSource.h */,
@@ -857,7 +883,6 @@
 				8EDBF4DF1FA1B44D0073F37D /* TransportOrderPagerViewController.m */,
 				8EDBF4E11FA1B47C0073F37D /* TransportOrderTableViewCell.h */,
 				8EDBF4E21FA1B47C0073F37D /* TransportOrderTableViewCell.m */,
-				8EDBF4E31FA1B47C0073F37D /* TransportOrderTableViewCell.xib */,
 				8EDBF4E61FA1B4D20073F37D /* TransportOrderTableViewController.h */,
 				8EDBF4E71FA1B4D20073F37D /* TransportOrderTableViewController.m */,
 				8EDBF4E91FA1B57C0073F37D /* TransportOrderDataSource.h */,
@@ -879,7 +904,7 @@
 			name = model;
 			sourceTree = "<group>";
 		};
-		8EDCF5B91FA6D45000AA4359 /* MyInvoice */ = {
+		8EDCF5B91FA6D45000AA4359 /* myinvoice */ = {
 			isa = PBXGroup;
 			children = (
 				8EDCF5B31FA6D42100AA4359 /* MyInvoicePagerViewController.h */,
@@ -890,9 +915,8 @@
 				8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */,
 				8EDCF5C11FA6DB4F00AA4359 /* MyInvoiceTableViewCell.h */,
 				8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */,
-				8EDCF5C31FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib */,
 			);
-			name = MyInvoice;
+			name = myinvoice;
 			sourceTree = "<group>";
 		};
 		8EDCF5BA1FA6D55A00AA4359 /* model */ = {
@@ -965,11 +989,9 @@
 			files = (
 				8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */,
 				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
-				8EDBF4E51FA1B47C0073F37D /* TransportOrderTableViewCell.xib in Resources */,
 				8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
-				8EDCF5C51FA6DB4F00AA4359 /* MyInvoiceTableViewCell.xib in Resources */,
-				8EDBF4D31FA181D60073F37D /* RentOrderTableViewCell.xib in Resources */,
+				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
 				8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				8E6C74991FA03E9B004B33D1 /* ProductParameterTableViewCell.xib in Resources */,
@@ -997,7 +1019,6 @@
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
 				8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */,
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
-				8E6C74751F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */,
 				8EDBF4F91FA31D610073F37D /* 10.png in Resources */,
@@ -1065,7 +1086,9 @@
 				8EDBF4CA1FA17F600073F37D /* RentOrderPagerViewController.m in Sources */,
 				8E6C74071F9D9E4D004B33D1 /* TitleSelectionItemTableViewCell.m in Sources */,
 				8EDBF4D21FA181D60073F37D /* RentOrderTableViewCell.m in Sources */,
+				8E9B0CC91FA97D1600770F8D /* RentCartEditToolBar.m in Sources */,
 				8EDBF4EE1FA1B58D0073F37D /* TransportOrderModel.m in Sources */,
+				8E9B0CBD1FA962A000770F8D /* AddressListTableViewCell.m in Sources */,
 				8E6C74251F9DF537004B33D1 /* MenuHeaderTableViewCell.m in Sources */,
 				8EDBF4D61FA181EE0073F37D /* RentOrderTableViewController.m in Sources */,
 				8E99AA9D1F9068920078C452 /* JRSwizzle.m in Sources */,
@@ -1081,6 +1104,7 @@
 				8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */,
 				8E99AAA51F9068920078C452 /* NSData+ImageContentType.m in Sources */,
 				8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */,
+				8E9B0CB91FA9614800770F8D /* MyAddressEditTableViewController.m in Sources */,
 				8EB674C11F973818008CC196 /* BaseCollectionViewController.m in Sources */,
 				8E99AAAE1F9068920078C452 /* SDWebImagePrefetcher.m in Sources */,
 				8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */,
@@ -1093,6 +1117,7 @@
 				8EDCF5B81FA6D44100AA4359 /* MyInvoiceTableViewController.m in Sources */,
 				8E99AAB61F9068920078C452 /* UIView+WebCacheOperation.m in Sources */,
 				8E6C74181F9DD785004B33D1 /* ExhibitionListViewController.m in Sources */,
+				8E9B0CC61FA9680200770F8D /* UITableView+Ext.m in Sources */,
 				8E99AAB51F9068920078C452 /* UIView+WebCache.m in Sources */,
 				8E6C74291F9ED49D004B33D1 /* SimpleTitleTableViewCell.m in Sources */,
 				8E6C74891FA0243E004B33D1 /* TravellingRootViewController.m in Sources */,
@@ -1110,6 +1135,7 @@
 				8EDCF5B51FA6D42100AA4359 /* MyInvoicePagerViewController.m in Sources */,
 				8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */,
 				8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */,
+				8E9B0CC21FA964E700770F8D /* AddressOptionTableViewCell.m in Sources */,
 				8E6C73FE1F9D9B18004B33D1 /* FormBaseTableViewCell.m in Sources */,
 				8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */,
 				8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */,

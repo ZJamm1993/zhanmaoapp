@@ -13,6 +13,8 @@
 @property (nonatomic,strong) UIView* bottomToolBar;
 @property (nonatomic,strong) UIButton* bottomButton;
 
+@property (nonatomic,readonly,assign) CGRect bottomViewFrame;
+
 -(void)bottomToolBarButtonClicked;
 
 @end

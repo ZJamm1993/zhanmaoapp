@@ -11,16 +11,16 @@
 #import "MyPageSimpleTableViewCell.h"
 #import "MyPageCellModel.h"
 
-typedef NS_ENUM(NSInteger, MyPageSection) {
-    
-    MyPageSectionHeaders,
-    MyPageSectionPersonals,
-    MyPageSectionInvoices,
-    MyPageSectionHelps,
-    
-    MyPageSectionTotalCount,
-};
-
+//typedef NS_ENUM(NSInteger, MyPageSection) {
+//    
+//    MyPageSectionHeaders,
+//    MyPageSectionPersonals,
+//    MyPageSectionInvoices,
+//    MyPageSectionHelps,
+//    
+//    MyPageSectionTotalCount,
+//};
+//
 
 
 @interface MyPageTableViewController ()<SimpleButtonsTableViewCellDelegate,MyPageHeaderTableViewCellDelegate>
@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"地址管理" image:@"" detail:@"" identifier:@""],
+             [MyPageCellModel modelWithTitle:@"地址管理" image:@"" detail:@"" identifier:@"MyAddressEditTableViewController"],
              [MyPageCellModel modelWithTitle:@"个人资料" image:@"" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"申请发票" image:@"" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
@@ -108,20 +108,20 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return MyPageSectionTotalCount;
+    return cellModelsArray.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section==0) {
-        return 1;
-    }
-    else
-    {
+//    if (section==0) {
+//        return 1;
+//    }
+//    else
+//    {
         NSArray* arr=[cellModelsArray objectAtIndex:section];
         return arr.count;
-    }
-    return 0;
+//    }
+//    return 0;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,7 +157,7 @@ typedef NS_ENUM(NSInteger, MyPageSection) {
     NSLog(@"%@",mo.identifier);
     if (indexPath.section==1) {
         //requires loging
-        return;
+//        return;
     }
     [self pushToViewControllerId:mo.identifier];
 }

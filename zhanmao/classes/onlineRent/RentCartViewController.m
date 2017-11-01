@@ -8,6 +8,7 @@
 
 #import "RentCartViewController.h"
 #import "RentCartEditTableViewCell.h"
+#import "RentCartEditToolBar.h"
 
 @interface RentCartViewController ()<RentCartEditTableViewCellDelegate>
 
@@ -17,6 +18,7 @@
 {
     BOOL custom_editing;
     UIBarButtonItem* editButtonItem;
+    RentCartEditToolBar* editToolBar;
 }
 
 - (void)viewDidLoad {
@@ -27,6 +29,14 @@
     
     editButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editingToggle)];
     self.navigationItem.rightBarButtonItem=editButtonItem;
+    
+    editToolBar=[[[UINib nibWithNibName:@"RentCartEditToolBar" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
+    editToolBar.frame=self.bottomViewFrame;
+    [self.bottomToolBar addSubview:editToolBar];
+    
+    editToolBar.editing=self.editing;
+    [editToolBar.actionButton addTarget:self action:@selector(editToolBarAction) forControlEvents:UIControlEventTouchUpInside];
+    [editToolBar.selectAllButton addTarget:self action:@selector(editToolBarSelectAll) forControlEvents:UIControlEventTouchUpInside];
     
     for(int i=0;i<10;i++)
     {
@@ -104,6 +114,7 @@
     custom_editing=editing;
     
     [self.tableView reloadData];
+    editToolBar.editing=editing;
 }
 
 -(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell deleteCartModel:(RentCartModel *)cartModel
@@ -118,6 +129,59 @@
     }]];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell didChangeModel:(RentCartModel *)cartModel
+{
+    BOOL isSelectedAll=YES;
+    for (RentCartModel* mo in self.dataSource) {
+        if(mo.selected==NO)
+        {
+            isSelectedAll=NO;
+        }
+    }
+    [self.tableView reloadData];
+    editToolBar.seletedAll=isSelectedAll;
+}
+
+-(void)editToolBarAction
+{
+    if (self.editing) {
+        NSMutableArray* arrToDel=[NSMutableArray array];
+        for (RentCartModel* mo in self.dataSource) {
+            if(mo.selected==YES)
+            {
+                [arrToDel addObject:mo];
+            }
+        }
+        [self.dataSource removeObjectsInArray:arrToDel];
+        [self.tableView reloadData];
+    }
+    else
+    {
+        //go to pay
+    }
+}
+
+-(void)editToolBarSelectAll
+{
+    BOOL isSelectedAll=YES;
+    for (RentCartModel* mo in self.dataSource) {
+        if(mo.selected==NO)
+        {
+            isSelectedAll=NO;
+        }
+    }
+    
+    BOOL shouldSelectedAll=!isSelectedAll;
+    
+    for (RentCartModel* mo in self.dataSource) {
+        mo.selected=shouldSelectedAll;
+    }
+    
+    [self.tableView reloadData];
+    
+    editToolBar.seletedAll=shouldSelectedAll;
 }
 
 @end

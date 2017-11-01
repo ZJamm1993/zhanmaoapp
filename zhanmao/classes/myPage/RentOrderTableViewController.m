@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName:@"RentOrderTableViewCell" bundle:nil] forCellReuseIdentifier:@"RentOrderTableViewCell"];
     // Do any additional setup after loading the view.
 }
 
