@@ -89,10 +89,10 @@
     return @"删除";
 }
 
--(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
+//-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return YES;
+//}
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -148,14 +148,18 @@
 {
     if (self.editing) {
         NSMutableArray* arrToDel=[NSMutableArray array];
-        for (RentCartModel* mo in self.dataSource) {
+        NSMutableArray* indToDel=[NSMutableArray array];
+        for (NSInteger i=0;i<self.dataSource.count;i++) {
+            RentCartModel* mo=[self.dataSource objectAtIndex:i];
             if(mo.selected==YES)
             {
                 [arrToDel addObject:mo];
+                NSIndexPath* indexPath=[NSIndexPath indexPathForRow:i inSection:0];
+                [indToDel addObject:indexPath];
             }
         }
         [self.dataSource removeObjectsInArray:arrToDel];
-        [self.tableView reloadData];
+        [self.tableView deleteRowsAtIndexPaths:indToDel withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     else
     {
