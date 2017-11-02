@@ -29,7 +29,7 @@
     searchBar.delegate=self;
     self.navigationItem.titleView=searchBar;
     
-    UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"搜索" style:UIBarButtonItemStylePlain target:self action:@selector(searchPress)];
+    UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem=searchBtn;
     // Do any additional setup after loading the view.
 }
@@ -46,10 +46,17 @@
     [self goSearchString:string];
 }
 
--(void)searchPress
+-(void)viewWillDisappear:(BOOL)animated
 {
-    [self goSearchString:searchBar.text];
+    [super viewWillDisappear:animated];
     [searchBar resignFirstResponder];
+}
+
+-(void)cancel
+{
+//    [self goSearchString:searchBar.text];
+//    [searchBar resignFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField

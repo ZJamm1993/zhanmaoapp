@@ -1,18 +1,15 @@
 //
-//  RentOrderDataSource.h
+//  OrderTypeDataSource.h
 //  zhanmao
 //
-//  Created by bangju on 2017/10/26.
+//  Created by bangju on 2017/11/2.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "RentOrderModel.h"
+#import "OrderTypeBaseModel.h"
 
-
-
-@interface RentOrderDataSource : NSObject
-
+@interface OrderTypeDataSource : NSObject
 
 +(NSArray*)rentOrderDatasWithType:(RentOrderType)type;
 

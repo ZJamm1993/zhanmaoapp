@@ -1,14 +1,14 @@
 //
-//  TransportOrderTableViewController.h
+//  CleanOrderTableViewController.h
 //  zhanmao
 //
-//  Created by bangju on 2017/10/26.
+//  Created by bangju on 2017/11/2.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
 #import "BaseTableViewController.h"
 #import "OrderTypeTableViewController.h"
 
-@interface TransportOrderTableViewController : OrderTypeTableViewController
+@interface CleanOrderTableViewController : OrderTypeTableViewController
 
 @end

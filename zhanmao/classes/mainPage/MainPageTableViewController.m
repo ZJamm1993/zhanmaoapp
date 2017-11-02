@@ -39,7 +39,9 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     self.navigationItem.title=@"展贸在线";
     self.tabBarItem.title=@"主页";
     
-    [self setLocation:@"guangz"];
+//    [self setLocation:@"guangz"];
+    
+    self.tableView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
     
     UIBarButtonItem* searchItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchWhite"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
     self.navigationItem.rightBarButtonItem=searchItem;
@@ -64,6 +66,23 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         [messagesArray addObject:@"a"];
     }
 //    self.tableView.sectionHeaderHeight=44;
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 -(void)setLocation:(NSString*)location

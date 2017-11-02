@@ -6,13 +6,8 @@
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
-#import "RentOrderDataSource.h"
+#import "OrderTypeTableViewController.h"
 
-@interface RentOrderTableViewController : BaseTableViewController
-
-@property (nonatomic,assign) RentOrderType type;
-
-
+@interface RentOrderTableViewController : OrderTypeTableViewController
 
 @end

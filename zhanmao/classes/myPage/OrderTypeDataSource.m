@@ -1,20 +1,20 @@
 //
-//  RentOrderDataSource.m
+//  OrderTypeDataSource.m
 //  zhanmao
 //
-//  Created by bangju on 2017/10/26.
+//  Created by bangju on 2017/11/2.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "RentOrderDataSource.h"
+#import "OrderTypeDataSource.h"
 
-@implementation RentOrderDataSource
+@implementation OrderTypeDataSource
 
-+(NSArray*)allOrders
++(NSArray*)rentOrderDatasWithType:(RentOrderType)type
 {
-    static NSMutableArray* alls;
-    if (alls.count==0) {
-        alls=[NSMutableArray array];
+    static NSMutableArray* allsRentOrders;
+    if (allsRentOrders.count==0) {
+        allsRentOrders=[NSMutableArray array];
         for (NSInteger i=0; i<50; i++) {
             RentOrderModel* mo=[[RentOrderModel alloc]init];
             mo.title=[NSString stringWithFormat:@"%@%ld",@"商品",(long)i];
@@ -34,23 +34,18 @@
             {
                 mo.type=RentOrderTypeFinished;
             }
-            [alls addObject:mo];
+            [allsRentOrders addObject:mo];
         }
     }
-    return alls;
-}
-
-+(NSArray*)rentOrderDatasWithType:(RentOrderType)type
-{
-    NSArray* all=[self allOrders];
+    
     if (type==RentOrderTypeAll)
     {
-        return all;
+        return allsRentOrders;
     }
     else
     {
         NSMutableArray* ne=[NSMutableArray array];
-        for (RentOrderModel* mo in all) {
+        for (RentOrderModel* mo in allsRentOrders) {
             if (mo.type==type) {
                 [ne addObject:mo];
             }

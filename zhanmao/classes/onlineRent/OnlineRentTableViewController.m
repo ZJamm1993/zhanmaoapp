@@ -10,11 +10,13 @@
 
 #import "ProductDetailViewController.h"
 #import "RentCartViewController.h"
+#import "NaviController.h"
 
 #import "SimpleTitleTableViewCell.h"
 #import "GoodsTableViewCell.h"
 #import "MenuHeaderTableViewCell.h"
 
+#import "ImageTitleBarButtonItem.h"
 #import "ImageBadgeBarButtonItem.h"
 #import "ZZSearchBar.h"
 
@@ -38,8 +40,10 @@ const CGFloat categoriesHeaderHeight=50;
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
-    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"a" count:999 target:self selector:@selector(cartItemClicked)];
+    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"searchWhite" count:1 target:self selector:@selector(cartItemClicked)];
     self.navigationItem.rightBarButtonItem=cartItem;
+    
+    [self selectLocation];
     
     ZZSearchBar* searchBar=[ZZSearchBar defaultBar];
     searchBar.placeholder=@"请输入您想要的商品";
@@ -67,6 +71,18 @@ const CGFloat categoriesHeaderHeight=50;
     //will not call delegate...
 }
 
+-(void)setLocation:(NSString*)location
+{
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" title:location target:self selector:@selector(selectLocation)];
+    self.navigationItem.leftBarButtonItem=it;
+}
+
+-(void)selectLocation
+{
+    NSLog(@"select location");
+    [self setLocation:arc4random()%2==0?@"广州":@"北京"];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -74,7 +90,9 @@ const CGFloat categoriesHeaderHeight=50;
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"] animated:YES];
+    UIViewController* sear=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"];
+    UINavigationController* nav=[[NaviController alloc]initWithRootViewController:sear];
+    [self presentViewController:nav animated:YES completion:nil];
     return NO;
 }
 

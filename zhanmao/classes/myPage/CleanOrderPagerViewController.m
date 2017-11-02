@@ -1,22 +1,23 @@
 //
-//  TransportOrderPagerViewController.m
+//  CleanOrderPagerViewController.m
 //  zhanmao
 //
-//  Created by bangju on 2017/10/26.
+//  Created by bangju on 2017/11/2.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "TransportOrderPagerViewController.h"
-#import "TransportOrderTableViewController.h"
+#import "CleanOrderPagerViewController.h"
+#import "CleanOrderTableViewController.h"
 
-@interface TransportOrderPagerViewController ()<ZZPagerControllerDataSource>
+@interface CleanOrderPagerViewController ()<ZZPagerControllerDataSource>
 
 @end
 
-@implementation TransportOrderPagerViewController
+@implementation CleanOrderPagerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"保洁订单";
     self.dataSource=self;
     // Do any additional setup after loading the view.
 }
@@ -28,19 +29,19 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 2;
+    return 4;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
-    TransportOrderTableViewController* tran=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderTableViewController"];
-    tran.type=index;
-    return tran;
+    CleanOrderTableViewController* cle=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CleanOrderTableViewController"];
+    cle.type=index;
+    return cle;
 }
 
 -(NSString*)pagerController:(ZZPagerController *)pager titleAtIndex:(NSInteger)index
 {
-    return [TransportOrderModel controllerTitleForType:index];
+    return [CleanOrderModel controllerTitleForType:index];
 }
 
 -(CGRect)pagerController:(ZZPagerController *)pager frameForMenuView:(ZZPagerMenu *)menu

@@ -25,7 +25,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.dataSource=[NSMutableArray arrayWithArray:[RentOrderDataSource rentOrderDatasWithType:self.type]];
+    self.dataSource=[NSMutableArray arrayWithArray:[OrderTypeDataSource rentOrderDatasWithType:self.type]];
     [self.tableView reloadData];
     
 }

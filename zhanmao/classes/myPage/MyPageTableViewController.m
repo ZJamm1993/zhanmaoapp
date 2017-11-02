@@ -93,7 +93,7 @@
         
         NSMutableArray* array=[NSMutableArray array];
         NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单", nil];
-        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"",@"", nil];
+        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"CleanOrderPagerViewController",@"", nil];
         
         for (NSInteger i=0; i<4; i++) {
             SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:@"a" identifier:[ides objectAtIndex:i]];
