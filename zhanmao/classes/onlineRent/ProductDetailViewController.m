@@ -12,6 +12,8 @@
 
 #import "RentCartViewController.h"
 
+#import "RentActionEditView.h"
+
 @interface ProductDetailViewController ()
 
 @end
@@ -82,8 +84,11 @@
 
 -(void)bottomToolBarButtonClicked
 {
-    RentCartViewController* cart=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartViewController"];
-    [self.navigationController pushViewController:cart animated:YES];
+//    RentCartViewController* cart=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartViewController"];
+//    [self.navigationController pushViewController:cart animated:YES];
+    
+    RentActionEditView* action=[RentActionEditView defaultView];
+    [action show];
 }
 
 @end

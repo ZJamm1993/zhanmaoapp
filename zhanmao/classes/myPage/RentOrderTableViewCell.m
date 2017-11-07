@@ -40,7 +40,7 @@
     
     self.title.text=model.title;
     
-    self.stateTitle.text=[RentOrderModel cellTitleForType:model.type];
+    self.stateTitle.text=[RentOrderModel cellStateForType:model.type];
     
     RentOrderType type=model.type;
     self.blueButton.hidden=(type==RentOrderTypeFinished);

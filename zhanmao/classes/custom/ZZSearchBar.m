@@ -12,7 +12,7 @@
 
 +(instancetype)defaultBar
 {
-    ZZSearchBar* bar=[[ZZSearchBar alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 30)];
+    ZZSearchBar* bar=[[ZZSearchBar alloc]initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width*0.6, 30)];
     bar.layer.cornerRadius=bar.frame.size.height/2;
     bar.backgroundColor=[UIColor whiteColor];
 //    bar.textColor=pinkColor;

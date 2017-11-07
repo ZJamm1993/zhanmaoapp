@@ -13,6 +13,19 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
+    self.blueButton.layer.cornerRadius=2;
+    self.blueButton.layer.masksToBounds=YES;
+    //    self.blueButton setTitle:@ forState:(UIControlState)
+    [self.blueButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.blueButton setBackgroundColor:_mainColor];
+    
+    self.grayButton.layer.cornerRadius=2;
+    self.grayButton.layer.masksToBounds=YES;
+    self.grayButton.layer.borderColor=[UIColor darkGrayColor].CGColor;
+    self.grayButton.layer.borderWidth=1/[[UIScreen mainScreen]scale];
+    [self.grayButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [self.grayButton setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

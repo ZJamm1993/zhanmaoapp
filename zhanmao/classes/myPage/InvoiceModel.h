@@ -6,7 +6,7 @@
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "BaseTypeObject.h"
+#import "OrderTypeBaseModel.h"
 
 typedef NS_ENUM(NSInteger,InvoiceType)
 {
@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger,InvoiceType)
     InvoiceTypeClean,
 };
 
-@interface InvoiceModel : BaseTypeObject
+@interface InvoiceModel : OrderTypeBaseModel
 
 
 

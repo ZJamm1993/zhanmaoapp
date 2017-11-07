@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RentOrderModel.h"
+#import "OrderTypeBaseModel.h"
 
 
 @interface RentOrderTableViewCell : UITableViewCell

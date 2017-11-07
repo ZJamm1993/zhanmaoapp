@@ -51,7 +51,7 @@
         
         UILabel* ti=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, bw-imgW, bh)];
         ti.text=model.title;
-        ti.font=[UIFont systemFontOfSize:14];
+        ti.font=[UIFont systemFontOfSize:15];
 //        ti.textColor=[UIColor darkGrayColor];
         ti.textAlignment=NSTextAlignmentCenter;
         [bg addSubview:ti];

@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title=@"商旅";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"LargeImageBlackLabelTableViewCell" bundle:nil] forCellReuseIdentifier:@"LargeImageBlackLabelTableViewCell"];
     
