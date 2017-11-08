@@ -1,24 +1,24 @@
 //
-//  TransportOrderPagerViewController.m
+//  CustomOrderPagerViewController.m
 //  zhanmao
 //
-//  Created by bangju on 2017/10/26.
+//  Created by bangju on 2017/11/8.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "TransportOrderPagerViewController.h"
-#import "TransportOrderTableViewController.h"
+#import "CustomOrderPagerViewController.h"
+#import "CustomOrderTableViewController.h"
 
-@interface TransportOrderPagerViewController ()<ZZPagerControllerDataSource>
+@interface CustomOrderPagerViewController ()<ZZPagerControllerDataSource>
 
 @end
 
-@implementation TransportOrderPagerViewController
+@implementation CustomOrderPagerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"定制订单";
     self.dataSource=self;
-    self.title=@"物流订单";
     // Do any additional setup after loading the view.
 }
 
@@ -34,14 +34,14 @@
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
-    TransportOrderTableViewController* tran=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderTableViewController"];
-    tran.type=index;
-    return tran;
+    CustomOrderTableViewController* cle=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomOrderTableViewController"];
+    cle.type=index;
+    return cle;
 }
 
 -(NSString*)pagerController:(ZZPagerController *)pager titleAtIndex:(NSInteger)index
 {
-    return [TransportOrderModel controllerTitleForType:index];
+    return [CustomOrderModel controllerTitleForType:index];
 }
 
 -(CGRect)pagerController:(ZZPagerController *)pager frameForMenuView:(ZZPagerMenu *)menu

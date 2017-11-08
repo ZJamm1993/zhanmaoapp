@@ -51,7 +51,7 @@
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"地址管理" image:@"" detail:@"" identifier:@"MyAddressEditTableViewController"],
+             [MyPageCellModel modelWithTitle:@"地址管理" image:@"" detail:@"" identifier:@"MyAddressesTableViewController"],
              [MyPageCellModel modelWithTitle:@"个人资料" image:@"" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"申请发票" image:@"" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
@@ -93,7 +93,7 @@
         
         NSMutableArray* array=[NSMutableArray array];
         NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单", nil];
-        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"CleanOrderPagerViewController",@"", nil];
+        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"CleanOrderPagerViewController",@"CustomOrderPagerViewController", nil];
         
         for (NSInteger i=0; i<4; i++) {
             SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:@"a" identifier:[ides objectAtIndex:i]];

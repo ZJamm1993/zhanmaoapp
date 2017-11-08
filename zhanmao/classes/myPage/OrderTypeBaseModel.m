@@ -152,4 +152,20 @@
 
 @end
 
+@implementation CustomOrderModel
+
++(NSString*)controllerTitleForType:(NSInteger)type
+{
+    if (type==CustomOrderTypeNow) {
+        return @"当前订单";
+    }
+    else if(type==CustomOrderTypeHistory)
+    {
+        return @"历史订单";
+    }
+    return @"";
+}
+
+@end
+
 

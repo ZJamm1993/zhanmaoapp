@@ -31,6 +31,12 @@ typedef NS_ENUM(NSInteger,CleanOrderType)
     CleanOrderTypeFinished,
 };
 
+typedef NS_ENUM(NSInteger,CustomOrderType)
+{
+    CustomOrderTypeNow,
+    CustomOrderTypeHistory,
+};
+
 /***
  
  base
@@ -59,5 +65,9 @@ typedef NS_ENUM(NSInteger,CleanOrderType)
 @end
 
 @interface CleanOrderModel : OrderTypeBaseModel
+
+@end
+
+@interface CustomOrderModel : OrderTypeBaseModel
 
 @end

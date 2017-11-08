@@ -33,10 +33,16 @@
                                         <constraint firstAttribute="height" constant="44" id="Fd8-BM-U5S"/>
                                     </constraints>
                                     <state key="normal" title="加入租赁车"/>
+                                    <connections>
+                                        <action selector="addToCartPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="ug2-4b-w0I"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaw-f2-QW6">
                                     <rect key="frame" x="147" y="0.0" width="133" height="44"/>
                                     <state key="normal" title="立即租赁"/>
+                                    <connections>
+                                        <action selector="rentNowPress:" destination="iN0-l3-epB" eventType="touchUpInside" id="shm-DX-RZT"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -103,6 +109,9 @@
                                 <constraint firstAttribute="width" constant="100" id="MbL-3P-obF"/>
                                 <constraint firstAttribute="height" constant="30" id="X3W-JY-eN1"/>
                             </constraints>
+                            <connections>
+                                <action selector="daysValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="NyU-DR-dPH"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ8-Kt-iXr" userLabel="line1">
                             <rect key="frame" x="20" y="172.5" width="280" height="0.5"/>
@@ -118,6 +127,9 @@
                                 <constraint firstAttribute="width" constant="100" id="0WR-Kn-nQF"/>
                                 <constraint firstAttribute="height" constant="30" id="wiS-0g-M3X"/>
                             </constraints>
+                            <connections>
+                                <action selector="countValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="stX-3I-AH2"/>
+                            </connections>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oK8-cY-IsH">
                             <rect key="frame" x="20" y="135.5" width="58" height="17"/>
@@ -251,10 +263,10 @@
                 <constraint firstItem="nhX-Bx-eou" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uhD-mX-Sv5"/>
             </constraints>
             <connections>
-                <outlet property="addToCartButton" destination="e7q-DG-xf7" id="8uh-u5-nj4"/>
+                <outlet property="addToCartButton" destination="e7q-DG-xf7" id="DC1-hp-hze"/>
                 <outlet property="cartBg" destination="nhX-Bx-eou" id="qyk-Cu-uBk"/>
                 <outlet property="darkBg" destination="OOG-uM-W4v" id="Zfe-wb-ULf"/>
-                <outlet property="rentNowButton" destination="xaw-f2-QW6" id="Y0o-kg-N4b"/>
+                <outlet property="rentNowButton" destination="xaw-f2-QW6" id="EXs-dX-5mm"/>
                 <outlet property="xButton" destination="y5q-Gu-aqx" id="yQP-Ep-bt6"/>
             </connections>
         </view>

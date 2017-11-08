@@ -64,6 +64,8 @@
     
     self.stepper=1;
     self.value=1;
+    self.min=1;
+    self.max=0;
 }
 
 -(void)setValue:(NSInteger)value

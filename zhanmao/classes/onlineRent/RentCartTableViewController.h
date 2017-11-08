@@ -1,5 +1,5 @@
 //
-//  RentCartViewController.h
+//  RentCartTableViewController.h
 //  zhanmao
 //
 //  Created by bangju on 2017/10/25.
@@ -9,6 +9,6 @@
 #import "BaseToolBarTableViewController.h"
 #import "RentCartModel.h"
 
-@interface RentCartViewController : BaseToolBarTableViewController
+@interface RentCartTableViewController : BaseToolBarTableViewController
 
 @end

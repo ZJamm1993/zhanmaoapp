@@ -10,27 +10,22 @@
 #import "ProductDetailTableViewCell.h"
 #import "ProductParameterTableViewCell.h"
 
-#import "RentCartViewController.h"
+#import "RentCartTableViewController.h"
 
 #import "RentActionEditView.h"
 
-@interface ProductDetailViewController ()
+@interface ProductDetailViewController ()<RentActionEditViewDelegate>
 
 @end
 
 @implementation ProductDetailViewController
 {
-    NSInteger days;
     AdvertiseView* photoView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    days=1;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"ProductDetailTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductDetailTableViewCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ProductParameterTableViewCell" bundle:nil] forCellReuseIdentifier:@"ProductParameterTableViewCell"];
+    self.title=@"产品详情";
     
     photoView=[[AdvertiseView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.width*0.6)];
     photoView.picturesUrls=[NSArray arrayWithObjects:
@@ -63,10 +58,6 @@
 {
     if (indexPath.section==0) {
         ProductDetailTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ProductDetailTableViewCell" forIndexPath:indexPath];
-        [cell.stepper addTarget:self action:@selector(stepperValueDidChanged:) forControlEvents:UIControlEventValueChanged];
-        cell.stepper.value=days;
-        cell.stepper.min=1;
-        cell.stepper.max=100;
         return cell;
     }
     else if(indexPath.section==1)
@@ -77,17 +68,13 @@
     return [[UITableViewCell alloc]init];
 }
 
--(void)stepperValueDidChanged:(ZZStepper*)stepper
-{
-    days=stepper.value;
-}
-
 -(void)bottomToolBarButtonClicked
 {
-//    RentCartViewController* cart=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartViewController"];
+//    RentCartTableViewController* cart=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];
 //    [self.navigationController pushViewController:cart animated:YES];
     
     RentActionEditView* action=[RentActionEditView defaultView];
+    action.delegate=self;
     [action show];
 }
 

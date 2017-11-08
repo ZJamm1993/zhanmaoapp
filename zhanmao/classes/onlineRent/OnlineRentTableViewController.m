@@ -9,7 +9,7 @@
 #import "OnlineRentTableViewController.h"
 
 #import "ProductDetailViewController.h"
-#import "RentCartViewController.h"
+#import "RentCartTableViewController.h"
 #import "NaviController.h"
 
 #import "SimpleTitleTableViewCell.h"
@@ -101,7 +101,7 @@ const CGFloat categoriesHeaderHeight=50;
 //    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"a" count:arc4random()%120 target:self selector:@selector(cartItemClicked)];
 //    self.navigationItem.rightBarButtonItem=cartItem;
     
-    RentCartViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartViewController"];
+    RentCartTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];
     [self.navigationController pushViewController:rent animated:YES];
 }
 

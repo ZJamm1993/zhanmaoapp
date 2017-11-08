@@ -1,20 +1,20 @@
 //
-//  RentCartViewController.m
+//  RentCartTableViewController.m
 //  zhanmao
 //
 //  Created by bangju on 2017/10/25.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "RentCartViewController.h"
+#import "RentCartTableViewController.h"
 #import "RentCartEditTableViewCell.h"
 #import "RentCartEditToolBar.h"
 
-@interface RentCartViewController ()<RentCartEditTableViewCellDelegate>
+@interface RentCartTableViewController ()<RentCartEditTableViewCellDelegate>
 
 @end
 
-@implementation RentCartViewController
+@implementation RentCartTableViewController
 {
     BOOL custom_editing;
     UIBarButtonItem* editButtonItem;
@@ -23,9 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"租赁车";
     [self.bottomButton removeFromSuperview];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"RentCartEditTableViewCell" bundle:nil] forCellReuseIdentifier:@"RentCartEditTableViewCell"];
     
     editButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(editingToggle)];
     self.navigationItem.rightBarButtonItem=editButtonItem;

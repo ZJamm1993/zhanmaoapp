@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RentCartModel.h"
+#import "ZZStepper.h"
 
 @protocol RentActionEditViewDelegate <NSObject>
 
 @optional
+-(void)rentActionEditViewAddToRentCart:(RentCartModel*)cartModel;
+-(void)rentActionEditViewRentNow:(RentCartModel*)cartModel;
 
 @end
 
@@ -22,6 +26,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *darkBg;
 @property (weak, nonatomic) IBOutlet UIView *cartBg;
+
+@property (nonatomic,strong) RentCartModel* cartModel;
 
 +(instancetype)defaultView;
 

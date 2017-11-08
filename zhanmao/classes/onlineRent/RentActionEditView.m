@@ -24,6 +24,17 @@
     self.cartBg.layer.cornerRadius=4;
     
     self.darkBg.backgroundColor=[UIColor colorWithWhite:0 alpha:0.4];
+    
+    self.addToCartButton.layer.cornerRadius=4;
+    self.addToCartButton.layer.borderColor=_mainColor.CGColor;
+    self.addToCartButton.layer.borderWidth=0.5;
+    [self.addToCartButton setTitleColor:_mainColor forState:UIControlStateNormal];
+    
+    self.rentNowButton.layer.cornerRadius=4;
+    [self.rentNowButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rentNowButton setBackgroundColor:_mainColor];
+    
+    self.xButton.layer.cornerRadius=self.xButton.frame.size.width/2;
 }
 
 -(void)show
@@ -41,6 +52,23 @@
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.frame=windRect;
     } completion:nil];
+}
+
+-(void)setCartModel:(RentCartModel *)cartModel
+{
+    _cartModel=cartModel;
+    
+    
+}
+
+- (IBAction)countValueChanged:(ZZStepper*)sender {
+    self.cartModel.count=sender.value;
+    self.cartModel=self.cartModel;
+}
+
+- (IBAction)daysValueChanged:(ZZStepper*)sender {
+    self.cartModel.days=sender.value;
+    self.cartModel=self.cartModel;
 }
 
 -(void)hide
@@ -62,6 +90,18 @@
     [self hide];
 }
 
+- (IBAction)addToCartPress:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(rentActionEditViewAddToRentCart:)]) {
+        [self.delegate rentActionEditViewAddToRentCart:self.cartModel];
+    }
+    [self hide];
+}
 
+- (IBAction)rentNowPress:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(rentActionEditViewRentNow:)]) {
+        [self.delegate rentActionEditViewRentNow:self.cartModel];
+    }
+    [self hide];
+}
 
 @end
