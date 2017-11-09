@@ -19,13 +19,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15字标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmh-my-bK9">
-                        <rect key="frame" x="10" y="13" width="62" height="18"/>
+                        <rect key="frame" x="10" y="13" width="70" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="ylD-Qh-gVq"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入？？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAf-MS-FhV">
-                        <rect key="frame" x="82" y="12.5" width="228" height="17"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入？？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAf-MS-FhV">
+                        <rect key="frame" x="90" y="13" width="204.5" height="17"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -33,18 +36,27 @@
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="oU4-lU-5Ph"/>
                         </connections>
                     </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uI-F5-Ey2">
+                        <rect key="frame" x="298.5" y="15" width="11.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="vmh-my-bK9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EdV-xr-6lT"/>
-                    <constraint firstAttribute="trailing" secondItem="xAf-MS-FhV" secondAttribute="trailing" constant="10" id="Pg9-uD-4Hs"/>
                     <constraint firstItem="vmh-my-bK9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Q1c-VG-Yd3"/>
+                    <constraint firstAttribute="trailing" secondItem="3uI-F5-Ey2" secondAttribute="trailing" constant="10" id="fH9-CJ-4W0"/>
                     <constraint firstItem="xAf-MS-FhV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lGT-hJ-pAY"/>
                     <constraint firstItem="xAf-MS-FhV" firstAttribute="leading" secondItem="vmh-my-bK9" secondAttribute="trailing" constant="10" id="oHp-Tv-juF"/>
+                    <constraint firstItem="3uI-F5-Ey2" firstAttribute="bottom" secondItem="vmh-my-bK9" secondAttribute="bottom" id="q7e-gk-bCN"/>
+                    <constraint firstItem="3uI-F5-Ey2" firstAttribute="leading" secondItem="xAf-MS-FhV" secondAttribute="trailing" constant="4" id="qVJ-Ow-5Xv"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="textField" destination="xAf-MS-FhV" id="MwY-Gj-ckb"/>
                 <outlet property="title" destination="vmh-my-bK9" id="r9u-FJ-iXA"/>
+                <outlet property="unit" destination="3uI-F5-Ey2" id="2gm-YU-qsS"/>
             </connections>
         </tableViewCell>
     </objects>

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseFormStepsModel.h"
 
 @class FormBaseTableViewCell;
 
@@ -19,8 +20,12 @@
 
 @interface FormBaseTableViewCell : UITableViewCell<UITextFieldDelegate,UITextViewDelegate>
 
-@property (nonatomic,strong) NSString* keyPath;
+//@property (nonatomic,strong) NSString* keyPath;
 
 @property (nonatomic,weak) id<FormBaseTableViewCellDelegate>delegate;
+
+@property (nonatomic,strong) BaseFormModel* model;
+
+-(void)valueChanged;
 
 @end

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="TitleSelectionHeaderTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="TitleSingleSelectionTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -24,27 +24,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择？？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="99J-xu-DJg">
-                        <rect key="frame" x="85" y="12.5" width="192" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地板" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awV-iA-bVO">
+                        <rect key="frame" x="256" y="13" width="31" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                        <connections>
-                            <outlet property="delegate" destination="KGk-i7-Jjw" id="jwv-bv-rFs"/>
-                        </connections>
-                    </textField>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="uhp-sT-6Ul" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IaX-9x-qIs"/>
-                    <constraint firstItem="99J-xu-DJg" firstAttribute="leading" secondItem="uhp-sT-6Ul" secondAttribute="trailing" constant="10" id="TSJ-4I-7IJ"/>
-                    <constraint firstAttribute="trailing" secondItem="99J-xu-DJg" secondAttribute="trailing" constant="10" id="a7g-ia-aVk"/>
+                    <constraint firstAttribute="trailing" secondItem="awV-iA-bVO" secondAttribute="trailing" id="Z2a-vW-byv"/>
+                    <constraint firstItem="awV-iA-bVO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cxh-rd-JJ0"/>
                     <constraint firstItem="uhp-sT-6Ul" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hfn-pP-fGe"/>
-                    <constraint firstItem="99J-xu-DJg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="l70-dK-bx3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="detail" destination="awV-iA-bVO" id="0ci-FP-Uhm"/>
                 <outlet property="title" destination="uhp-sT-6Ul" id="qwr-ck-ooc"/>
-                <outletCollection property="textField" destination="99J-xu-DJg" id="kfE-zp-vhz"/>
             </connections>
         </tableViewCell>
     </objects>

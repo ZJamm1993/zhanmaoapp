@@ -22,10 +22,12 @@
     [super setSelected:selected animated:animated];
     if (selected) {
         self.title.textColor=_mainColor;
+        self.selectedTag.backgroundColor=_mainColor;
     }
     else
     {
         self.title.textColor=[UIColor blackColor];
+        self.selectedTag.backgroundColor=[UIColor clearColor];
     }
     // Configure the view for the selected state
 }

@@ -24,13 +24,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8k-B4-S09">
+                        <rect key="frame" x="0.0" y="13" width="4" height="17"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="wo8-ik-6FC"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1s0-9S-rtq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4tT-yL-1lF"/>
+                    <constraint firstItem="B8k-B4-S09" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Jxv-aD-Yob"/>
+                    <constraint firstItem="B8k-B4-S09" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LFN-fj-tvL"/>
+                    <constraint firstItem="B8k-B4-S09" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="brm-0a-DTl"/>
                     <constraint firstItem="1s0-9S-rtq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zMx-Iq-zns"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="selectedTag" destination="B8k-B4-S09" id="Aru-EU-wB2"/>
                 <outlet property="title" destination="1s0-9S-rtq" id="i6z-Yu-GdC"/>
             </connections>
         </tableViewCell>

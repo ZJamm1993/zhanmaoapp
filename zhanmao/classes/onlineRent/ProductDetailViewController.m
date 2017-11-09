@@ -7,7 +7,7 @@
 //
 
 #import "ProductDetailViewController.h"
-#import "ProductDetailTableViewCell.h"
+#import "ProductDetailInfoTableViewCell.h"
 #import "ProductParameterTableViewCell.h"
 
 #import "RentCartTableViewController.h"
@@ -57,7 +57,7 @@
 -(UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        ProductDetailTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ProductDetailTableViewCell" forIndexPath:indexPath];
+        ProductDetailInfoTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ProductDetailInfoTableViewCell" forIndexPath:indexPath];
         return cell;
     }
     else if(indexPath.section==1)

@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.separatorInset=UIEdgeInsetsMake(0, 0, 0, 0);
     // Initialization code
 }
 
@@ -42,6 +44,12 @@
     return YES;
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    [self performSelector:@selector(valueChanged) withObject:nil afterDelay:0.1];
+    return YES;
+}
+
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     [self beginEditing];
@@ -53,6 +61,7 @@
         [textView resignFirstResponder];
         return NO;
     }
+    [self performSelector:@selector(valueChanged) withObject:nil afterDelay:0.1];
     return YES;
 }
 
@@ -62,6 +71,11 @@
         [self.delegate formBaseTableViewCellWillBeginEditing:self];
     }
 
+}
+
+-(void)valueChanged
+{
+    NSLog(@"%@ valueChanged, please overwrite",self);
 }
 
 @end

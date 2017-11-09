@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TitleSelectionHeaderTableViewCell : FormBaseTableViewCell
+@interface TitleSingleSelectionTableViewCell : FormBaseTableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textField;
+@property (weak, nonatomic) IBOutlet UILabel *detail;
 
 @end

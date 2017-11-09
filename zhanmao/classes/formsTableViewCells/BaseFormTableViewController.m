@@ -11,6 +11,7 @@
 @interface BaseFormTableViewController ()
 {
     NSArray* nibsToRegister;
+    UIButton* submitButton;
 }
 @end
 
@@ -26,8 +27,7 @@
     nibsToRegister=[NSArray arrayWithObjects:
                              NSStringFromClass([TitleTextViewTableViewCell class]),
                              NSStringFromClass([TitleTextFieldTableViewCell class]),
-                             NSStringFromClass([TitleSelectionItemTableViewCell class]),
-                             NSStringFromClass([TitleSelectionHeaderTableViewCell class])
+                             NSStringFromClass([TitleSingleSelectionTableViewCell class])
                              , nil];
     for (NSString* nibName in nibsToRegister) {
         [self.tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:nibName];
@@ -37,7 +37,7 @@
     self.tableView.delegate=self;
     [self.view addSubview:self.tableView];
     
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
     
     UIView* bottomView=[[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.tableView.frame), self.tableView.frame.size.width, 64)];
     bottomView.backgroundColor=[UIColor whiteColor];
@@ -47,7 +47,7 @@
     line.backgroundColor=[UIColor lightGrayColor];
     [bottomView addSubview:line];
     
-    UIButton* submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, bottomView.frame.size.width-20, bottomView.frame.size.height-20)];
+    submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, bottomView.frame.size.width-20, bottomView.frame.size.height-20)];
     submitButton.backgroundColor=_mainColor;
     [submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -59,7 +59,18 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardShows:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHides:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [self setStepsTable];
+    
+    if (self.formSteps.steps.count==0) {
+        [self loadFormJson];
+    }
     // Do any additional setup after loading the view.
+}
+
+-(void)loadFormJson
+{
+    NSLog(@"%@ valueChanged, please overwrite",self);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,11 +78,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSMutableArray*)dataSource
+{
+    if (_dataSource==nil) {
+        _dataSource=[NSMutableArray array];
+    }
+    //    lastCount=_dataSource.count;
+    return _dataSource;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+}
+
 #pragma mark keyboards
 
 -(void)keyboardShows:(NSNotification*)noti
 {
-    NSLog(@"%@",noti);
+//    NSLog(@"%@",noti);
     
     //UIKeyboardFrameEndUserInfoKey;
     //UIKeyboardAnimationDurationUserInfoKey;
@@ -82,7 +108,7 @@
 
 -(void)keyboardHides:(NSNotification*)noti
 {
-    NSLog(@"%@",noti);
+//    NSLog(@"%@",noti);
     
     [self keyboardAnimationWithNotification:noti];
 }
@@ -103,22 +129,76 @@
 
 #pragma mark tableViews
 
+-(void)setFormSteps:(BaseFormStepsModel *)formSteps
+{
+    _formSteps=formSteps;
+    [self setStepsTable];
+}
+
+-(void)setStepInteger:(NSInteger)stepInteger
+{
+    _stepInteger=stepInteger;
+    [self setStepsTable];
+}
+
+-(void)setCurrentStep:(BaseFormStep *)currentStep
+{
+    _currentStep=currentStep;
+    self.title=currentStep.title;
+}
+
+-(void)setStepsTable
+{
+    if (self.stepInteger<=self.formSteps.steps.count-1) {
+        self.currentStep=((BaseFormStep*)[self.formSteps.steps objectAtIndex:self.stepInteger]);
+    }
+    
+    if(self.stepInteger<self.formSteps.steps.count-1)
+    {
+        [submitButton setTitle:@"下一步" forState:UIControlStateNormal];
+    }
+    
+    [self.tableView reloadData];
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    return self.currentStep.sections.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    BaseFormSection* arr=[self.currentStep.sections objectAtIndex:section];
+    return arr.models.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger section=indexPath.section;
     NSInteger row=indexPath.row;
-    NSString* nibName=[nibsToRegister objectAtIndex:(section+row)%nibsToRegister.count];
-    UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:nibName forIndexPath:indexPath];
+    BaseFormSection* sectio=[self.currentStep.sections objectAtIndex:section];
+    BaseFormModel* model=[sectio.models objectAtIndex:row];
+    
+    NSString* nibName=@"";
+    if (model.type==BaseFormTypeNormal||model.type==BaseFormTypeNormalUnit)
+    {
+        nibName=NSStringFromClass([TitleTextFieldTableViewCell class]);
+    }
+    else if(model.type==BaseFormTypeLargeField)
+    {
+        nibName=NSStringFromClass([TitleTextViewTableViewCell class]);
+    }
+    else if(model.type==BaseFormTypeTimePicker)
+    {
+        nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
+    }
+    
+    if (![nibsToRegister containsObject:nibName]) {
+        return [[FormBaseTableViewCell alloc]init];
+    }
+    
+    FormBaseTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:nibName forIndexPath:indexPath];
+    cell.model=model;
     if ([cell respondsToSelector:@selector(setDelegate:)]) {
         [cell performSelector:@selector(setDelegate:) withObject:self];
     }
@@ -148,7 +228,21 @@
 
 -(void)submit
 {
-    
+    NSString* str=[self.formSteps warningStringForStep:self.stepInteger];
+    if (str.length>0) {
+        [MBProgressHUD showErrorMessage:str];
+    }
+    if (self.stepInteger<self.formSteps.steps.count-1) {
+        BaseFormTableViewController* nextPage=(BaseFormTableViewController*)[[[self class]alloc]init];
+        nextPage.stepInteger=self.stepInteger+1;
+        nextPage.formSteps=self.formSteps;
+        [self.navigationController pushViewController:nextPage animated:YES];
+    }
+    else
+    {
+        [MBProgressHUD showSuccessMessage:@"最后一页了"];
+        NSLog(@"%@",[self.formSteps parameters]);
+    }
 }
 
 @end

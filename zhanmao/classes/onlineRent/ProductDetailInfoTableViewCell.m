@@ -1,14 +1,14 @@
 //
-//  ProductDetailTableViewCell.m
+//  ProductDetailInfoTableViewCell.m
 //  zhanmao
 //
 //  Created by bangju on 2017/10/25.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "ProductDetailTableViewCell.h"
+#import "ProductDetailInfoTableViewCell.h"
 
-@implementation ProductDetailTableViewCell
+@implementation ProductDetailInfoTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

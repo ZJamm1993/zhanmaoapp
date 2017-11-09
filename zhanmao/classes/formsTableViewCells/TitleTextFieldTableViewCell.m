@@ -21,4 +21,22 @@
     // Configure the view for the selected state
 }
 
+-(void)setModel:(BaseFormModel *)model
+{
+    [super setModel:model];
+    
+    self.textField.placeholder=model.hint;
+    self.textField.text=model.value;
+    self.title.text=model.name;
+    self.unit.text=model.unit;
+//    self.textField.textAlignment=model.unit.length>0?NSTextAlignmentRight:NSTextAlignmentLeft;
+}
+
+-(void)valueChanged
+{
+//    NSLog(@"%@",self.model);
+//    NSLog(@"%@",self.textField.text);
+    self.model.value=self.textField.text;
+}
+
 @end

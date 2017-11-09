@@ -1,5 +1,5 @@
 //
-//  ProductDetailTableViewCell.h
+//  ProductDetailInfoTableViewCell.h
 //  zhanmao
 //
 //  Created by bangju on 2017/10/25.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductDetailTableViewCell : UITableViewCell
+@interface ProductDetailInfoTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *rent;
 @property (weak, nonatomic) IBOutlet UILabel *deposit;

@@ -7,13 +7,24 @@
 //
 
 #import "BaseViewController.h"
+
+#import "FormBaseTableViewCell.h"
+
 #import "TitleTextFieldTableViewCell.h"
 #import "TitleTextViewTableViewCell.h"
-#import "TitleSelectionHeaderTableViewCell.h"
-#import "TitleSelectionItemTableViewCell.h"
+#import "TitleSingleSelectionTableViewCell.h"
+
+#import "FormHttpTool.h"
 
 @interface BaseFormTableViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,FormBaseTableViewCellDelegate>
 
 @property (nonatomic,strong) UITableView* tableView;
+@property (nonatomic,strong) NSMutableArray* dataSource;
+@property (nonatomic,assign) NSInteger type;
+@property (nonatomic,assign) NSInteger stepInteger;
+@property (nonatomic,strong) BaseFormStep* currentStep;
+@property (nonatomic,strong) BaseFormStepsModel* formSteps;
+
+-(void)loadFormJson;
 
 @end

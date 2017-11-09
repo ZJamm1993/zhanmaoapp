@@ -11,5 +11,6 @@
 @interface SimpleTitleTableViewCell : LinedTableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UIView *selectedTag;
 
 @end

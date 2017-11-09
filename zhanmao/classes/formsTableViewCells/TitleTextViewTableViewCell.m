@@ -21,4 +21,21 @@
     // Configure the view for the selected state
 }
 
+-(void)setModel:(BaseFormModel *)model
+{
+    [super setModel:model];
+    
+    self.textView.text=model.value;
+    self.placeHolder.text=model.hint;
+    self.title.text=model.name;
+    
+    [self valueChanged];
+}
+
+-(void)valueChanged
+{
+    self.model.value=self.textView.text;
+    self.placeHolder.hidden=self.textView.text.length>0;
+}
+
 @end

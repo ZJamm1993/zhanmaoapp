@@ -12,9 +12,7 @@
 
 +(NSString*)main
 {
-//    return @"http://120.25.1.238:8090";
-//    return @"http://192.168.1.131:8090";
-    return @"http://ys.bangju.com";
+    return @"http://192.168.1.131:8092";
 }
 
 +(NSString*)fullUrlWithTail:(NSString *)tail
