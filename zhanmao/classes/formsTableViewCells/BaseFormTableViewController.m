@@ -21,15 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64) style:UITableViewStyleGrouped];
     self.tableView.estimatedRowHeight=44;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
     
     nibsToRegister=[NSArray arrayWithObjects:
-                             NSStringFromClass([TitleTextViewTableViewCell class]),
-                             NSStringFromClass([TitleTextFieldTableViewCell class]),
-                             NSStringFromClass([TitleSingleSelectionTableViewCell class])
-                             , nil];
+                            NSStringFromClass([TitleTextViewTableViewCell class]),
+                            NSStringFromClass([TitleTextFieldTableViewCell class]),
+                            NSStringFromClass([TitleSingleSelectionTableViewCell class]),
+                            NSStringFromClass([TitleMutiSelectionTableViewCell class]),
+                              nil];
+    
     for (NSString* nibName in nibsToRegister) {
         [self.tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:nibName];
     }
@@ -186,13 +190,14 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 10;
+    return UITableViewAutomaticDimension;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if (section!=0) {
-        return 1;
+    if(section==0)
+    {
+        return 0.001;
     }
     return 10;
 }
@@ -228,6 +233,10 @@
     {
         nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
     }
+    else if(model.type==BaseFormTypeMutiChoice)
+    {
+        nibName=NSStringFromClass([TitleMutiSelectionTableViewCell class]);
+    }
     
     if (![nibsToRegister containsObject:nibName]) {
         return [[FormBaseTableViewCell alloc]init];
@@ -245,6 +254,12 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    BaseFormSection* sec=[self.currentStep.sections objectAtIndex:section];
+    return sec.d3scription;
 }
 
 #pragma mark editing

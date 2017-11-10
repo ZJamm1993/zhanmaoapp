@@ -13,6 +13,7 @@
 #import "TitleTextFieldTableViewCell.h"
 #import "TitleTextViewTableViewCell.h"
 #import "TitleSingleSelectionTableViewCell.h"
+#import "TitleMutiSelectionTableViewCell.h"
 
 #import "FormHttpTool.h"
 

@@ -11,9 +11,9 @@
 @interface ZZModel : NSObject
 
 -(instancetype)initWithDictionary:(NSDictionary*)dictionary;
--(instancetype)initWithArray:(NSArray*)array;
+//-(instancetype)initWithArray:(NSArray*)array;
 
 @property (nonatomic,strong) NSDictionary* dictionary;
-@property (nonatomic,strong) NSArray* array;
+//@property (nonatomic,strong) NSArray* array;
 
 @end

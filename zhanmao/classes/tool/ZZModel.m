@@ -19,13 +19,13 @@
     return self;
 }
 
--(instancetype)initWithArray:(NSArray *)array
-{
-    self=[super init];
-    if (self) {
-        self.array=array;
-    }
-    return self;
-}
+//-(instancetype)initWithArray:(NSArray *)array
+//{
+//    self=[super init];
+//    if (self) {
+//        self.array=array;
+//    }
+//    return self;
+//}
 
 @end

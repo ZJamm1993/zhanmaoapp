@@ -30,12 +30,14 @@
 
 @implementation BaseFormSection
 
--(instancetype)initWithArray:(NSArray *)array
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    self=[super initWithArray:array];
+    self=[super initWithDictionary:dictionary];
     if (self) {
+        self.d3scription=[dictionary valueForKey:@"description"];
         NSMutableArray* mutaMo=[NSMutableArray array];
-        for (NSDictionary* mo in array) {
+        NSArray* data=[dictionary valueForKey:@"data"];
+        for (NSDictionary* mo in data) {
             BaseFormModel* mod=[[BaseFormModel alloc]initWithDictionary:mo];
             [mutaMo addObject:mod];
         }
@@ -56,8 +58,8 @@
         self.title=[dictionary valueForKey:@"title"];
         NSArray* stepData=[dictionary valueForKey:@"data"];
         NSMutableArray* mutaStep=[NSMutableArray array];
-        for (NSArray* section in stepData) {
-            BaseFormSection* sec=[[BaseFormSection alloc]initWithArray:section];
+        for (NSDictionary* section in stepData) {
+            BaseFormSection* sec=[[BaseFormSection alloc]initWithDictionary:section];
             [mutaStep addObject:sec];
         }
         self.sections=mutaStep;

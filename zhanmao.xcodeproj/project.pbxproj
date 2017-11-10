@@ -42,11 +42,6 @@
 		8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */; };
 		8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */; };
 		8E6C747B1F9F40CD004B33D1 /* ExhibitionPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */; };
-		8E6C74811F9F42E8004B33D1 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747C1F9F42E8004B33D1 /* 0.jpg */; };
-		8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747D1F9F42E8004B33D1 /* 1.jpg */; };
-		8E6C74831F9F42E8004B33D1 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747E1F9F42E8004B33D1 /* 2.jpg */; };
-		8E6C74841F9F42E8004B33D1 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C747F1F9F42E8004B33D1 /* 3.jpg */; };
-		8E6C74851F9F42E8004B33D1 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C74801F9F42E8004B33D1 /* 4.jpg */; };
 		8E6C74891FA0243E004B33D1 /* TravellingRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74881FA0243E004B33D1 /* TravellingRootViewController.m */; };
 		8E6C748D1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C748B1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.m */; };
 		8E6C748E1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C748C1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.xib */; };
@@ -65,6 +60,8 @@
 		8E721AE91FB58195001BD401 /* HuiyiFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AE81FB58195001BD401 /* HuiyiFormTableViewController.m */; };
 		8E721AEC1FB581A8001BD401 /* BaojieFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AEB1FB581A8001BD401 /* BaojieFormTableViewController.m */; };
 		8E721AEF1FB581C1001BD401 /* WuliuFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AEE1FB581C1001BD401 /* WuliuFormTableViewController.m */; };
+		8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AF11FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m */; };
+		8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E721AF21FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib */; };
 		8E72E9DD1FB2D744001FCD31 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9DC1FB2D744001FCD31 /* AddressModel.m */; };
 		8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9DF1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m */; };
 		8E72E9E41FB2ECDF001FCD31 /* CustomOrderPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9E31FB2ECDF001FCD31 /* CustomOrderPagerViewController.m */; };
@@ -161,7 +158,6 @@
 		8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F01FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m */; };
 		8EDBF4F41FA1E5660073F37D /* ProductSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F31FA1E5660073F37D /* ProductSearchTableViewController.m */; };
 		8EDBF4F71FA2D95E0073F37D /* SearchTipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F61FA2D95E0073F37D /* SearchTipsView.m */; };
-		8EDBF4F91FA31D610073F37D /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4F81FA31D610073F37D /* 10.png */; };
 		8EDBF4FD1FA42F570073F37D /* RentProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4FC1FA42F570073F37D /* RentProductModel.m */; };
 		8EDBF5001FA42F7A0073F37D /* RentCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4FF1FA42F7A0073F37D /* RentCartModel.m */; };
 		8EDCF5B51FA6D42100AA4359 /* MyInvoicePagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5B41FA6D42100AA4359 /* MyInvoicePagerViewController.m */; };
@@ -232,11 +228,6 @@
 		8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionLargeRectTableViewCell.m; sourceTree = "<group>"; };
 		8E6C74791F9F40CD004B33D1 /* ExhibitionPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionPictureViewController.h; sourceTree = "<group>"; };
 		8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionPictureViewController.m; sourceTree = "<group>"; };
-		8E6C747C1F9F42E8004B33D1 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
-		8E6C747D1F9F42E8004B33D1 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		8E6C747E1F9F42E8004B33D1 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		8E6C747F1F9F42E8004B33D1 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		8E6C74801F9F42E8004B33D1 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		8E6C74871FA0243E004B33D1 /* TravellingRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravellingRootViewController.h; sourceTree = "<group>"; };
 		8E6C74881FA0243E004B33D1 /* TravellingRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravellingRootViewController.m; sourceTree = "<group>"; };
 		8E6C748A1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargeImageBlackLabelTableViewCell.h; sourceTree = "<group>"; };
@@ -271,6 +262,9 @@
 		8E721AEB1FB581A8001BD401 /* BaojieFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaojieFormTableViewController.m; sourceTree = "<group>"; };
 		8E721AED1FB581C1001BD401 /* WuliuFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WuliuFormTableViewController.h; sourceTree = "<group>"; };
 		8E721AEE1FB581C1001BD401 /* WuliuFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WuliuFormTableViewController.m; sourceTree = "<group>"; };
+		8E721AF01FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleMutiSelectionTableViewCell.h; sourceTree = "<group>"; };
+		8E721AF11FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleMutiSelectionTableViewCell.m; sourceTree = "<group>"; };
+		8E721AF21FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleMutiSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		8E72E9DB1FB2D744001FCD31 /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		8E72E9DC1FB2D744001FCD31 /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
 		8E72E9DE1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComfirmOrderTableViewController.h; sourceTree = "<group>"; };
@@ -448,7 +442,6 @@
 		8EDBF4F31FA1E5660073F37D /* ProductSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSearchTableViewController.m; sourceTree = "<group>"; };
 		8EDBF4F51FA2D95E0073F37D /* SearchTipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTipsView.h; sourceTree = "<group>"; };
 		8EDBF4F61FA2D95E0073F37D /* SearchTipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTipsView.m; sourceTree = "<group>"; };
-		8EDBF4F81FA31D610073F37D /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		8EDBF4FB1FA42F570073F37D /* RentProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentProductModel.h; sourceTree = "<group>"; };
 		8EDBF4FC1FA42F570073F37D /* RentProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentProductModel.m; sourceTree = "<group>"; };
 		8EDBF4FE1FA42F7A0073F37D /* RentCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentCartModel.h; sourceTree = "<group>"; };
@@ -484,7 +477,6 @@
 				8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */,
 				8E6C74791F9F40CD004B33D1 /* ExhibitionPictureViewController.h */,
 				8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */,
-				8E6C74151F9DD6FF004B33D1 /* demoPics */,
 				8EB674D51F99CB76008CC196 /* views */,
 				8E2E40991F945AB700B42477 /* MainPageTableViewController.h */,
 				8E2E409A1F945AB700B42477 /* MainPageTableViewController.m */,
@@ -523,21 +515,11 @@
 				8E6C74091F9D9FE6004B33D1 /* TitleTextViewTableViewCell.h */,
 				8E6C740A1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.m */,
 				8E6C740B1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib */,
+				8E721AF01FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.h */,
+				8E721AF11FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m */,
+				8E721AF21FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib */,
 			);
 			name = cells;
-			sourceTree = "<group>";
-		};
-		8E6C74151F9DD6FF004B33D1 /* demoPics */ = {
-			isa = PBXGroup;
-			children = (
-				8E6C747C1F9F42E8004B33D1 /* 0.jpg */,
-				8E6C747D1F9F42E8004B33D1 /* 1.jpg */,
-				8E6C747E1F9F42E8004B33D1 /* 2.jpg */,
-				8E6C747F1F9F42E8004B33D1 /* 3.jpg */,
-				8E6C74801F9F42E8004B33D1 /* 4.jpg */,
-				8EDBF4F81FA31D610073F37D /* 10.png */,
-			);
-			name = demoPics;
 			sourceTree = "<group>";
 		};
 		8E6C74191F9DEFE8004B33D1 /* onlineRent */ = {
@@ -1088,37 +1070,32 @@
 			files = (
 				8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */,
 				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
-				8E6C74821F9F42E8004B33D1 /* 1.jpg in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
 				8E9B00291FB42BE500B29188 /* json.txt in Resources */,
+				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
 				8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
 				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
 				8E6C74A11FA06B45004B33D1 /* OnlineRent.storyboard in Resources */,
-				8E6C74811F9F42E8004B33D1 /* 0.jpg in Resources */,
 				8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */,
 				8E6C748E1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.xib in Resources */,
 				8E99AA9F1F9068920078C452 /* Checkmark@2x.png in Resources */,
 				8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */,
 				8EA9E55D1FB1937A003815B7 /* RentActionEditView.xib in Resources */,
-				8E6C74851F9F42E8004B33D1 /* 4.jpg in Resources */,
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
-				8E6C74831F9F42E8004B33D1 /* 2.jpg in Resources */,
 				8EB674CA1F97416B008CC196 /* MessageSmallTableViewCell.xib in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
 				8EB674D41F99A991008CC196 /* MainPageHeaderTableViewCell.xib in Resources */,
 				8E6C74031F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.xib in Resources */,
-				8E6C74841F9F42E8004B33D1 /* 3.jpg in Resources */,
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
 				8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */,
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */,
-				8EDBF4F91FA31D610073F37D /* 10.png in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1148,6 +1125,7 @@
 				8E99AA9C1F9068920078C452 /* Foundation+Log.m in Sources */,
 				8E99AAAC1F9068920078C452 /* SDWebImageDownloaderOperation.m in Sources */,
 				8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */,
+				8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */,
 				8E721AE31FB5815A001BD401 /* WutaiFormTableViewController.m in Sources */,
 				8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */,
 				8E99AAC31F9069AC0078C452 /* NaviController.m in Sources */,

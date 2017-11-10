@@ -19,14 +19,14 @@
         NSDictionary* data=[dict valueForKey:@"data"];
         
         //testing
-//        if (data.count==0) {
-//            NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"json.txt"];
-//            NSError* err=nil;
-//            NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
-//            NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
-//            NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
-//            data=[result valueForKey:@"data"];
-//        }
+        if (data.count==0) {
+            NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"json.txt"];
+            NSError* err=nil;
+            NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
+            NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
+            data=[result valueForKey:@"data"];
+        }
         
         BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
         if (success) {
