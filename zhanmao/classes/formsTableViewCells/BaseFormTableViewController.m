@@ -12,6 +12,7 @@
 {
     NSArray* nibsToRegister;
     UIButton* submitButton;
+    UIActivityIndicatorView* loadingView;
 }
 @end
 
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-64) style:UITableViewStyleGrouped];
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64) style:UITableViewStyleGrouped];
     self.tableView.estimatedRowHeight=44;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
     
@@ -43,6 +44,8 @@
     bottomView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:bottomView];
     
+    self.bottomView=bottomView;
+    
     UIView* line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bottomView.frame.size.width, 1/[[UIScreen mainScreen]scale])];
     line.backgroundColor=[UIColor lightGrayColor];
     [bottomView addSubview:line];
@@ -56,6 +59,7 @@
     [submitButton.layer setCornerRadius:4];
     [submitButton.layer setMasksToBounds:YES];
     [bottomView addSubview:submitButton];
+    self.bottomButton=submitButton;
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardShows:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHides:) name:UIKeyboardWillHideNotification object:nil];
@@ -65,6 +69,17 @@
     if (self.formSteps.steps.count==0) {
         [self loadFormJson];
     }
+    
+#warning do not show this title
+    self.title=NSStringFromClass(self.class);
+    
+    loadingView=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loadingView.center=CGPointMake(self.view.center.x,100);
+    loadingView.hidesWhenStopped=YES;
+    [self.view addSubview:loadingView];
+    
+    [loadingView startAnimating];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -103,17 +118,17 @@
     //UIKeyboardAnimationDurationUserInfoKey;
     //UIKeyboardAnimationCurveUserInfoKey;
     
-    [self keyboardAnimationWithNotification:noti];
+    [self keyboardAnimationWithNotification:noti showing:YES];
 }
 
 -(void)keyboardHides:(NSNotification*)noti
 {
 //    NSLog(@"%@",noti);
     
-    [self keyboardAnimationWithNotification:noti];
+    [self keyboardAnimationWithNotification:noti showing:NO];
 }
 
--(void)keyboardAnimationWithNotification:(NSNotification*)noti
+-(void)keyboardAnimationWithNotification:(NSNotification*)noti showing:(BOOL)showing
 {
     NSDictionary* userinfo=noti.userInfo;
     
@@ -124,6 +139,9 @@
         CGRect fr=self.tableView.frame;
         fr.size.height=frameY-64;
         self.tableView.frame=fr;
+        if (!showing) {
+            self.tableView.frame=CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64);
+        }
     }];
 }
 
@@ -149,6 +167,11 @@
 
 -(void)setStepsTable
 {
+    if (self.formSteps.steps.count==0) {
+        return;
+    }
+    [loadingView stopAnimating];
+    
     if (self.stepInteger<=self.formSteps.steps.count-1) {
         self.currentStep=((BaseFormStep*)[self.formSteps.steps objectAtIndex:self.stepInteger]);
     }
@@ -159,6 +182,19 @@
     }
     
     [self.tableView reloadData];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 10;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section!=0) {
+        return 1;
+    }
+    return 10;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -188,7 +224,7 @@
     {
         nibName=NSStringFromClass([TitleTextViewTableViewCell class]);
     }
-    else if(model.type==BaseFormTypeTimePicker)
+    else if(model.type==BaseFormTypeTimePicker||model.type==BaseFormTypeSingleChoice)
     {
         nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
     }
@@ -228,6 +264,10 @@
 
 -(void)submit
 {
+    if(self.formSteps.steps.count==0)
+    {
+        return;
+    }
     NSString* str=[self.formSteps warningStringForStep:self.stepInteger];
     if (str.length>0) {
         [MBProgressHUD showErrorMessage:str];

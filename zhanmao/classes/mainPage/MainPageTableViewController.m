@@ -14,6 +14,8 @@
 #import "MainPageHeaderTableViewCell.h"
 #import "MessageSmallTableViewCell.h"
 
+#import "BaseFormTableViewController.h"
+
 #import "ImageTitleBarButtonItem.h"
 
 typedef NS_ENUM(NSInteger,MainPageSection)
@@ -68,10 +70,10 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 //    self.tableView.sectionHeaderHeight=44;
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
+//-(UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent;
+//}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -103,7 +105,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         NSMutableArray* array=[NSMutableArray array];
         NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"舞台",@"演艺",@"会议",@"保洁",@"物流",@"",@"", nil];
         NSArray* images=[NSArray arrayWithObjects:@"zhuchang",@"zhantai",@"zhanting",@"wutai",@"yanyi",@"huiyi",@"baojie",@"wuliu",@"",@"", nil];
-        NSArray* identis=[NSArray arrayWithObjects:@"ExhibitionListViewController", nil];
+        NSArray* identis=[NSArray arrayWithObjects:@"ExhibitionListViewController",@"ZhantaiFormTableViewController",@"ZhantingFormTableViewController",@"WutaiFormTableViewController",@"YanyiFormTableViewController",@"HuiyiFormTableViewController",@"BaojieFormTableViewController",@"BaojieFormTableViewController",@"WuliuFormTableViewController", nil];
         for (NSInteger i=0; i<8; i++) {
             SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:[images objectAtIndex:i] identifier:i<identis.count?[identis objectAtIndex:i]:@""];
             [array addObject:mo];
@@ -222,8 +224,15 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 {
     NSLog(@"%@",model.title);
     if (model.identifier.length>0) {
+        Class cla=NSClassFromString(model.identifier);
+        BaseFormTableViewController* form=[[cla alloc]init];
+        if ([form isKindOfClass:[BaseFormTableViewController class]]) {
+            
+            [self.navigationController pushViewController:form animated:YES];
+            return;
+        }
         UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MainPage" bundle:nil];
-        
+            
         UIViewController* viewController=[sb instantiateViewControllerWithIdentifier:model.identifier];
         [self.navigationController pushViewController:viewController animated:YES];
     }

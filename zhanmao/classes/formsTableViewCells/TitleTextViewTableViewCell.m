@@ -29,12 +29,13 @@
     self.placeHolder.text=model.hint;
     self.title.text=model.name;
     
-    [self valueChanged];
+    self.placeHolder.hidden=self.textView.text.length>0;
 }
 
 -(void)valueChanged
 {
     self.model.value=self.textView.text;
+    
     self.placeHolder.hidden=self.textView.text.length>0;
 }
 

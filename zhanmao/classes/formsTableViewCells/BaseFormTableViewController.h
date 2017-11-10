@@ -19,6 +19,8 @@
 @interface BaseFormTableViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,FormBaseTableViewCellDelegate>
 
 @property (nonatomic,strong) UITableView* tableView;
+@property (nonatomic,strong) UIView* bottomView;
+@property (nonatomic,strong) UIButton* bottomButton;
 @property (nonatomic,strong) NSMutableArray* dataSource;
 @property (nonatomic,assign) NSInteger type;
 @property (nonatomic,assign) NSInteger stepInteger;

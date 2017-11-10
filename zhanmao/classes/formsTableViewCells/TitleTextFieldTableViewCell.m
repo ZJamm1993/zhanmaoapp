@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+//    [self.textField setValue:[UIColor grayColor] forKeyPath:@"_placeholderLabel.textColor"];
     // Initialization code
 }
 
@@ -25,10 +27,12 @@
 {
     [super setModel:model];
     
-    self.textField.placeholder=model.hint;
     self.textField.text=model.value;
     self.title.text=model.name;
     self.unit.text=model.unit;
+    self.placeHolder.text=model.hint;
+    
+    self.placeHolder.hidden=self.textField.text.length>0;
 //    self.textField.textAlignment=model.unit.length>0?NSTextAlignmentRight:NSTextAlignmentLeft;
 }
 
@@ -37,6 +41,8 @@
 //    NSLog(@"%@",self.model);
 //    NSLog(@"%@",self.textField.text);
     self.model.value=self.textField.text;
+    
+    self.placeHolder.hidden=self.textField.text.length>0;
 }
 
 @end

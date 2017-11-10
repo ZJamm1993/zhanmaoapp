@@ -13,11 +13,11 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 {
     BaseFormTypeUnknown=0,
     BaseFormTypeNormal=1,
-    BaseFormTypeMutiChoice=3,
+//    BaseFormTypeMutiChoice=3,
     BaseFormTypeTimePicker=9,
     BaseFormTypeNormalUnit=11,
     BaseFormTypeLargeField=12,
-    BaseFormTypeSingleChoice=31,
+    BaseFormTypeSingleChoice=3,//1,
 };
 
 @interface BaseFormModel : ZZModel

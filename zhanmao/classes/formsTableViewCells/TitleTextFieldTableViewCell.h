@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UILabel *placeHolder;
 @property (weak, nonatomic) IBOutlet UILabel *unit;
 
 @end

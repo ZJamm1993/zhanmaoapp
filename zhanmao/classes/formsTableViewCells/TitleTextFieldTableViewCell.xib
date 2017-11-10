@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15字标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmh-my-bK9">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="15字标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmh-my-bK9">
                         <rect key="frame" x="10" y="13" width="70" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="ylD-Qh-gVq"/>
@@ -27,7 +27,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入？？" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAf-MS-FhV">
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAf-MS-FhV">
                         <rect key="frame" x="90" y="13" width="204.5" height="17"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -36,16 +36,26 @@
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="oU4-lU-5Ph"/>
                         </connections>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uI-F5-Ey2">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uI-F5-Ey2">
                         <rect key="frame" x="298.5" y="15" width="11.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placepholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cp-zb-dhx">
+                        <rect key="frame" x="90" y="13" width="204.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="4Cp-zb-dhx" firstAttribute="top" secondItem="xAf-MS-FhV" secondAttribute="top" id="3db-go-LVd"/>
                     <constraint firstItem="vmh-my-bK9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EdV-xr-6lT"/>
+                    <constraint firstItem="4Cp-zb-dhx" firstAttribute="leading" secondItem="xAf-MS-FhV" secondAttribute="leading" id="IM7-MV-dvk"/>
                     <constraint firstItem="vmh-my-bK9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Q1c-VG-Yd3"/>
+                    <constraint firstItem="4Cp-zb-dhx" firstAttribute="trailing" secondItem="xAf-MS-FhV" secondAttribute="trailing" id="cxM-az-fyB"/>
+                    <constraint firstItem="4Cp-zb-dhx" firstAttribute="bottom" secondItem="xAf-MS-FhV" secondAttribute="bottom" id="dHT-kg-c3O"/>
                     <constraint firstAttribute="trailing" secondItem="3uI-F5-Ey2" secondAttribute="trailing" constant="10" id="fH9-CJ-4W0"/>
                     <constraint firstItem="xAf-MS-FhV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lGT-hJ-pAY"/>
                     <constraint firstItem="xAf-MS-FhV" firstAttribute="leading" secondItem="vmh-my-bK9" secondAttribute="trailing" constant="10" id="oHp-Tv-juF"/>
@@ -54,6 +64,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="placeHolder" destination="4Cp-zb-dhx" id="TSa-DJ-FNF"/>
                 <outlet property="textField" destination="xAf-MS-FhV" id="MwY-Gj-ckb"/>
                 <outlet property="title" destination="vmh-my-bK9" id="r9u-FJ-iXA"/>
                 <outlet property="unit" destination="3uI-F5-Ey2" id="2gm-YU-qsS"/>

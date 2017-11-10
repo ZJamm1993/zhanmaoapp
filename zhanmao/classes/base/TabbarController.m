@@ -32,19 +32,19 @@
         item.selectedImage=[img_s imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     
-    self.tabBar.shadowImage=[UIImage imageWithColor:[UIColor groupTableViewBackgroundColor] size:CGSizeMake(self.tabBar.bounds.size.width, 0.5)];
+//    self.tabBar.shadowImage=[UIImage imageWithColor:[UIColor groupTableViewBackgroundColor] size:CGSizeMake(self.tabBar.bounds.size.width, 0.5)];
     
     [self.tabBar setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor] size:self.tabBar.bounds.size]];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

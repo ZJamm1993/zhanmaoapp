@@ -38,6 +38,9 @@
     [self.bottomToolBar addSubview:submitButton];
     
     self.bottomButton=submitButton;
+    
+    
+    [self scrollViewDidScroll:self.tableView];
 //    [self.tableView insertSubview:self.bottomToolBar atIndex:1000];
     
     // Do any additional setup after loading the view.
@@ -46,6 +49,12 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self scrollViewDidScroll:self.tableView];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self scrollViewDidScroll:self.tableView];
 }
 
