@@ -15,6 +15,7 @@
 #import "MessageSmallTableViewCell.h"
 
 #import "BaseFormTableViewController.h"
+#import "NaviController.h"
 
 #import "ImageTitleBarButtonItem.h"
 
@@ -41,7 +42,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     self.navigationItem.title=@"展贸在线";
     self.tabBarItem.title=@"主页";
     
-//    [self setLocation:@"guangz"];
+    [self setLocation:@"guangz"];
     
     self.tableView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
     
@@ -78,13 +79,13 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [((NaviController*)self.navigationController) setNavigationColorShowImage:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [((NaviController*)self.navigationController) setNavigationColorShowImage:YES];
 }
 
 -(void)setLocation:(NSString*)location
@@ -95,7 +96,10 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 -(void)goSearch
 {
-    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"] animated:YES];
+//    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"] animated:YES];
+    UIViewController* sear=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"];
+    UINavigationController* nav=[[NaviController alloc]initWithRootViewController:sear];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 -(NSArray*)arrayWithSimpleButtons

@@ -26,10 +26,10 @@
     for (UIViewController* vc in childs) {
         UITabBarItem* item = vc.tabBarItem;
         UIImage* img_n=item.image;
-        UIImage* img_s=item.selectedImage;
-        
-        item.image=[img_n imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        item.selectedImage=[img_s imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        UIImage* img_s=item.selectedImage;
+        item.image=img_n;
+//        item.image=[img_n imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        item.selectedImage=[img_s imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
     
 //    self.tabBar.shadowImage=[UIImage imageWithColor:[UIColor groupTableViewBackgroundColor] size:CGSizeMake(self.tabBar.bounds.size.width, 0.5)];

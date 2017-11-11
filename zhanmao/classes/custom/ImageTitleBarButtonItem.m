@@ -21,7 +21,7 @@
     UILabel* lab=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(img.frame)+10, 0, 100, CGRectGetMaxY(img.frame))];
     lab.text=title;
     lab.textColor=[UIColor whiteColor];
-    lab.font=[UIFont systemFontOfSize:13];
+    lab.font=[UIFont systemFontOfSize:15];
     [lab sizeToFit];
     lab.frame=CGRectMake(CGRectGetMaxX(img.frame)+4, 0, lab.frame.size.width, CGRectGetMaxY(img.frame));
     

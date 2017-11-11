@@ -26,13 +26,16 @@
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64) style:UITableViewStyleGrouped];
     self.tableView.estimatedRowHeight=44;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
+    self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
     
     nibsToRegister=[NSArray arrayWithObjects:
-                            NSStringFromClass([TitleTextViewTableViewCell class]),
-                            NSStringFromClass([TitleTextFieldTableViewCell class]),
-                            NSStringFromClass([TitleSingleSelectionTableViewCell class]),
-                            NSStringFromClass([TitleMutiSelectionTableViewCell class]),
-                              nil];
+                    NSStringFromClass([TitleTextViewTableViewCell class]),
+                    NSStringFromClass([TitleTextFieldTableViewCell class]),
+                    NSStringFromClass([TitleSingleSelectionTableViewCell class]),
+                    NSStringFromClass([TitleMutiSelectionTableViewCell class]),
+                    NSStringFromClass([TitleDescriptionTableViewCell class]),
+                    NSStringFromClass([TitleAreaCalculationTableViewCell class]),
+                  nil];
     
     for (NSString* nibName in nibsToRegister) {
         [self.tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:nibName];
@@ -74,8 +77,8 @@
         [self loadFormJson];
     }
     
-#warning do not show this title
-    self.title=NSStringFromClass(self.class);
+//#warning do not show this title
+//    self.title=NSStringFromClass(self.class);
     
     loadingView=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     loadingView.center=CGPointMake(self.view.center.x,100);
@@ -83,6 +86,8 @@
     [self.view addSubview:loadingView];
     
     [loadingView startAnimating];
+    
+    [self setStepsTable];
     
     // Do any additional setup after loading the view.
 }
@@ -195,10 +200,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if(section==0)
-    {
-        return 0.001;
-    }
+//    if(section==0)
+//    {
+//        return 0.001;
+//    }
     return 10;
 }
 
@@ -229,13 +234,21 @@
     {
         nibName=NSStringFromClass([TitleTextViewTableViewCell class]);
     }
-    else if(model.type==BaseFormTypeTimePicker||model.type==BaseFormTypeSingleChoice)
+    else if(model.type==BaseFormTypeDatePicker||model.type==BaseFormTypeDateTimePicker||model.type==BaseFormTypeDateScopePicker||model.type==BaseFormTypeSingleChoice)
     {
         nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
     }
     else if(model.type==BaseFormTypeMutiChoice)
     {
         nibName=NSStringFromClass([TitleMutiSelectionTableViewCell class]);
+    }
+    else if(model.type==BaseFormTypeStepDescription)
+    {
+        nibName=NSStringFromClass([TitleDescriptionTableViewCell class]);
+    }
+    else if(model.type==BaseFormTypeCalculateArea||model.type==BaseFormTypeProviceCityDistrict)
+    {
+        nibName=NSStringFromClass([TitleAreaCalculationTableViewCell class]);
     }
     
     if (![nibsToRegister containsObject:nibName]) {

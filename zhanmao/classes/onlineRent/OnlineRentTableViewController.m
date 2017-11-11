@@ -8,6 +8,8 @@
 
 #import "OnlineRentTableViewController.h"
 
+#import "RentHttpTool.h"
+
 #import "ProductDetailViewController.h"
 #import "RentCartTableViewController.h"
 #import "NaviController.h"
@@ -40,7 +42,7 @@ const CGFloat categoriesHeaderHeight=50;
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
-    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"searchWhite" count:1 target:self selector:@selector(cartItemClicked)];
+    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:1 target:self selector:@selector(cartItemClicked)];
     self.navigationItem.rightBarButtonItem=cartItem;
     
     [self selectLocation];
@@ -65,10 +67,18 @@ const CGFloat categoriesHeaderHeight=50;
     self.goodsTableView.rowHeight=UITableViewAutomaticDimension;
     self.goodsTableView.estimatedRowHeight=100;
     
-    NSIndexPath* zeroIndexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-    [self.catesTableView selectRowAtIndexPath:zeroIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
-    [self tableView:self.catesTableView didSelectRowAtIndexPath:zeroIndexPath];
     //will not call delegate...
+    
+    [RentHttpTool getClasses:^(NSArray *result) {
+        categoriesArray=[NSMutableArray arrayWithArray:result];
+        [self.catesTableView reloadData];
+        
+        NSIndexPath* zeroIndexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+        [self.catesTableView selectRowAtIndexPath:zeroIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+        [self tableView:self.catesTableView didSelectRowAtIndexPath:zeroIndexPath];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)setLocation:(NSString*)location
@@ -119,7 +129,7 @@ const CGFloat categoriesHeaderHeight=50;
     }
     else if(tableView==self.catesTableView)
     {
-        return 20;//categoriesArray.count;
+        return categoriesArray.count;//categoriesArray.count;
     }
     return 0;
 }
@@ -128,7 +138,8 @@ const CGFloat categoriesHeaderHeight=50;
 {
     if (tableView==self.catesTableView) {
         SimpleTitleTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"SimpleTitleTableViewCell" forIndexPath:indexPath];
-        cell.title.text=[NSString stringWithFormat:@"全部分类%ld",(long)indexPath.row];
+        RentClass* cla=[categoriesArray objectAtIndex:indexPath.row];
+        cell.title.text=cla.name;
         return cell;
     }
     else if(tableView==self.goodsTableView)

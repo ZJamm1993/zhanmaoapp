@@ -22,6 +22,17 @@
         self.hint=[dictionary valueForKey:@"hint"];
         self.unit=[dictionary valueForKey:@"unit"];
         self.option=[dictionary valueForKey:@"option"];
+        
+        NSMutableArray* coms=[NSMutableArray array];
+        NSArray* coma=[dictionary valueForKey:@"combination_arr"];
+        if (coma.count>0)
+        {
+            for (NSDictionary* comd_ in coma) {
+                BaseFormModel* m=[[BaseFormModel alloc]initWithDictionary:comd_];
+                [coms addObject:m];
+            }
+        }
+        self.combination_arr=coms;
     }
     return self;
 }
@@ -59,7 +70,11 @@
         NSArray* stepData=[dictionary valueForKey:@"data"];
         NSMutableArray* mutaStep=[NSMutableArray array];
         for (NSDictionary* section in stepData) {
-            BaseFormSection* sec=[[BaseFormSection alloc]initWithDictionary:section];
+            NSDictionary* secD=section;
+            if ([secD respondsToSelector:@selector(lastObject)]) {
+                secD=[NSDictionary dictionaryWithObject:secD forKey:@"data"];
+            }
+            BaseFormSection* sec=[[BaseFormSection alloc]initWithDictionary:secD];
             [mutaStep addObject:sec];
         }
         self.sections=mutaStep;
@@ -101,6 +116,15 @@
                         return mo.hint;
                     }
                 }
+                for(BaseFormModel* smo in mo.combination_arr)
+                {
+                    if (smo.required) {
+                        if (smo.value.length==0) {
+                            NSLog(@"%@",mo);
+                            return smo.hint;
+                        }
+                    }
+                }
             }
         }
     }
@@ -115,6 +139,12 @@
             for (BaseFormModel* mo in sections.models) {
                 if (mo.field.length>0&&mo.value.length>0) {
                     [dic setValue:mo.value forKey:mo.field];
+                }
+                for(BaseFormModel* smo in mo.combination_arr)
+                {
+                    if (smo.field.length>0&&smo.value.length>0) {
+                        [dic setValue:smo.value forKey:smo.field];
+                    }
                 }
             }
         }

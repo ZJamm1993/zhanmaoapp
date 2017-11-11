@@ -22,10 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9nx-m6-UNI">
-                                <rect key="frame" x="0.0" y="64" width="80" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="110" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="ZrA-6M-2oc"/>
+                                    <constraint firstAttribute="width" constant="110" id="ZrA-6M-2oc"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="IdE-S0-Nw9" id="MvH-jJ-jz0"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YEq-y7-EFf">
-                                <rect key="frame" x="80" y="64" width="240" height="455"/>
+                                <rect key="frame" x="110" y="64" width="210" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="IdE-S0-Nw9" id="amm-8e-EIn"/>
@@ -86,7 +86,7 @@
         <scene sceneID="Qnr-i8-Dqz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="owI-N5-h5N" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" id="elN-HJ-Fuf"/>
+                    <tabBarItem key="tabBarItem" title="主页" image="Navbar_home" id="elN-HJ-Fuf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r7j-wC-J0l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -124,7 +124,7 @@
         <scene sceneID="ZOM-dN-feP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dlQ-0t-kpF" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="在线租赁" id="8am-Of-FAf"/>
+                    <tabBarItem key="tabBarItem" title="在线租赁" image="Navbar_Lease" id="8am-Of-FAf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oWl-0y-hqw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -143,7 +143,7 @@
         <scene sceneID="aVS-NL-X64">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xWH-uk-A4n" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="ekb-pp-Mns"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="Navbar_My" id="ekb-pp-Mns"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pPm-mG-4qB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -181,7 +181,7 @@
         <scene sceneID="WhM-Hg-HxD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HBi-sB-1QO" customClass="NaviController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="商旅" id="FyQ-sV-7Xf"/>
+                    <tabBarItem key="tabBarItem" title="商旅" image="Navbar_Business-travel" id="FyQ-sV-7Xf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TWU-Oi-KeQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -216,4 +216,10 @@
             <point key="canvasLocation" x="1020" y="1053"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Navbar_Business-travel" width="30" height="30"/>
+        <image name="Navbar_Lease" width="30" height="30"/>
+        <image name="Navbar_My" width="30" height="30"/>
+        <image name="Navbar_home" width="30" height="30"/>
+    </resources>
 </document>

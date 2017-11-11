@@ -13,7 +13,7 @@
 +(instancetype)itemWithImageName:(NSString *)imageName count:(NSInteger)count target:(id)target selector:(SEL)selector
 {
     UIImageView* img=[[UIImageView alloc]initWithImage:[UIImage imageNamed:imageName]];
-    img.frame=CGRectMake(0, 0, 44, 32);
+//    img.frame=CGRectMake(0, 0, 44, 32);
     img.contentMode=UIViewContentModeCenter;
     
     
@@ -39,8 +39,8 @@
             fr.size.width=fr.size.height;
         }
 //        fr.size.height=fr.size.height+8;
-        fr.origin.x=img.center.x;//*1.5;
-        fr.origin.y=0;//-fr.size.height/2;
+        fr.origin.x=img.frame.size.width+img.frame.origin.x-fr.size.width/2;//*1.5;
+        fr.origin.y=-fr.size.height/2;
         lab.frame=fr;
         
         lab.layer.masksToBounds=YES;

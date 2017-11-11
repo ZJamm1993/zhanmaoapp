@@ -16,4 +16,7 @@
 
 +(void)showPickerContainerWithView:(UIView *)view completion:(void(^)())completion;
 
++(void)showPickerContainerWithView:(UIView *)view title:(NSString*)title completion:(void(^)())completion;
+
+
 @end

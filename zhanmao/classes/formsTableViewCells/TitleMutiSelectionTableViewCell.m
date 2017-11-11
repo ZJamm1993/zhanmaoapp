@@ -86,9 +86,9 @@ const NSInteger mutiSelectionButtonRowCount=3;
         UIButton* btn=[[UIButton alloc]initWithFrame:CGRectMake((widthPerEach+mutiSelectionButtonMarginX)*sec, mutiSelectionButtonMarginY+(heightPerEach+mutiSelectionButtonMarginY)*row, widthPerEach, heightPerEach)];
         btn.tag=i;
         [btn.titleLabel setFont:[UIFont systemFontOfSize:14]];
-        btn.titleLabel.adjustsFontSizeToFitWidth=YES;
-        btn.titleLabel.minimumScaleFactor=0.5;
-        btn.titleLabel.numberOfLines=2;
+//        btn.titleLabel.adjustsFontSizeToFitWidth=YES;
+//        btn.titleLabel.minimumScaleFactor=0;
+//        btn.titleLabel.numberOfLines=2;
         
         [btn addTarget:self action:@selector(buttonClicks:) forControlEvents:UIControlEventTouchUpInside];
         [btn setTitle:tit forState:UIControlStateNormal];

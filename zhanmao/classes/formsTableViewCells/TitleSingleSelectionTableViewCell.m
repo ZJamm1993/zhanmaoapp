@@ -15,8 +15,6 @@
 
 @implementation TitleSingleSelectionTableViewCell
 {
-    UIDatePicker* datePicker;
-    UIPickerView* singlePicker;
 }
 
 - (void)awakeFromNib {
@@ -30,28 +28,58 @@
     [[[UIApplication sharedApplication]keyWindow]endEditing:YES];
     
     if (selected) {
-        if (self.model.type==BaseFormTypeTimePicker) {
-            if (datePicker==nil) {
-                datePicker=[[UIDatePicker alloc]init];
-                datePicker.minimumDate=[NSDate date];
-                datePicker.backgroundColor=[UIColor whiteColor];
-                datePicker.datePickerMode=UIDatePickerModeDate;
-                datePicker.minuteInterval=30;
+        if (self.model.type==BaseFormTypeDatePicker||self.model.type==BaseFormTypeDateScopePicker||self.model.type==BaseFormTypeDateTimePicker) {
+            UIDatePicker* datePicker=[[UIDatePicker alloc]init];
+            datePicker.minimumDate=[NSDate date];
+            datePicker.backgroundColor=[UIColor whiteColor];
+            
+            NSString* format=@"yyyy-MM-dd HH:mm";
+            
+            if (self.model.type==BaseFormTypeDateTimePicker) {
+                datePicker.datePickerMode=UIDatePickerModeDateAndTime;
             }
-            [PickerShadowContainer showPickerContainerWithView:datePicker completion:^{
+            else if(self.model.type==BaseFormTypeDatePicker||self.model.type==BaseFormTypeDateScopePicker)
+            {
+                datePicker.datePickerMode=UIDatePickerModeDate;
+                format=@"yyyy-MM-dd";
+            }
+            datePicker.minuteInterval=30;
+            
+            NSDateFormatter* formatter=[[NSDateFormatter alloc]init];
+            [formatter setDateFormat:format];
+            
+            NSString* tit=self.model.hint;
+            if(self.model.type==BaseFormTypeDateScopePicker)
+            {
+                tit=@"请选择开始时间";
+            }
+            
+            [PickerShadowContainer showPickerContainerWithView:datePicker title:tit completion:^{
+                NSString* value1=[formatter stringFromDate:datePicker.date];
+                
+                if (self.model.type==BaseFormTypeDateScopePicker) {
+                    [PickerShadowContainer showPickerContainerWithView:datePicker title:@"请选择结束时间" completion:^{
+                        NSString* value2=[formatter stringFromDate:datePicker.date];
+                        self.model.value=[NSString stringWithFormat:@"%@至%@",value1,value2];
+                        [self valueChanged];
+                    }];
+                    return;
+                }
+                
+                self.model.value=value1;
                 [self valueChanged];
             }];
         }
         else if(self.model.type==BaseFormTypeSingleChoice)
         {
-            if (singlePicker==nil) {
-                singlePicker=[[UIPickerView alloc]init];
-                singlePicker.dataSource=self;
-                singlePicker.delegate=self;
-                singlePicker.backgroundColor=[UIColor whiteColor];
-            }
+            UIPickerView* singlePicker=[[UIPickerView alloc]init];
+            singlePicker.dataSource=self;
+            singlePicker.delegate=self;
+            singlePicker.backgroundColor=[UIColor whiteColor];
             [singlePicker reloadAllComponents];
-            [PickerShadowContainer showPickerContainerWithView:singlePicker completion:^{
+            [PickerShadowContainer showPickerContainerWithView:singlePicker title:self.model.hint completion:^{
+                NSString* str=[self pickerView:singlePicker titleForRow:[singlePicker selectedRowInComponent:0] forComponent:0];
+                self.model.value=str;
                 [self valueChanged];
             }];
             
@@ -97,26 +125,8 @@
 
 -(void)valueChanged
 {
-    if (self.model.type==BaseFormTypeTimePicker)
-    {
-        NSDate* date=datePicker.date;
-        NSDateFormatter* forma=[[NSDateFormatter alloc]init];
-        forma.dateFormat=@"yyyy-MM-dd HH:mm:ss";
-        NSString* dateString=[forma stringFromDate:date];
-        self.detail.text=dateString;
-        self.model.value=dateString;
-    }
-    else if(self.model.type==BaseFormTypeSingleChoice)
-    {
-        NSInteger inte=[singlePicker selectedRowInComponent:0];
-        if (inte<self.model.option.count) {
-            NSString* va=[self.model.option objectAtIndex:inte];
-            self.detail.text=va;
-            self.model.value=va;
-        }
-    }
-    
-    self.placeHolder.hidden=self.title.text.length>0;
+    self.detail.text=self.model.value;
+    self.placeHolder.hidden=self.detail.text.length>0;
 }
 
 @end

@@ -41,7 +41,7 @@
     
     CGFloat bw=64;
     CGFloat bh=32;
-    CGFloat imgW=20;
+    CGFloat imgW=10;
     CGFloat imgH=imgW;
     for (NSInteger i=0; i<buttonModelArray.count; i++) {
         MenuHeaderButtonModel* model=[buttonModelArray objectAtIndex:i];
@@ -56,17 +56,17 @@
         ti.textAlignment=NSTextAlignmentCenter;
         [bg addSubview:ti];
         
-        UILabel* upImg=[[UILabel alloc]initWithFrame:CGRectMake(bw-imgW, bh/2-imgH+4, imgW, imgH)];
+        UILabel* upImg=[[UILabel alloc]initWithFrame:CGRectMake(bw-imgW-5, bh/2-imgH+1, imgW, imgH)];
         upImg.text=@"▲";
         upImg.textColor=[UIColor grayColor];
-        upImg.font=[UIFont systemFontOfSize:14];
+        upImg.font=[UIFont systemFontOfSize:9];
         upImg.textAlignment=NSTextAlignmentCenter;
         [bg addSubview:upImg];
         
-        UILabel* doImg=[[UILabel alloc]initWithFrame:CGRectMake(bw-imgW, bh/2-4, imgW, imgH)];
+        UILabel* doImg=[[UILabel alloc]initWithFrame:CGRectMake(upImg.frame.origin.x, bh/2-1, imgW, imgH)];
         doImg.text=@"▼";
         doImg.textColor=[UIColor grayColor];
-        doImg.font=[UIFont systemFontOfSize:14];
+        doImg.font=[UIFont systemFontOfSize:9];
         doImg.textAlignment=NSTextAlignmentCenter;
         [bg addSubview:doImg];
         

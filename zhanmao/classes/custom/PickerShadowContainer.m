@@ -17,6 +17,11 @@
 
 +(void)showPickerContainerWithView:(UIView *)view completion:(void (^)())completion
 {
+    [self showPickerContainerWithView:view title:@"" completion:completion];
+}
+
++(void)showPickerContainerWithView:(UIView *)view title:(NSString*)title completion:(void (^)())completion
+{
     PickerShadowContainer* p=[[PickerShadowContainer alloc]initWithFrame:[UIScreen mainScreen].bounds];
     p.backgroundColor=[UIColor colorWithWhite:0 alpha:0.3];
     
@@ -35,12 +40,21 @@
     
     UIView* bar=[[UIView alloc]initWithFrame:CGRectMake(0, 0, ww, barH)];
     bar.backgroundColor=[UIColor whiteColor];
+    [bg addSubview:bar];
+    
     UIButton* ok=[[UIButton alloc]initWithFrame:CGRectMake(ww-64, 0, 64, barH)];
     [ok setTitle:@"确定" forState:UIControlStateNormal];
+    [ok.titleLabel setFont:[UIFont systemFontOfSize:17]];
     [ok setTitleColor:_mainColor forState:UIControlStateNormal];
     [ok addTarget:p action:@selector(ok) forControlEvents:UIControlEventTouchUpInside];
     [bar addSubview:ok];
-    [bg addSubview:bar];
+    
+    UILabel* label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, ok.frame.origin.x, barH)];
+    label.text=title;
+    label.textColor=[UIColor blackColor];
+    label.textAlignment=NSTextAlignmentCenter;
+    label.font=[UIFont systemFontOfSize:17];
+    [bar addSubview:label];
     
     [view removeFromSuperview];
     view.frame=CGRectMake(0, barH, ww, bgH-barH);
@@ -83,6 +97,7 @@
     if (self.completionBlock) {
         self.completionBlock();
     }
+    [self removeAllSubviews];
     [self removeFromSuperview];
 }
 

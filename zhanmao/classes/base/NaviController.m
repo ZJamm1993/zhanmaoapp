@@ -25,23 +25,33 @@
     
     self.navigationBar.shadowImage=[UIImage imageWithColor:[UIColor clearColor] size:CGSizeMake(self.navigationBar.bounds.size.width, 0.5)];
     
-    //custom draw image
-    CGSize size=CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+20);
-    UIImage* mainColorBg=[UIImage imageWithColor:_mainColor size:size];
-    UIImage* cityImage=[UIImage imageNamed:@"buildings"];
     
-    UIGraphicsBeginImageContext(size);
-    [mainColorBg drawInRect:CGRectMake(0, 0, size.width, size.height)];
-    [cityImage drawInRect:CGRectMake(0, 20, size.width, size.height-20) blendMode:kCGBlendModeNormal alpha:0.2];
-    UIImage *naviBgImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [self.navigationBar setBackgroundImage:naviBgImage forBarMetrics:UIBarMetricsDefault];
     
     [self.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil]];
     // Do any additional setup after loading the view.
     
+    [self setNavigationColorShowImage:YES];
+}
+
+-(void)setNavigationColorShowImage:(BOOL)showImage
+{
+    //custom draw image
+    CGSize size=CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+20);
+    UIImage* mainColorBg=[UIImage imageWithColor:_mainColor size:size];
     
+    
+    UIGraphicsBeginImageContext(size);
+    [mainColorBg drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    if (showImage) {
+        UIImage* cityImage=[UIImage imageNamed:@"buildings"];
+        [cityImage drawInRect:CGRectMake(0, 20, size.width, size.height-20) blendMode:kCGBlendModeNormal alpha:0.2];
+    }
+    
+    UIImage *naviBgImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.navigationBar setBackgroundImage:naviBgImage forBarMetrics:UIBarMetricsDefault];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle

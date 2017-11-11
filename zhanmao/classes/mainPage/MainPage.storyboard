@@ -44,12 +44,17 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightArrow" translatesAutoresizingMaskIntoConstraints="NO" id="QyC-em-XLq">
+                                                            <rect key="frame" x="276" y="22" width="8" height="14"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="4M9-3X-Uq7"/>
                                                         <constraint firstItem="ulY-RY-xCq" firstAttribute="leading" secondItem="AYx-hy-wHj" secondAttribute="leading" constant="10" id="Djp-D1-Pma"/>
                                                         <constraint firstAttribute="trailing" secondItem="ulY-RY-xCq" secondAttribute="trailing" constant="10" id="MNl-Gk-lR4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="QyC-em-XLq" secondAttribute="trailing" constant="20" id="oBU-1l-aYr"/>
                                                         <constraint firstItem="ulY-RY-xCq" firstAttribute="centerY" secondItem="AYx-hy-wHj" secondAttribute="centerY" id="vxT-eX-yIi"/>
+                                                        <constraint firstItem="QyC-em-XLq" firstAttribute="centerY" secondItem="AYx-hy-wHj" secondAttribute="centerY" id="yj7-rp-44R"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -184,5 +189,6 @@
     </scenes>
     <resources>
         <image name="1.jpg" width="640" height="480"/>
+        <image name="rightArrow" width="8" height="14"/>
     </resources>
 </document>

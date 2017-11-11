@@ -37,7 +37,7 @@
                         </connections>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uI-F5-Ey2">
-                        <rect key="frame" x="298.5" y="15" width="11.5" height="16"/>
+                        <rect key="frame" x="298.5" y="14" width="11.5" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -53,13 +53,13 @@
                     <constraint firstItem="4Cp-zb-dhx" firstAttribute="top" secondItem="xAf-MS-FhV" secondAttribute="top" id="3db-go-LVd"/>
                     <constraint firstItem="vmh-my-bK9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EdV-xr-6lT"/>
                     <constraint firstItem="4Cp-zb-dhx" firstAttribute="leading" secondItem="xAf-MS-FhV" secondAttribute="leading" id="IM7-MV-dvk"/>
+                    <constraint firstItem="3uI-F5-Ey2" firstAttribute="centerY" secondItem="vmh-my-bK9" secondAttribute="centerY" id="Pvk-Pa-dao"/>
                     <constraint firstItem="vmh-my-bK9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Q1c-VG-Yd3"/>
                     <constraint firstItem="4Cp-zb-dhx" firstAttribute="trailing" secondItem="xAf-MS-FhV" secondAttribute="trailing" id="cxM-az-fyB"/>
                     <constraint firstItem="4Cp-zb-dhx" firstAttribute="bottom" secondItem="xAf-MS-FhV" secondAttribute="bottom" id="dHT-kg-c3O"/>
                     <constraint firstAttribute="trailing" secondItem="3uI-F5-Ey2" secondAttribute="trailing" constant="10" id="fH9-CJ-4W0"/>
                     <constraint firstItem="xAf-MS-FhV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lGT-hJ-pAY"/>
                     <constraint firstItem="xAf-MS-FhV" firstAttribute="leading" secondItem="vmh-my-bK9" secondAttribute="trailing" constant="10" id="oHp-Tv-juF"/>
-                    <constraint firstItem="3uI-F5-Ey2" firstAttribute="bottom" secondItem="vmh-my-bK9" secondAttribute="bottom" id="q7e-gk-bCN"/>
                     <constraint firstItem="3uI-F5-Ey2" firstAttribute="leading" secondItem="xAf-MS-FhV" secondAttribute="trailing" constant="4" id="qVJ-Ow-5Xv"/>
                 </constraints>
             </tableViewCellContentView>

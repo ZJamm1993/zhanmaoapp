@@ -130,6 +130,12 @@
 		8E9B0CE51FAAC40200770F8D /* OrderTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CE41FAAC40200770F8D /* OrderTypeTableViewController.m */; };
 		8E9B0CE81FAAC49400770F8D /* OrderTypeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CE71FAAC49400770F8D /* OrderTypeDataSource.m */; };
 		8E9B0CEB1FAAC4B600770F8D /* OrderTypeBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CEA1FAAC4B600770F8D /* OrderTypeBaseModel.m */; };
+		8EA680721FB697CA00EF5FC8 /* RentHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA680711FB697CA00EF5FC8 /* RentHttpTool.m */; };
+		8EA680751FB6999700EF5FC8 /* RentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA680741FB6999700EF5FC8 /* RentModel.m */; };
+		8EA680791FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA680771FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m */; };
+		8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA680781FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib */; };
+		8EA6807E1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA6807C1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.m */; };
+		8EA6807F1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA6807D1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib */; };
 		8EA9E55B1FB19368003815B7 /* RentActionEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9E55A1FB19368003815B7 /* RentActionEditView.m */; };
 		8EA9E55D1FB1937A003815B7 /* RentActionEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA9E55C1FB1937A003815B7 /* RentActionEditView.xib */; };
 		8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674BE1F973818008CC196 /* BaseLoadMoreFooterView.m */; };
@@ -394,6 +400,16 @@
 		8E9B0CE71FAAC49400770F8D /* OrderTypeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTypeDataSource.m; sourceTree = "<group>"; };
 		8E9B0CE91FAAC4B600770F8D /* OrderTypeBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTypeBaseModel.h; sourceTree = "<group>"; };
 		8E9B0CEA1FAAC4B600770F8D /* OrderTypeBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTypeBaseModel.m; sourceTree = "<group>"; };
+		8EA680701FB697CA00EF5FC8 /* RentHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentHttpTool.h; sourceTree = "<group>"; };
+		8EA680711FB697CA00EF5FC8 /* RentHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentHttpTool.m; sourceTree = "<group>"; };
+		8EA680731FB6999700EF5FC8 /* RentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentModel.h; sourceTree = "<group>"; };
+		8EA680741FB6999700EF5FC8 /* RentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentModel.m; sourceTree = "<group>"; };
+		8EA680761FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		8EA680771FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleDescriptionTableViewCell.m; sourceTree = "<group>"; };
+		8EA680781FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		8EA6807B1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleAreaCalculationTableViewCell.h; sourceTree = "<group>"; };
+		8EA6807C1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleAreaCalculationTableViewCell.m; sourceTree = "<group>"; };
+		8EA6807D1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleAreaCalculationTableViewCell.xib; sourceTree = "<group>"; };
 		8EA9E5591FB19368003815B7 /* RentActionEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentActionEditView.h; sourceTree = "<group>"; };
 		8EA9E55A1FB19368003815B7 /* RentActionEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentActionEditView.m; sourceTree = "<group>"; };
 		8EA9E55C1FB1937A003815B7 /* RentActionEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentActionEditView.xib; sourceTree = "<group>"; };
@@ -518,6 +534,12 @@
 				8E721AF01FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.h */,
 				8E721AF11FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m */,
 				8E721AF21FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib */,
+				8EA680761FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.h */,
+				8EA680771FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m */,
+				8EA680781FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib */,
+				8EA6807B1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.h */,
+				8EA6807C1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.m */,
+				8EA6807D1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -538,6 +560,10 @@
 				8E6C74AB1FA08572004B33D1 /* RentCartTableViewController.m */,
 				8EDBF4F21FA1E5660073F37D /* ProductSearchTableViewController.h */,
 				8EDBF4F31FA1E5660073F37D /* ProductSearchTableViewController.m */,
+				8EA680701FB697CA00EF5FC8 /* RentHttpTool.h */,
+				8EA680711FB697CA00EF5FC8 /* RentHttpTool.m */,
+				8EA680731FB6999700EF5FC8 /* RentModel.h */,
+				8EA680741FB6999700EF5FC8 /* RentModel.m */,
 			);
 			path = onlineRent;
 			sourceTree = "<group>";
@@ -647,11 +673,11 @@
 			isa = PBXGroup;
 			children = (
 				8E99AABE1F9069700078C452 /* PrefixHeader.pch */,
+				8E99A8D91F90664D0078C452 /* Assets.xcassets */,
 				8E99A8E41F9068910078C452 /* classes */,
 				8E99A8D01F90664D0078C452 /* AppDelegate.h */,
 				8E99A8D11F90664D0078C452 /* AppDelegate.m */,
 				8E99A8D61F90664D0078C452 /* Main.storyboard */,
-				8E99A8D91F90664D0078C452 /* Assets.xcassets */,
 				8E99A8DB1F90664D0078C452 /* LaunchScreen.storyboard */,
 				8E99A8DE1F90664D0078C452 /* Info.plist */,
 				8E99A8CD1F90664D0078C452 /* Supporting Files */,
@@ -1069,8 +1095,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */,
+				8EA6807F1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib in Resources */,
 				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
+				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
 				8E9B00291FB42BE500B29188 /* json.txt in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
@@ -1111,6 +1139,7 @@
 				8EDBF4FD1FA42F570073F37D /* RentProductModel.m in Sources */,
 				8E6C748D1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.m in Sources */,
 				8E6C73F51F9D9280004B33D1 /* ImageTitleBarButtonItem.m in Sources */,
+				8EA680751FB6999700EF5FC8 /* RentModel.m in Sources */,
 				8E2E40951F945A2E00B42477 /* NothingFooterCell.m in Sources */,
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
 				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
@@ -1121,6 +1150,7 @@
 				8EB674C31F973818008CC196 /* BaseTableViewController.m in Sources */,
 				8E99AAA61F9068920078C452 /* NSImage+WebCache.m in Sources */,
 				8E99AAA91F9068920078C452 /* SDWebImageCompat.m in Sources */,
+				8EA6807E1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.m in Sources */,
 				8E99AAA81F9068920078C452 /* SDImageCacheConfig.m in Sources */,
 				8E99AA9C1F9068920078C452 /* Foundation+Log.m in Sources */,
 				8E99AAAC1F9068920078C452 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1153,6 +1183,7 @@
 				8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */,
 				8E72E9E71FB2ED02001FCD31 /* CustomOrderTableViewController.m in Sources */,
 				8E2E40971F945A2E00B42477 /* NothingWarningView.m in Sources */,
+				8EA680721FB697CA00EF5FC8 /* RentHttpTool.m in Sources */,
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
 				8E9B0CD51FAAC25C00770F8D /* CleanOrderPagerViewController.m in Sources */,
 				8E6C74981FA03E9B004B33D1 /* ProductParameterTableViewCell.m in Sources */,
@@ -1207,6 +1238,7 @@
 				8E6C74891FA0243E004B33D1 /* TravellingRootViewController.m in Sources */,
 				8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */,
 				8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */,
+				8EA680791FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				8E6C74021F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.m in Sources */,
 				8E99AAA31F9068920078C452 /* Reachability.m in Sources */,

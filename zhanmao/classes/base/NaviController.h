@@ -10,4 +10,6 @@
 
 @interface NaviController : UINavigationController
 
+-(void)setNavigationColorShowImage:(BOOL)showImage;
+
 @end
