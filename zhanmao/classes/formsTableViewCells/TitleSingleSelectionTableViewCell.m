@@ -58,6 +58,7 @@
                 NSString* value1=[formatter stringFromDate:datePicker.date];
                 
                 if (self.model.type==BaseFormTypeDateScopePicker) {
+                    datePicker.minimumDate=datePicker.date;
                     [PickerShadowContainer showPickerContainerWithView:datePicker title:@"请选择结束时间" completion:^{
                         NSString* value2=[formatter stringFromDate:datePicker.date];
                         self.model.value=[NSString stringWithFormat:@"%@至%@",value1,value2];
@@ -103,7 +104,7 @@
     self.title.text=model.name;
     self.detail.text=model.value;
     self.placeHolder.text=model.hint;
-    
+    self.unit.text=model.unit;
     self.placeHolder.hidden=self.detail.text.length>0;
 //    [self valueChanged];
 }
@@ -125,8 +126,7 @@
 
 -(void)valueChanged
 {
-    self.detail.text=self.model.value;
-    self.placeHolder.hidden=self.detail.text.length>0;
+    [self reloadModel];
 }
 
 @end

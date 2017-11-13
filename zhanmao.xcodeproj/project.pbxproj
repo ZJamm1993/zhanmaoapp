@@ -53,10 +53,6 @@
 		8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74A31FA06C05004B33D1 /* BaseToolBarTableViewController.m */; };
 		8E6C74A81FA071B4004B33D1 /* RentCartEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74A61FA071B4004B33D1 /* RentCartEditTableViewCell.m */; };
 		8E6C74AC1FA08572004B33D1 /* RentCartTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74AB1FA08572004B33D1 /* RentCartTableViewController.m */; };
-		8E721ADC1FB57BF2001BD401 /* ZhantaiFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721ADB1FB57BF2001BD401 /* ZhantaiFormTableViewController.m */; };
-		8E721AE01FB58146001BD401 /* ZhantingFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721ADF1FB58146001BD401 /* ZhantingFormTableViewController.m */; };
-		8E721AE31FB5815A001BD401 /* WutaiFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AE21FB5815A001BD401 /* WutaiFormTableViewController.m */; };
-		8E721AE61FB58179001BD401 /* YanyiFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AE51FB58179001BD401 /* YanyiFormTableViewController.m */; };
 		8E721AE91FB58195001BD401 /* HuiyiFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AE81FB58195001BD401 /* HuiyiFormTableViewController.m */; };
 		8E721AEC1FB581A8001BD401 /* BaojieFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AEB1FB581A8001BD401 /* BaojieFormTableViewController.m */; };
 		8E721AEF1FB581C1001BD401 /* WuliuFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AEE1FB581C1001BD401 /* WuliuFormTableViewController.m */; };
@@ -170,6 +166,12 @@
 		8EDCF5B81FA6D44100AA4359 /* MyInvoiceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5B71FA6D44100AA4359 /* MyInvoiceTableViewController.m */; };
 		8EDCF5C01FA6D76B00AA4359 /* InvoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */; };
 		8EDCF5C41FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */; };
+		8EEF09171FB93984004ED5F0 /* TitleSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF09151FB93984004ED5F0 /* TitleSwitchTableViewCell.m */; };
+		8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF09161FB93984004ED5F0 /* TitleSwitchTableViewCell.xib */; };
+		8EEF091A1FB96C48004ED5F0 /* chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EEF09191FB96C48004ED5F0 /* chicken.png */; };
+		8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF091C1FB96E3D004ED5F0 /* StepsHeaderView.m */; };
+		8EEF09201FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */; };
+		8EEF09231FB98168004ED5F0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEF09221FB98168004ED5F0 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -254,14 +256,6 @@
 		8E6C74A61FA071B4004B33D1 /* RentCartEditTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentCartEditTableViewCell.m; sourceTree = "<group>"; };
 		8E6C74AA1FA08572004B33D1 /* RentCartTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentCartTableViewController.h; sourceTree = "<group>"; };
 		8E6C74AB1FA08572004B33D1 /* RentCartTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentCartTableViewController.m; sourceTree = "<group>"; };
-		8E721ADA1FB57BF2001BD401 /* ZhantaiFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhantaiFormTableViewController.h; sourceTree = "<group>"; };
-		8E721ADB1FB57BF2001BD401 /* ZhantaiFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhantaiFormTableViewController.m; sourceTree = "<group>"; };
-		8E721ADE1FB58146001BD401 /* ZhantingFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhantingFormTableViewController.h; sourceTree = "<group>"; };
-		8E721ADF1FB58146001BD401 /* ZhantingFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhantingFormTableViewController.m; sourceTree = "<group>"; };
-		8E721AE11FB5815A001BD401 /* WutaiFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WutaiFormTableViewController.h; sourceTree = "<group>"; };
-		8E721AE21FB5815A001BD401 /* WutaiFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WutaiFormTableViewController.m; sourceTree = "<group>"; };
-		8E721AE41FB58179001BD401 /* YanyiFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanyiFormTableViewController.h; sourceTree = "<group>"; };
-		8E721AE51FB58179001BD401 /* YanyiFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanyiFormTableViewController.m; sourceTree = "<group>"; };
 		8E721AE71FB58195001BD401 /* HuiyiFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuiyiFormTableViewController.h; sourceTree = "<group>"; };
 		8E721AE81FB58195001BD401 /* HuiyiFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuiyiFormTableViewController.m; sourceTree = "<group>"; };
 		8E721AEA1FB581A8001BD401 /* BaojieFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaojieFormTableViewController.h; sourceTree = "<group>"; };
@@ -470,6 +464,15 @@
 		8EDCF5BF1FA6D76B00AA4359 /* InvoiceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceModel.m; sourceTree = "<group>"; };
 		8EDCF5C11FA6DB4F00AA4359 /* MyInvoiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInvoiceTableViewCell.h; sourceTree = "<group>"; };
 		8EDCF5C21FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInvoiceTableViewCell.m; sourceTree = "<group>"; };
+		8EEF09141FB93984004ED5F0 /* TitleSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleSwitchTableViewCell.h; sourceTree = "<group>"; };
+		8EEF09151FB93984004ED5F0 /* TitleSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleSwitchTableViewCell.m; sourceTree = "<group>"; };
+		8EEF09161FB93984004ED5F0 /* TitleSwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		8EEF09191FB96C48004ED5F0 /* chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken.png; sourceTree = "<group>"; };
+		8EEF091B1FB96E3D004ED5F0 /* StepsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepsHeaderView.h; sourceTree = "<group>"; };
+		8EEF091C1FB96E3D004ED5F0 /* StepsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepsHeaderView.m; sourceTree = "<group>"; };
+		8EEF091E1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFormSubmitResultViewController.h; sourceTree = "<group>"; };
+		8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFormSubmitResultViewController.m; sourceTree = "<group>"; };
+		8EEF09221FB98168004ED5F0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,6 +480,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EEF09231FB98168004ED5F0 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +501,8 @@
 				8E2E40991F945AB700B42477 /* MainPageTableViewController.h */,
 				8E2E409A1F945AB700B42477 /* MainPageTableViewController.m */,
 				8EB674DE1F99E83F008CC196 /* MainPage.storyboard */,
+				8EEF091E1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.h */,
+				8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */,
 			);
 			path = mainPage;
 			sourceTree = "<group>";
@@ -540,6 +546,9 @@
 				8EA6807B1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.h */,
 				8EA6807C1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.m */,
 				8EA6807D1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib */,
+				8EEF09141FB93984004ED5F0 /* TitleSwitchTableViewCell.h */,
+				8EEF09151FB93984004ED5F0 /* TitleSwitchTableViewCell.m */,
+				8EEF09161FB93984004ED5F0 /* TitleSwitchTableViewCell.xib */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -622,20 +631,15 @@
 			children = (
 				8E6C74111F9DC0C4004B33D1 /* ZhuchangFormTableViewController.h */,
 				8E6C74121F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m */,
-				8E721ADA1FB57BF2001BD401 /* ZhantaiFormTableViewController.h */,
-				8E721ADB1FB57BF2001BD401 /* ZhantaiFormTableViewController.m */,
-				8E721ADE1FB58146001BD401 /* ZhantingFormTableViewController.h */,
-				8E721ADF1FB58146001BD401 /* ZhantingFormTableViewController.m */,
-				8E721AE11FB5815A001BD401 /* WutaiFormTableViewController.h */,
-				8E721AE21FB5815A001BD401 /* WutaiFormTableViewController.m */,
-				8E721AE41FB58179001BD401 /* YanyiFormTableViewController.h */,
-				8E721AE51FB58179001BD401 /* YanyiFormTableViewController.m */,
 				8E721AE71FB58195001BD401 /* HuiyiFormTableViewController.h */,
 				8E721AE81FB58195001BD401 /* HuiyiFormTableViewController.m */,
 				8E721AEA1FB581A8001BD401 /* BaojieFormTableViewController.h */,
 				8E721AEB1FB581A8001BD401 /* BaojieFormTableViewController.m */,
+				8EEF09191FB96C48004ED5F0 /* chicken.png */,
 				8E721AED1FB581C1001BD401 /* WuliuFormTableViewController.h */,
 				8E721AEE1FB581C1001BD401 /* WuliuFormTableViewController.m */,
+				8EEF091B1FB96E3D004ED5F0 /* StepsHeaderView.h */,
+				8EEF091C1FB96E3D004ED5F0 /* StepsHeaderView.m */,
 			);
 			name = customs;
 			sourceTree = "<group>";
@@ -658,6 +662,7 @@
 			children = (
 				8E99A8CC1F90664D0078C452 /* zhanmao */,
 				8E99A8CB1F90664D0078C452 /* Products */,
+				8EEF09211FB98168004ED5F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1035,6 +1040,14 @@
 			name = myinvoice;
 			sourceTree = "<group>";
 		};
+		8EEF09211FB98168004ED5F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8EEF09221FB98168004ED5F0 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1098,6 +1111,7 @@
 				8EA6807F1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib in Resources */,
 				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
+				8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
 				8E9B00291FB42BE500B29188 /* json.txt in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
@@ -1109,6 +1123,7 @@
 				8E6C74A11FA06B45004B33D1 /* OnlineRent.storyboard in Resources */,
 				8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */,
 				8E6C748E1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.xib in Resources */,
+				8EEF091A1FB96C48004ED5F0 /* chicken.png in Resources */,
 				8E99AA9F1F9068920078C452 /* Checkmark@2x.png in Resources */,
 				8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */,
 				8EA9E55D1FB1937A003815B7 /* RentActionEditView.xib in Resources */,
@@ -1139,9 +1154,11 @@
 				8EDBF4FD1FA42F570073F37D /* RentProductModel.m in Sources */,
 				8E6C748D1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.m in Sources */,
 				8E6C73F51F9D9280004B33D1 /* ImageTitleBarButtonItem.m in Sources */,
+				8EEF09201FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m in Sources */,
 				8EA680751FB6999700EF5FC8 /* RentModel.m in Sources */,
 				8E2E40951F945A2E00B42477 /* NothingFooterCell.m in Sources */,
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
+				8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */,
 				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
 				8E99AAA11F9068920078C452 /* MBProgressHUD+ZZCustom.m in Sources */,
 				8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */,
@@ -1156,11 +1173,9 @@
 				8E99AAAC1F9068920078C452 /* SDWebImageDownloaderOperation.m in Sources */,
 				8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */,
 				8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */,
-				8E721AE31FB5815A001BD401 /* WutaiFormTableViewController.m in Sources */,
 				8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */,
 				8E99AAC31F9069AC0078C452 /* NaviController.m in Sources */,
 				8E72E9E41FB2ECDF001FCD31 /* CustomOrderPagerViewController.m in Sources */,
-				8E721ADC1FB57BF2001BD401 /* ZhantaiFormTableViewController.m in Sources */,
 				8E99AACA1F906E660078C452 /* AdvertiseView.m in Sources */,
 				8E99A8CF1F90664D0078C452 /* main.m in Sources */,
 				8E721AEC1FB581A8001BD401 /* BaojieFormTableViewController.m in Sources */,
@@ -1170,7 +1185,6 @@
 				8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */,
 				8E2E408E1F9459F500B42477 /* BaseViewController.m in Sources */,
 				8E99AAB21F9068920078C452 /* UIImage+WebP.m in Sources */,
-				8E721AE01FB58146001BD401 /* ZhantingFormTableViewController.m in Sources */,
 				8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */,
 				8EDBF4E41FA1B47C0073F37D /* TransportOrderTableViewCell.m in Sources */,
 				8E99AAB11F9068920078C452 /* UIImage+MultiFormat.m in Sources */,
@@ -1187,7 +1201,6 @@
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
 				8E9B0CD51FAAC25C00770F8D /* CleanOrderPagerViewController.m in Sources */,
 				8E6C74981FA03E9B004B33D1 /* ProductParameterTableViewCell.m in Sources */,
-				8E721AE61FB58179001BD401 /* YanyiFormTableViewController.m in Sources */,
 				8E72E9DD1FB2D744001FCD31 /* AddressModel.m in Sources */,
 				8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */,
 				8EDCF5C41FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m in Sources */,
@@ -1261,6 +1274,7 @@
 				8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */,
 				8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */,
 				8E99AA451F9068920078C452 /* ZZSearchBar.m in Sources */,
+				8EEF09171FB93984004ED5F0 /* TitleSwitchTableViewCell.m in Sources */,
 				8EA9E55B1FB19368003815B7 /* RentActionEditView.m in Sources */,
 				8E6C740C1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.m in Sources */,
 				8E99AA461F9068920078C452 /* NSDictionary+ext.m in Sources */,

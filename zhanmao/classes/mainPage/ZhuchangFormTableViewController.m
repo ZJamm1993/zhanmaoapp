@@ -36,9 +36,4 @@
 
 }
 
--(NSInteger)type
-{
-    return 1;
-}
-
 @end

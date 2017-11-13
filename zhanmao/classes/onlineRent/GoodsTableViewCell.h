@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GoodsTableViewCell : LinedTableViewCell
+@interface GoodsTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet CorneredImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;

@@ -19,12 +19,13 @@
     
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
     
-    self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, self.tableView.frame.size.height-self.tableView.contentInset.bottom, self.view.frame.size.width, self.tableView.contentInset.bottom)];
+    self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, self.tableView.contentInset.bottom)];
     self.bottomToolBar.backgroundColor=[UIColor whiteColor];
     [self.tableView addSubview:self.bottomToolBar];
     
+    
     UIView* line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bottomToolBar.frame.size.width, 1/[[UIScreen mainScreen]scale])];
-    line.backgroundColor=[UIColor lightGrayColor];
+    line.backgroundColor=[UIColor groupTableViewBackgroundColor];
     [self.bottomToolBar addSubview:line];
     
     UIButton* submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomToolBar.frame.size.width-20, self.bottomToolBar.frame.size.height-20)];
@@ -39,23 +40,14 @@
     
     self.bottomButton=submitButton;
     
-    
-    [self scrollViewDidScroll:self.tableView];
-//    [self.tableView insertSubview:self.bottomToolBar atIndex:1000];
-    
-    // Do any additional setup after loading the view.
+    [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self scrollViewDidScroll:self.tableView];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self scrollViewDidScroll:self.tableView];
+    
+    [self.tableView setContentOffset:CGPointZero];
 }
 
 -(void)goToCustom

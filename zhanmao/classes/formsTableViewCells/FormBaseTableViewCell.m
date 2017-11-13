@@ -33,6 +33,29 @@
     // Configure the view for the selected state
 }
 
+-(void)setModel:(BaseFormModel *)model
+{
+    BaseFormModel* oldModel=_model;
+    NSString* oldValue=_model.oldValue;
+    
+    _model=model;
+    
+    BaseFormModel* newModel=model;
+    NSString* newValue=model.value;
+    
+    if ((![oldValue isEqualToString:newValue])&&(oldModel==newModel)) {
+        if ([self.delegate respondsToSelector:@selector(formBaseTableViewCellValueChanged:)]) {
+            [self.delegate formBaseTableViewCellValueChanged:self];
+        }
+    }
+    
+}
+
+-(void)reloadModel
+{
+    self.model=self.model;
+}
+
 -(void)textFieldDidBeginEditing:(UITextField *)textField
 {
     [self beginEditing];
@@ -46,7 +69,7 @@
 
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    [self performSelector:@selector(valueChanged) withObject:nil afterDelay:0.1];
+    [self performSelector:@selector(textChanged:) withObject:textField afterDelay:0.01];
     return YES;
 }
 
@@ -61,8 +84,18 @@
         [textView resignFirstResponder];
         return NO;
     }
-    [self performSelector:@selector(valueChanged) withObject:nil afterDelay:0.1];
+    [self performSelector:@selector(textChanged:) withObject:textView afterDelay:0.01];
     return YES;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self performSelector:@selector(valueChanged) withObject:nil afterDelay:0.1];
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    [self performSelector:@selector(valueChanged) withObject:nil afterDelay:0.1];
 }
 
 -(void)beginEditing{
@@ -70,12 +103,32 @@
     {
         [self.delegate formBaseTableViewCellWillBeginEditing:self];
     }
-
 }
 
 -(void)valueChanged
 {
     NSLog(@"%@ valueChanged, please overwrite",self);
+}
+
+-(void)textChanged:(id)someTextingView;
+{
+    if ([someTextingView respondsToSelector:@selector(text)]) {
+        NSString* text=[someTextingView text];
+        if ([text respondsToSelector:@selector(length)]) {
+            if ([self respondsToSelector:@selector(placeHolder)]) {
+                UILabel* pla=[self performSelector:@selector(placeHolder)];
+                if ([pla isKindOfClass:[UILabel class]]) {
+                    pla.hidden=text.length>0;
+                }
+            }
+        }
+    }
+    
+}
+
+-(id)placeHolder
+{
+    return nil;
 }
 
 @end

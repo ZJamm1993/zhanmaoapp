@@ -186,9 +186,70 @@
             </objects>
             <point key="canvasLocation" x="435" y="-176"/>
         </scene>
+        <!--Custom Form Submit Result View Controller-->
+        <scene sceneID="vjx-K4-POA">
+            <objects>
+                <viewController storyboardIdentifier="CustomFormSubmitResultViewController" id="VGa-Dq-rfK" customClass="CustomFormSubmitResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B4D-kI-gqs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xlb-9n-swL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BGN-hj-Myr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paySuccess" translatesAutoresizingMaskIntoConstraints="NO" id="eZ6-yN-KhW">
+                                <rect key="frame" x="116.5" y="100" width="87" height="87"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提交成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-6T-mxU">
+                                <rect key="frame" x="127.5" y="207" width="65.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们将尽快与您联系，请保持电话畅通！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aws-ZR-B2e">
+                                <rect key="frame" x="31.5" y="266.5" width="257.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Geq-aX-oUG">
+                                <rect key="frame" x="50" y="318" width="220" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="YD9-uv-QdN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="返回首页"/>
+                                <connections>
+                                    <action selector="goHome:" destination="VGa-Dq-rfK" eventType="touchUpInside" id="XWs-iC-Oo6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Aws-ZR-B2e" firstAttribute="centerX" secondItem="eZ6-yN-KhW" secondAttribute="centerX" id="2BX-a7-GCU"/>
+                            <constraint firstItem="eZ6-yN-KhW" firstAttribute="top" secondItem="B4D-kI-gqs" secondAttribute="bottom" constant="80" id="3R2-2F-lUE"/>
+                            <constraint firstItem="Geq-aX-oUG" firstAttribute="leading" secondItem="BGN-hj-Myr" secondAttribute="leading" constant="50" id="K6d-tA-VNi"/>
+                            <constraint firstItem="Geq-aX-oUG" firstAttribute="centerX" secondItem="eZ6-yN-KhW" secondAttribute="centerX" id="L3R-d7-jt8"/>
+                            <constraint firstItem="Geq-aX-oUG" firstAttribute="top" secondItem="Aws-ZR-B2e" secondAttribute="bottom" constant="34.5" id="RaH-wR-aRq"/>
+                            <constraint firstItem="Aws-ZR-B2e" firstAttribute="top" secondItem="ogb-6T-mxU" secondAttribute="bottom" constant="40" id="VIZ-v9-Ewq"/>
+                            <constraint firstItem="ogb-6T-mxU" firstAttribute="centerX" secondItem="eZ6-yN-KhW" secondAttribute="centerX" id="ayC-WK-WeZ"/>
+                            <constraint firstItem="eZ6-yN-KhW" firstAttribute="centerX" secondItem="BGN-hj-Myr" secondAttribute="centerX" id="lbV-zu-YmE"/>
+                            <constraint firstItem="ogb-6T-mxU" firstAttribute="top" secondItem="eZ6-yN-KhW" secondAttribute="bottom" constant="20" id="t4z-6H-fUq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goHomeButton" destination="Geq-aX-oUG" id="DcP-xh-5iz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PTU-gF-pLz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136" y="-176"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1.jpg" width="640" height="480"/>
+        <image name="paySuccess" width="87" height="87"/>
         <image name="rightArrow" width="8" height="14"/>
     </resources>
 </document>

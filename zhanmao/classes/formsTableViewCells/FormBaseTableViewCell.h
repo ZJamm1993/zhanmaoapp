@@ -15,6 +15,7 @@
 
 @optional
 -(void)formBaseTableViewCellWillBeginEditing:(FormBaseTableViewCell*)cell;
+-(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell*)cell;
 
 @end
 
@@ -25,6 +26,8 @@
 @property (nonatomic,weak) id<FormBaseTableViewCellDelegate>delegate;
 
 @property (nonatomic,strong) BaseFormModel* model;
+
+-(void)reloadModel;
 
 -(void)valueChanged;
 

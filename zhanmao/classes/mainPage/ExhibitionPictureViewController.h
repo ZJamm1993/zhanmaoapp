@@ -13,4 +13,6 @@
 @property (nonatomic,strong) NSArray* images;
 @property (nonatomic,strong) NSString* pictureTitle;
 
+@property (nonatomic,assign) NSInteger type;
+
 @end

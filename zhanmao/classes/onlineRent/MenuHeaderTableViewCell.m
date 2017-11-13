@@ -121,7 +121,7 @@
     if(_bottomSeperateLine==nil)
     {
         _bottomSeperateLine=[[UIView alloc]initWithFrame:CGRectZero];
-        _bottomSeperateLine.backgroundColor=[UIColor groupTableViewBackgroundColor];
+        _bottomSeperateLine.backgroundColor=[UIColor lightGrayColor];
         [self addSubview:_bottomSeperateLine];
     }
     return _bottomSeperateLine;

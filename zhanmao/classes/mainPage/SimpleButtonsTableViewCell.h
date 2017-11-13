@@ -32,7 +32,8 @@
 @property (nonatomic,strong) NSString* title;
 @property (nonatomic,strong) NSString* imageName;
 @property (nonatomic,strong) NSString* identifier;
+@property (nonatomic,assign) NSInteger type;
 
--(instancetype)initWithTitle:(NSString*)title imageName:(NSString*)imageName identifier:(NSString*)identifier;
+-(instancetype)initWithTitle:(NSString*)title imageName:(NSString*)imageName identifier:(NSString*)identifier type:(NSInteger)type;
 
 @end

@@ -34,14 +34,20 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 @interface BaseFormModel : ZZModel
 
 @property (nonatomic,assign) BaseFormType type;
+
 @property (nonatomic,assign) BOOL required; //allowed null or not
 @property (nonatomic,strong) NSString* name; //title for cell
 @property (nonatomic,strong) NSString* field; //key for params
 @property (nonatomic,strong) NSString* hint; //place holder
+
+@property (nonatomic,strong) NSString* oldValue; //
 @property (nonatomic,strong) NSString* value; //value for params
+
 @property (nonatomic,strong) NSString* unit; //unit
 @property (nonatomic,strong) NSArray* option; //option
-@property (nonatomic,strong) NSArray* combination_arr; //like area, location, and so on.
+@property (nonatomic,strong) NSArray* combination_arr; //like area, location, and so on.F
+
+-(BaseFormModel*)requiredModel;
 
 @end
 
@@ -63,7 +69,7 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 
 @property (nonatomic,strong) NSArray<BaseFormStep*>* steps;
 
--(NSString*)warningStringForStep:(NSInteger)step;
+-(BaseFormModel*)requiredModelWithStep:(NSInteger)step;
 
 -(NSDictionary*)parameters;
 

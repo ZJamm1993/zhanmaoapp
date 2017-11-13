@@ -37,6 +37,27 @@
     return self;
 }
 
+-(void)setValue:(NSString *)value
+{
+    self.oldValue=_value;
+    _value=value;
+}
+
+-(BaseFormModel*)requiredModel
+{
+    BaseFormModel* r=nil;
+    if (self.required&&self.value.length==0) {
+        r=self;
+    }
+    else
+    {
+        for (BaseFormModel* chi in self.combination_arr) {
+            r=[chi requiredModel];
+        }
+    }
+    return r;
+}
+
 @end
 
 @implementation BaseFormSection
@@ -50,7 +71,14 @@
         NSArray* data=[dictionary valueForKey:@"data"];
         for (NSDictionary* mo in data) {
             BaseFormModel* mod=[[BaseFormModel alloc]initWithDictionary:mo];
-            [mutaMo addObject:mod];
+            if(mod.type==BaseFormTypeStepDescription)
+            {
+                self.d3scription=mod.hint;
+            }
+            else
+            {
+                [mutaMo addObject:mod];
+            }
         }
         self.models=mutaMo;
     }
@@ -104,31 +132,18 @@
     return self;
 }
 
--(NSString*)warningStringForStep:(NSInteger)step
+-(BaseFormModel*)requiredModelWithStep:(NSInteger)step
 {
-    if (step<=self.steps.count-1) {
-        BaseFormStep* st=[self.steps objectAtIndex:step];
-        for (BaseFormSection* sections in st.sections) {
-            for (BaseFormModel* mo in sections.models) {
-                if (mo.required) {
-                    if (mo.value.length==0) {
-                        NSLog(@"%@",mo);
-                        return mo.hint;
-                    }
-                }
-                for(BaseFormModel* smo in mo.combination_arr)
-                {
-                    if (smo.required) {
-                        if (smo.value.length==0) {
-                            NSLog(@"%@",mo);
-                            return smo.hint;
-                        }
-                    }
-                }
+    BaseFormStep* st=[self.steps objectAtIndex:step];
+    for (BaseFormSection* sections in st.sections) {
+        for (BaseFormModel* mo in sections.models) {
+             BaseFormModel* re =mo.requiredModel;
+            if (re) {
+                return re;
             }
         }
     }
-    return @"";
+    return nil;
 }
 
 -(NSDictionary*)parameters

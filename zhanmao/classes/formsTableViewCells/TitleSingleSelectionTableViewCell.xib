@@ -28,33 +28,42 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地板" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awV-iA-bVO">
-                        <rect key="frame" x="90" y="13.5" width="197" height="17"/>
+                        <rect key="frame" x="90" y="13.5" width="181.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="placepholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzn-TY-YQ6">
-                        <rect key="frame" x="90" y="13.5" width="197" height="17"/>
+                        <rect key="frame" x="90" y="13.5" width="181.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXS-IV-gkm">
+                        <rect key="frame" x="275.5" y="14" width="11.5" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bzn-TY-YQ6" firstAttribute="leading" secondItem="awV-iA-bVO" secondAttribute="leading" id="ELF-Y6-9EM"/>
+                    <constraint firstItem="PXS-IV-gkm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EYN-RN-DYn"/>
                     <constraint firstItem="uhp-sT-6Ul" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IaX-9x-qIs"/>
                     <constraint firstItem="awV-iA-bVO" firstAttribute="leading" secondItem="uhp-sT-6Ul" secondAttribute="trailing" constant="10" id="QNg-8g-ApS"/>
+                    <constraint firstItem="PXS-IV-gkm" firstAttribute="leading" secondItem="awV-iA-bVO" secondAttribute="trailing" constant="4" id="Shc-mu-fUt"/>
                     <constraint firstItem="bzn-TY-YQ6" firstAttribute="trailing" secondItem="awV-iA-bVO" secondAttribute="trailing" id="Yjc-Cu-GCb"/>
-                    <constraint firstAttribute="trailing" secondItem="awV-iA-bVO" secondAttribute="trailing" id="Z2a-vW-byv"/>
                     <constraint firstItem="awV-iA-bVO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cxh-rd-JJ0"/>
                     <constraint firstItem="uhp-sT-6Ul" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hfn-pP-fGe"/>
                     <constraint firstItem="bzn-TY-YQ6" firstAttribute="centerY" secondItem="awV-iA-bVO" secondAttribute="centerY" id="oeS-8J-MT2"/>
+                    <constraint firstAttribute="trailing" secondItem="PXS-IV-gkm" secondAttribute="trailing" id="uom-cc-REH"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="detail" destination="awV-iA-bVO" id="0ci-FP-Uhm"/>
                 <outlet property="placeHolder" destination="bzn-TY-YQ6" id="Ctv-N6-BCW"/>
                 <outlet property="title" destination="uhp-sT-6Ul" id="qwr-ck-ooc"/>
+                <outlet property="unit" destination="PXS-IV-gkm" id="ZK2-g5-ngw"/>
             </connections>
         </tableViewCell>
     </objects>

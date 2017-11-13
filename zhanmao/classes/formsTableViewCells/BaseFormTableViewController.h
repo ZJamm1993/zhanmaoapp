@@ -16,6 +16,7 @@
 #import "TitleMutiSelectionTableViewCell.h"
 #import "TitleDescriptionTableViewCell.h"
 #import "TitleAreaCalculationTableViewCell.h"
+#import "TitleSwitchTableViewCell.h"
 
 #import "FormHttpTool.h"
 
@@ -31,5 +32,7 @@
 @property (nonatomic,strong) BaseFormStepsModel* formSteps;
 
 -(void)loadFormJson;
+
+-(void)valueChanged;
 
 @end

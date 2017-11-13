@@ -40,6 +40,7 @@ const NSInteger mutiSelectionButtonRowCount=3;
 -(void)mutiSelectionButtonsViewValueDidChanged:(NSString *)value
 {
     self.model.value=value;
+    [self reloadModel];
 }
 
 @end
@@ -85,7 +86,8 @@ const NSInteger mutiSelectionButtonRowCount=3;
         
         UIButton* btn=[[UIButton alloc]initWithFrame:CGRectMake((widthPerEach+mutiSelectionButtonMarginX)*sec, mutiSelectionButtonMarginY+(heightPerEach+mutiSelectionButtonMarginY)*row, widthPerEach, heightPerEach)];
         btn.tag=i;
-        [btn.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [btn.titleLabel setFont:[UIFont systemFontOfSize:13]];
+        [btn.titleLabel setLineBreakMode:NSLineBreakByClipping];
 //        btn.titleLabel.adjustsFontSizeToFitWidth=YES;
 //        btn.titleLabel.minimumScaleFactor=0;
 //        btn.titleLabel.numberOfLines=2;

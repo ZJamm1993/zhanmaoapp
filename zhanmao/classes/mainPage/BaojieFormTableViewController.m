@@ -16,14 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImageView* headerIamge=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width/2)];
+    headerIamge.image=[UIImage imageNamed:@"chicken"];
+    self.tableView.tableHeaderView=headerIamge;
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 0.0001;
+    }
+    return 10;
 }
-
 -(void)loadFormJson
 {
     [FormHttpTool getCustomTableListByType:[self type] success:^(BaseFormStepsModel *step) {
@@ -39,6 +45,7 @@
 {
     return 7;
 }
+
 
 
 @end

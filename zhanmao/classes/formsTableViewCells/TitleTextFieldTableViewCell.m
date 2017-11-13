@@ -41,8 +41,7 @@
 //    NSLog(@"%@",self.model);
 //    NSLog(@"%@",self.textField.text);
     self.model.value=self.textField.text;
-    
-    self.placeHolder.hidden=self.textField.text.length>0;
+    [self reloadModel];
 }
 
 @end

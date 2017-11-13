@@ -96,7 +96,7 @@
         NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"CleanOrderPagerViewController",@"CustomOrderPagerViewController", nil];
         
         for (NSInteger i=0; i<4; i++) {
-            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:@"a" identifier:[ides objectAtIndex:i]];
+            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:@"a" identifier:[ides objectAtIndex:i] type:i];
             [array addObject:mo];
         }
         arrayWithSimpleButtons=array;

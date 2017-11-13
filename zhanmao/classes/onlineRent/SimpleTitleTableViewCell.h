@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SimpleTitleTableViewCell : LinedTableViewCell
+@interface SimpleTitleTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UIView *selectedTag;

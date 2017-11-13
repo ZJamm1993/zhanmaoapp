@@ -7,6 +7,7 @@
 //
 
 #import "HuiyiFormTableViewController.h"
+#import "StepsHeaderView.h"
 
 @interface HuiyiFormTableViewController ()
 
@@ -40,5 +41,19 @@
     return 6;
 }
 
+-(void)setCurrentStep:(BaseFormStep *)currentStep
+{
+    [super setCurrentStep:currentStep];
+    NSMutableArray* stepTitles=[NSMutableArray array];
+    for (BaseFormStep* ste in self.formSteps.steps) {
+        NSString* str=ste.title;
+        if (str.length==0) {
+            str=@" ";
+        }
+        [stepTitles addObject:str];
+    }
+    [self.tableView setTableHeaderView:[StepsHeaderView headerWithTitles:stepTitles currentStep:self.stepInteger]];
+    self.title=@"专业买家邀约服务";
+}
 
 @end

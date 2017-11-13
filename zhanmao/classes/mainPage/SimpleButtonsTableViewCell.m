@@ -111,13 +111,14 @@ const NSInteger simpleButtonRowCount=4;
 
 @implementation SimpleButtonModel
 
--(instancetype)initWithTitle:(NSString *)title imageName:(NSString *)imageName identifier:(NSString *)identifier
+-(instancetype)initWithTitle:(NSString *)title imageName:(NSString *)imageName identifier:(NSString *)identifier type:(NSInteger)type
 {
     self=[super init];
     if (self) {
         self.title=title;
         self.imageName=imageName;
         self.identifier=identifier;
+        self.type=type;
     }
     return self;
 }

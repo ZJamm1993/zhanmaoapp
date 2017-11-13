@@ -75,7 +75,7 @@
         if (self.model.combination_arr.count>ind) {
             BaseFormModel* mo=[self.model.combination_arr objectAtIndex:ind];
             mo.value=textField.text;
-            self.model=self.model;
+            [self reloadModel];
         }
     }
 }

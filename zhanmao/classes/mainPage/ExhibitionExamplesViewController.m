@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title=@"xxx";
     self.tableView.separatorColor=[UIColor lightGrayColor];
     // Do any additional setup after loading the view.
 }
@@ -56,12 +56,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:[[ExhibitionPictureViewController alloc]init] animated:YES];
+    ExhibitionPictureViewController* ep=[[ExhibitionPictureViewController alloc]init];
+    ep.type=self.type;
+    [self.navigationController pushViewController:ep animated:YES];
 }
 
 -(void)bottomToolBarButtonClicked
 {
-    [self.navigationController pushViewController:[[ZhuchangFormTableViewController alloc]init] animated:YES];
+    ZhuchangFormTableViewController* zhu=[[ZhuchangFormTableViewController alloc]init];
+    zhu.type=self.type;
+    [self.navigationController pushViewController:zhu animated:YES];
 }
 
 @end

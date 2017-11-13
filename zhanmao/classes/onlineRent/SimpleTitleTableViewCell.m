@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    self.separatorInset=UIEdgeInsetsZero;
     self.selectionStyle=UITableViewCellSelectionStyleNone;
 //    self.selectedBackgroundView=[[UIView alloc]init];
     // Initialization code

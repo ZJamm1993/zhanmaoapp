@@ -26,7 +26,7 @@
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64) style:UITableViewStyleGrouped];
     self.tableView.estimatedRowHeight=44;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
-    self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
+//    self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
     
     nibsToRegister=[NSArray arrayWithObjects:
                     NSStringFromClass([TitleTextViewTableViewCell class]),
@@ -35,6 +35,7 @@
                     NSStringFromClass([TitleMutiSelectionTableViewCell class]),
                     NSStringFromClass([TitleDescriptionTableViewCell class]),
                     NSStringFromClass([TitleAreaCalculationTableViewCell class]),
+                    NSStringFromClass([TitleSwitchTableViewCell class]),
                   nil];
     
     for (NSString* nibName in nibsToRegister) {
@@ -54,7 +55,7 @@
     self.bottomView=bottomView;
     
     UIView* line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bottomView.frame.size.width, 1/[[UIScreen mainScreen]scale])];
-    line.backgroundColor=[UIColor lightGrayColor];
+    line.backgroundColor=[UIColor groupTableViewBackgroundColor];
     [bottomView addSubview:line];
     
     submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, bottomView.frame.size.width-20, bottomView.frame.size.height-20)];
@@ -250,6 +251,10 @@
     {
         nibName=NSStringFromClass([TitleAreaCalculationTableViewCell class]);
     }
+    else if(model.type==BaseFormTypeSwitchCheck)
+    {
+        nibName=NSStringFromClass([TitleSwitchTableViewCell class]);
+    }
     
     if (![nibsToRegister containsObject:nibName]) {
         return [[FormBaseTableViewCell alloc]init];
@@ -283,6 +288,17 @@
     [self scrollToIndexPath:indexpath];
 }
 
+-(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell *)cell
+{
+    [self valueChanged];
+}
+
+-(void)valueChanged
+{
+    NSLog(@"valuechanged");
+    NSLog(@"%@",[self.formSteps parameters]);
+}
+
 -(void)scrollToIndexPath:(NSIndexPath*)indexPath
 {
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:YES];
@@ -296,9 +312,14 @@
     {
         return;
     }
-    NSString* str=[self.formSteps warningStringForStep:self.stepInteger];
-    if (str.length>0) {
-        [MBProgressHUD showErrorMessage:str];
+    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];
+    if (requiredModel) {
+        NSString* warning=requiredModel.hint;
+        if (warning.length==0) {
+            warning=requiredModel.name;
+        }
+        [MBProgressHUD showErrorMessage:warning];
+//        return;
     }
     if (self.stepInteger<self.formSteps.steps.count-1) {
         BaseFormTableViewController* nextPage=(BaseFormTableViewController*)[[[self class]alloc]init];
@@ -309,7 +330,24 @@
     else
     {
         [MBProgressHUD showSuccessMessage:@"最后一页了"];
-        NSLog(@"%@",[self.formSteps parameters]);
+        NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
+        NSLog(@"%@",paras);
+        [FormHttpTool postCustomTableListByType:[self type] params:paras success:^(BOOL result, NSString *msg) {
+            
+            [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomFormSubmitResultViewController"] animated:YES];
+            
+            NSArray* vcs=[self.navigationController viewControllers];
+            NSMutableArray* neVcs=[NSMutableArray array];
+            for (UIViewController* vc in vcs) {
+                if (![vc isKindOfClass:[BaseFormTableViewController class]]) {
+                    [neVcs addObject:vc];
+                }
+            }
+            self.navigationController.viewControllers=neVcs;
+        } failure:^(NSError *err) {
+            NSLog(@"wangluo");
+            
+        }];
     }
 }
 

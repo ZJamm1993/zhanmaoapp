@@ -10,6 +10,7 @@
 #import "ExhibitionLargeCardTableViewCell.h"
 
 #import "ZhuchangFormTableViewController.h"
+#import "ExhibitionExamplesViewController.h"
 
 @interface ExhibitionListViewController ()
 
@@ -19,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title=[NSString stringWithFormat:@"%dxx案例",(int)self.type];;
     // Do any additional setup after loading the view.
 }
 
@@ -49,7 +50,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"ExhibitionExamplesViewController"] animated:YES];
+    ExhibitionExamplesViewController* exh=[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"ExhibitionExamplesViewController"];
+    exh.type=self.type;
+    [self.navigationController pushViewController:exh animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -64,7 +67,9 @@
 
 -(void)bottomToolBarButtonClicked
 {
-    [self.navigationController pushViewController:[[ZhuchangFormTableViewController alloc]init] animated:YES];
+    ZhuchangFormTableViewController* zhu=[[ZhuchangFormTableViewController alloc]init];
+    zhu.type=self.type;
+    [self.navigationController pushViewController:zhu animated:YES];
 }
 
 @end

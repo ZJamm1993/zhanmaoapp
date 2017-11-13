@@ -37,4 +37,23 @@
     }];
 }
 
++(void)postCustomTableListByType:(NSInteger)type params:(NSDictionary *)params success:(void (^)(BOOL, NSString *))success failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Table/made"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithDictionary:params];
+    [dic setValue:[NSNumber numberWithInteger:type] forKey:@"type"];
+    
+    [self post:str params:dic success:^(NSDictionary *responseObject) {
+        NSString* msg=[responseObject valueForKey:@"message"];
+        BOOL ok=YES;//[responseObject valueForKey:@"]
+        if (success) {
+            success(ok,msg);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 @end

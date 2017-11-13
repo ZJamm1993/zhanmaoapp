@@ -40,7 +40,7 @@ const CGFloat categoriesHeaderHeight=50;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
+//    self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
     ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:1 target:self selector:@selector(cartItemClicked)];
     self.navigationItem.rightBarButtonItem=cartItem;
@@ -60,9 +60,11 @@ const CGFloat categoriesHeaderHeight=50;
     [self.catesTableView registerNib:[UINib nibWithNibName:@"SimpleTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"SimpleTitleTableViewCell"];
     self.catesTableView.showsVerticalScrollIndicator=NO;
     self.catesTableView.scrollsToTop=NO;
+    self.catesTableView.tableFooterView=[[UIView alloc]init];
     
     [self.goodsTableView registerNib:[UINib nibWithNibName:@"GoodsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GoodsTableViewCell"];
     [self.goodsTableView registerClass:[MenuHeaderTableViewCell class] forHeaderFooterViewReuseIdentifier:@"MenuHeaderTableViewCell"];
+    [self.goodsTableView setTableFooterView:[[UIView alloc]init]];
     
     self.goodsTableView.rowHeight=UITableViewAutomaticDimension;
     self.goodsTableView.estimatedRowHeight=100;

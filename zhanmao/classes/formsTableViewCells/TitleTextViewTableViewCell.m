@@ -35,8 +35,7 @@
 -(void)valueChanged
 {
     self.model.value=self.textView.text;
-    
-    self.placeHolder.hidden=self.textView.text.length>0;
+    [self reloadModel];
 }
 
 @end

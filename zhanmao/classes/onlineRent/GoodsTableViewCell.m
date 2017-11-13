@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.separatorInset=UIEdgeInsetsZero;
     // Initialization code
 }
 
