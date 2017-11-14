@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
     self.backgroundColor=[UIColor clearColor];
     
     self.button.userInteractionEnabled=NO;

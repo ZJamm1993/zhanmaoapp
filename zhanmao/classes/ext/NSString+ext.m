@@ -58,4 +58,15 @@
     return self.length>=5&&self.length<=20;
 }
 
++(NSString*)stringWithFloat:(CGFloat)floatValue headUnit:(NSString *)head tailUnit:(NSString *)tail
+{
+    if (head.length==0) {
+        head=@"";
+    }
+    if (tail.length==0) {
+        tail=@"";
+    }
+    return [NSString stringWithFormat:@"%@%.2f%@",head,floatValue,tail];
+}
+
 @end

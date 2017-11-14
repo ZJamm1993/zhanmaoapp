@@ -72,7 +72,10 @@
     self.tableView.tableFooterView=[[UIView alloc]init];
 //    [self showLoadMoreView];
     
-    self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
+//    self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
+    if (self.tableView.style==UITableViewStyleGrouped) {
+        self.tableView.backgroundColor=gray_9;
+    }
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scheduleRefresh) name:ScheduleRefreshNetWorkNotification object:nil];

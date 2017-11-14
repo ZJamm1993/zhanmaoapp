@@ -32,7 +32,10 @@
     
     self.title.text=model.name;
     self.tap.on=model.value.boolValue;
-//    self.model.value=[NSString stringWithFormat:@"%i",self.tap.on];
+    
+    if (model.value.length==0) {
+        model.value=@"0";
+    }
 }
 
 - (IBAction)switchValueChanged:(id)sender {

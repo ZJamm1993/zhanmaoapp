@@ -36,15 +36,16 @@
 {
     _cartModel=cartModel;
     
-    if (cartModel.selected) {
-        //[self.selectButton setTitle:@"$" forState:UIControlStateNormal];
-        self.selectButton.backgroundColor=[UIColor blueColor];
-    }
-    else
-    {
-        //[self.selectButton setTitle:@"" forState:UIControlStateNormal];
-        self.selectButton.backgroundColor=[UIColor lightGrayColor];
-    }
+//    if (cartModel.selected) {
+//        //[self.selectButton setTitle:@"$" forState:UIControlStateNormal];
+//        self.selectButton.backgroundColor=[UIColor blueColor];
+//    }
+//    else
+//    {
+//        //[self.selectButton setTitle:@"" forState:UIControlStateNormal];
+//        self.selectButton.backgroundColor=[UIColor lightGrayColor];
+//    }
+    self.selectButton.selected=cartModel.selected;
     
     self.title.text=cartModel.product.name;
     

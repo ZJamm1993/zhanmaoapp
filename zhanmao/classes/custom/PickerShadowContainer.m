@@ -51,7 +51,7 @@
     
     UILabel* label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, ok.frame.origin.x, barH)];
     label.text=title;
-    label.textColor=[UIColor blackColor];
+    label.textColor=gray_2;
     label.textAlignment=NSTextAlignmentCenter;
     label.font=[UIFont systemFontOfSize:17];
     [bar addSubview:label];

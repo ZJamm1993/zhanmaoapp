@@ -20,8 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=@"xxx";
-    self.tableView.separatorColor=[UIColor lightGrayColor];
+//    self.title=@"xxx";
+//    self.tableView.separatorColor=[UIColor lightGrayColor];
     // Do any additional setup after loading the view.
 }
 

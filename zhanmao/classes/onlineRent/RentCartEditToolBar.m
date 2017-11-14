@@ -40,8 +40,9 @@
 {
     _seletedAll=seletedAll;
     
-    NSString* imgN=seletedAll?@"icon_search":@"eyeGray";
-    [self.selectAllButton setImage:[UIImage imageNamed:imgN] forState:UIControlStateNormal];
+    self.selectAllButton.selected=seletedAll;
+//    NSString* imgN=seletedAll?@"icon_search":@"eyeGray";
+//    [self.selectAllButton setImage:[UIImage imageNamed:imgN] forState:UIControlStateNormal];
 }
 
 -(void)setRentValue:(CGFloat)rentValue

@@ -45,7 +45,7 @@
         [bg addSubview:dot];
         
         UILabel* lab=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
-        lab.textColor=[UIColor lightGrayColor];
+        lab.textColor=gray_6;
         lab.textAlignment=NSTextAlignmentCenter;
         lab.font=[UIFont systemFontOfSize:12];
         lab.text=str;

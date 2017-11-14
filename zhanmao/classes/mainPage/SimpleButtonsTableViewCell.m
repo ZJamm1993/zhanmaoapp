@@ -62,7 +62,7 @@ const NSInteger simpleButtonRowCount=4;
         
         UILabel* titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, heightPerEach-titleHeight, widthPerEach, titleHeight)];
         titleLabel.textAlignment=NSTextAlignmentCenter;
-        titleLabel.textColor=[UIColor grayColor];
+        titleLabel.textColor=gray_4;
         titleLabel.font=[UIFont systemFontOfSize:14];
         titleLabel.text=mo.title;
         [bbg addSubview:titleLabel];

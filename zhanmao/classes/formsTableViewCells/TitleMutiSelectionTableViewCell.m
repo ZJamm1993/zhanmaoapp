@@ -18,6 +18,8 @@ const NSInteger mutiSelectionButtonRowCount=3;
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.selectionView.delegate=self;
+    
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
     // Initialization code
 }
 
@@ -95,7 +97,7 @@ const NSInteger mutiSelectionButtonRowCount=3;
         [btn addTarget:self action:@selector(buttonClicks:) forControlEvents:UIControlEventTouchUpInside];
         [btn setTitle:tit forState:UIControlStateNormal];
         [btn setTitleColor:_mainColor forState:UIControlStateSelected];
-        [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [btn setTitleColor:gray_6 forState:UIControlStateNormal];
         [btn.layer setCornerRadius:heightPerEach/2];
         [btn.layer setBorderWidth:0.5];
         

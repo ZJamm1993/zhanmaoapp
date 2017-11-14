@@ -21,11 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title=@"正在加载...";
+    
     self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64) style:UITableViewStyleGrouped];
     self.tableView.estimatedRowHeight=44;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
+    
+    if (self.tableView.style==UITableViewStyleGrouped) {
+        self.tableView.backgroundColor=gray_9;
+    }
 //    self.tableView.separatorColor=[UIColor groupTableViewBackgroundColor];
     
     nibsToRegister=[NSArray arrayWithObjects:
@@ -319,7 +325,7 @@
             warning=requiredModel.name;
         }
         [MBProgressHUD showErrorMessage:warning];
-//        return;
+        return;
     }
     if (self.stepInteger<self.formSteps.steps.count-1) {
         BaseFormTableViewController* nextPage=(BaseFormTableViewController*)[[[self class]alloc]init];
@@ -329,10 +335,19 @@
     }
     else
     {
-        [MBProgressHUD showSuccessMessage:@"最后一页了"];
+//        [MBProgressHUD showSuccessMessage:@"最后一页了"];
+        [MBProgressHUD showProgressMessage:@"正在提交..."];
         NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
         NSLog(@"%@",paras);
         [FormHttpTool postCustomTableListByType:[self type] params:paras success:^(BOOL result, NSString *msg) {
+            if(result)
+            {
+                [MBProgressHUD showSuccessMessage:msg];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
             
             [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomFormSubmitResultViewController"] animated:YES];
             
@@ -346,7 +361,7 @@
             self.navigationController.viewControllers=neVcs;
         } failure:^(NSError *err) {
             NSLog(@"wangluo");
-            
+            [MBProgressHUD showErrorMessage:@"网络不通"];
         }];
     }
 }

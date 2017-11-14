@@ -16,7 +16,7 @@
     
     self.layer.masksToBounds=YES;
     self.layer.cornerRadius=3;
-    self.layer.borderColor=[UIColor groupTableViewBackgroundColor].CGColor;
+    self.layer.borderColor=gray_8.CGColor;
     self.layer.borderWidth=1/[[UIScreen mainScreen]scale];
 }
 

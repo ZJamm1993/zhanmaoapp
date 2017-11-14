@@ -29,7 +29,7 @@
     if(_bottomSeperateLine==nil)
     {
         _bottomSeperateLine=[[UIView alloc]initWithFrame:CGRectZero];
-        _bottomSeperateLine.backgroundColor=[UIColor lightGrayColor];
+        _bottomSeperateLine.backgroundColor=gray_8;
         [self addSubview:_bottomSeperateLine];
     }
     return _bottomSeperateLine;

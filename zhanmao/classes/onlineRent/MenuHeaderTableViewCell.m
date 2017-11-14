@@ -53,19 +53,20 @@
         ti.text=model.title;
         ti.font=[UIFont systemFontOfSize:15];
 //        ti.textColor=[UIColor darkGrayColor];
+        ti.textColor=gray_2;
         ti.textAlignment=NSTextAlignmentCenter;
         [bg addSubview:ti];
         
         UILabel* upImg=[[UILabel alloc]initWithFrame:CGRectMake(bw-imgW-5, bh/2-imgH+1, imgW, imgH)];
         upImg.text=@"▲";
-        upImg.textColor=[UIColor grayColor];
+        upImg.textColor=gray_6;
         upImg.font=[UIFont systemFontOfSize:9];
         upImg.textAlignment=NSTextAlignmentCenter;
         [bg addSubview:upImg];
         
         UILabel* doImg=[[UILabel alloc]initWithFrame:CGRectMake(upImg.frame.origin.x, bh/2-1, imgW, imgH)];
         doImg.text=@"▼";
-        doImg.textColor=[UIColor grayColor];
+        doImg.textColor=gray_6;
         doImg.font=[UIFont systemFontOfSize:9];
         doImg.textAlignment=NSTextAlignmentCenter;
         [bg addSubview:doImg];
@@ -121,7 +122,7 @@
     if(_bottomSeperateLine==nil)
     {
         _bottomSeperateLine=[[UIView alloc]initWithFrame:CGRectZero];
-        _bottomSeperateLine.backgroundColor=[UIColor lightGrayColor];
+        _bottomSeperateLine.backgroundColor=gray_8;
         [self addSubview:_bottomSeperateLine];
     }
     return _bottomSeperateLine;

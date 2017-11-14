@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title=[NSString stringWithFormat:@"%dxx案例",(int)self.type];;
+//    self.title=[NSString stringWithFormat:@"%dxx案例",(int)self.type];;
     // Do any additional setup after loading the view.
 }
 

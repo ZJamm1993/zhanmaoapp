@@ -150,6 +150,10 @@
 		8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */; };
 		8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */; };
 		8EB674F11F99F85D008CC196 /* MyPageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674F01F99F85D008CC196 /* MyPageCellModel.m */; };
+		8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ED401551FBA86740097A395 /* CalculateFeesView.xib */; };
+		8ED4015A1FBA89230097A395 /* CalculateFeesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED401591FBA89230097A395 /* CalculateFeesView.m */; };
+		8ED4015D1FBA907B0097A395 /* TotalFeeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4015C1FBA907B0097A395 /* TotalFeeView.m */; };
+		8ED4015F1FBA908B0097A395 /* TotalFeeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8ED4015E1FBA908B0097A395 /* TotalFeeView.xib */; };
 		8EDBF4CA1FA17F600073F37D /* RentOrderPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4C91FA17F600073F37D /* RentOrderPagerViewController.m */; };
 		8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */; };
 		8EDBF4D21FA181D60073F37D /* RentOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */; };
@@ -433,6 +437,12 @@
 		8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageSimpleTableViewCell.xib; sourceTree = "<group>"; };
 		8EB674EF1F99F85D008CC196 /* MyPageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageCellModel.h; sourceTree = "<group>"; };
 		8EB674F01F99F85D008CC196 /* MyPageCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageCellModel.m; sourceTree = "<group>"; };
+		8ED401551FBA86740097A395 /* CalculateFeesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalculateFeesView.xib; sourceTree = "<group>"; };
+		8ED401581FBA89230097A395 /* CalculateFeesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateFeesView.h; sourceTree = "<group>"; };
+		8ED401591FBA89230097A395 /* CalculateFeesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateFeesView.m; sourceTree = "<group>"; };
+		8ED4015B1FBA907B0097A395 /* TotalFeeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TotalFeeView.h; sourceTree = "<group>"; };
+		8ED4015C1FBA907B0097A395 /* TotalFeeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TotalFeeView.m; sourceTree = "<group>"; };
+		8ED4015E1FBA908B0097A395 /* TotalFeeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TotalFeeView.xib; sourceTree = "<group>"; };
 		8EDBF4C81FA17F600073F37D /* RentOrderPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentOrderPagerViewController.h; sourceTree = "<group>"; };
 		8EDBF4C91FA17F600073F37D /* RentOrderPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentOrderPagerViewController.m; sourceTree = "<group>"; };
 		8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -640,6 +650,12 @@
 				8E721AEE1FB581C1001BD401 /* WuliuFormTableViewController.m */,
 				8EEF091B1FB96E3D004ED5F0 /* StepsHeaderView.h */,
 				8EEF091C1FB96E3D004ED5F0 /* StepsHeaderView.m */,
+				8ED401551FBA86740097A395 /* CalculateFeesView.xib */,
+				8ED401581FBA89230097A395 /* CalculateFeesView.h */,
+				8ED401591FBA89230097A395 /* CalculateFeesView.m */,
+				8ED4015B1FBA907B0097A395 /* TotalFeeView.h */,
+				8ED4015C1FBA907B0097A395 /* TotalFeeView.m */,
+				8ED4015E1FBA908B0097A395 /* TotalFeeView.xib */,
 			);
 			name = customs;
 			sourceTree = "<group>";
@@ -1114,6 +1130,7 @@
 				8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
 				8E9B00291FB42BE500B29188 /* json.txt in Resources */,
+				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
 				8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */,
@@ -1124,6 +1141,7 @@
 				8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */,
 				8E6C748E1FA02495004B33D1 /* LargeImageBlackLabelTableViewCell.xib in Resources */,
 				8EEF091A1FB96C48004ED5F0 /* chicken.png in Resources */,
+				8ED4015F1FBA908B0097A395 /* TotalFeeView.xib in Resources */,
 				8E99AA9F1F9068920078C452 /* Checkmark@2x.png in Resources */,
 				8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */,
 				8EA9E55D1FB1937A003815B7 /* RentActionEditView.xib in Resources */,
@@ -1239,6 +1257,7 @@
 				8E6C74131F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m in Sources */,
 				8E99AAA71F9068920078C452 /* SDImageCache.m in Sources */,
 				8E99AAAA1F9068920078C452 /* SDWebImageDecoder.m in Sources */,
+				8ED4015A1FBA89230097A395 /* CalculateFeesView.m in Sources */,
 				8E99AAAB1F9068920078C452 /* SDWebImageDownloader.m in Sources */,
 				8E72E9EA1FB2ED24001FCD31 /* CustomOrderTableViewCell.m in Sources */,
 				8EDBF5001FA42F7A0073F37D /* RentCartModel.m in Sources */,
@@ -1268,6 +1287,7 @@
 				8E9B002C1FB4578300B29188 /* PickerShadowContainer.m in Sources */,
 				8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */,
 				8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */,
+				8ED4015D1FBA907B0097A395 /* TotalFeeView.m in Sources */,
 				8E9B0CC21FA964E700770F8D /* AddressOptionTableViewCell.m in Sources */,
 				8E9B0CE81FAAC49400770F8D /* OrderTypeDataSource.m in Sources */,
 				8E6C73FE1F9D9B18004B33D1 /* FormBaseTableViewCell.m in Sources */,
@@ -1410,7 +1430,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhanmao/PrefixHeader.pch";
 				INFOPLIST_FILE = zhanmao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1434,7 +1454,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhanmao/PrefixHeader.pch";
 				INFOPLIST_FILE = zhanmao/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -285,6 +285,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         if([viewController isKindOfClass:[ExhibitionListViewController class]])
         {
             viewController.type=model.type;
+            viewController.title=[NSString stringWithFormat:@"%@案例",model.title];
         }
         [self.navigationController pushViewController:viewController animated:YES];
     }

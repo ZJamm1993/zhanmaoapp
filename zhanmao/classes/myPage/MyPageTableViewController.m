@@ -142,7 +142,7 @@
         
         MyPageSimpleTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageSimpleTableViewCell" forIndexPath:indexPath];
         cell.title.text=mo.title;
-        cell.image.image=[UIImage imageNamed:mo.image];
+        cell.image.image=[[UIImage imageNamed:mo.image]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         cell.detail.text=mo.detail;
         return cell;
     }

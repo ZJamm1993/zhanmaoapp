@@ -31,20 +31,20 @@
     
     CGFloat radius=2;
     CGFloat margin=1;
-    UIColor* bgColor=[UIColor lightGrayColor];
-    
+    UIColor* bgColor=gray_8;
+    UIColor* textColor=gray_2;
     
     subButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, h, h)];
     subButton.backgroundColor=bgColor;
     [subButton setTitle:@"-" forState:UIControlStateNormal];
-    [subButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [subButton setTitleColor:textColor forState:UIControlStateNormal];
     [subButton addTarget:self action:@selector(sub) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:subButton];
     
     addButton=[[UIButton alloc]initWithFrame:CGRectMake(w-h, 0, h, h)];
     addButton.backgroundColor=bgColor;
     [addButton setTitle:@"+" forState:UIControlStateNormal];
-    [addButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [addButton setTitleColor:textColor forState:UIControlStateNormal];
     [addButton addTarget:self action:@selector(add) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:addButton];
     
@@ -54,6 +54,7 @@
         valueLabel.text=@"1";
         valueLabel.backgroundColor=bgColor;
         valueLabel.textAlignment=NSTextAlignmentCenter;
+        valueLabel.textColor=textColor;
         [self addSubview:valueLabel];
     }
     

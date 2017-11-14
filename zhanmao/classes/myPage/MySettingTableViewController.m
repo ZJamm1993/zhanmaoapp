@@ -37,12 +37,12 @@
     NSString* cacheStr=[NSString stringWithFormat:@"%ldMB",(long)mb];
     cellModelsArray=[NSArray arrayWithObjects:
                      [NSArray arrayWithObjects:
-                      [MyPageCellModel modelWithTitle:@"分享给好友" image:@"" detail:@"" identifier:@""],
-                      [MyPageCellModel modelWithTitle:@"当前版本" image:@"" detail:version identifier:@""],
-                      [MyPageCellModel modelWithTitle:@"清空缓存" image:@"" detail:cacheStr identifier:@""],nil],
+                      [MyPageCellModel modelWithTitle:@"分享给好友" image:@"set_share" detail:@"" identifier:@""],
+                      [MyPageCellModel modelWithTitle:@"当前版本" image:@"set_version" detail:version identifier:@""],
+                      [MyPageCellModel modelWithTitle:@"清空缓存" image:@"set_clean" detail:cacheStr identifier:@""],nil],
                      [NSArray arrayWithObjects:
-                      [MyPageCellModel modelWithTitle:@"去评价" image:@"" detail:@"" identifier:@""],
-                      [MyPageCellModel modelWithTitle:@"关于" image:@"" detail:@"" identifier:@""],nil],
+                      [MyPageCellModel modelWithTitle:@"去评价" image:@"set_gojudge" detail:@"" identifier:@""],
+                      [MyPageCellModel modelWithTitle:@"关于" image:@"set_about" detail:@"" identifier:@""],nil],
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@"logout"],nil],
                      nil];
@@ -61,7 +61,7 @@
     if (section==tableView.numberOfSections-1) {
         return 100;
     }
-    return 10;
+    return 20;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -91,7 +91,7 @@
         
         MyPageSimpleTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageSimpleTableViewCell" forIndexPath:indexPath];
         cell.title.text=mo.title;
-        cell.image.image=[UIImage imageNamed:mo.image];
+        cell.image.image=[[UIImage imageNamed:mo.image]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         cell.detail.text=mo.detail;
 //        cell.accessoryType=mo.detail.length>0?UITableViewCellAccessoryNone:UITableViewCellAccessoryDisclosureIndicator;
         return cell;

@@ -28,6 +28,8 @@
     NSDictionary* dic=[NSDictionary dictionaryWithObject:self forKey:@"tableView"];
     [[NSNotificationCenter defaultCenter]postNotificationName:UITableViewReloadDataNotification object:nil userInfo:dic];
     [self myReloadData];
+    
+    self.separatorColor=gray_8;
 }
 
 @end
@@ -39,6 +41,7 @@
     NSLog(@"UICollectionView Class Load");
     NSLog(@"swizzle reloadsections");
     [[self class]jr_swizzleMethod:@selector(reloadSections:) withMethod:@selector(myReloadSections:) error:nil];
+    
 }
 
 -(void)myReloadSections:(NSIndexSet*)sections
@@ -46,6 +49,7 @@
     NSDictionary* dic=[NSDictionary dictionaryWithObject:self forKey:@"collectionView"];
     [[NSNotificationCenter defaultCenter]postNotificationName:UICollectionViewReloadSectionsNotification object:nil userInfo:dic];
     [self myReloadSections:sections];
+    self.backgroundColor=gray_9;
 }
 
 @end

@@ -32,13 +32,13 @@
                                                 <constraint firstAttribute="height" constant="21" id="s7I-d6-KxB"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.19761284722222219" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="租金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJz-7f-XG5">
                                             <rect key="frame" x="15" y="46" width="40" height="27.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5M-T0-nSC">
@@ -47,7 +47,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="hY3-hf-rcp"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥500.0/天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="23I-0q-kL0">
@@ -59,7 +59,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥1000.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jod-Hc-ohf">
                                             <rect key="frame" x="252" y="51.5" width="53" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -150,38 +150,39 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rf-CK-6Qv">
                                             <rect key="frame" x="10" y="37" width="22" height="22"/>
-                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="8rf-CK-6Qv" secondAttribute="height" multiplier="1:1" id="Dfh-qc-c5o"/>
                                                 <constraint firstAttribute="width" constant="22" id="lzN-eY-cF6"/>
                                             </constraints>
+                                            <state key="normal" image="deselected"/>
+                                            <state key="selected" image="selected"/>
                                             <connections>
                                                 <action selector="selectedButtonClick:" destination="h3W-pq-Shx" eventType="touchUpInside" id="pkn-Uf-Mru"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="m6a-iA-fkx" customClass="CorneredImageView">
-                                            <rect key="frame" x="47" y="10" width="104" height="75.5"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m6a-iA-fkx" customClass="CorneredImageView">
+                                            <rect key="frame" x="42" y="10" width="104" height="75.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75.5" id="7d8-mW-7Rc"/>
                                                 <constraint firstAttribute="width" constant="104" id="Xf4-1D-fW1"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音响套装v3专业版" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-Ih-i6P">
-                                            <rect key="frame" x="163" y="10" width="142" height="21"/>
+                                            <rect key="frame" x="158" y="10" width="147" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="tXQ-Jb-r0i"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Z-z4-Apq" userLabel="nomalBg">
-                                            <rect key="frame" x="163" y="35" width="142" height="51"/>
+                                            <rect key="frame" x="158" y="35" width="147" height="51"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="租金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIZ-Bd-9mi">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥500.0/天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Efc-Ye-zTN">
@@ -193,7 +194,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2P-6I-Bjx">
                                                     <rect key="frame" x="0.0" y="34" width="40" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rq3-E8-dFI">
@@ -205,7 +206,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-DV-6KV">
                                                     <rect key="frame" x="0.0" y="17" width="40" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urJ-2Y-SF0">
@@ -232,11 +233,11 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                             </constraints>
                                         </view>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-aX-IAG" userLabel="editingBg">
-                                            <rect key="frame" x="163" y="0.0" width="142" height="95.5"/>
+                                            <rect key="frame" x="158" y="0.0" width="147" height="95.5"/>
                                             <subviews>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-BI-CWx">
-                                                    <rect key="frame" x="126" y="37" width="16" height="22"/>
-                                                    <state key="normal" image="a.png"/>
+                                                    <rect key="frame" x="134" y="37" width="13" height="22"/>
+                                                    <state key="normal" image="trash"/>
                                                     <connections>
                                                         <action selector="deleteButtonClick:" destination="h3W-pq-Shx" eventType="touchUpInside" id="EnD-uO-TeT"/>
                                                     </connections>
@@ -265,17 +266,17 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sr-2t-4ml">
                                                     <rect key="frame" x="0.0" y="21.5" width="27" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjS-Ce-KjI">
                                                     <rect key="frame" x="0.0" y="58.5" width="27" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyY-RC-S5X">
-                                                    <rect key="frame" x="70.5" y="47.5" width="1" height="1"/>
+                                                    <rect key="frame" x="73" y="47.5" width="1" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="4LP-LT-1Gl"/>
@@ -307,7 +308,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                         <constraint firstAttribute="bottom" secondItem="m6a-iA-fkx" secondAttribute="bottom" constant="10" id="CxQ-GI-rf4"/>
                                         <constraint firstItem="KtD-aX-IAG" firstAttribute="top" secondItem="sG3-pF-sZx" secondAttribute="top" id="LBO-Y8-CG4"/>
                                         <constraint firstItem="RF6-Ih-i6P" firstAttribute="top" secondItem="sG3-pF-sZx" secondAttribute="top" constant="10" id="Q6N-VR-tAh"/>
-                                        <constraint firstItem="m6a-iA-fkx" firstAttribute="leading" secondItem="8rf-CK-6Qv" secondAttribute="trailing" constant="15" id="Qzr-m5-nt8"/>
+                                        <constraint firstItem="m6a-iA-fkx" firstAttribute="leading" secondItem="8rf-CK-6Qv" secondAttribute="trailing" constant="10" id="Qzr-m5-nt8"/>
                                         <constraint firstItem="N1Z-z4-Apq" firstAttribute="trailing" secondItem="RF6-Ih-i6P" secondAttribute="trailing" id="VyN-sV-iEf"/>
                                         <constraint firstItem="KtD-aX-IAG" firstAttribute="trailing" secondItem="N1Z-z4-Apq" secondAttribute="trailing" id="Z4A-Ue-WvF"/>
                                         <constraint firstItem="N1Z-z4-Apq" firstAttribute="top" secondItem="RF6-Ih-i6P" secondAttribute="bottom" constant="4" id="Zdz-Bi-EvW"/>
@@ -365,7 +366,8 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
         </scene>
     </scenes>
     <resources>
-        <image name="1.jpg" width="640" height="480"/>
-        <image name="a.png" width="16" height="16"/>
+        <image name="deselected" width="20" height="20"/>
+        <image name="selected" width="20" height="20"/>
+        <image name="trash" width="13" height="15"/>
     </resources>
 </document>
