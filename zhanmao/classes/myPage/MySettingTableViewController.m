@@ -90,9 +90,9 @@
         MyPageCellModel* mo=[arr objectAtIndex:row];
         
         MyPageSimpleTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageSimpleTableViewCell" forIndexPath:indexPath];
-        cell.title.text=mo.title;
-        cell.image.image=[[UIImage imageNamed:mo.image]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.detail.text=mo.detail;
+        cell.textLabel.text=mo.title;
+        cell.imageView.image=[UIImage imageNamed:mo.image];
+        cell.detailTextLabel.text=mo.detail;
 //        cell.accessoryType=mo.detail.length>0?UITableViewCellAccessoryNone:UITableViewCellAccessoryDisclosureIndicator;
         return cell;
     }

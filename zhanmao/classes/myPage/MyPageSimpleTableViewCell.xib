@@ -10,53 +10,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="MyPageSimpleTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="CUi-Yw-K78" detailTextLabel="M7S-K3-onm" style="IBUITableViewCellStyleValue1" id="KGk-i7-Jjw" customClass="MyPageSimpleTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchWhite" translatesAutoresizingMaskIntoConstraints="NO" id="ZY9-xr-9wX">
-                        <rect key="frame" x="15" y="0.0" width="16" height="43.5"/>
-                        <color key="tintColor" white="0.20423719618055555" alpha="1" colorSpace="calibratedWhite"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的钱包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddm-hO-zHl">
-                        <rect key="frame" x="43" y="0.0" width="61.5" height="43.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="43.5" id="ZbN-8D-jFu"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CUi-Yw-K78">
+                        <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wH7-cm-6Z6">
-                        <rect key="frame" x="251.5" y="0.0" width="35.5" height="43.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" white="0.40106336805555554" alpha="1" colorSpace="calibratedWhite"/>
+                    <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M7S-K3-onm">
+                        <rect key="frame" x="245.5" y="13" width="39.5" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="ZY9-xr-9wX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="J3V-A2-jsn"/>
-                    <constraint firstItem="ZY9-xr-9wX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="S2W-Dr-J1O"/>
-                    <constraint firstItem="ddm-hO-zHl" firstAttribute="leading" secondItem="ZY9-xr-9wX" secondAttribute="trailing" constant="12" id="TTa-NQ-Egd"/>
-                    <constraint firstAttribute="bottom" secondItem="ZY9-xr-9wX" secondAttribute="bottom" id="Zzg-lX-tGC"/>
-                    <constraint firstAttribute="bottom" secondItem="ddm-hO-zHl" secondAttribute="bottom" id="ckj-Oa-9Lj"/>
-                    <constraint firstAttribute="bottom" secondItem="wH7-cm-6Z6" secondAttribute="bottom" id="jR0-rY-7HN"/>
-                    <constraint firstAttribute="trailing" secondItem="wH7-cm-6Z6" secondAttribute="trailing" id="nkM-BP-MBm"/>
-                    <constraint firstItem="wH7-cm-6Z6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rFQ-kd-ZCs"/>
-                    <constraint firstItem="ddm-hO-zHl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sQ1-JO-NZG"/>
-                </constraints>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="detail" destination="wH7-cm-6Z6" id="lye-1H-aRT"/>
-                <outlet property="image" destination="ZY9-xr-9wX" id="SVj-cc-M9H"/>
-                <outlet property="title" destination="ddm-hO-zHl" id="GJg-NX-bmC"/>
-            </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="searchWhite" width="16" height="16"/>
-    </resources>
 </document>

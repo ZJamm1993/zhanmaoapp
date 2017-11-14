@@ -13,6 +13,7 @@
 #import "RentCartTableViewController.h"
 
 #import "RentActionEditView.h"
+#import "ImageBadgeBarButtonItem.h"
 
 @interface ProductDetailViewController ()<RentActionEditViewDelegate>
 
@@ -27,6 +28,9 @@
     [super viewDidLoad];
     self.title=@"产品详情";
     
+    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:1 target:self selector:@selector(cartItemClicked)];
+    self.navigationItem.rightBarButtonItem=cartItem;
+    
     photoView=[[AdvertiseView alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.frame.size.width*0.6)];
     photoView.picturesUrls=[NSArray arrayWithObjects:
                             @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508838600421&di=657bb23fe8427c3b0bd101fe297214d2&imgtype=0&src=http%3A%2F%2Fwww.im4s.cn%2Ftrade%2Fuploads%2Fallimg%2F160606%2F456-160606114A6326.jpg",
@@ -34,14 +38,18 @@
     self.tableView.tableHeaderView=photoView;
     
     [self.bottomButton setTitle:@"加入租赁车" forState:UIControlStateNormal];
-    [self.bottomButton setImage:[UIImage imageNamed:@"a.png"] forState:UIControlStateNormal];
+    [self.bottomButton setImage:[UIImage imageNamed:@"cartSmall"] forState:UIControlStateNormal];
     [self.bottomButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)cartItemClicked
+{
+    //    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"a" count:arc4random()%120 target:self selector:@selector(cartItemClicked)];
+    //    self.navigationItem.rightBarButtonItem=cartItem;
+    
+    RentCartTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];
+    [self.navigationController pushViewController:rent animated:YES];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

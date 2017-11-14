@@ -48,9 +48,11 @@
     orgRe.origin.y=orgRe.size.height;
     
     self.frame=orgRe;
+    self.darkBg.alpha=0;
     
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.frame=windRect;
+        self.darkBg.alpha=1;
     } completion:nil];
 }
 
@@ -81,6 +83,7 @@
     
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.frame=orgRe;
+        self.alpha=0;
     } completion:^(BOOL isFinish){
         
         [self removeFromSuperview];

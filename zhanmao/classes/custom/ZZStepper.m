@@ -31,7 +31,7 @@
     
     CGFloat radius=2;
     CGFloat margin=1;
-    UIColor* bgColor=gray_8;
+    UIColor* bgColor=gray_9;
     UIColor* textColor=gray_2;
     
     subButton=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, h, h)];

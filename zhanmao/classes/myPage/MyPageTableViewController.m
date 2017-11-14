@@ -51,15 +51,15 @@
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"地址管理" image:@"" detail:@"" identifier:@"MyAddressesTableViewController"],
-             [MyPageCellModel modelWithTitle:@"个人资料" image:@"" detail:@"" identifier:@""], nil],
+             [MyPageCellModel modelWithTitle:@"地址管理" image:@"myAddress" detail:@"" identifier:@"MyAddressesTableViewController"],
+             [MyPageCellModel modelWithTitle:@"个人资料" image:@"myInfo" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"申请发票" image:@"" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
             [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"帮助中心" image:@"" detail:@"" identifier:@""],
-             [MyPageCellModel modelWithTitle:@"意见反馈" image:@"" detail:@"" identifier:@""],
-             [MyPageCellModel modelWithTitle:@"租赁协议" image:@"" detail:@"" identifier:@""],
-             [MyPageCellModel modelWithTitle:@"客服电话" image:@"" detail:@"020-00000000" identifier:@""], nil],
+             [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@""],
+             [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@""],
+             [MyPageCellModel modelWithTitle:@"租赁协议" image:@"myProtocal" detail:@"" identifier:@""],
+             [MyPageCellModel modelWithTitle:@"客服电话" image:@"myService" detail:@"020-88888888" identifier:@""], nil],
             nil];
     
     // Do any additional setup after loading the view.
@@ -106,6 +106,23 @@
 
 #pragma mark tableView delegate & datasource
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+//    if (section<=1) {
+//        return 0.0001;
+//    }
+//    return 10;
+    return 0.0001;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section==0) {
+        return 0.0001;
+    }
+    return 10;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return cellModelsArray.count;
@@ -141,9 +158,9 @@
         MyPageCellModel* mo=[arr objectAtIndex:row];
         
         MyPageSimpleTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageSimpleTableViewCell" forIndexPath:indexPath];
-        cell.title.text=mo.title;
-        cell.image.image=[[UIImage imageNamed:mo.image]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        cell.detail.text=mo.detail;
+        cell.textLabel.text=mo.title;
+        cell.imageView.image=[UIImage imageNamed:mo.image];
+        cell.detailTextLabel.text=mo.detail;
         return cell;
     }
     return [[UITableViewCell alloc]init];
