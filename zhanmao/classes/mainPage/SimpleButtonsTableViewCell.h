@@ -33,6 +33,7 @@
 @property (nonatomic,strong) NSString* imageName;
 @property (nonatomic,strong) NSString* identifier;
 @property (nonatomic,assign) NSInteger type;
+@property (nonatomic,assign) BOOL circledImage;
 
 -(instancetype)initWithTitle:(NSString*)title imageName:(NSString*)imageName identifier:(NSString*)identifier type:(NSInteger)type;
 

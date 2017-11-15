@@ -12,6 +12,8 @@
 #import "ZhuchangFormTableViewController.h"
 #import "ExhibitionExamplesViewController.h"
 
+#import "MainPageHttpTool.h"
+
 @interface ExhibitionListViewController ()
 
 @end
@@ -22,6 +24,13 @@
     [super viewDidLoad];
 //    self.title=[NSString stringWithFormat:@"%dxx案例",(int)self.type];;
     // Do any additional setup after loading the view.
+    
+    [MainPageHttpTool getCustomShowingListByType:self.type cache:YES success:^(NSArray *result) {
+        self.dataSource=[NSMutableArray arrayWithArray:result];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,14 +45,16 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ExhibitionLargeCardTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeCardTableViewCell" forIndexPath:indexPath];
     cell.backgroundColor=[UIColor clearColor];
-    
+    BaseModel* mo=[self.dataSource objectAtIndex:indexPath.row];
+    cell.label.text=mo.name;
+    [cell.image sd_setImageWithURL:[mo.thumb urlWithMainUrl]];
     return cell;
 }
 
@@ -51,6 +62,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ExhibitionExamplesViewController* exh=[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"ExhibitionExamplesViewController"];
+    BaseModel* mo=[self.dataSource objectAtIndex:indexPath.row];
+    exh.title=mo.name;
     exh.type=self.type;
     [self.navigationController pushViewController:exh animated:YES];
 }

@@ -68,10 +68,19 @@ const NSInteger simpleButtonRowCount=4;
         [bbg addSubview:titleLabel];
         
         UIImageView* imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, widthPerEach, imageHeight)];
+        UIImage* img=[UIImage imageNamed:mo.imageName];
 //        imageView.backgroundColor=_randomColor;
         imageView.contentMode=UIViewContentModeCenter;
-        imageView.image=[UIImage imageNamed:mo.imageName];
+        imageView.image=img;
         [bbg addSubview:imageView];
+        
+        if (mo.circledImage) {
+            UIView* circle=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageHeight+4, imageHeight+4)];
+            circle.backgroundColor=rgb(86,133,229);
+            circle.layer.cornerRadius=circle.frame.size.width/2;
+            circle.center=imageView.center;
+            [bbg insertSubview:circle belowSubview:imageView];
+        }
         
         UIButton* btn=[[UIButton alloc]initWithFrame:bbg.bounds];
         btn.tag=i;

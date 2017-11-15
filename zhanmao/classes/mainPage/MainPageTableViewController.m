@@ -10,7 +10,6 @@
 
 #import "SimpleButtonsTableViewCell.h"
 #import "ExhibitionLargeCardTableViewCell.h"
-#import "SimpleHeaderTableViewCell.h"
 #import "MainPageHeaderTableViewCell.h"
 #import "MessageSmallTableViewCell.h"
 
@@ -26,7 +25,6 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 {
     MainPageSectionEights,
     MainPageSectionExhibitions,
-    
     MainPageSectionTotalCount,
 };
 
@@ -57,13 +55,13 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     
     
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"MainPageHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"MainPageHeaderTableViewCell"];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"SimpleHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"SimpleHeaderTableViewCell"];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeCardTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeCardTableViewCell"];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"MessageSmallTableViewCell" bundle:nil] forCellReuseIdentifier:@"MessageSmallTableViewCell"];
+//    [self.tableView registerNib:[UINib nibWithNibName:@"MainPageHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"MainPageHeaderTableViewCell"];
+//    
+//    [self.tableView registerNib:[UINib nibWithNibName:@"SimpleHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"SimpleHeaderTableViewCell"];
+//    
+//    [self.tableView registerNib:[UINib nibWithNibName:@"ExhibitionLargeCardTableViewCell" bundle:nil] forCellReuseIdentifier:@"ExhibitionLargeCardTableViewCell"];
+//    
+//    [self.tableView registerNib:[UINib nibWithNibName:@"MessageSmallTableViewCell" bundle:nil] forCellReuseIdentifier:@"MessageSmallTableViewCell"];
     
     messagesArray=[NSMutableArray array];
     for (int i=0; i<10; i++) {
@@ -188,11 +186,11 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     }
     else if(section==MainPageSectionExhibitions)
     {
-        return 2;
+        return 1;
     }
     else
     {
-        return 2;
+        return 1;
     }
     return 0;
 }
@@ -209,7 +207,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger sec=indexPath.section;
-    NSInteger row=indexPath.row;
+//    NSInteger row=indexPath.row;
     NSInteger msgSection=sec-(tableView.numberOfSections-messagesArray.count);
     
     if(sec==MainPageSectionEights)
@@ -221,20 +219,8 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     }
     else
     {
-        if (row==0) {
-            SimpleHeaderTableViewCell* sim=[tableView dequeueReusableCellWithIdentifier:@"SimpleHeaderTableViewCell" forIndexPath:indexPath];
-            if (sec==0) {
-                //....
-            }
-            else if(sec==1)
-            {
-                //....
-            }
-            return sim;
-        }
-        else if(sec==MainPageSectionExhibitions)
+        if(sec==MainPageSectionExhibitions)
         {
-            
             ExhibitionLargeCardTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeCardTableViewCell" forIndexPath:indexPath];
             return cell;
         }

@@ -32,7 +32,7 @@
     submitButton.backgroundColor=_mainColor;
     [submitButton setTitle:@"立即定制" forState:UIControlStateNormal];
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [submitButton.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [submitButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
     [submitButton addTarget:self action:@selector(goToCustom) forControlEvents:UIControlEventTouchUpInside];
     [submitButton.layer setCornerRadius:4];
     [submitButton.layer setMasksToBounds:YES];
@@ -46,8 +46,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    [self.tableView setContentOffset:CGPointZero];
 }
 
 -(void)goToCustom

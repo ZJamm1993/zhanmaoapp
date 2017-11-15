@@ -41,10 +41,6 @@
         
         _createtime=[dictionary valueForKey:@"createtime"];
         _title=[dictionary valueForKey:@"title"];
-        
-        if (_idd.length==0) {
-            _idd=[dictionary valueForKey:@"post_id"];
-        }
     }
     
     return self;

@@ -16,6 +16,8 @@
     
     self.countStepper.min=1;
     self.dayStepper.min=1;
+    
+    self.separatorInset=UIEdgeInsetsZero;
     // Initialization code
 }
 

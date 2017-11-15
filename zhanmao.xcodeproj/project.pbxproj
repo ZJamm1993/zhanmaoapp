@@ -16,11 +16,11 @@
 		8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E409A1F945AB700B42477 /* MainPageTableViewController.m */; };
 		8E2E409F1F9460B300B42477 /* SimpleButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */; };
 		8E2E40A41F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A21F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m */; };
-		8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */; };
 		8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */; };
 		8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */; };
 		8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */; };
 		8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */; };
+		8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */; };
 		8E6C73F51F9D9280004B33D1 /* ImageTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */; };
 		8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F81F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m */; };
 		8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C73F91F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib */; };
@@ -35,9 +35,7 @@
 		8E6C741D1F9DF0E2004B33D1 /* OnlineRentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C741C1F9DF0E2004B33D1 /* OnlineRentTableViewController.m */; };
 		8E6C74251F9DF537004B33D1 /* MenuHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74241F9DF537004B33D1 /* MenuHeaderTableViewCell.m */; };
 		8E6C74291F9ED49D004B33D1 /* SimpleTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */; };
-		8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C74281F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib */; };
 		8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */; };
-		8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C742D1F9EDB68004B33D1 /* GoodsTableViewCell.xib */; };
 		8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */; };
 		8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */; };
 		8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */; };
@@ -137,11 +135,7 @@
 		8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674BE1F973818008CC196 /* BaseLoadMoreFooterView.m */; };
 		8EB674C31F973818008CC196 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C01F973818008CC196 /* BaseTableViewController.m */; };
 		8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */; };
-		8EB674CA1F97416B008CC196 /* MessageSmallTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */; };
-		8EB674CE1F974214008CC196 /* SimpleHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */; };
-		8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */; };
 		8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674D11F99A991008CC196 /* MainPageHeaderTableViewCell.m */; };
-		8EB674D41F99A991008CC196 /* MainPageHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674D21F99A991008CC196 /* MainPageHeaderTableViewCell.xib */; };
 		8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674D71F99D003008CC196 /* CorneredImageView.m */; };
 		8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674DE1F99E83F008CC196 /* MainPage.storyboard */; };
 		8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */; };
@@ -195,7 +189,6 @@
 		8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleButtonsTableViewCell.m; sourceTree = "<group>"; };
 		8E2E40A11F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionLargeCardTableViewCell.h; sourceTree = "<group>"; };
 		8E2E40A21F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionLargeCardTableViewCell.m; sourceTree = "<group>"; };
-		8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExhibitionLargeCardTableViewCell.xib; sourceTree = "<group>"; };
 		8E2E40A61F94A46B00B42477 /* LinedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinedTableViewCell.h; sourceTree = "<group>"; };
 		8E2E40A71F94A46B00B42477 /* LinedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinedTableViewCell.m; sourceTree = "<group>"; };
 		8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
@@ -203,6 +196,8 @@
 		8E3779CE1FA7195B00A3BBEB /* MyPageButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageButtonTableViewCell.h; sourceTree = "<group>"; };
 		8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageButtonTableViewCell.m; sourceTree = "<group>"; };
 		8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageButtonTableViewCell.xib; sourceTree = "<group>"; };
+		8E4E23D61FBBF0CB00C394E0 /* MainPageHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageHttpTool.h; sourceTree = "<group>"; };
+		8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageHttpTool.m; sourceTree = "<group>"; };
 		8E6C73F31F9D9280004B33D1 /* ImageTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTitleBarButtonItem.h; sourceTree = "<group>"; };
 		8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTitleBarButtonItem.m; sourceTree = "<group>"; };
 		8E6C73F71F9D99B6004B33D1 /* TitleTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTextFieldTableViewCell.h; sourceTree = "<group>"; };
@@ -228,10 +223,8 @@
 		8E6C74241F9DF537004B33D1 /* MenuHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeaderTableViewCell.m; sourceTree = "<group>"; };
 		8E6C74261F9ED49D004B33D1 /* SimpleTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTitleTableViewCell.h; sourceTree = "<group>"; };
 		8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTitleTableViewCell.m; sourceTree = "<group>"; };
-		8E6C74281F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleTitleTableViewCell.xib; sourceTree = "<group>"; };
 		8E6C742B1F9EDB68004B33D1 /* GoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsTableViewCell.h; sourceTree = "<group>"; };
 		8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsTableViewCell.m; sourceTree = "<group>"; };
-		8E6C742D1F9EDB68004B33D1 /* GoodsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsTableViewCell.xib; sourceTree = "<group>"; };
 		8E6C746B1F9F2B23004B33D1 /* PhotoSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSliderView.h; sourceTree = "<group>"; };
 		8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSliderView.m; sourceTree = "<group>"; };
 		8E6C746E1F9F3020004B33D1 /* ExhibitionExamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionExamplesViewController.h; sourceTree = "<group>"; };
@@ -417,13 +410,8 @@
 		8EB674C01F973818008CC196 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		8EB674C61F97416B008CC196 /* MessageSmallTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSmallTableViewCell.h; sourceTree = "<group>"; };
 		8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSmallTableViewCell.m; sourceTree = "<group>"; };
-		8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageSmallTableViewCell.xib; sourceTree = "<group>"; };
-		8EB674CB1F974214008CC196 /* SimpleHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleHeaderTableViewCell.h; sourceTree = "<group>"; };
-		8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleHeaderTableViewCell.m; sourceTree = "<group>"; };
-		8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		8EB674D01F99A991008CC196 /* MainPageHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageHeaderTableViewCell.h; sourceTree = "<group>"; };
 		8EB674D11F99A991008CC196 /* MainPageHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageHeaderTableViewCell.m; sourceTree = "<group>"; };
-		8EB674D21F99A991008CC196 /* MainPageHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainPageHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		8EB674D61F99D003008CC196 /* CorneredImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorneredImageView.h; sourceTree = "<group>"; };
 		8EB674D71F99D003008CC196 /* CorneredImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorneredImageView.m; sourceTree = "<group>"; };
 		8EB674DE1F99E83F008CC196 /* MainPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPage.storyboard; sourceTree = "<group>"; };
@@ -513,6 +501,8 @@
 				8EB674DE1F99E83F008CC196 /* MainPage.storyboard */,
 				8EEF091E1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.h */,
 				8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */,
+				8E4E23D61FBBF0CB00C394E0 /* MainPageHttpTool.h */,
+				8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */,
 			);
 			path = mainPage;
 			sourceTree = "<group>";
@@ -594,10 +584,8 @@
 				8E6C74241F9DF537004B33D1 /* MenuHeaderTableViewCell.m */,
 				8E6C74261F9ED49D004B33D1 /* SimpleTitleTableViewCell.h */,
 				8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */,
-				8E6C74281F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib */,
 				8E6C742B1F9EDB68004B33D1 /* GoodsTableViewCell.h */,
 				8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */,
-				8E6C742D1F9EDB68004B33D1 /* GoodsTableViewCell.xib */,
 				8E6C74901FA03E69004B33D1 /* ProductDetailInfoTableViewCell.h */,
 				8E6C74911FA03E69004B33D1 /* ProductDetailInfoTableViewCell.m */,
 				8E6C74951FA03E9B004B33D1 /* ProductParameterTableViewCell.h */,
@@ -695,12 +683,12 @@
 			children = (
 				8E99AABE1F9069700078C452 /* PrefixHeader.pch */,
 				8E99A8D91F90664D0078C452 /* Assets.xcassets */,
-				8E99A8E41F9068910078C452 /* classes */,
+				8E99A8D61F90664D0078C452 /* Main.storyboard */,
 				8E99A8D01F90664D0078C452 /* AppDelegate.h */,
 				8E99A8D11F90664D0078C452 /* AppDelegate.m */,
-				8E99A8D61F90664D0078C452 /* Main.storyboard */,
 				8E99A8DB1F90664D0078C452 /* LaunchScreen.storyboard */,
 				8E99A8DE1F90664D0078C452 /* Info.plist */,
+				8E99A8E41F9068910078C452 /* classes */,
 				8E99A8CD1F90664D0078C452 /* Supporting Files */,
 			);
 			path = zhanmao;
@@ -940,20 +928,14 @@
 			children = (
 				8EB674D01F99A991008CC196 /* MainPageHeaderTableViewCell.h */,
 				8EB674D11F99A991008CC196 /* MainPageHeaderTableViewCell.m */,
-				8EB674D21F99A991008CC196 /* MainPageHeaderTableViewCell.xib */,
 				8E2E409C1F9460B300B42477 /* SimpleButtonsTableViewCell.h */,
 				8E2E409D1F9460B300B42477 /* SimpleButtonsTableViewCell.m */,
-				8EB674CB1F974214008CC196 /* SimpleHeaderTableViewCell.h */,
-				8EB674CC1F974214008CC196 /* SimpleHeaderTableViewCell.m */,
-				8EB674CD1F974214008CC196 /* SimpleHeaderTableViewCell.xib */,
 				8E2E40A11F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.h */,
 				8E2E40A21F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.m */,
-				8E2E40A31F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib */,
 				8E6C74711F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.h */,
 				8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */,
 				8EB674C61F97416B008CC196 /* MessageSmallTableViewCell.h */,
 				8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */,
-				8EB674C81F97416B008CC196 /* MessageSmallTableViewCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1125,7 +1107,6 @@
 			files = (
 				8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */,
 				8EA6807F1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib in Resources */,
-				8E2E40A51F949C0C00B42477 /* ExhibitionLargeCardTableViewCell.xib in Resources */,
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
 				8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
@@ -1133,7 +1114,6 @@
 				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
-				8E6C742A1F9ED49D004B33D1 /* SimpleTitleTableViewCell.xib in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
 				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
@@ -1143,20 +1123,16 @@
 				8EEF091A1FB96C48004ED5F0 /* chicken.png in Resources */,
 				8ED4015F1FBA908B0097A395 /* TotalFeeView.xib in Resources */,
 				8E99AA9F1F9068920078C452 /* Checkmark@2x.png in Resources */,
-				8E6C742F1F9EDB68004B33D1 /* GoodsTableViewCell.xib in Resources */,
 				8EA9E55D1FB1937A003815B7 /* RentActionEditView.xib in Resources */,
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
-				8EB674CA1F97416B008CC196 /* MessageSmallTableViewCell.xib in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
-				8EB674D41F99A991008CC196 /* MainPageHeaderTableViewCell.xib in Resources */,
 				8E6C74031F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.xib in Resources */,
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
 				8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */,
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
-				8EB674CF1F974214008CC196 /* SimpleHeaderTableViewCell.xib in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1209,6 +1185,7 @@
 				8E6C741D1F9DF0E2004B33D1 /* OnlineRentTableViewController.m in Sources */,
 				8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */,
 				8E721AE91FB58195001BD401 /* HuiyiFormTableViewController.m in Sources */,
+				8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */,
 				8E6C749F1FA0669D004B33D1 /* ProductDetailViewController.m in Sources */,
 				8EDBF4E81FA1B4D20073F37D /* TransportOrderTableViewController.m in Sources */,
 				8E6C74931FA03E69004B33D1 /* ProductDetailInfoTableViewCell.m in Sources */,
@@ -1227,7 +1204,6 @@
 				8E99AAAD1F9068920078C452 /* SDWebImageManager.m in Sources */,
 				8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */,
 				8E6C749C1FA041C0004B33D1 /* ZZStepper.m in Sources */,
-				8EB674CE1F974214008CC196 /* SimpleHeaderTableViewCell.m in Sources */,
 				8E6C747B1F9F40CD004B33D1 /* ExhibitionPictureViewController.m in Sources */,
 				8EDBF4CA1FA17F600073F37D /* RentOrderPagerViewController.m in Sources */,
 				8E9B0CDB1FAAC2AF00770F8D /* CleanOrderTableViewCell.m in Sources */,

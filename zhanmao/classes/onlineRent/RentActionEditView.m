@@ -34,7 +34,7 @@
     [self.rentNowButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.rentNowButton setBackgroundColor:_mainColor];
     
-    self.xButton.layer.cornerRadius=self.xButton.frame.size.width/2;
+//    self.xButton.layer.cornerRadius=self.xButton.frame.size.width/2;
 }
 
 -(void)show

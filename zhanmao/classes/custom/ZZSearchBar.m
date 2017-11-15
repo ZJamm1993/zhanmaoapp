@@ -19,7 +19,14 @@
     bar.font=[UIFont systemFontOfSize:13];
     bar.returnKeyType=UIReturnKeySearch;
     
-    UIImageView* icon=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_search"]];
+    UIImage* seaImg=[UIImage imageNamed:@"searchWhite"];
+    UIGraphicsBeginImageContext(CGSizeMake(16, 16));
+    [seaImg drawInRect:CGRectMake(0, 0, 16, 16)];
+    UIImage* img=UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageView* icon=[[UIImageView alloc]initWithImage:[img imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+    icon.tintColor=gray_8;
     icon.contentMode=UIViewContentModeCenter;
     icon.frame=CGRectMake(0, 0, bar.frame.size.height, bar.frame.size.height);
     bar.leftView=icon;

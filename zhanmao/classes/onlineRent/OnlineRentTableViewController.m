@@ -57,12 +57,10 @@ const CGFloat categoriesHeaderHeight=50;
                             [MenuHeaderButtonModel modelWithTitle:@"价格" selected:NO ordered:YES ascending:NO],
                             [MenuHeaderButtonModel modelWithTitle:@"销量" selected:NO ordered:NO ascending:NO], nil];
     
-    [self.catesTableView registerNib:[UINib nibWithNibName:@"SimpleTitleTableViewCell" bundle:nil] forCellReuseIdentifier:@"SimpleTitleTableViewCell"];
     self.catesTableView.showsVerticalScrollIndicator=NO;
     self.catesTableView.scrollsToTop=NO;
     self.catesTableView.tableFooterView=[[UIView alloc]init];
     
-    [self.goodsTableView registerNib:[UINib nibWithNibName:@"GoodsTableViewCell" bundle:nil] forCellReuseIdentifier:@"GoodsTableViewCell"];
     [self.goodsTableView registerClass:[MenuHeaderTableViewCell class] forHeaderFooterViewReuseIdentifier:@"MenuHeaderTableViewCell"];
     [self.goodsTableView setTableFooterView:[[UIView alloc]init]];
     
@@ -74,10 +72,12 @@ const CGFloat categoriesHeaderHeight=50;
     [RentHttpTool getClasses:^(NSArray *result) {
         categoriesArray=[NSMutableArray arrayWithArray:result];
         [self.catesTableView reloadData];
-        
-        NSIndexPath* zeroIndexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-        [self.catesTableView selectRowAtIndexPath:zeroIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
-        [self tableView:self.catesTableView didSelectRowAtIndexPath:zeroIndexPath];
+        if(result.count>0)
+        {
+            NSIndexPath* zeroIndexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+            [self.catesTableView selectRowAtIndexPath:zeroIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+            [self tableView:self.catesTableView didSelectRowAtIndexPath:zeroIndexPath];
+        }
     } failure:^(NSError *error) {
         
     }];
