@@ -21,6 +21,8 @@
         _name=[dictionary valueForKey:@"name"];
         _thumb=[dictionary valueForKey:@"thumb"];
         
+        _count=[[dictionary valueForKey:@"count"]integerValue];
+        
         _idd=[dictionary valueForKey:@"id"];
         _post_title=[dictionary valueForKey:@"post_title"];
         _post_excerpt=[dictionary valueForKey:@"post_excerpt"];

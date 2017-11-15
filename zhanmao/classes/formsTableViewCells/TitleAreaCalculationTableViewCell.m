@@ -51,18 +51,8 @@
     }
     BOOL showingBottom=modelCount>3;
     if (showingBottom) {
-        CGFloat totalArea=1;
-        for (NSInteger i=0; i<2; i++) {
-            BaseFormModel* m=[model.combination_arr objectAtIndex:i];
-            CGFloat va=[m.value floatValue];
-            totalArea=totalArea*va;
-        }
-        BaseFormModel* last=[model.combination_arr lastObject];
-        NSNumberFormatter* forma=[[NSNumberFormatter alloc]init];
-        forma.numberStyle=NSNumberFormatterDecimalStyle;
-        last.value=[NSString stringWithFormat:@"%f",totalArea];
-        self.result.text=[forma stringFromNumber:[NSNumber numberWithFloat:last.value.floatValue]];
-    }
+        [self calculate];
+            }
     self.bottomResultView.hidden=!showingBottom;
     self.bottomResultViewHeight.constant=showingBottom?44:0;
 }
@@ -75,9 +65,31 @@
         if (self.model.combination_arr.count>ind) {
             BaseFormModel* mo=[self.model.combination_arr objectAtIndex:ind];
             mo.value=textField.text;
+            [self calculate];
             [self reloadModel];
         }
     }
+}
+
+-(void)calculate
+{
+    CGFloat totalArea=1;
+    NSInteger mutaCount=2;
+    if (self.model.type==BaseFormTypeCalculateSize) {
+        mutaCount=3;
+    }
+    for (NSInteger i=0; i<mutaCount; i++) {
+        BaseFormModel* m=[self.model.combination_arr objectAtIndex:i];
+        CGFloat va=[m.value floatValue];
+        totalArea=totalArea*va;
+    }
+    BaseFormModel* last=[self.model.combination_arr lastObject];
+    NSNumberFormatter* forma=[[NSNumberFormatter alloc]init];
+    forma.numberStyle=NSNumberFormatterDecimalStyle;
+    last.value=[NSString stringWithFormat:@"%f",totalArea];
+    self.result.text=[forma stringFromNumber:[NSNumber numberWithFloat:last.value.floatValue]];
+    
+
 }
 
 @end

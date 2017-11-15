@@ -139,7 +139,6 @@
 		8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674D71F99D003008CC196 /* CorneredImageView.m */; };
 		8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674DE1F99E83F008CC196 /* MainPage.storyboard */; };
 		8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */; };
-		8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674E51F99EB35008CC196 /* MyPageHeaderTableViewCell.xib */; };
 		8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674E61F99EB35008CC196 /* MyPageHeaderTableViewCell.m */; };
 		8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */; };
 		8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */; };
@@ -170,6 +169,9 @@
 		8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF091C1FB96E3D004ED5F0 /* StepsHeaderView.m */; };
 		8EEF09201FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */; };
 		8EEF09231FB98168004ED5F0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEF09221FB98168004ED5F0 /* CoreLocation.framework */; };
+		8EFC802C1FBC32F4001CF3BF /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC802B1FBC32F4001CF3BF /* MyLoginViewController.m */; };
+		8EFC80301FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC802E1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m */; };
+		8EFC80311FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EFC802F1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -418,7 +420,6 @@
 		8EB674E11F99E9EA008CC196 /* MyPageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageTableViewController.h; sourceTree = "<group>"; };
 		8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageTableViewController.m; sourceTree = "<group>"; };
 		8EB674E41F99EB35008CC196 /* MyPageHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHeaderTableViewCell.h; sourceTree = "<group>"; };
-		8EB674E51F99EB35008CC196 /* MyPageHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		8EB674E61F99EB35008CC196 /* MyPageHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHeaderTableViewCell.m; sourceTree = "<group>"; };
 		8EB674EA1F99F523008CC196 /* MyPageSimpleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageSimpleTableViewCell.h; sourceTree = "<group>"; };
 		8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageSimpleTableViewCell.m; sourceTree = "<group>"; };
@@ -471,6 +472,11 @@
 		8EEF091E1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFormSubmitResultViewController.h; sourceTree = "<group>"; };
 		8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFormSubmitResultViewController.m; sourceTree = "<group>"; };
 		8EEF09221FB98168004ED5F0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8EFC802A1FBC32F4001CF3BF /* MyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoginViewController.h; sourceTree = "<group>"; };
+		8EFC802B1FBC32F4001CF3BF /* MyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLoginViewController.m; sourceTree = "<group>"; };
+		8EFC802D1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleAddressSeletectTableViewCell.h; sourceTree = "<group>"; };
+		8EFC802E1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleAddressSeletectTableViewCell.m; sourceTree = "<group>"; };
+		8EFC802F1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleAddressSeletectTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,6 +555,9 @@
 				8EEF09141FB93984004ED5F0 /* TitleSwitchTableViewCell.h */,
 				8EEF09151FB93984004ED5F0 /* TitleSwitchTableViewCell.m */,
 				8EEF09161FB93984004ED5F0 /* TitleSwitchTableViewCell.xib */,
+				8EFC802D1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.h */,
+				8EFC802E1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m */,
+				8EFC802F1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -952,6 +961,8 @@
 				8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */,
 				8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */,
 				8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */,
+				8EFC802A1FBC32F4001CF3BF /* MyLoginViewController.h */,
+				8EFC802B1FBC32F4001CF3BF /* MyLoginViewController.m */,
 			);
 			path = myPage;
 			sourceTree = "<group>";
@@ -961,7 +972,6 @@
 			children = (
 				8EB674E41F99EB35008CC196 /* MyPageHeaderTableViewCell.h */,
 				8EB674E61F99EB35008CC196 /* MyPageHeaderTableViewCell.m */,
-				8EB674E51F99EB35008CC196 /* MyPageHeaderTableViewCell.xib */,
 				8EB674EA1F99F523008CC196 /* MyPageSimpleTableViewCell.h */,
 				8EB674EB1F99F523008CC196 /* MyPageSimpleTableViewCell.m */,
 				8EB674EC1F99F523008CC196 /* MyPageSimpleTableViewCell.xib */,
@@ -1111,6 +1121,7 @@
 				8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
 				8E9B00291FB42BE500B29188 /* json.txt in Resources */,
+				8EFC80311FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib in Resources */,
 				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
@@ -1130,7 +1141,6 @@
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
 				8E6C74031F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.xib in Resources */,
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
-				8EB674E71F99EB35008CC196 /* MyPageHeaderTableViewCell.xib in Resources */,
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
@@ -1151,6 +1161,7 @@
 				8EEF09201FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m in Sources */,
 				8EA680751FB6999700EF5FC8 /* RentModel.m in Sources */,
 				8E2E40951F945A2E00B42477 /* NothingFooterCell.m in Sources */,
+				8EFC80301FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m in Sources */,
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
 				8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */,
 				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
@@ -1220,6 +1231,7 @@
 				8E99AAB41F9068920078C452 /* UIImageView+WebCache.m in Sources */,
 				8E99AAA41F9068920078C452 /* MKAnnotationView+WebCache.m in Sources */,
 				8E6C74AC1FA08572004B33D1 /* RentCartTableViewController.m in Sources */,
+				8EFC802C1FBC32F4001CF3BF /* MyLoginViewController.m in Sources */,
 				8E6C74A81FA071B4004B33D1 /* RentCartEditTableViewCell.m in Sources */,
 				8E2E408B1F9459ED00B42477 /* BaseModel.m in Sources */,
 				8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */,

@@ -12,6 +12,8 @@
 #import "ZhuchangFormTableViewController.h"
 #import "ExhibitionPictureViewController.h"
 
+#import "MainPageHttpTool.h"
+
 @interface ExhibitionExamplesViewController ()
 
 @end
@@ -20,9 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title=@"xxx";
-//    self.tableView.separatorColor=[UIColor lightGrayColor];
-    // Do any additional setup after loading the view.
+    
+    [MainPageHttpTool getCustomShowingListByType:self.type cache:YES success:^(NSArray *result) {
+        self.dataSource=[NSMutableArray arrayWithArray:result];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,6 +38,11 @@
 
 #pragma mark tableViews
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.0001;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 14;
@@ -39,7 +50,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    return self.dataSource.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -50,6 +61,10 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ExhibitionLargeRectTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeRectTableViewCell" forIndexPath:indexPath];
+    BaseModel* mo=[self.dataSource objectAtIndex:indexPath.row];
+    cell.title.text=mo.name;
+    [cell.image sd_setImageWithURL:[mo.thumb urlWithMainUrl]];
+    cell.detailTitle.text=[NSString stringWithFormat:@"图(%ld张)",mo.count];
     return cell;
 }
 

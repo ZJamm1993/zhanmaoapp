@@ -253,7 +253,7 @@
     {
         nibName=NSStringFromClass([TitleDescriptionTableViewCell class]);
     }
-    else if(model.type==BaseFormTypeCalculateArea||model.type==BaseFormTypeProviceCityDistrict)
+    else if(model.type==BaseFormTypeCalculateArea||model.type==BaseFormTypeProviceCityDistrict||model.type==BaseFormTypeCalculateSize)
     {
         nibName=NSStringFromClass([TitleAreaCalculationTableViewCell class]);
     }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="107" id="KGk-i7-Jjw" customClass="TitleAddressSeletectTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="286" height="106.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="send" translatesAutoresizingMaskIntoConstraints="NO" id="1dK-Nh-Emo">
+                        <rect key="frame" x="10" y="39.5" width="22" height="28"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArY-f4-jT3">
+                        <rect key="frame" x="44" y="0.0" width="243" height="106.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.60123697919999997" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTa-7c-wLk">
+                        <rect key="frame" x="44" y="0.0" width="243" height="106.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1dK-Nh-Emo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0SR-Wb-0zb"/>
+                    <constraint firstItem="gTa-7c-wLk" firstAttribute="trailing" secondItem="ArY-f4-jT3" secondAttribute="trailing" id="4tz-qU-Bxq"/>
+                    <constraint firstItem="ArY-f4-jT3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="P0U-WF-n3g"/>
+                    <constraint firstAttribute="bottom" secondItem="ArY-f4-jT3" secondAttribute="bottom" id="V2k-aq-XiA"/>
+                    <constraint firstAttribute="trailing" secondItem="ArY-f4-jT3" secondAttribute="trailing" id="ijQ-Tz-7PV"/>
+                    <constraint firstItem="ArY-f4-jT3" firstAttribute="leading" secondItem="1dK-Nh-Emo" secondAttribute="trailing" constant="12" id="kLP-tL-tRa"/>
+                    <constraint firstItem="gTa-7c-wLk" firstAttribute="top" secondItem="ArY-f4-jT3" secondAttribute="top" id="rwW-0I-nU9"/>
+                    <constraint firstItem="gTa-7c-wLk" firstAttribute="leading" secondItem="ArY-f4-jT3" secondAttribute="leading" id="tBn-cG-i0q"/>
+                    <constraint firstItem="gTa-7c-wLk" firstAttribute="bottom" secondItem="ArY-f4-jT3" secondAttribute="bottom" id="trz-ab-v0o"/>
+                    <constraint firstItem="1dK-Nh-Emo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zkM-G4-HiE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="43" y="128.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="send" width="22" height="28"/>
+    </resources>
+</document>

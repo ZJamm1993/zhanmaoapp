@@ -23,6 +23,12 @@
         self.unit=[dictionary valueForKey:@"unit"];
         self.option=[dictionary valueForKey:@"option"];
         
+        //default Value for some type
+        if(self.type==BaseFormTypeSwitchCheck)
+        {
+            self.value=@"0";
+        }
+        
         NSMutableArray* coms=[NSMutableArray array];
         NSArray* coma=[dictionary valueForKey:@"combination_arr"];
         if (coma.count>0)

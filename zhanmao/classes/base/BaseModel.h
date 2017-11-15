@@ -17,6 +17,7 @@
 @property (nonatomic,strong) NSString* cid;
 @property (nonatomic,strong) NSString* name;
 @property (nonatomic,strong) NSString* thumb;
+@property (nonatomic,assign) NSInteger count;
 
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* post_title;

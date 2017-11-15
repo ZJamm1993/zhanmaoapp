@@ -213,7 +213,10 @@
 
 -(void)myPageHeaderTableViewCellPersonalButtonClicked:(MyPageHeaderTableViewCell *)cell
 {
-    
+#warning  login check
+    if (YES) {
+        [self pushToViewControllerId:@"MyLoginViewController"];
+    }
 }
 
 @end

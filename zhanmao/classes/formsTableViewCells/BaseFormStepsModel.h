@@ -21,10 +21,13 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeSingleChoice                    =31,
     BaseFormTypeSwitchCheck                     =32,
     
-    BaseFormTypeStepDescription                     =6,
+    BaseFormTypeStepDescription                 =6,
+    
+    BaseFormTypeAddressSelection                =7,
     
     BaseFormTypeCalculateArea                   =8,
     BaseFormTypeProviceCityDistrict             =81,
+    BaseFormTypeCalculateSize                   =82,
     
     BaseFormTypeDatePicker                      =9,
     BaseFormTypeDateTimePicker                  =91,
