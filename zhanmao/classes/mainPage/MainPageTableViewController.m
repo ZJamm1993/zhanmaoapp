@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     
     CLLocationManager * locationManager;
     NSString * currentCity; //当前城市
+    BOOL locatedCity;
 }
 @end
 
@@ -87,6 +88,10 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 //定位成功
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     [locationManager stopUpdatingLocation];
+    if (locatedCity) {
+        return;
+    }
+    locatedCity=YES;
     CLLocation *currentLocation = [locations lastObject];
     CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
     
@@ -170,6 +175,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     NSLog(@"select location");
 //    [self setLocation:[NSString stringWithFormat:@"%ld",(long)(arc4random()%1000000)]];
     [locationManager startUpdatingLocation];
+    locatedCity=NO;
 }
 
 #pragma mark UITableViewDelegate&Datasource

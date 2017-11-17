@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SimpleButtonsTableViewCell.h"
 
-@interface FourButtonsTableViewCell : UITableViewCell
+@interface FourButtonsTableViewCell : LinedTableViewCell
 
 @property (weak, nonatomic) IBOutlet SimpleButtonsTableViewCell *buttonsCell;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;

@@ -23,10 +23,10 @@
     CGFloat currentX=m;
     
     if (recently.count>0) {
-        currentY=[view addSectionsViewWithTitle:@"最近搜索" imageName:@"a" canBeDeleted:YES strings:recently currentX:currentX currentY:currentY margin:m];
+        currentY=[view addSectionsViewWithTitle:@"最近搜索" imageName:@"searchGraySmall" canBeDeleted:YES strings:recently currentX:currentX currentY:currentY margin:m];
     }
     if (trendy.count>0) {
-        currentY=[view addSectionsViewWithTitle:@"热门搜索" imageName:@"a" canBeDeleted:NO strings:trendy currentX:currentX currentY:currentY margin:m];
+        currentY=[view addSectionsViewWithTitle:@"热门搜索" imageName:@"searchHot" canBeDeleted:NO strings:trendy currentX:currentX currentY:currentY margin:m];
     }
     
     return view;
@@ -85,13 +85,13 @@
     
     UILabel* ti=[[UILabel alloc]initWithFrame:CGRectMake(h, 0, 200, h)];
     ti.text=title;
-    ti.textColor=[UIColor darkGrayColor];
+    ti.textColor=gray_4;
     ti.font=[UIFont systemFontOfSize:14];
     [view addSubview:ti];
     
     if (canBeDeleted) {
         UIButton* btn=[[UIButton alloc]initWithFrame:CGRectMake(view.frame.size.width-h, 0, h, h)];
-        [btn setImage:[UIImage imageNamed:@"a"] forState:UIControlStateNormal];
+        [btn setImage:[UIImage imageNamed:@"searchDelete"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(deleteButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:btn];
     }
@@ -103,11 +103,11 @@
 {
     UIButton* bt=[[UIButton alloc]initWithFrame:CGRectZero];
     bt.layer.cornerRadius=2;
-    bt.layer.borderColor=[UIColor lightGrayColor].CGColor;
+    bt.layer.borderColor=gray_4.CGColor;
     bt.layer.borderWidth=1/[[UIScreen mainScreen]scale];
     [bt setTitle:string forState:UIControlStateNormal];
     [bt.titleLabel setFont:[UIFont systemFontOfSize:13]];
-    [bt setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [bt setTitleColor:gray_4 forState:UIControlStateNormal];
     [bt addTarget:self action:@selector(stringButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     return bt;
 }

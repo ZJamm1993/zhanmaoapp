@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="55.5" width="320" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="75L-CS-jWj" id="o18-cN-yeO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音响套装v3专业版" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVx-zJ-haR">
@@ -86,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="139.5" width="320" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qLh-II-akd" id="LUe-bK-Z6y">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="109.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品参数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jte-5h-FWH">
@@ -144,14 +145,13 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                 <rect key="frame" x="0.0" y="55.5" width="320" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h3W-pq-Shx" id="sG3-pF-sZx">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="95.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rf-CK-6Qv">
-                                            <rect key="frame" x="16" y="37" width="22" height="22"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rf-CK-6Qv">
+                                            <rect key="frame" x="16" y="8" width="24" height="81"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="8rf-CK-6Qv" secondAttribute="height" multiplier="1:1" id="Dfh-qc-c5o"/>
-                                                <constraint firstAttribute="width" constant="22" id="lzN-eY-cF6"/>
+                                                <constraint firstAttribute="width" constant="24" id="TLC-yv-IM8"/>
                                             </constraints>
                                             <state key="normal" image="deselected"/>
                                             <state key="selected" image="selected"/>
@@ -160,14 +160,14 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m6a-iA-fkx" customClass="CorneredImageView">
-                                            <rect key="frame" x="48" y="10" width="104" height="75.5"/>
+                                            <rect key="frame" x="50" y="10" width="104" height="75.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75.5" id="7d8-mW-7Rc"/>
                                                 <constraint firstAttribute="width" constant="104" id="Xf4-1D-fW1"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="音响套装v3专业版" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RF6-Ih-i6P">
-                                            <rect key="frame" x="164" y="10" width="141" height="21"/>
+                                            <rect key="frame" x="166" y="10" width="139" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="tXQ-Jb-r0i"/>
                                             </constraints>
@@ -176,7 +176,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Z-z4-Apq" userLabel="nomalBg">
-                                            <rect key="frame" x="164" y="35" width="141" height="51"/>
+                                            <rect key="frame" x="166" y="35" width="139" height="51"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="租金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIZ-Bd-9mi">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="16"/>
@@ -232,10 +232,10 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                             </constraints>
                                         </view>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-aX-IAG" userLabel="editingBg">
-                                            <rect key="frame" x="164" y="0.0" width="141" height="95.5"/>
+                                            <rect key="frame" x="166" y="0.0" width="139" height="95.5"/>
                                             <subviews>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-BI-CWx">
-                                                    <rect key="frame" x="128" y="37" width="13" height="22"/>
+                                                    <rect key="frame" x="126" y="37" width="13" height="22"/>
                                                     <state key="normal" image="trash"/>
                                                     <connections>
                                                         <action selector="deleteButtonClick:" destination="h3W-pq-Shx" eventType="touchUpInside" id="EnD-uO-TeT"/>
@@ -275,7 +275,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyY-RC-S5X">
-                                                    <rect key="frame" x="70" y="47.5" width="1" height="1"/>
+                                                    <rect key="frame" x="69.5" y="47.5" width="1" height="1"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="4LP-LT-1Gl"/>
@@ -318,6 +318,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                         <constraint firstItem="RF6-Ih-i6P" firstAttribute="leading" secondItem="m6a-iA-fkx" secondAttribute="trailing" constant="12" id="nKd-f5-Nqm"/>
                                         <constraint firstAttribute="trailing" secondItem="RF6-Ih-i6P" secondAttribute="trailing" constant="15" id="osg-Ew-83p"/>
                                         <constraint firstItem="8rf-CK-6Qv" firstAttribute="leading" secondItem="sG3-pF-sZx" secondAttribute="leading" constant="16" id="pX7-Cf-Wyp"/>
+                                        <constraint firstItem="8rf-CK-6Qv" firstAttribute="top" secondItem="sG3-pF-sZx" secondAttribute="topMargin" id="yge-Az-PLY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

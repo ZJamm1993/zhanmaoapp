@@ -14,6 +14,7 @@
     [super awakeFromNib];
     
     self.selectionStyle=UITableViewCellSelectionStyleNone;
+    self.separatorInset=UIEdgeInsetsZero;
     // Initialization code
 }
 

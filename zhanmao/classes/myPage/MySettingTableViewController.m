@@ -26,8 +26,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageButtonTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageButtonTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
     
-    [self refreshData];
+    
     // Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self refreshData];
 }
 
 -(void)refreshData
@@ -39,15 +45,21 @@
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"分享给好友" image:@"set_share" detail:@"" identifier:@""],
                       [MyPageCellModel modelWithTitle:@"当前版本" image:@"set_version" detail:version identifier:@""],
-                      [MyPageCellModel modelWithTitle:@"清空缓存" image:@"set_clean" detail:cacheStr identifier:@""],nil],
+                      [MyPageCellModel modelWithTitle:@"清空缓存" image:@"set_clean" detail:cacheStr identifier:@"clean"],nil],
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"去评价" image:@"set_gojudge" detail:@"" identifier:@""],
                       [MyPageCellModel modelWithTitle:@"关于" image:@"set_about" detail:@"" identifier:@""],nil],
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@"logout"],nil],
                      nil];
+    [self.tableView reloadData];
 }
 
+-(void)refresh
+{
+    [self refreshData];
+    //[self.refreshControl endRefreshing];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -91,7 +103,7 @@
         
         MyPageSimpleTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageSimpleTableViewCell" forIndexPath:indexPath];
         cell.textLabel.text=mo.title;
-        cell.imageView.image=[UIImage imageNamed:mo.image];
+        //cell.imageView.image=[UIImage imageNamed:mo.image];
         cell.detailTextLabel.text=mo.detail;
 //        cell.accessoryType=mo.detail.length>0?UITableViewCellAccessoryNone:UITableViewCellAccessoryDisclosureIndicator;
         return cell;
