@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
     // Initialization code
 }
 
@@ -19,6 +20,16 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)defaultClick:(id)sender {
+    self.defaulButton.selected=!self.defaulButton.selected;
+}
+
+- (IBAction)deleteClick:(id)sender {
+}
+
+- (IBAction)editClick:(id)sender {
 }
 
 @end

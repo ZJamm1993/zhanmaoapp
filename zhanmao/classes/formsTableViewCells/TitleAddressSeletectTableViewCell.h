@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TitleAddressSeletectTableViewCell : UITableViewCell
+@interface TitleAddressSeletectTableViewCell : FormBaseTableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *placeHolder;
+@property (weak, nonatomic) IBOutlet UIView *textBg;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+@property (weak, nonatomic) IBOutlet UILabel *address;
 
 @end

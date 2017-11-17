@@ -10,4 +10,8 @@
 
 @interface AddressListTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+@property (weak, nonatomic) IBOutlet UILabel *address;
+
 @end

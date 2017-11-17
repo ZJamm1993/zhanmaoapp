@@ -49,6 +49,7 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 @property (nonatomic,strong) NSString* unit; //unit
 @property (nonatomic,strong) NSArray* option; //option
 @property (nonatomic,strong) NSArray* combination_arr; //like area, location, and so on.F
+@property (nonatomic,strong) id accessoryObject; //some kinds of addressModel, and so on.
 
 -(BaseFormModel*)requiredModel;
 

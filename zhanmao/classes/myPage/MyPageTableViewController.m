@@ -43,8 +43,6 @@
     
     self.tableView.contentInset=UIEdgeInsetsMake(-21,0, 0, 0);
     
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"MyPageHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageHeaderTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
     
     cellModelsArray=[NSArray arrayWithObjects:

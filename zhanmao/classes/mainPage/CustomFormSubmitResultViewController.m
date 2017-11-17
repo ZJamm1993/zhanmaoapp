@@ -20,7 +20,7 @@
     [self.goHomeButton setBackgroundColor:_mainColor];
     [self.goHomeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.goHomeButton.layer setCornerRadius:4];
-    [UIColor viewFlipsideBackgroundColor];
+    //[UIColor viewFlipsideBackgroundColor];
     self.title=@"提交成功";
     // Do any additional setup after loading the view.
 }

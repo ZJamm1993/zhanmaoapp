@@ -10,6 +10,8 @@
 
 @interface AddressOptionTableViewCell : UITableViewCell
 
-
+@property (weak, nonatomic) IBOutlet UIButton *defaulButton;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end

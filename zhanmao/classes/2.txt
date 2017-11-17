@@ -1,0 +1,261 @@
+{
+"code": 0,
+"message": "ok",
+"state": "success",
+"data": {
+"step1": {
+"title": "展台定制服务需求",
+"data": [
+[
+{
+"name": "展会名称",
+"field": "name",
+"hint": "请输入展会名称",
+"type": "1",
+"required": "1"
+},
+{
+"name": "参展单位",
+"field": "exhibitors",
+"hint": "请输入参展单位",
+"type": "1",
+"required": "1"
+},
+{
+"name": "展馆号",
+"field": "hall_number",
+"hint": "请输入展馆号",
+"type": "1",
+"required": "1"
+},
+{
+"name": "展位编号",
+"field": "booth_number",
+"hint": "请输入展位编号",
+"type": "1",
+"required": "1"
+},
+{
+"name": "展位日期",
+"field": "booth_date",
+"hint": "请选择展位日期",
+"type": "9",
+"required": "1"
+}
+],
+[
+{
+"name": "长宽高",
+"field": "",
+"hint": "",
+"type": "8",
+"combination_arr": [
+{
+"name": "长",
+"field": "long",
+"hint": "请输入长",
+"unit": "米",
+"type": "1"
+},
+{
+"name": "宽",
+"field": "width",
+"hint": "请输入宽",
+"unit": "米",
+"type": "1"
+},
+{
+"name": "高",
+"field": "high",
+"hint": "请输入高",
+"unit": "米",
+"type": "1"
+},
+{
+"name": "展厅面积",
+"field": "hall_area",
+"hint": "请输入展厅面积",
+"unit": "m2",
+"type": "1"
+}
+]
+},
+{
+"name": "天花板面积",
+"field": "ceiling_area",
+"hint": "请输入天花板面积",
+"unit": "m2",
+"type": "1"
+},
+{
+"name": "展台层数",
+"field": "layers",
+"hint": "请选择展台层数",
+"type": "31",
+"required": "1",
+"option": [
+"一层",
+"两层"
+]
+}
+],
+[
+{
+"name": "背景墙体(米)",
+"field": "wall",
+"hint": "请输入背景墙体厚度,例如:0.3",
+"unit": "米",
+"type": "1",
+"required": "1"
+},
+{
+"name": "灯具数量",
+"field": "lamps",
+"hint": "请输入灯具个数,例如:3",
+"type": "1",
+"required": "1"
+},
+{
+"name": "LED屏(米)",
+"field": "led_screen",
+"hint": "请输入LED屏规格,例如:3*3",
+"type": "1",
+"required": "1"
+},
+{
+"name": "液晶电视",
+"field": "tv_count",
+"hint": "请输入液晶电视个数(非必填),例如:3",
+"type": "1",
+"required": "0"
+}
+],
+[
+{
+"name": "家私类型",
+"field": "furniture",
+"hint": "请选择家私类型",
+"type": "3",
+"required": "1",
+"option": [
+"全部",
+"沙发",
+"桌子",
+"椅子",
+"酒店椅"
+]
+},
+{
+"name": "美工",
+"field": "art",
+"hint": "请选择美工类型",
+"type": "31",
+"required": "1",
+"option": [
+"全部",
+"灯箱",
+"亚克力字(发光)"
+]
+},
+{
+"name": "展台定位",
+"field": "style",
+"hint": "请选择展台定位",
+"type": "31",
+"required": "1",
+"option": [
+"简约",
+"抽象",
+"经典"
+]
+},
+{
+"name": "装饰材质类型",
+"field": "type",
+"hint": "请选择装饰材质类型",
+"type": "31",
+"required": "1",
+"option": [
+"经济",
+"简约",
+"抽象",
+"经典"
+]
+}
+],
+[
+{
+"name": "定制要求(非必填)",
+"field": "claim",
+"hint": "请输入定制要求...",
+"type": "12",
+"required": "0"
+}
+]
+]
+},
+"step2": {
+"title": "联系人",
+"data": [
+[
+{
+"name": "联系人",
+"field": "addressee",
+"hint": "请输入联系人",
+"type": "1",
+"required": "0"
+},
+{
+"name": "办公电话",
+"field": "o_phone",
+"hint": "请输入办公电话",
+"type": "1",
+"required": "1"
+},
+{
+"name": "移动手机",
+"field": "m_phone",
+"hint": "请输入移动手机",
+"type": "1",
+"required": "1"
+},
+{
+"name": "邮箱",
+"field": "email",
+"hint": "请输入邮箱地址",
+"type": "1",
+"required": "1"
+},
+{
+"name": "省份",
+"field": "province",
+"hint": "请输入省份",
+"type": "1",
+"required": "1"
+},
+{
+"name": "市",
+"field": "city",
+"hint": "请输入市",
+"type": "1",
+"required": "1"
+},
+{
+"name": "区",
+"field": "district",
+"hint": "请输入区",
+"type": "1",
+"required": "1"
+},
+{
+"name": "地址",
+"field": "address",
+"hint": "请输入联系地址",
+"type": "1",
+"required": "1"
+}
+]
+]
+}
+}
+}

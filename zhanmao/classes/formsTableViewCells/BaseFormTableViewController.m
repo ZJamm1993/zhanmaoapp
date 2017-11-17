@@ -42,6 +42,7 @@
                     NSStringFromClass([TitleDescriptionTableViewCell class]),
                     NSStringFromClass([TitleAreaCalculationTableViewCell class]),
                     NSStringFromClass([TitleSwitchTableViewCell class]),
+                    NSStringFromClass([TitleAddressSeletectTableViewCell class]),
                   nil];
     
     for (NSString* nibName in nibsToRegister) {
@@ -260,6 +261,10 @@
     else if(model.type==BaseFormTypeSwitchCheck)
     {
         nibName=NSStringFromClass([TitleSwitchTableViewCell class]);
+    }
+    else if(model.type==BaseFormTypeAddressSelection)
+    {
+        nibName=NSStringFromClass([TitleAddressSeletectTableViewCell class]);
     }
     
     if (![nibsToRegister containsObject:nibName]) {

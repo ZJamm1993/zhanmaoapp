@@ -22,8 +22,15 @@
     [self.bottomButton setTitle:@"新增地址" forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
     
+    //test
     for (int i=0; i<4; i++) {
-        [self.dataSource addObject:[[AddressModel alloc]init]];
+        AddressModel* add=[[AddressModel alloc]init];
+        add.idd=[NSString stringWithFormat:@"addressid%d",i];
+        add.addressee=[NSString stringWithFormat:@"xiao%dming",i];
+        int k=i;
+        add.phone=[NSString stringWithFormat:@"%d%d%d%d%d%d%d%d%d%d",i,k++,k++,k++,k++,k++,k++,k++,k++,k++];
+        add.address=[NSString stringWithFormat:@"guang%dzhouguang%dzhouguang%dzhouguang%dzhou",i,i,i,i];
+        [self.dataSource addObject:add];
     }
 }
 
@@ -44,8 +51,12 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    AddressModel* add=[self.dataSource objectAtIndex:indexPath.section];
     if (indexPath.row==0) {
         AddressListTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"AddressListTableViewCell" forIndexPath:indexPath];
+        cell.name.text=add.addressee;
+        cell.phone.text=add.phone;
+        cell.address.text=add.address;
         return cell;
     }
     else if(indexPath.row==1)
