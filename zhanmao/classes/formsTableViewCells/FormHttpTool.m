@@ -15,15 +15,9 @@
     BOOL test=NO;
     if (test) {
         //test
-        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.txt",(int)type]];
-        NSError* err=nil;
-        NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
-        NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
-        NSDictionary* data=[result valueForKey:@"data"];
-        BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
+        BaseFormStepsModel* st=[self stepsFromFileName:[NSString stringWithFormat:@"%d.txt",(int)type]];
         if (success) {
-            success(steps);
+            success(st);
         }
         return;
         //test
@@ -45,9 +39,19 @@
             
         }];
     }
-    
-    
-   
+}
+
++(BaseFormStepsModel*)stepsFromFileName:(NSString *)fileName
+{
+    //test
+    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
+    NSError* err=nil;
+    NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
+    NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
+    NSDictionary* data=[result valueForKey:@"data"];
+    BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
+    return steps;
 }
 
 +(void)postCustomTableListByType:(NSInteger)type params:(NSDictionary *)params success:(void (^)(BOOL, NSString *))success failure:(void (^)(NSError *))failure

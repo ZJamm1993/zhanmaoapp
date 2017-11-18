@@ -35,5 +35,6 @@
 -(void)loadFormJson;
 
 -(void)valueChanged;
+-(void)submit;
 
 @end

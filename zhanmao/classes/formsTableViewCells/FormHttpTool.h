@@ -13,6 +13,8 @@
 
 +(void)getCustomTableListByType:(NSInteger)type success:(void (^)(BaseFormStepsModel* step))success failure:(void (^)(NSError *err))failure;
 
++(BaseFormStepsModel*)stepsFromFileName:(NSString*)fileName;
+
 +(void)postCustomTableListByType:(NSInteger)type params:(NSDictionary*)params success:(void (^)(BOOL result, NSString* msg))success failure:(void(^)(NSError* err))failure;
 
 @end

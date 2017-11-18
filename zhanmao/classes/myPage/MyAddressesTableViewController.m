@@ -9,6 +9,7 @@
 #import "MyAddressesTableViewController.h"
 #import "AddressListTableViewCell.h"
 #import "AddressOptionTableViewCell.h"
+#import "AddressAddNewFormTableViewController.h"
 
 @interface MyAddressesTableViewController ()
 
@@ -78,6 +79,11 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
+}
+
+-(void)bottomToolBarButtonClicked
+{
+    [self.navigationController pushViewController:[[AddressAddNewFormTableViewController alloc]init] animated:YES];
 }
 
 @end
