@@ -8,6 +8,7 @@
 
 #import "TitleSingleSelectionTableViewCell.h"
 #import "PickerShadowContainer.h"
+#import "CitySelectionPicker.h"
 
 @interface TitleSingleSelectionTableViewCell()<UIPickerViewDataSource,UIPickerViewDelegate>
 
@@ -92,6 +93,13 @@
                     }
                 }
             }
+        }
+        else if(self.model.type==BaseFormTypeProviceCityDistrict)
+        {
+            CitySelectionPicker* cit=[CitySelectionPicker defaultCityPickerWithSections:3];
+            [PickerShadowContainer showPickerContainerWithView:cit title:self.model.hint completion:^{
+                
+            }];
         }
     }
     // Configure the view for the selected state

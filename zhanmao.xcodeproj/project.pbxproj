@@ -23,7 +23,8 @@
 		8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */; };
 		8E6705821FC06EDF001E300E /* address.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E6705811FC06EDF001E300E /* address.txt */; };
 		8E6705851FC06FAF001E300E /* AddressAddNewFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6705841FC06FAF001E300E /* AddressAddNewFormTableViewController.m */; };
-		8E6705891FC07408001E300E /* city.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8E6705881FC07408001E300E /* city.xml */; };
+		8E69ECAC1FC1642400EEEC67 /* CitySelectionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */; };
+		8E69ECAE1FC16A9600EEEC67 /* cityJson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */; };
 		8E6C73F51F9D9280004B33D1 /* ImageTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */; };
 		8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C73F81F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m */; };
 		8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C73F91F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib */; };
@@ -212,7 +213,9 @@
 		8E6705811FC06EDF001E300E /* address.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = address.txt; sourceTree = "<group>"; };
 		8E6705831FC06FAF001E300E /* AddressAddNewFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAddNewFormTableViewController.h; sourceTree = "<group>"; };
 		8E6705841FC06FAF001E300E /* AddressAddNewFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAddNewFormTableViewController.m; sourceTree = "<group>"; };
-		8E6705881FC07408001E300E /* city.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = city.xml; sourceTree = "<group>"; };
+		8E69ECAA1FC1642400EEEC67 /* CitySelectionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySelectionPicker.h; sourceTree = "<group>"; };
+		8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySelectionPicker.m; sourceTree = "<group>"; };
+		8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cityJson.txt; sourceTree = "<group>"; };
 		8E6C73F31F9D9280004B33D1 /* ImageTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTitleBarButtonItem.h; sourceTree = "<group>"; };
 		8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTitleBarButtonItem.m; sourceTree = "<group>"; };
 		8E6C73F71F9D99B6004B33D1 /* TitleTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleTextFieldTableViewCell.h; sourceTree = "<group>"; };
@@ -798,7 +801,9 @@
 				8E6C749B1FA041C0004B33D1 /* ZZStepper.m */,
 				8EDBF4EF1FA1C7CF0073F37D /* ImageBadgeBarButtonItem.h */,
 				8EDBF4F01FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m */,
-				8E6705881FC07408001E300E /* city.xml */,
+				8E69ECAA1FC1642400EEEC67 /* CitySelectionPicker.h */,
+				8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */,
+				8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -1161,7 +1166,7 @@
 				8E99A8DD1F90664D0078C452 /* LaunchScreen.storyboard in Resources */,
 				8EF7E6C91FBE7B29003C6FB4 /* 3.txt in Resources */,
 				8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */,
-				8E6705891FC07408001E300E /* city.xml in Resources */,
+				8E69ECAE1FC16A9600EEEC67 /* cityJson.txt in Resources */,
 				8E6705821FC06EDF001E300E /* address.txt in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
 				8EFC80311FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib in Resources */,
@@ -1321,6 +1326,7 @@
 				8E99AAAF1F9068920078C452 /* UIButton+WebCache.m in Sources */,
 				8EDCF5B51FA6D42100AA4359 /* MyInvoicePagerViewController.m in Sources */,
 				8E9B002C1FB4578300B29188 /* PickerShadowContainer.m in Sources */,
+				8E69ECAC1FC1642400EEEC67 /* CitySelectionPicker.m in Sources */,
 				8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */,
 				8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */,
 				8ED4015D1FBA907B0097A395 /* TotalFeeView.m in Sources */,

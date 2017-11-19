@@ -242,7 +242,7 @@
     {
         nibName=NSStringFromClass([TitleTextViewTableViewCell class]);
     }
-    else if(model.type==BaseFormTypeDatePicker||model.type==BaseFormTypeDateTimePicker||model.type==BaseFormTypeDateScopePicker||model.type==BaseFormTypeSingleChoice)
+    else if(model.type==BaseFormTypeDatePicker||model.type==BaseFormTypeDateTimePicker||model.type==BaseFormTypeDateScopePicker||model.type==BaseFormTypeSingleChoice||model.type==BaseFormTypeProviceCityDistrict)
     {
         nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
     }
@@ -254,7 +254,7 @@
     {
         nibName=NSStringFromClass([TitleDescriptionTableViewCell class]);
     }
-    else if(model.type==BaseFormTypeCalculateArea||model.type==BaseFormTypeProviceCityDistrict||model.type==BaseFormTypeCalculateSize)
+    else if(model.type==BaseFormTypeCalculateArea||model.type==BaseFormTypeCalculateSize)
     {
         nibName=NSStringFromClass([TitleAreaCalculationTableViewCell class]);
     }
