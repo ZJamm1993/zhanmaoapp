@@ -133,6 +133,19 @@ static NSMutableArray* provincesStaticArray;
     return provincesStaticArray;
 }
 
+-(NSArray*)selectedCity
+{
+    NSMutableArray* arr=[NSMutableArray array];
+    for (NSInteger i=0; i<self.sections; i++) {
+        NSInteger selectedRowInComponent=[self selectedRowInComponent:i];
+        NSString* title=[self pickerView:self titleForRow:selectedRowInComponent forComponent:i];
+        if (title.length>0) {
+            [arr addObject:title];
+        }
+    }
+    return arr;
+}
+
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return self.sections;

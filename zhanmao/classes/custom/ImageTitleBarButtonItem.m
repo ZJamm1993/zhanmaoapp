@@ -10,9 +10,9 @@
 
 @implementation ImageTitleBarButtonItem
 
-+(instancetype)itemWithImageName:(NSString *)imageName title:(NSString *)title target:(id)target selector:(SEL)selector
++(instancetype)itemWithImageName:(NSString *)imageName leftImage:(BOOL)isLeft title:(NSString *)title target:(id)target selector:(SEL)selector
 {
-    UIImageView* img=[[UIImageView alloc]initWithImage:[UIImage imageNamed:imageName]];
+    UIImageView* img=[[UIImageView alloc]initWithImage:[[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
     img.frame=CGRectMake(0, 0, 30, 30);
     img.contentMode=UIViewContentModeCenter;
     [img sizeToFit];
@@ -25,7 +25,12 @@
     [lab sizeToFit];
     lab.frame=CGRectMake(CGRectGetMaxX(img.frame)+4, 0, lab.frame.size.width, CGRectGetMaxY(img.frame));
     
-    UIButton* v=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, CGRectGetMaxX(lab.frame), CGRectGetMaxY(lab.frame))];
+    if (!isLeft) {
+        lab.frame=CGRectMake(0, 0, lab.frame.size.width, lab.frame.size.height);
+        img.frame=CGRectMake(CGRectGetMaxX(lab.frame)+4, 0, img.frame.size.width, img.frame.size.height);
+    }
+    
+    UIButton* v=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, CGRectGetMaxX((isLeft?(lab):(img)).frame), CGRectGetMaxY(lab.frame))];
     [v addSubview:img];
     [v addSubview:lab];
     [v addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];

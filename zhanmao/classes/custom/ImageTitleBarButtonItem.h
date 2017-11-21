@@ -10,6 +10,6 @@
 
 @interface ImageTitleBarButtonItem : UIBarButtonItem
 
-+(instancetype)itemWithImageName:(NSString *)imageName title:(NSString *)title target:(id)target selector:(SEL)selector;
++(instancetype)itemWithImageName:(NSString *)imageName leftImage:(BOOL)isLeft title:(NSString *)title target:(id)target selector:(SEL)selector;
 
 @end

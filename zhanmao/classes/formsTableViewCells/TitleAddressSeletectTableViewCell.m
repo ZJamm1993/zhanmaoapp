@@ -26,13 +26,16 @@
         MyAddressesTableViewController* seleAdd=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"MyAddressesTableViewController"];
         seleAdd.delegate=self;
         
-        UITabBarController* topTap=(UITabBarController*)[[[UIApplication sharedApplication]keyWindow]rootViewController];
-        if ([topTap isKindOfClass:[UITabBarController class]]) {
-            UINavigationController* topNav=[topTap selectedViewController];
-            if ([topNav isKindOfClass:[UINavigationController class]]) {
-                [topNav pushViewController:seleAdd animated:YES];
-            }
+        if ([self.delegate respondsToSelector:@selector(formBaseTableViewCell:shouldPushViewController:)]) {
+            [self.delegate formBaseTableViewCell:self shouldPushViewController:seleAdd];
         }
+//        UITabBarController* topTap=(UITabBarController*)[[[UIApplication sharedApplication]keyWindow]rootViewController];
+//        if ([topTap isKindOfClass:[UITabBarController class]]) {
+//            UINavigationController* topNav=[topTap selectedViewController];
+//            if ([topNav isKindOfClass:[UINavigationController class]]) {
+//                [topNav pushViewController:seleAdd animated:YES];
+//            }
+//        }
     }
     // Configure the view for the selected state
 }

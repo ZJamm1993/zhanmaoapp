@@ -96,9 +96,22 @@
         }
         else if(self.model.type==BaseFormTypeProviceCityDistrict)
         {
-            CitySelectionPicker* cit=[CitySelectionPicker defaultCityPickerWithSections:3];
+            CitySelectionPicker* cit=[CitySelectionPicker defaultCityPickerWithSections:self.model.combination_arr.count];
             [PickerShadowContainer showPickerContainerWithView:cit title:self.model.hint completion:^{
+                NSArray* citys=cit.selectedCity;
+                NSInteger count=citys.count;
+                if (self.model.combination_arr.count<count) {
+                    count=self.model.combination_arr.count;
+                }
+                NSString* value=@"";
+                for (NSInteger i=0; i<count; i++) {
+                    BaseFormModel* subModel=[self.model.combination_arr objectAtIndex:i];
+                    subModel.value=[citys objectAtIndex:i];
+                    value=[NSString stringWithFormat:@"%@%@",value,subModel.value];
+                }
+                self.model.value=value;
                 
+                [self valueChanged];
             }];
         }
     }
@@ -115,6 +128,21 @@
     self.unit.text=model.unit;
     self.placeHolder.hidden=self.detail.text.length>0;
 //    [self valueChanged];
+    
+//    NSInteger count=self.model.combination_arr.count;
+//    if (count>0) {
+//        NSString* combinaTitleValue=@"";
+//        for (NSInteger i=0; i<count; i++) {
+//            BaseFormModel* subModel=[self.model.combination_arr objectAtIndex:i];
+//            if (subModel.value.length>0) {
+//                combinaTitleValue=[NSString stringWithFormat:@"%@%@",combinaTitleValue,subModel.value];
+//            }
+//        }
+//        if (combinaTitleValue.length>0) {
+//            statements
+//        }
+//    }
+    
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

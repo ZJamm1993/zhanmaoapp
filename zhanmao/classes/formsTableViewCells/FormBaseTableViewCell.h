@@ -16,6 +16,7 @@
 @optional
 -(void)formBaseTableViewCellWillBeginEditing:(FormBaseTableViewCell*)cell;
 -(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell*)cell;
+-(void)formBaseTableViewCell:(FormBaseTableViewCell*)cell shouldPushViewController:(UIViewController*)viewController;
 
 @end
 

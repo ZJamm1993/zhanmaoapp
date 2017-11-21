@@ -85,7 +85,7 @@ const CGFloat categoriesHeaderHeight=50;
 
 -(void)setLocation:(NSString*)location
 {
-    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" title:location target:self selector:@selector(selectLocation)];
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrow" leftImage:NO title:location target:self selector:@selector(selectLocation)];
     self.navigationItem.leftBarButtonItem=it;
 }
 

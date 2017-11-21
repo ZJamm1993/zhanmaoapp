@@ -10,7 +10,7 @@
 #import "OrderTypeBaseModel.h"
 
 
-@interface RentOrderTableViewCell : UITableViewCell
+@interface RentOrderTableViewCell : LinedTableViewCell
 
 @property (nonatomic,strong) RentOrderModel* model;
 

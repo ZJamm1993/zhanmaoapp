@@ -105,7 +105,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
             }
             NSLog(@"%@",currentCity); //这就是当前的城市
             NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
-            [MBProgressHUD showErrorMessage:[NSString stringWithFormat:@"已定位到:%@",currentCity]];
+//            [MBProgressHUD showErrorMessage:[NSString stringWithFormat:@"已定位到:%@",currentCity]];
             [self setLocation:currentCity];
         }
         else if (error == nil && placemarks.count == 0) {
@@ -132,7 +132,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 -(void)setLocation:(NSString*)location
 {
-    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" title:location target:self selector:@selector(selectLocation)];
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" leftImage:YES title:location target:self selector:@selector(selectLocation)];
     self.navigationItem.leftBarButtonItem=it;
 }
 

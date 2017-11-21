@@ -1126,7 +1126,7 @@
 		8E99A8C21F90664D0078C452 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = bangju;
 				TargetAttributes = {
 					8E99A8C91F90664D0078C452 = {

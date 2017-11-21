@@ -304,6 +304,11 @@
     [self valueChanged];
 }
 
+-(void)formBaseTableViewCell:(FormBaseTableViewCell *)cell shouldPushViewController:(UIViewController *)viewController
+{
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 -(void)valueChanged
 {
     NSLog(@"valuechanged");

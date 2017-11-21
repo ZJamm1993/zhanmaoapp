@@ -18,5 +18,6 @@
 @property (nonatomic,strong) NSString* district;
 @property (nonatomic,strong) NSString* address;
 @property (nonatomic,strong) NSString* phone;
+@property (nonatomic,assign) BOOL classic;
 
 @end
