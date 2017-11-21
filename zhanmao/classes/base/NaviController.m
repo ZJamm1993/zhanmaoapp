@@ -31,6 +31,8 @@
     // Do any additional setup after loading the view.
     
     [self setNavigationColorShowImage:YES];
+    
+    [[UIBarButtonItem appearance] setTitlePositionAdjustment:UIOffsetMake(5, 0) forBarMetrics:UIBarMetricsDefault];
 }
 
 -(void)setNavigationColorShowImage:(BOOL)showImage

@@ -40,17 +40,20 @@ const CGFloat categoriesHeaderHeight=50;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"在线租赁";
 //    self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
     ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:1 target:self selector:@selector(cartItemClicked)];
-    self.navigationItem.rightBarButtonItem=cartItem;
+    
+    UIBarButtonItem* searchItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchWhite"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
+    self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, searchItem, nil];
     
     [self selectLocation];
     
-    ZZSearchBar* searchBar=[ZZSearchBar defaultBar];
-    searchBar.placeholder=@"请输入您想要的商品";
-    searchBar.delegate=self;
-    self.navigationItem.titleView=searchBar;
+//    ZZSearchBar* searchBar=[ZZSearchBar defaultBar];
+//    searchBar.placeholder=@"请输入您想要的商品";
+//    searchBar.delegate=self;
+//    self.navigationItem.titleView=searchBar;
     
     menuHeaderButtonModels=[NSMutableArray arrayWithObjects:
                             [MenuHeaderButtonModel modelWithTitle:@"日期" selected:NO ordered:YES ascending:NO],
@@ -102,10 +105,15 @@ const CGFloat categoriesHeaderHeight=50;
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
+    [self goSearch];
+    return NO;
+}
+
+-(void)goSearch
+{
     UIViewController* sear=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"];
     UINavigationController* nav=[[NaviController alloc]initWithRootViewController:sear];
     [self presentViewController:nav animated:YES completion:nil];
-    return NO;
 }
 
 -(void)cartItemClicked

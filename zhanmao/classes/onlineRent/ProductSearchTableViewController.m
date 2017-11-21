@@ -30,6 +30,7 @@
     self.navigationItem.titleView=searchBar;
     
     UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+    
     self.navigationItem.rightBarButtonItem=searchBtn;
     // Do any additional setup after loading the view.
 }

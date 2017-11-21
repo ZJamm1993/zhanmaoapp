@@ -13,10 +13,10 @@
 +(instancetype)itemWithImageName:(NSString *)imageName leftImage:(BOOL)isLeft title:(NSString *)title target:(id)target selector:(SEL)selector
 {
     UIImageView* img=[[UIImageView alloc]initWithImage:[[UIImage imageNamed:imageName]imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-    img.frame=CGRectMake(0, 0, 30, 30);
+    img.frame=CGRectMake(0, 0, 30, 34);
     img.contentMode=UIViewContentModeCenter;
     [img sizeToFit];
-    img.frame=CGRectMake(0, 0, img.frame.size.width, 30);
+    img.frame=CGRectMake(0, 0, img.frame.size.width, 34);
     
     UILabel* lab=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(img.frame)+10, 0, 100, CGRectGetMaxY(img.frame))];
     lab.text=title;

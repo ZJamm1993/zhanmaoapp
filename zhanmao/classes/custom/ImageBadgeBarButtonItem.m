@@ -15,8 +15,7 @@
     UIImageView* img=[[UIImageView alloc]initWithImage:[UIImage imageNamed:imageName]];
 //    img.frame=CGRectMake(0, 0, 44, 32);
     img.contentMode=UIViewContentModeCenter;
-    
-    
+    img.frame=CGRectMake(0, 0, 30, 34);
     
     UIButton* v=[[UIButton alloc]initWithFrame:img.bounds];
     [v addSubview:img];
@@ -40,7 +39,7 @@
         }
 //        fr.size.height=fr.size.height+8;
         fr.origin.x=img.frame.size.width+img.frame.origin.x-fr.size.width/2;//*1.5;
-        fr.origin.y=-fr.size.height/2;
+        fr.origin.y=0;//-fr.size.height/2;
         lab.frame=fr;
         
         lab.layer.masksToBounds=YES;
@@ -50,8 +49,6 @@
     }
     
     ImageBadgeBarButtonItem* item=[[ImageBadgeBarButtonItem alloc]initWithCustomView:v];
-    //    item.target=target;
-    //    item.action=selector;
     return item;
 }
 

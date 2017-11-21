@@ -30,6 +30,7 @@
     [self myReloadData];
     
     self.separatorColor=gray_8;
+    self.showsVerticalScrollIndicator=NO;
 }
 
 @end

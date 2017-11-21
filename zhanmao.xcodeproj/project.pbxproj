@@ -126,6 +126,8 @@
 		8E9B0CE51FAAC40200770F8D /* OrderTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CE41FAAC40200770F8D /* OrderTypeTableViewController.m */; };
 		8E9B0CE81FAAC49400770F8D /* OrderTypeDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CE71FAAC49400770F8D /* OrderTypeDataSource.m */; };
 		8E9B0CEB1FAAC4B600770F8D /* OrderTypeBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B0CEA1FAAC4B600770F8D /* OrderTypeBaseModel.m */; };
+		8E9C9B551FC4082100AB31D4 /* OrderTypeDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C9B541FC4082100AB31D4 /* OrderTypeDetailTableViewController.m */; };
+		8E9C9B581FC4088800AB31D4 /* RentOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C9B571FC4088800AB31D4 /* RentOrderDetailTableViewController.m */; };
 		8EA680721FB697CA00EF5FC8 /* RentHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA680711FB697CA00EF5FC8 /* RentHttpTool.m */; };
 		8EA680751FB6999700EF5FC8 /* RentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA680741FB6999700EF5FC8 /* RentModel.m */; };
 		8EA680791FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA680771FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m */; };
@@ -407,6 +409,10 @@
 		8E9B0CE71FAAC49400770F8D /* OrderTypeDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTypeDataSource.m; sourceTree = "<group>"; };
 		8E9B0CE91FAAC4B600770F8D /* OrderTypeBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTypeBaseModel.h; sourceTree = "<group>"; };
 		8E9B0CEA1FAAC4B600770F8D /* OrderTypeBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTypeBaseModel.m; sourceTree = "<group>"; };
+		8E9C9B531FC4082100AB31D4 /* OrderTypeDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderTypeDetailTableViewController.h; sourceTree = "<group>"; };
+		8E9C9B541FC4082100AB31D4 /* OrderTypeDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderTypeDetailTableViewController.m; sourceTree = "<group>"; };
+		8E9C9B561FC4088800AB31D4 /* RentOrderDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RentOrderDetailTableViewController.h; sourceTree = "<group>"; };
+		8E9C9B571FC4088800AB31D4 /* RentOrderDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RentOrderDetailTableViewController.m; sourceTree = "<group>"; };
 		8EA680701FB697CA00EF5FC8 /* RentHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentHttpTool.h; sourceTree = "<group>"; };
 		8EA680711FB697CA00EF5FC8 /* RentHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentHttpTool.m; sourceTree = "<group>"; };
 		8EA680731FB6999700EF5FC8 /* RentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentModel.h; sourceTree = "<group>"; };
@@ -590,10 +596,10 @@
 				8EDBF4FA1FA42F310073F37D /* model */,
 				8E6C741A1F9DF025004B33D1 /* view */,
 				8E6C74A01FA06B45004B33D1 /* OnlineRent.storyboard */,
-				8E72E9DE1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.h */,
-				8E72E9DF1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m */,
 				8E6C741B1F9DF0E2004B33D1 /* OnlineRentTableViewController.h */,
 				8E6C741C1F9DF0E2004B33D1 /* OnlineRentTableViewController.m */,
+				8E72E9DE1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.h */,
+				8E72E9DF1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m */,
 				8E6C749D1FA0669D004B33D1 /* ProductDetailViewController.h */,
 				8E6C749E1FA0669D004B33D1 /* ProductDetailViewController.m */,
 				8E6C74AA1FA08572004B33D1 /* RentCartTableViewController.h */,
@@ -957,8 +963,17 @@
 				8E9B0CE71FAAC49400770F8D /* OrderTypeDataSource.m */,
 				8E9B0CE91FAAC4B600770F8D /* OrderTypeBaseModel.h */,
 				8E9B0CEA1FAAC4B600770F8D /* OrderTypeBaseModel.m */,
+				8E9C9B531FC4082100AB31D4 /* OrderTypeDetailTableViewController.h */,
+				8E9C9B541FC4082100AB31D4 /* OrderTypeDetailTableViewController.m */,
 			);
 			name = BaseOrders;
+			sourceTree = "<group>";
+		};
+		8E9C9B4D1FC3FEB100AB31D4 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 		8EB674D51F99CB76008CC196 /* views */ = {
@@ -1016,6 +1031,7 @@
 		8EDBF4CD1FA1816F0073F37D /* myorders */ = {
 			isa = PBXGroup;
 			children = (
+				8E9C9B4D1FC3FEB100AB31D4 /* views */,
 				8E9B0CE21FAAC3D100770F8D /* BaseOrders */,
 				8E72E9E11FB2ECAC001FCD31 /* CustomOrder */,
 				8E9B0CD21FAAC1DA00770F8D /* CleanOrder */,
@@ -1034,6 +1050,8 @@
 				8EDBF4D01FA181D60073F37D /* RentOrderTableViewCell.m */,
 				8EDBF4D41FA181EE0073F37D /* RentOrderTableViewController.h */,
 				8EDBF4D51FA181EE0073F37D /* RentOrderTableViewController.m */,
+				8E9C9B561FC4088800AB31D4 /* RentOrderDetailTableViewController.h */,
+				8E9C9B571FC4088800AB31D4 /* RentOrderDetailTableViewController.m */,
 			);
 			name = RentOrder;
 			sourceTree = "<group>";
@@ -1237,6 +1255,7 @@
 				8E721AEC1FB581A8001BD401 /* BaojieFormTableViewController.m in Sources */,
 				8E99AABD1F9068920078C452 /* ZZUrlTool.m in Sources */,
 				8E99AABA1F9068920078C452 /* ZZHttpTool.m in Sources */,
+				8E9C9B551FC4082100AB31D4 /* OrderTypeDetailTableViewController.m in Sources */,
 				8E6C74101F9DBD9E004B33D1 /* BaseFormTableViewController.m in Sources */,
 				8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */,
 				8E2E408E1F9459F500B42477 /* BaseViewController.m in Sources */,
@@ -1302,6 +1321,7 @@
 				8E99AAAB1F9068920078C452 /* SDWebImageDownloader.m in Sources */,
 				8E72E9EA1FB2ED24001FCD31 /* CustomOrderTableViewCell.m in Sources */,
 				8EDBF5001FA42F7A0073F37D /* RentCartModel.m in Sources */,
+				8E9C9B581FC4088800AB31D4 /* RentOrderDetailTableViewController.m in Sources */,
 				8EDCF5B81FA6D44100AA4359 /* MyInvoiceTableViewController.m in Sources */,
 				8E99AAB61F9068920078C452 /* UIView+WebCacheOperation.m in Sources */,
 				8E6C74181F9DD785004B33D1 /* ExhibitionListViewController.m in Sources */,

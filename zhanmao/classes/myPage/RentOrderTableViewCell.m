@@ -22,9 +22,9 @@
     
     self.grayButton.layer.cornerRadius=2;
     self.grayButton.layer.masksToBounds=YES;
-    self.grayButton.layer.borderColor=[UIColor darkGrayColor].CGColor;
+    self.grayButton.layer.borderColor=gray_4.CGColor;
     self.grayButton.layer.borderWidth=1/[[UIScreen mainScreen]scale];
-    [self.grayButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    [self.grayButton setTitleColor:gray_4 forState:UIControlStateNormal];
     [self.grayButton setBackgroundColor:[UIColor clearColor]];
 }
 
