@@ -9,17 +9,13 @@
 #import "RentModel.h"
 
 @implementation RentClass
+@end
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary
-{
-    self=[super initWithDictionary:dictionary];
-    self.name=[dictionary valueForKey:@"name"];
-    self.cid=[dictionary valueForKey:@"cid"];
-    return self;
-}
+@implementation RentProductModel
+@end
+
+@implementation RentCartModel
 
 @end
 
-@implementation RentModel
 
-@end

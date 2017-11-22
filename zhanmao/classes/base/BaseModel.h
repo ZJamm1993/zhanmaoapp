@@ -7,12 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZZModel.h"
 
-@interface BaseModel : NSObject
-
-@property (nonatomic,strong) NSDictionary* rawDictionary;
-
--(instancetype)initWithDictionary:(NSDictionary*)dictionary;
+@interface BaseModel : ZZModel
 
 @property (nonatomic,strong) NSString* cid;
 @property (nonatomic,strong) NSString* name;

@@ -10,14 +10,36 @@
 
 @implementation MenuHeaderButtonModel
 
-+(instancetype)modelWithTitle:(NSString *)title selected:(BOOL)selected ordered:(BOOL)ordered ascending:(BOOL)ascending
++(instancetype)modelWithTitle:(NSString *)title selected:(BOOL)selected ordered:(BOOL)ordered ascending:(BOOL)ascending ascendingString:(NSString*)ascendingString descendingString:(NSString*)descendingString
 {
     MenuHeaderButtonModel* m=[[MenuHeaderButtonModel alloc]init];
     m.title=title;
     m.selected=selected;
     m.ordered=ordered;
     m.ascending=ascending;
+    m.ascendingString=ascendingString;
+    m.descendingString=descendingString;
     return m;
+}
+
+-(NSString*)sortString
+{
+    if (self.selected) {
+        if (self.ordered==NO) {
+            return self.descendingString;
+        }
+        else
+        {
+            if (self.ascending) {
+                return self.ascendingString;
+            }
+            else
+            {
+                return self.descendingString;
+            }
+        }
+    }
+    return @"";
 }
 
 @end

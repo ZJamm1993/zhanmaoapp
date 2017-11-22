@@ -11,11 +11,16 @@
 
 @implementation ZZHttpTool
 
++(NSInteger)pagesize
+{
+    return 30;
+}
+
 +(NSMutableDictionary*)pageParams
 {
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     [d setValue:@"1" forKey:@"page"];
-    [d setValue:@"1000" forKey:@"pagesize"];
+    [d setValue:[NSNumber numberWithInteger:[self pagesize]] forKey:@"pagesize"];
     return d;
 }
 

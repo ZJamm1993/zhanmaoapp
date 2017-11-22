@@ -11,6 +11,7 @@
 #import "RentHttpTool.h"
 
 #import "ProductDetailViewController.h"
+#import "ProductWebDetailViewController.h"
 #import "RentCartTableViewController.h"
 #import "NaviController.h"
 
@@ -22,9 +23,11 @@
 #import "ImageBadgeBarButtonItem.h"
 #import "ZZSearchBar.h"
 
+#import "BaseLoadMoreFooterView.h"
+
 const CGFloat categoriesHeaderHeight=50;
 
-@interface OnlineRentTableViewController ()<UITableViewDelegate,UITableViewDataSource,MenuHeaderTableViewCellDelegate,UITextFieldDelegate>
+@interface OnlineRentTableViewController ()<UITableViewDelegate,UITableViewDataSource,MenuHeaderTableViewCellDelegate,UITextFieldDelegate,BaseLoadMoreFooterViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *goodsTableView;
 @property (weak, nonatomic) IBOutlet UITableView *catesTableView;
@@ -36,6 +39,12 @@ const CGFloat categoriesHeaderHeight=50;
     NSMutableArray* categoriesArray;
     NSMutableArray* goodsArray;
     NSMutableArray<MenuHeaderButtonModel*>* menuHeaderButtonModels;
+    BaseLoadMoreFooterView* loadmoreFooter;
+    UIRefreshControl* refreshControl;
+    NSInteger currentPage;
+    
+    RentClass* selectedClass;
+    NSString* sortString;
 }
 
 - (void)viewDidLoad {
@@ -56,9 +65,9 @@ const CGFloat categoriesHeaderHeight=50;
 //    self.navigationItem.titleView=searchBar;
     
     menuHeaderButtonModels=[NSMutableArray arrayWithObjects:
-                            [MenuHeaderButtonModel modelWithTitle:@"日期" selected:NO ordered:YES ascending:NO],
-                            [MenuHeaderButtonModel modelWithTitle:@"价格" selected:NO ordered:YES ascending:NO],
-                            [MenuHeaderButtonModel modelWithTitle:@"销量" selected:NO ordered:NO ascending:NO], nil];
+                            [MenuHeaderButtonModel modelWithTitle:@"日期" selected:NO ordered:YES ascending:NO ascendingString:@"post_modified_a" descendingString:@"post_modified_d"],
+                            [MenuHeaderButtonModel modelWithTitle:@"价格" selected:NO ordered:YES ascending:NO ascendingString:@"rent_a" descendingString:@"rent_d"],
+                            [MenuHeaderButtonModel modelWithTitle:@"销量" selected:NO ordered:NO ascending:NO ascendingString:@"post_hits_a" descendingString:@"post_hits_d"], nil];
     
     self.catesTableView.showsVerticalScrollIndicator=NO;
     self.catesTableView.scrollsToTop=NO;
@@ -69,6 +78,14 @@ const CGFloat categoriesHeaderHeight=50;
     
     self.goodsTableView.rowHeight=UITableViewAutomaticDimension;
     self.goodsTableView.estimatedRowHeight=100;
+    
+    loadmoreFooter=[BaseLoadMoreFooterView defaultFooter];
+    self.goodsTableView.tableFooterView=loadmoreFooter;
+    loadmoreFooter.delegate=self;
+    
+    refreshControl=[[UIRefreshControl alloc]init];
+    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self.goodsTableView addSubview:refreshControl];
     
     //will not call delegate...
     
@@ -86,10 +103,48 @@ const CGFloat categoriesHeaderHeight=50;
     }];
 }
 
+#pragma mark refresh adn load more
+
+-(void)refresh{
+    [RentHttpTool getGoodListByCid:selectedClass.cid sort:sortString page:1 pageSize:[RentHttpTool pagesize] cached:NO success:^(NSArray *result) {
+        goodsArray=[NSMutableArray arrayWithArray:result];
+        if (goodsArray.count>0) {
+            currentPage=1;
+        }
+        [self.goodsTableView reloadData];
+        [refreshControl endRefreshing];
+    } failure:^(NSError *error) {
+        [refreshControl endRefreshing];
+    }];
+}
+
+-(void)loadmore{
+    [RentHttpTool getGoodListByCid:selectedClass.cid sort:sortString page:currentPage+1 pageSize:[RentHttpTool pagesize] cached:NO success:^(NSArray *result) {
+        [goodsArray addObjectsFromArray:result];
+        if (result.count>0) {
+            currentPage++;
+            [loadmoreFooter endLoadingWithText:@"加载更多"];
+        }
+        else
+        {
+            [loadmoreFooter endLoadingWithText:@"到底了"];
+        }
+        [self.goodsTableView reloadData];
+    } failure:^(NSError *error) {
+        [loadmoreFooter endLoadingWithText:@""];
+    }];
+}
+
+-(void)loadMoreFooterViewShouldStartLoadMore:(BaseLoadMoreFooterView *)footerView
+{
+    footerView.loading=YES;
+    [self loadmore];
+}
+
 -(void)setLocation:(NSString*)location
 {
-    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrow" leftImage:NO title:location target:self selector:@selector(selectLocation)];
-    self.navigationItem.leftBarButtonItem=it;
+//    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrow" leftImage:NO title:location target:self selector:@selector(selectLocation)];
+//    self.navigationItem.leftBarButtonItem=it;
 }
 
 -(void)selectLocation
@@ -135,7 +190,7 @@ const CGFloat categoriesHeaderHeight=50;
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==self.goodsTableView) {
-        return 10;//goodsArray.count;
+        return goodsArray.count;
     }
     else if(tableView==self.catesTableView)
     {
@@ -155,6 +210,11 @@ const CGFloat categoriesHeaderHeight=50;
     else if(tableView==self.goodsTableView)
     {
         GoodsTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"GoodsTableViewCell" forIndexPath:indexPath];
+        RentProductModel* pro=[goodsArray objectAtIndex:indexPath.row];
+        
+        cell.title.text=pro.post_title;
+        cell.count.text=[NSString stringWithFormat:@"%ld",(long) pro.post_hits];
+        [cell.image sd_setImageWithURL:[pro.thumb urlWithMainUrl]];
         return cell;
     }
     return [[UITableViewCell alloc]init];
@@ -164,12 +224,14 @@ const CGFloat categoriesHeaderHeight=50;
 {
     if (tableView==self.catesTableView) {
         NSLog(@"%@ selected: %@",@"catesTableView",indexPath);
+        selectedClass=[categoriesArray objectAtIndex:indexPath.row];
+        [self refresh];
     }
     else if(tableView==self.goodsTableView)
     {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
-        ProductDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductDetailViewController"];
+        ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+        prod.goodModel=[goodsArray objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:prod animated:YES];
     }
 }
@@ -207,6 +269,14 @@ const CGFloat categoriesHeaderHeight=50;
 {
     menuHeaderButtonModels=[NSMutableArray arrayWithArray:models];
     
+    for (MenuHeaderButtonModel* mo in models) {
+        if (mo.selected) {
+            sortString=mo.sortString;
+            NSLog(@"%@",sortString);
+            [self refresh];
+        }
+    }
+
     //do somethings
 }
 

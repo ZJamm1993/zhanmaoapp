@@ -21,6 +21,7 @@
 //    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
 //        statusBar.backgroundColor = _mainColor;
 //    }
+    NSLog(@"%@",NSStringFromCGRect([[UIScreen mainScreen]bounds]));
     return YES;
 }
 

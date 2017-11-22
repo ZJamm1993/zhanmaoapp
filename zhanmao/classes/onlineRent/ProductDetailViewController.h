@@ -8,7 +8,10 @@
 
 #import "BaseTableViewController.h"
 #import "BaseToolBarTableViewController.h"
+#import "RentHttpTool.h"
 
 @interface ProductDetailViewController : BaseToolBarTableViewController
+
+@property (nonatomic,strong) RentProductModel* goodModel;
 
 @end

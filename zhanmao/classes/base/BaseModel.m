@@ -15,7 +15,6 @@
     self=[super init];
     
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
-        self.rawDictionary=dictionary;
         
         _cid=[dictionary valueForKey:@"cid"];
         _name=[dictionary valueForKey:@"name"];

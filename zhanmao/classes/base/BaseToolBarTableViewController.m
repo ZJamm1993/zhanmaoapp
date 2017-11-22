@@ -36,7 +36,7 @@
     [submitButton addTarget:self action:@selector(goToCustom) forControlEvents:UIControlEventTouchUpInside];
     [submitButton.layer setCornerRadius:4];
     [submitButton.layer setMasksToBounds:YES];
-    [self.bottomToolBar addSubview:submitButton];
+    [self.bottomToolBar insertSubview:submitButton atIndex:0];
     
     self.bottomButton=submitButton;
     

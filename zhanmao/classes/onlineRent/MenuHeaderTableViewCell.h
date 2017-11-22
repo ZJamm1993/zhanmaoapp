@@ -14,8 +14,11 @@
 @property (nonatomic,assign) BOOL ordered;
 @property (nonatomic,assign) BOOL ascending;
 @property (nonatomic,strong) NSString* title;
+@property (nonatomic,strong) NSString* ascendingString;
+@property (nonatomic,strong) NSString* descendingString;
+@property (nonatomic,strong,readonly) NSString* sortString;
 
-+(instancetype)modelWithTitle:(NSString*)title selected:(BOOL)selected ordered:(BOOL)ordered ascending:(BOOL)ascending;
++(instancetype)modelWithTitle:(NSString*)title selected:(BOOL)selected ordered:(BOOL)ordered ascending:(BOOL)ascending ascendingString:(NSString*)ascendingString descendingString:(NSString*)descendingString;
 
 @end
 

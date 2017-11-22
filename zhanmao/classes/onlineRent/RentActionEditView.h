@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RentCartModel.h"
+#import "RentModel.h"
 #import "ZZStepper.h"
 
 @protocol RentActionEditViewDelegate <NSObject>

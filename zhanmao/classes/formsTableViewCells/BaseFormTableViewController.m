@@ -69,7 +69,7 @@
     submitButton.backgroundColor=_mainColor;
     [submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [submitButton.titleLabel setFont:[UIFont systemFontOfSize:17]];
+//    [submitButton.titleLabel setFont:[UIFont systemFontOfSize:17]];
     [submitButton addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
     [submitButton.layer setCornerRadius:4];
     [submitButton.layer setMasksToBounds:YES];

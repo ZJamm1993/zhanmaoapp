@@ -13,4 +13,6 @@
 
 +(void)getClasses:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
++(void)getGoodListByCid:(NSString*)cid sort:(NSString*)sort page:(NSInteger)page pageSize:(NSInteger)pagesize cached:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
+
 @end
