@@ -15,6 +15,7 @@
 {
     
 }
+@property (nonatomic,strong) RentProductModel* detailedModel;
 @end
 
 @implementation ProductWebDetailViewController
@@ -70,15 +71,60 @@
     //    RentCartTableViewController* cart=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];
     //    [self.navigationController pushViewController:cart animated:YES];
     [button setEnabled:NO];
-    RentActionEditView* action=[RentActionEditView defaultView];
-    action.delegate=self;
-    [action show];
+    [self getDetailGoodModel:^(RentProductModel *model) {
+        RentActionEditView* action=[RentActionEditView defaultView];
+        action.delegate=self;
+        RentCartModel* car=[[RentCartModel alloc]init];
+        car.product=self.goodModel;
+        car.count=1;
+//        car.days=1;
+        action.cartModel=car;
+        [action show];
+    }];
     [self performSelector:@selector(reEnableButton:) withObject:button afterDelay:1];
+}
+
+-(void)rentActionEditViewAddToRentCart:(RentCartModel *)cartModel
+{
+    if (cartModel) {
+        [RentHttpTool addRentCarts:[NSArray arrayWithObject:cartModel] success:^(BOOL result) {
+            if(result)
+            {
+                RentCartTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];
+                [self.navigationController pushViewController:rent animated:YES];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    }
 }
 
 -(void)reEnableButton:(UIButton*)button
 {
     button.enabled=YES;
+}
+
+-(void)getDetailGoodModel:(void(^)(RentProductModel* model))success
+{
+    [MBProgressHUD showProgressMessage:@""];
+    if (self.detailedModel) {
+        [MBProgressHUD hide];
+        if (success) {
+            success(self.detailedModel);
+        }
+    }
+   else
+   {
+       [RentHttpTool getGoodDetailById:self.goodModel.idd cached:NO success:^(RentProductModel *result) {
+           [MBProgressHUD hide];
+           self.detailedModel=result;
+           if (success) {
+               success(self.detailedModel);
+           }
+       } failure:^(NSError *error) {
+           [MBProgressHUD showErrorMessage:@"加载失败"];
+       }];
+   }
 }
 
 @end

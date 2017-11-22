@@ -49,13 +49,17 @@
 //    }
     self.selectButton.selected=cartModel.selected;
     
-    self.title.text=cartModel.product.name;
+    self.title.text=cartModel.product.post_title;
+    [self.image sd_setImageWithURL:[cartModel.product.thumb urlWithMainUrl]];
+    self.rent.text=[NSString stringWithFloat:cartModel.product.rent headUnit:@"¥" tailUnit:@"/"];
+    self.deposit.text=[NSString stringWithFloat:cartModel.product.deposit headUnit:@"¥" tailUnit:nil];
+    
     
     self.countStepper.value=cartModel.count;
-    self.dayStepper.value=cartModel.days;
+//    self.dayStepper.value=cartModel.days;
     
     self.count.text=[NSString stringWithFormat:@"%ld",(long)cartModel.count];
-    self.days.text=[NSString stringWithFormat:@"%ld",(long)cartModel.days];
+//    self.days.text=[NSString stringWithFormat:@"%ld",(long)cartModel.days];
 }
 
 - (IBAction)selectedButtonClick:(id)sender {
@@ -77,9 +81,9 @@
 }
 
 - (IBAction)daysStepperValueChanged:(ZZStepper*)sender {
-    self.cartModel.days=sender.value;
-    self.cartModel=self.cartModel;
-    [self modelChanged];
+//    self.cartModel.days=sender.value;
+//    self.cartModel=self.cartModel;
+//    [self modelChanged];
 }
 
 -(void)modelChanged

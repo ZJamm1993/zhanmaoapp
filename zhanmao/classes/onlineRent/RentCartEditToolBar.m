@@ -30,9 +30,9 @@
 -(void)setEditing:(BOOL)editing
 {
     _editing=editing;
-    self.moneyBg.hidden=editing;
+//    self.moneyBg.hidden=editing;
     
-    NSString* str=editing?@"删除":@"结算";
+    NSString* str=editing?@"删除":@"租赁";
     [self.actionButton setTitle:str forState:UIControlStateNormal];
 }
 

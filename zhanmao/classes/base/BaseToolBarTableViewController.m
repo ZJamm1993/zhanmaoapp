@@ -9,15 +9,34 @@
 #import "BaseToolBarTableViewController.h"
 
 @interface BaseToolBarTableViewController ()
-
+{
+    
+    CGFloat bottomSafe;
+}
 @end
 
 @implementation BaseToolBarTableViewController
 
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            
+            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64+bottomSafe, 0);
+            [self scrollViewDidScroll:self.tableView];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64+bottomSafe, 0);
     
     self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, self.tableView.contentInset.bottom)];
     self.bottomToolBar.backgroundColor=[UIColor whiteColor];

@@ -15,4 +15,14 @@
 
 +(void)getGoodListByCid:(NSString*)cid sort:(NSString*)sort page:(NSInteger)page pageSize:(NSInteger)pagesize cached:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
++(void)getGoodDetailById:(NSString*)idd cached:(BOOL)cache success:(void(^)(RentProductModel* result))success failure:(void(^)(NSError* error))failure;
+
++(void)addRentCarts:(NSArray*)carts success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
+
++(void)getRentCartsSuccess:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
+
++(void)removeRentCarts:(NSArray*)carts success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
+
++(void)changeRentCart:(RentCartModel*)cart;
+
 @end

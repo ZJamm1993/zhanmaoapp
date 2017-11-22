@@ -32,13 +32,17 @@
     
     [self setNavigationColorShowImage:YES];
     
-    [[UIBarButtonItem appearance] setTitlePositionAdjustment:UIOffsetMake(5, 0) forBarMetrics:UIBarMetricsDefault];
+    if([[[UIDevice currentDevice]systemVersion]floatValue]>=11){
+        [[UIBarButtonItem appearance] setTitlePositionAdjustment:UIOffsetMake(5, 0) forBarMetrics:UIBarMetricsDefault];
+    }
 }
 
 -(void)setNavigationColorShowImage:(BOOL)showImage
 {
     //custom draw image
-    CGSize size=CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+20);
+    CGFloat statusHeight=[[UIApplication sharedApplication] statusBarFrame].size.height;
+    
+    CGSize size=CGSizeMake(self.navigationBar.bounds.size.width, self.navigationBar.bounds.size.height+statusHeight);
     UIImage* mainColorBg=[UIImage imageWithColor:_mainColor size:size];
     
     
@@ -47,7 +51,7 @@
     
     if (showImage) {
         UIImage* cityImage=[UIImage imageNamed:@"buildings"];
-        [cityImage drawInRect:CGRectMake(0, 20, size.width, size.height-20) blendMode:kCGBlendModeNormal alpha:0.2];
+        [cityImage drawInRect:CGRectMake(0, statusHeight, size.width, size.height-statusHeight) blendMode:kCGBlendModeNormal alpha:0.2];
     }
     
     UIImage *naviBgImage = UIGraphicsGetImageFromCurrentImageContext();

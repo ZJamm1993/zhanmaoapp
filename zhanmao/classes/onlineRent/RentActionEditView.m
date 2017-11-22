@@ -60,7 +60,12 @@
 {
     _cartModel=cartModel;
     
-    
+    self.titleLabel.text=cartModel.product.post_title;
+    [self.image sd_setImageWithURL:[cartModel.product.smeta.firstObject urlWithMainUrl]];
+    self.rentLabel.text=[NSString stringWithFloat:cartModel.product.rent headUnit:@"¥" tailUnit:@"/天"];
+    self.depositLabel.text=[NSString stringWithFloat:cartModel.product.deposit headUnit:@"¥" tailUnit:nil];
+    self.discountRentLabel.text=[NSString stringWithFloat:cartModel.product.rent headUnit:@"¥" tailUnit:nil];
+    self.originalRentLabel.text=[NSString stringWithFloat:cartModel.product.rent_o headUnit:@"¥" tailUnit:nil];
 }
 
 - (IBAction)countValueChanged:(ZZStepper*)sender {
@@ -69,8 +74,8 @@
 }
 
 - (IBAction)daysValueChanged:(ZZStepper*)sender {
-    self.cartModel.days=sender.value;
-    self.cartModel=self.cartModel;
+//    self.cartModel.days=sender.value;
+//    self.cartModel=self.cartModel;
 }
 
 -(void)hide

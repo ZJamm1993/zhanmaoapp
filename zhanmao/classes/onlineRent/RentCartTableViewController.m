@@ -36,23 +36,30 @@
     editToolBar.editing=self.editing;
     [editToolBar.actionButton addTarget:self action:@selector(editToolBarAction) forControlEvents:UIControlEventTouchUpInside];
     [editToolBar.selectAllButton addTarget:self action:@selector(editToolBarSelectAll) forControlEvents:UIControlEventTouchUpInside];
-    
-    for(int i=0;i<10;i++)
-    {
-        RentCartModel* mo=[[RentCartModel alloc]init];
-        mo.count=1;
-        mo.days=1;
-        mo.product=[[RentProductModel alloc]init];
-        mo.product.name=[NSString stringWithFormat:@"商品%d",i];
-        [self.dataSource addObject:mo];
-    }
-    
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (self.dataSource.count==0) {
+        [self refresh];
+    }
+}
+
+-(void)refresh
+{
+    [RentHttpTool getRentCartsSuccess:^(NSArray *result) {
+        self.dataSource=[NSMutableArray arrayWithArray:result];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)editingToggle
@@ -81,24 +88,6 @@
     cell.delegate=self;
     
     return cell;
-}
-
--(NSString*)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return @"删除";
-}
-
-//-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return YES;
-//}
-
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle==UITableViewCellEditingStyleDelete) {
-        RentCartModel* mo=[self.dataSource objectAtIndex:indexPath.row];
-        [self rentCartEditTableViewCell:nil deleteCartModel:mo];
-    }
 }
 
 -(BOOL)isEditing
@@ -138,6 +127,7 @@
         {
             isSelectedAll=NO;
         }
+        [RentHttpTool changeRentCart:mo];
     }
     [self.tableView reloadData];
     editToolBar.seletedAll=isSelectedAll;
@@ -158,6 +148,7 @@
             }
         }
         [self.dataSource removeObjectsInArray:arrToDel];
+        [RentHttpTool removeRentCarts:arrToDel success:nil failure:nil];
         [self.tableView deleteRowsAtIndexPaths:indToDel withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     else

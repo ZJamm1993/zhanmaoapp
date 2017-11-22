@@ -27,6 +27,9 @@
     
     searchBar=[ZZSearchBar defaultBar];
     searchBar.delegate=self;
+    CGRect fr=searchBar.frame;
+    fr.size.width=self.view.frame.size.width-64;
+    searchBar.frame=fr;
     self.navigationItem.titleView=searchBar;
     
     UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];

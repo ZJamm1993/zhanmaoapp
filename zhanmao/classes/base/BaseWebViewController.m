@@ -56,7 +56,7 @@
         }
         [bottomBg insertSubview:bottomView atIndex:0];
 //        bottomView.frame=bottomBg.bounds;
-        
+        [self performSelector:@selector(relayoutViews) withObject:nil afterDelay:0.01];
     }
 }
 
@@ -98,6 +98,11 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self relayoutViews];
+}
+
+-(void)relayoutViews
+{
     if (self.bottomView) {
         self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64);
         bottomBg.frame=CGRectMake(0, self.view.frame.size.height-64, self.view.frame.size.width, 64);

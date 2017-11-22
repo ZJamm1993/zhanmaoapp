@@ -34,7 +34,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *rent;
 //@property (weak, nonatomic) IBOutlet UILabel *deposit;
 @property (weak, nonatomic) IBOutlet UILabel *count;
-@property (weak, nonatomic) IBOutlet UILabel *days;
+//@property (weak, nonatomic) IBOutlet UILabel *days;
+@property (weak, nonatomic) IBOutlet UILabel *deposit;
 
 @property (strong,nonatomic) RentCartModel* cartModel;
 

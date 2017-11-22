@@ -54,15 +54,18 @@ const CGFloat categoriesHeaderHeight=50;
     
     ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:1 target:self selector:@selector(cartItemClicked)];
     
-    UIBarButtonItem* searchItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchWhite"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
-    self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, searchItem, nil];
+//    UIBarButtonItem* searchItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchWhite"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
+    self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, nil];
     
     [self selectLocation];
     
-//    ZZSearchBar* searchBar=[ZZSearchBar defaultBar];
-//    searchBar.placeholder=@"请输入您想要的商品";
-//    searchBar.delegate=self;
-//    self.navigationItem.titleView=searchBar;
+    ZZSearchBar* searchBar=[ZZSearchBar defaultBar];
+    searchBar.placeholder=@"请输入您想要的商品";
+    searchBar.delegate=self;
+    CGRect fr=searchBar.frame;
+    fr.size.width=self.view.frame.size.width-128;
+    searchBar.frame=fr;
+    self.navigationItem.titleView=searchBar;
     
     menuHeaderButtonModels=[NSMutableArray arrayWithObjects:
                             [MenuHeaderButtonModel modelWithTitle:@"日期" selected:NO ordered:YES ascending:NO ascendingString:@"post_modified_a" descendingString:@"post_modified_d"],
@@ -143,14 +146,14 @@ const CGFloat categoriesHeaderHeight=50;
 
 -(void)setLocation:(NSString*)location
 {
-//    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrow" leftImage:NO title:location target:self selector:@selector(selectLocation)];
-//    self.navigationItem.leftBarButtonItem=it;
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrow" leftImage:NO title:location target:self selector:@selector(selectLocation)];
+    self.navigationItem.leftBarButtonItem=it;
 }
 
 -(void)selectLocation
 {
     NSLog(@"select location");
-    [self setLocation:arc4random()%2==0?@"广州":@"北京"];
+    [self setLocation:@"广州"];
 }
 
 - (void)didReceiveMemoryWarning {

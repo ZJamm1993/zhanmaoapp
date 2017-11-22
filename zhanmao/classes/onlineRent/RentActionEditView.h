@@ -29,6 +29,13 @@
 
 @property (nonatomic,strong) RentCartModel* cartModel;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet CorneredImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *rentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *depositLabel;
+@property (weak, nonatomic) IBOutlet UILabel *discountRentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *originalRentLabel;
+
 +(instancetype)defaultView;
 
 -(void)show;
