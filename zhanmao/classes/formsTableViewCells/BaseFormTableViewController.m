@@ -13,10 +13,27 @@
     NSArray* nibsToRegister;
     UIButton* submitButton;
     UIActivityIndicatorView* loadingView;
+    CGFloat bottomSafe;
 }
 @end
 
 @implementation BaseFormTableViewController
+
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            [self relayoutViews];
+            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+//            [self scrollViewDidScroll:self.tableView];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,8 +42,10 @@
     
     self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
-    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64) style:UITableViewStyleGrouped];
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height-64-bottomSafe) style:UITableViewStyleGrouped];
     self.tableView.estimatedRowHeight=44;
+    self.tableView.estimatedSectionFooterHeight=0;
+    self.tableView.estimatedSectionHeaderHeight=0;
     self.tableView.rowHeight=UITableViewAutomaticDimension;
     
     if (self.tableView.style==UITableViewStyleGrouped) {
@@ -51,11 +70,16 @@
     
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
     [self.view addSubview:self.tableView];
     
 //    [self.tableView reloadData];
     
-    UIView* bottomView=[[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.tableView.frame), self.tableView.frame.size.width, 64)];
+    UIView* bottomView=[[UIView alloc]initWithFrame:CGRectMake(0, self.tableView.frame.size.height-bottomSafe, self.tableView.frame.size.width, 200)];
     bottomView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:bottomView];
     
@@ -65,7 +89,7 @@
     line.backgroundColor=[UIColor groupTableViewBackgroundColor];
     [bottomView addSubview:line];
     
-    submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, bottomView.frame.size.width-20, bottomView.frame.size.height-20)];
+    submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, bottomView.frame.size.width-20, 64-20)];
     submitButton.backgroundColor=_mainColor;
     [submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -96,8 +120,14 @@
     [loadingView startAnimating];
     
     [self setStepsTable];
-    
+    [self performSelector:@selector(relayoutViews) withObject:nil afterDelay:0.01];
     // Do any additional setup after loading the view.
+}
+
+-(void)relayoutViews
+{
+    self.tableView.frame=CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height-64-bottomSafe);
+    self.bottomView.frame=CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200);
 }
 
 -(void)loadFormJson
@@ -201,17 +231,22 @@
     [self.tableView reloadData];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return UITableViewAutomaticDimension;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return UITableViewAutomaticDimension;
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+////    if(section==0)
+////    {
+////        return 0.001;
+////    }
+//    return 10;
+//}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-//    if(section==0)
-//    {
-//        return 0.001;
-//    }
     return 10;
 }
 

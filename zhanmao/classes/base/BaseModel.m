@@ -12,7 +12,7 @@
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    self=[super init];
+    self=[super initWithDictionary:dictionary];
     
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
         
@@ -39,6 +39,8 @@
         
         _post_author=[dictionary valueForKey:@"post_author"];
         _post_label=[dictionary valueForKey:@"post_label"];
+        
+//        _pid=[dictionary valueForKey:@"pid"];
         
         _createtime=[dictionary valueForKey:@"createtime"];
         _title=[dictionary valueForKey:@"title"];

@@ -25,7 +25,7 @@
             UIEdgeInsets est=[self.view safeAreaInsets];
             bottomSafe=est.bottom;
             
-            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64+bottomSafe, 0);
+//            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
             [self scrollViewDidScroll:self.tableView];
         } else {
             // Fallback on earlier versions
@@ -36,9 +36,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64+bottomSafe, 0);
+    self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
     
-    self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, self.tableView.contentInset.bottom)];
+    self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, 200)];
     self.bottomToolBar.backgroundColor=[UIColor whiteColor];
     [self.tableView addSubview:self.bottomToolBar];
     
@@ -47,7 +47,7 @@
     line.backgroundColor=[UIColor groupTableViewBackgroundColor];
     [self.bottomToolBar addSubview:line];
     
-    UIButton* submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomToolBar.frame.size.width-20, self.bottomToolBar.frame.size.height-20)];
+    UIButton* submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomToolBar.frame.size.width-20, self.tableView.contentInset.bottom-20)];
     submitButton.backgroundColor=_mainColor;
     [submitButton setTitle:@"立即定制" forState:UIControlStateNormal];
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -88,7 +88,7 @@
     CGFloat h=scrollView.frame.size.height;
     CGFloat b=scrollView.contentInset.bottom;
     CGRect appf=self.bottomToolBar.frame;
-    appf.origin.y=offy+h-b;
+    appf.origin.y=offy+h-b-bottomSafe;
     self.bottomToolBar.frame=appf;
     
     [self.bottomToolBar removeFromSuperview];
@@ -97,7 +97,7 @@
 
 -(CGRect)bottomViewFrame
 {
-    return CGRectMake(10, 10, self.bottomToolBar.frame.size.width-20, self.bottomToolBar.frame.size.height-20);
+    return CGRectMake(10, 10, self.bottomToolBar.frame.size.width, self.tableView.contentInset.bottom-20);
 }
 
 @end

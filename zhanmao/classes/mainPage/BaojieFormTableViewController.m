@@ -30,7 +30,9 @@
     [self.bottomButton removeFromSuperview];
     
     _totalFeeView=[[[UINib nibWithNibName:@"TotalFeeView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
-    _totalFeeView.frame=self.bottomView.bounds;
+    CGRect fr=self.bottomView.bounds;
+    fr.size.height=64;
+    _totalFeeView.frame=fr;
     [_totalFeeView.submitButton addTarget:self action:@selector(orderSubmit) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:_totalFeeView];
     

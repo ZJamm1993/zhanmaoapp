@@ -22,7 +22,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhX-Bx-eou" userLabel="cardbg">
-                    <rect key="frame" x="0.0" y="315" width="320" height="263"/>
+                    <rect key="frame" x="0.0" y="281" width="320" height="297"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLk-55-uN7" userLabel="bottomView">
                             <rect key="frame" x="20" y="193" width="280" height="60"/>
@@ -235,7 +235,7 @@
                         <constraint firstItem="SZ8-Kt-iXr" firstAttribute="trailing" secondItem="iLk-55-uN7" secondAttribute="trailing" id="ehp-UJ-iEs"/>
                         <constraint firstItem="wKE-YQ-D8y" firstAttribute="top" secondItem="oK8-cY-IsH" secondAttribute="bottom" constant="20" id="fcn-xk-roz"/>
                         <constraint firstItem="Jko-XH-vHH" firstAttribute="centerY" secondItem="cLO-kT-12q" secondAttribute="centerY" id="h3S-36-F7v"/>
-                        <constraint firstAttribute="bottom" secondItem="iLk-55-uN7" secondAttribute="bottom" constant="10" id="jux-uR-fjj"/>
+                        <constraint firstAttribute="bottom" secondItem="iLk-55-uN7" secondAttribute="bottom" constant="44" id="jux-uR-fjj"/>
                         <constraint firstItem="oGJ-wF-hFz" firstAttribute="top" secondItem="zQt-k5-o2d" secondAttribute="top" constant="4" id="kr8-FC-QTJ"/>
                         <constraint firstItem="oGJ-wF-hFz" firstAttribute="leading" secondItem="zQt-k5-o2d" secondAttribute="trailing" constant="12" id="lbI-N3-K6N"/>
                         <constraint firstItem="ScC-yc-YaU" firstAttribute="centerY" secondItem="TDU-MB-HNh" secondAttribute="centerY" id="oK4-2A-Zuh"/>

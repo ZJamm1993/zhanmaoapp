@@ -35,6 +35,7 @@
 @property (nonatomic,strong) NSString* post_author;
 @property (nonatomic,strong) NSString* post_label;
 
+//@property (nonatomic,strong) NSString* pid;
 
 //collection
 @property (nonatomic,strong) NSString* createtime;

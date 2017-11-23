@@ -171,7 +171,7 @@
     {
         NSLog(@"get null dictionary");//why nil??
     }
-//    NSLog(@"%@",result);
+    NSLog(@"%@",result);
     return result;
 }
 

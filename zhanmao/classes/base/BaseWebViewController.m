@@ -15,6 +15,7 @@
 @interface BaseWebViewController ()<UIWebViewDelegate>
 {
     UIView* bottomBg;
+    CGFloat bottomSafe;
 }
 @property (nonatomic,strong) UIWebView* ios8WebView;
 
@@ -24,6 +25,22 @@
 {
     UIImageView* loadingImageView;
     UIActivityIndicatorView* loadingIndicator;
+}
+
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            [self relayoutViews];
+            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+            //            [self scrollViewDidScroll:self.tableView];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
 }
 
 -(instancetype)initWithUrl:(NSURL *)url
@@ -46,7 +63,7 @@
     if (bottomView!=nil) {
         [bottomView removeAllSubviews];
         if (bottomBg==nil) {
-            bottomBg=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-64, self.view.frame.size.width, 64)];
+            bottomBg=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-64-bottomSafe, self.view.frame.size.width, 200)];
             bottomBg.backgroundColor=[UIColor whiteColor];
             [self.view addSubview:bottomBg];
             
@@ -104,12 +121,12 @@
 -(void)relayoutViews
 {
     if (self.bottomView) {
-        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64);
-        bottomBg.frame=CGRectMake(0, self.view.frame.size.height-64, self.view.frame.size.width, 64);
+        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-bottomSafe);
+        bottomBg.frame=CGRectMake(0, self.view.frame.size.height-64-bottomSafe, self.view.frame.size.width, 200);
     }
     else
     {
-        self.ios8WebView.frame=self.view.bounds;
+        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-bottomSafe);
     }
 }
 

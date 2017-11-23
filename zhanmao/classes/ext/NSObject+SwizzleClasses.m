@@ -66,16 +66,26 @@
 
 -(void)myViewDidLoad
 {
+    
+    [self myViewDidLoad];
     NSLog(@"\"%@\" view did load",NSStringFromClass([self class]));
     BOOL isNotUIViewController=![self isMemberOfClass:[UIViewController class]];
     BOOL isNotNavgationController=![self isKindOfClass:[UINavigationController class]];
     BOOL isNotTabbarController=![self isKindOfClass:[UITabBarController class]];
     
+    if (@available(iOS 11.0, *)) {
+        if ([self respondsToSelector:@selector(tableView)]) {
+            UITableView* tabl=[self performSelector:@selector(tableView)];
+            tabl.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+    
     BOOL isChecked=isNotUIViewController&&isNotNavgationController&&isNotTabbarController;
     if (isChecked) {
         
     }
-    [self myViewDidLoad];
 }
 
 @end
@@ -95,6 +105,12 @@
     NSLog(@"load image: %@",urlstr);
     [self my_sd_setImageWithURL:url];
 }
+
+@end
+
+@implementation UIScrollView(SwizzleClasses)
+
+
 
 @end
 

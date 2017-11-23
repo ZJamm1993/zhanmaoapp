@@ -11,6 +11,7 @@
 		8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AF1FC5210300A437A0 /* UserModel.m */; };
 		8E24D1B21FC521E900A437A0 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.html */; };
 		8E24D1B51FC523AF00A437A0 /* ProductWebDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1B41FC523AF00A437A0 /* ProductWebDetailViewController.m */; };
+		8E24D1B71FC6A45000A437A0 /* chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B61FC6A44F00A437A0 /* chicken.png */; };
 		8E2E408B1F9459ED00B42477 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E408A1F9459ED00B42477 /* BaseModel.m */; };
 		8E2E408E1F9459F500B42477 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E408D1F9459F500B42477 /* BaseViewController.m */; };
 		8E2E40951F945A2E00B42477 /* NothingFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E40901F945A2E00B42477 /* NothingFooterCell.m */; };
@@ -196,6 +197,7 @@
 		8E24D1B11FC521E800A437A0 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
 		8E24D1B31FC523AF00A437A0 /* ProductWebDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductWebDetailViewController.h; sourceTree = "<group>"; };
 		8E24D1B41FC523AF00A437A0 /* ProductWebDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductWebDetailViewController.m; sourceTree = "<group>"; };
+		8E24D1B61FC6A44F00A437A0 /* chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken.png; sourceTree = "<group>"; };
 		8E2E40891F9459ED00B42477 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		8E2E408A1F9459ED00B42477 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		8E2E408C1F9459F500B42477 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 		8E721ADD1FB57C07001BD401 /* customs */ = {
 			isa = PBXGroup;
 			children = (
+				8E24D1B61FC6A44F00A437A0 /* chicken.png */,
 				8E6C74111F9DC0C4004B33D1 /* ZhuchangFormTableViewController.h */,
 				8E6C74121F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m */,
 				8E721AE71FB58195001BD401 /* HuiyiFormTableViewController.h */,
@@ -1203,6 +1206,7 @@
 				8EF7E6C71FBE7B15003C6FB4 /* 2.txt in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
+				8E24D1B71FC6A45000A437A0 /* chicken.png in Resources */,
 				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
 				8E6C74A11FA06B45004B33D1 /* OnlineRent.storyboard in Resources */,
 				8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */,

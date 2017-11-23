@@ -41,7 +41,7 @@
     
     cachesControllers=[NSMutableDictionary dictionary];
     
-    self.tableView.contentInset=UIEdgeInsetsMake(-21,0, 0, 0);
+    self.tableView.contentInset=UIEdgeInsetsMake([[UIApplication sharedApplication]statusBarFrame].size.height,0, 0, 0);
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
     

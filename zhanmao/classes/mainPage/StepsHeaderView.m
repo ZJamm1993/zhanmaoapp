@@ -15,7 +15,7 @@
     StepsHeaderView* heaer=[[StepsHeaderView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 72)];
     heaer.backgroundColor=[UIColor whiteColor];
     
-    CGFloat margX=44;
+    CGFloat margX=[[UIScreen mainScreen]bounds].size.width/(2+(titles.count-1)*2);
     CGFloat margY=heaer.frame.size.height/3;
     
     UIView* bg=[[UIView alloc]initWithFrame:CGRectMake(margX, 0, heaer.frame.size.width-margX*2, heaer.frame.size.height)];

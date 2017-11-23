@@ -30,7 +30,9 @@
     self.navigationItem.rightBarButtonItem=editButtonItem;
     
     editToolBar=[[[UINib nibWithNibName:@"RentCartEditToolBar" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
-    editToolBar.frame=self.bottomToolBar.bounds;
+    CGRect fr=self.bottomToolBar.bounds;
+    fr.size.height=64;
+    editToolBar.frame=fr;
     [self.bottomToolBar addSubview:editToolBar];
     
     editToolBar.editing=self.editing;
