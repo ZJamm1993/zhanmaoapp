@@ -21,6 +21,8 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeSingleChoice                    =31,
     BaseFormTypeSwitchCheck                     =32,
     
+    BaseFormTypeImage                           =4,
+    
     BaseFormTypeStepDescription                 =6,
     
     BaseFormTypeAddressSelection                =7,

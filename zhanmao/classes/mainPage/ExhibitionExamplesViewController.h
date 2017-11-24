@@ -11,4 +11,6 @@
 
 @interface ExhibitionExamplesViewController : BaseToolBarTableViewController
 
+@property (nonatomic,strong) NSString* cid;
+
 @end

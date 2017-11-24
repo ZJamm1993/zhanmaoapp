@@ -44,6 +44,18 @@
         
         _createtime=[dictionary valueForKey:@"createtime"];
         _title=[dictionary valueForKey:@"title"];
+        
+        NSMutableArray* sem=[NSMutableArray array];
+        NSArray* semeta=[dictionary valueForKey:@"smeta"];
+        for (NSDictionary* se in semeta) {
+            NSString* url=[se valueForKey:@"url"];
+            if (url.length>0) {
+                [sem addObject:url];
+            }
+        }
+        _smeta=sem;
+        
+        _pic_count=[dictionary valueForKey:@"pic_count"];
     }
     
     return self;

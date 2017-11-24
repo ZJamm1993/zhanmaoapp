@@ -17,7 +17,7 @@
 @property (nonatomic,assign) CGFloat rent;
 @property (nonatomic,assign) CGFloat rent_o;
 @property (nonatomic,assign) CGFloat deposit;
-@property (nonatomic,strong) NSArray* smeta;
+//@property (nonatomic,strong) NSArray* smeta;
 
 @end
 

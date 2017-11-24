@@ -75,7 +75,7 @@
         RentActionEditView* action=[RentActionEditView defaultView];
         action.delegate=self;
         RentCartModel* car=[[RentCartModel alloc]init];
-        car.product=self.goodModel;
+        car.product=self.detailedModel;
         car.count=1;
 //        car.days=1;
         action.cartModel=car;

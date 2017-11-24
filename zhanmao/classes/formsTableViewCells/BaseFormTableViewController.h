@@ -18,6 +18,7 @@
 #import "TitleAreaCalculationTableViewCell.h"
 #import "TitleSwitchTableViewCell.h"
 #import "TitleAddressSeletectTableViewCell.h"
+#import "TitleNoneImageTableViewCell.h"
 
 #import "FormHttpTool.h"
 

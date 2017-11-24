@@ -52,6 +52,10 @@
     else  if ([model.name isEqualToString:@"收"]) {
         self.image.image=[UIImage imageNamed:@"recevice"];
     }
+    else
+    {
+        self.image.image=[UIImage imageNamed:@"locationBlue"];
+    }
     
     if (model.accessoryObject) {
         AddressModel* add=model.accessoryObject;

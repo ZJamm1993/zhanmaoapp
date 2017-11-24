@@ -20,6 +20,7 @@
     bar.returnKeyType=UIReturnKeySearch;
     
     UIImage* seaImg=[UIImage imageNamed:@"searchGraySmall"];
+    
     //UIGraphicsBeginImageContext(CGSizeMake(16, 16));
     //[seaImg drawInRect:CGRectMake(0, 0, 16, 16)];
     //UIImage* img=UIGraphicsGetImageFromCurrentImageContext();
@@ -32,6 +33,7 @@
     bar.leftView=icon;
     bar.leftViewMode=UITextFieldViewModeAlways;
     
+//    bar.translatesAutoresizingMaskIntoConstraints = NO;
     /*
     UIButton* cle=[[UIButton alloc]initWithFrame:CGRectMake(0, 0, bar.frame.size.height, bar.frame.size.height)];
     [cle setImage:[UIImage imageNamed:@"clear"] forState:UIControlStateNormal];
@@ -47,5 +49,10 @@
     self.text=@"";
     [self becomeFirstResponder];
 }
+
+//-(CGSize)intrinsicContentSize
+//{
+//    return UILayoutFittingExpandedSize;
+//}
 
 @end

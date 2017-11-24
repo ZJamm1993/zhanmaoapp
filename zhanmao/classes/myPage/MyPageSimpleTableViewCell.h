@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyPageSimpleTableViewCell : UITableViewCell
+@interface MyPageSimpleTableViewCell : LinedTableViewCell
 
 //@property (weak, nonatomic) IBOutlet UIImageView *image;
 //@property (weak, nonatomic) IBOutlet UILabel *title;

@@ -61,7 +61,7 @@
     _cartModel=cartModel;
     
     self.titleLabel.text=cartModel.product.post_title;
-    [self.image sd_setImageWithURL:[cartModel.product.smeta.firstObject urlWithMainUrl]];
+    [self.image sd_setImageWithURL:[cartModel.product.thumb urlWithMainUrl]];
     self.rentLabel.text=[NSString stringWithFloat:cartModel.product.rent headUnit:@"¥" tailUnit:@"/天"];
     self.depositLabel.text=[NSString stringWithFloat:cartModel.product.deposit headUnit:@"¥" tailUnit:nil];
     self.discountRentLabel.text=[NSString stringWithFloat:cartModel.product.rent headUnit:@"¥" tailUnit:nil];

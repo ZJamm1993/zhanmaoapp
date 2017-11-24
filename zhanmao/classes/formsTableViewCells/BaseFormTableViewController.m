@@ -19,21 +19,21 @@
 
 @implementation BaseFormTableViewController
 
--(void)viewSafeAreaInsetsDidChange
-{
-    [super viewSafeAreaInsetsDidChange];
-    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
-        if (@available(iOS 11.0, *)) {
-            UIEdgeInsets est=[self.view safeAreaInsets];
-            bottomSafe=est.bottom;
-            [self relayoutViews];
-            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
-//            [self scrollViewDidScroll:self.tableView];
-        } else {
-            // Fallback on earlier versions
-        }
-    }
-}
+//-(void)viewSafeAreaInsetsDidChange
+//{
+//    [super viewSafeAreaInsetsDidChange];
+//    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+//        if (@available(iOS 11.0, *)) {
+//            UIEdgeInsets est=[self.view safeAreaInsets];
+//            bottomSafe=est.bottom;
+//            [self relayoutViews];
+//            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+////            [self scrollViewDidScroll:self.tableView];
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//    }
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,6 +62,7 @@
                     NSStringFromClass([TitleAreaCalculationTableViewCell class]),
                     NSStringFromClass([TitleSwitchTableViewCell class]),
                     NSStringFromClass([TitleAddressSeletectTableViewCell class]),
+                    NSStringFromClass([TitleNoneImageTableViewCell class]),
                   nil];
     
     for (NSString* nibName in nibsToRegister) {
@@ -70,11 +71,11 @@
     
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
-    if (@available(iOS 11.0, *)) {
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    } else {
-        // Fallback on earlier versions
-    }
+//    if (@available(iOS 11.0, *)) {
+//        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//    } else {
+//        // Fallback on earlier versions
+//    }
     [self.view addSubview:self.tableView];
     
 //    [self.tableView reloadData];
@@ -300,6 +301,10 @@
     else if(model.type==BaseFormTypeAddressSelection)
     {
         nibName=NSStringFromClass([TitleAddressSeletectTableViewCell class]);
+    }
+    else if(model.type==BaseFormTypeImage)
+    {
+        nibName=NSStringFromClass([TitleNoneImageTableViewCell class]);
     }
     
     if (![nibsToRegister containsObject:nibName]) {

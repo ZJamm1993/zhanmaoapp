@@ -22,9 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView* headerIamge=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width/2)];
-    headerIamge.image=[UIImage imageNamed:@"chicken"];
-    self.tableView.tableHeaderView=headerIamge;
+//    UIImageView* headerIamge=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width/2)];
+//    headerIamge.image=[UIImage imageNamed:@"chicken"];
+//    self.tableView.tableHeaderView=headerIamge;
     // Do any additional setup after loading the view.
     
     [self.bottomButton removeFromSuperview];

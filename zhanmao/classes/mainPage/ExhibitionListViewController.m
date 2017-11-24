@@ -25,7 +25,7 @@
 //    self.title=[NSString stringWithFormat:@"%dxx案例",(int)self.type];;
     // Do any additional setup after loading the view.
     
-    [MainPageHttpTool getCustomShowingListByType:self.type cache:YES success:^(NSArray *result) {
+    [MainPageHttpTool getCustomShowingListByType:self.type cache:NO success:^(NSArray *result) {
         self.dataSource=[NSMutableArray arrayWithArray:result];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -65,6 +65,7 @@
     BaseModel* mo=[self.dataSource objectAtIndex:indexPath.row];
     exh.title=mo.name;
     exh.type=self.type;
+    exh.cid=mo.idd;
     [self.navigationController pushViewController:exh animated:YES];
 }
 

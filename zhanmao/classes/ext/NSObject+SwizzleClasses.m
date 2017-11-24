@@ -73,14 +73,14 @@
     BOOL isNotNavgationController=![self isKindOfClass:[UINavigationController class]];
     BOOL isNotTabbarController=![self isKindOfClass:[UITabBarController class]];
     
-    if (@available(iOS 11.0, *)) {
-        if ([self respondsToSelector:@selector(tableView)]) {
-            UITableView* tabl=[self performSelector:@selector(tableView)];
-            tabl.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
-    } else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+//    if (@available(iOS 11.0, *)) {
+//        if ([self respondsToSelector:@selector(tableView)]) {
+//            UITableView* tabl=[self performSelector:@selector(tableView)];
+//            tabl.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        }
+//    } else {
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//    }
     
     BOOL isChecked=isNotUIViewController&&isNotNavgationController&&isNotTabbarController;
     if (isChecked) {

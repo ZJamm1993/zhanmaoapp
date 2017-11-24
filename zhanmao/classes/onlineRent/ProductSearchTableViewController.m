@@ -28,7 +28,7 @@
     searchBar=[ZZSearchBar defaultBar];
     searchBar.delegate=self;
     CGRect fr=searchBar.frame;
-    fr.size.width=self.view.frame.size.width-64;
+//    fr.size.width=self.view.frame.size.width-64;
     searchBar.frame=fr;
     self.navigationItem.titleView=searchBar;
     

@@ -42,4 +42,7 @@
 
 @property (nonatomic,strong) NSString* title;
 
+@property (nonatomic,strong) NSArray* smeta;
+@property (nonatomic,assign) NSInteger pic_count;
+
 @end

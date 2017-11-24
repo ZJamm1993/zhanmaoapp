@@ -12,6 +12,6 @@
 
 +(void)getCustomShowingListByType:(NSInteger)type cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
-+(void)getCustomShowingChildrenListByPid:(NSInteger)type cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
++(void)getCustomShowingCaseListByCid:(NSInteger)cid cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 @end

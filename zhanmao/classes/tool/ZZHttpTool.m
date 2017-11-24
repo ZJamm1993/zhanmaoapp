@@ -51,6 +51,10 @@
 //    }
     BOOL isGet=[method isEqualToString:@"GET"];
     BOOL isPost=[method isEqualToString:@"POST"];
+    
+    NSLog(@"%@",method);
+    NSLog(@"%@",url);
+    NSLog(@"%@",params);
     if (isGet||isPost) {
         
 //        NSString* suburl=[url stringByReplacingOccurrencesOfString:[ZZUrlTool main] withString:@"main/"];

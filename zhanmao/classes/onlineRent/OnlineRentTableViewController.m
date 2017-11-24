@@ -63,8 +63,9 @@ const CGFloat categoriesHeaderHeight=50;
     searchBar.placeholder=@"请输入您想要的商品";
     searchBar.delegate=self;
     CGRect fr=searchBar.frame;
-    fr.size.width=self.view.frame.size.width-128;
+//    fr.size.width=self.view.frame.size.width-140;
     searchBar.frame=fr;
+//    searchBar.backgroundColor=[UIColor colorWithWhite:1 alpha:0.5];
     self.navigationItem.titleView=searchBar;
     
     menuHeaderButtonModels=[NSMutableArray arrayWithObjects:
@@ -146,7 +147,7 @@ const CGFloat categoriesHeaderHeight=50;
 
 -(void)setLocation:(NSString*)location
 {
-    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrow" leftImage:NO title:location target:self selector:@selector(selectLocation)];
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrowSmall" leftImage:NO title:location target:self selector:@selector(selectLocation)];
     self.navigationItem.leftBarButtonItem=it;
 }
 

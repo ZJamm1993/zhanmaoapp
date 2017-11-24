@@ -31,4 +31,25 @@
     }];
 }
 
++(void)getCustomShowingCaseListByCid:(NSInteger)cid cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Show/caselist"];
+    NSDictionary* par=[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:cid] forKey:@"cid"];
+    [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
+        NSArray* data=[dict valueForKey:@"data"];
+        NSMutableArray* res=[NSMutableArray array];
+        for (NSDictionary* di in data) {
+            BaseModel* m=[[BaseModel alloc]initWithDictionary:di];
+            [res addObject:m];
+        }
+        if (success) {
+            success(res);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
 @end
