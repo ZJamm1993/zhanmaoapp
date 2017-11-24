@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UILabel *readCount;
 @property (weak, nonatomic) IBOutlet UIView *readCountView;
+@property (weak, nonatomic) IBOutlet UIImageView *headerImage;
+@property (weak, nonatomic) IBOutlet UILabel *headerTitle;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleLeadingContraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidthConstraint;

@@ -26,10 +26,15 @@
     }
     else
     {
-        self.title.textColor=[UIColor blackColor];
+        self.title.textColor=gray_2;
         self.selectedTag.backgroundColor=[UIColor clearColor];
     }
     // Configure the view for the selected state
+}
+
+-(UIEdgeInsets)separatorInset
+{
+    return UIEdgeInsetsZero;
 }
 
 @end

@@ -21,10 +21,14 @@
 
 #import <CoreLocation/CoreLocation.h>
 
+#import "MainPageHttpTool.h"
+
 typedef NS_ENUM(NSInteger,MainPageSection)
 {
     MainPageSectionEights,
     MainPageSectionExhibitions,
+    MainPageSectionGoodsPushes,
+    MainPageSectionNewMsgs,
     MainPageSectionTotalCount,
 };
 
@@ -32,6 +36,9 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 {
 //    UIBarButtonItem* locationItem;
     NSArray* arrayWithSimpleButtons;
+    
+    NSMutableArray* exhibitionArray;
+    NSMutableArray* goodpushesArray;
     NSMutableArray* messagesArray;
     
     CLLocationManager * locationManager;
@@ -47,14 +54,14 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     self.navigationItem.title=@"展贸在线";
     self.tabBarItem.title=@"主页";
     
-//    [self setLocation:@"guangz"];
+    [self setLocation:@""];
     
 //    self.tableView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
     
     UIBarButtonItem* searchItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchWhite"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
     self.navigationItem.rightBarButtonItem=searchItem;
     
-    
+    [self showLoadMoreView];
     
 //    [self.tableView registerNib:[UINib nibWithNibName:@"MainPageHeaderTableViewCell" bundle:nil] forCellReuseIdentifier:@"MainPageHeaderTableViewCell"];
 //    
@@ -64,10 +71,12 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 //    
 //    [self.tableView registerNib:[UINib nibWithNibName:@"MessageSmallTableViewCell" bundle:nil] forCellReuseIdentifier:@"MessageSmallTableViewCell"];
     
-    messagesArray=[NSMutableArray array];
-    for (int i=0; i<10; i++) {
-        [messagesArray addObject:@"a"];
-    }
+//    messagesArray=[NSMutableArray array];
+//    for (int i=0; i<10; i++) {
+//        [messagesArray addObject:@"a"];
+//    }
+    
+    [self refresh];
     
     [self locate];
 //    self.tableView.sectionHeaderHeight=44;
@@ -130,6 +139,45 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     [((NaviController*)self.navigationController) setNavigationColorShowImage:YES];
 }
 
+-(void)refresh
+{
+    [MainPageHttpTool getNewExhibition:^(ExhibitionModel *exh) {
+        if (exh) {
+            exhibitionArray=[NSMutableArray array];
+            [exhibitionArray addObject:exh];
+            [self.tableView reloadData];
+        }
+    } cache:NO failure:^(NSError *error) {
+        
+    }];
+    
+    [MainPageHttpTool getNewMessagesPage:1 pageSize:self.pageSize cached:NO success:^(NSArray *result) {
+        messagesArray=[NSMutableArray arrayWithArray:result];
+        [self.tableView reloadData];
+        if (result.count>0) {
+            self.currentPage=1;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)loadMore
+{
+    [MainPageHttpTool getNewMessagesPage:self.currentPage+1 pageSize:self.pageSize cached:NO success:^(NSArray *result) {
+        if (messagesArray==nil) {
+            messagesArray=[NSMutableArray array];
+        }
+        [messagesArray addObjectsFromArray:result];
+        [self.tableView reloadData];
+        if (result.count>0) {
+            self.currentPage=self.currentPage+1;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 -(void)setLocation:(NSString*)location
 {
     ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" leftImage:YES title:location target:self selector:@selector(selectLocation)];
@@ -180,9 +228,22 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 #pragma mark UITableViewDelegate&Datasource
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.001;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section<=MainPageSectionExhibitions) {
+        return 12;
+    }
+    return 0.0001;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return MainPageSectionTotalCount+messagesArray.count;
+    return MainPageSectionTotalCount;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -192,11 +253,15 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     }
     else if(section==MainPageSectionExhibitions)
     {
-        return 1;
+        return exhibitionArray.count;
     }
-    else
+    else if(section==MainPageSectionGoodsPushes)
     {
-        return 1;
+        return goodpushesArray.count;
+    }
+    else if(section==MainPageSectionNewMsgs)
+    {
+        return messagesArray.count;
     }
     return 0;
 }
@@ -213,8 +278,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger sec=indexPath.section;
-//    NSInteger row=indexPath.row;
-    NSInteger msgSection=sec-(tableView.numberOfSections-messagesArray.count);
+    NSInteger row=indexPath.row;
     
     if(sec==MainPageSectionEights)
     {
@@ -228,13 +292,37 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         if(sec==MainPageSectionExhibitions)
         {
             ExhibitionLargeCardTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeCardTableViewCell" forIndexPath:indexPath];
+            ExhibitionModel* mo=[exhibitionArray objectAtIndex:row];
+            cell.label.text=mo.exhibition_name;
+            [cell.image sd_setImageWithURL:[mo.thumb urlWithMainUrl]];
             return cell;
         }
         else
         {
             MessageSmallTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MessageSmallTableViewCell" forIndexPath:indexPath];
-            cell.showImage=(msgSection%3==0);
-            cell.showReadCount=(msgSection%2==0);
+            if(sec==MainPageSectionGoodsPushes)
+            {
+                cell.showImage=YES;
+                cell.showReadCount=NO;
+                cell.headerTitle.text=@"新品推送";
+                cell.headerImage.image=[UIImage imageNamed:@"newProduct"];
+            }
+            
+            else if(sec==MainPageSectionNewMsgs)
+            {
+                MainMsgModel* msg=[messagesArray objectAtIndex:row];
+                cell.showImage=msg.type==MainMsgTypeImageText;
+                cell.showReadCount=YES;
+                cell.headerImage.image=[UIImage imageNamed:@"newMessage"];
+                cell.headerTitle.text=@"最新消息";
+                if (msg.thumb.length>0) {
+                    [cell.image sd_setImageWithURL:[msg.thumb urlWithMainUrl]];
+                }
+                cell.title.text=msg.post_title;
+                cell.content.text=msg.post_excerpt;
+                cell.time.text=msg.post_modified;
+                cell.readCount.text=[NSString stringWithFormat:@"%ld",(long)msg.post_hits];
+            }
             return cell;
         }
     }

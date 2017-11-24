@@ -28,7 +28,10 @@
     NSDictionary* dic=[NSDictionary dictionaryWithObject:self forKey:@"tableView"];
     [[NSNotificationCenter defaultCenter]postNotificationName:UITableViewReloadDataNotification object:nil userInfo:dic];
     [self myReloadData];
-    
+//    if(self.style==UITableViewStyleGrouped)
+//    {
+//        self.backgroundColor=gray_9;
+//    }
     self.separatorColor=gray_8;
     self.showsVerticalScrollIndicator=NO;
 }

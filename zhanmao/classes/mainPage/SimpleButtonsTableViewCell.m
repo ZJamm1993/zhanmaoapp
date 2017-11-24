@@ -28,6 +28,10 @@ const NSInteger simpleButtonRowCount=4;
 
 +(CGFloat)heightWithButtonsCount:(NSInteger)count
 {
+    if(count==0)
+    {
+        return 0;;
+    }
     NSInteger rows=count/simpleButtonRowCount;
     if (count%simpleButtonRowCount>0) {
         rows=rows+1;

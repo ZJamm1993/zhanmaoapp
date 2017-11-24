@@ -138,16 +138,19 @@
     if (tableVi==self.tableView) {
         if (isManualReload) {
             NSLog(@"%@ reloaded data",NSStringFromClass([self class]));
-            [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
+            [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0];
         }
         else
         {
             isManualReload=YES;
         }
-        
-        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"加载更多" afterDelay:1];
+        NSString* loadmoreText=@"加载更多";
+        if (lastCount==self.dataSource.count&&!self.refreshControl.refreshing) {
+            loadmoreText=@"没有更多了";
+        }
+        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:loadmoreText afterDelay:0];
+        lastCount=self.dataSource.count;
     }
-    
 }
 
 -(void)dealloc

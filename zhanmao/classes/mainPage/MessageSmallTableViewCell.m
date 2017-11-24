@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    _footerView.backgroundColor=gray_9;
     // Initialization code
 }
 

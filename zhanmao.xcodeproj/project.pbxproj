@@ -25,6 +25,10 @@
 		8E31F4631FC7B4F100373437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E31F4621FC7B4F100373437 /* LaunchScreen.storyboard */; };
 		8E31F4671FC7BD5C00373437 /* TitleNoneImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4651FC7BD5C00373437 /* TitleNoneImageTableViewCell.m */; };
 		8E31F4681FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E31F4661FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib */; };
+		8E31F46C1FC7E67100373437 /* ExhibitionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F46B1FC7E67100373437 /* ExhibitionModel.m */; };
+		8E31F46F1FC7EAF300373437 /* MainMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F46E1FC7EAF300373437 /* MainMsgModel.m */; };
+		8E31F4721FC7FF9200373437 /* TravellingHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4711FC7FF9200373437 /* TravellingHttpTool.m */; };
+		8E31F4761FC800BE00373437 /* TravellingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4751FC800BE00373437 /* TravellingModel.m */; };
 		8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */; };
 		8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */; };
 		8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */; };
@@ -222,6 +226,14 @@
 		8E31F4641FC7BD5C00373437 /* TitleNoneImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleNoneImageTableViewCell.h; sourceTree = "<group>"; };
 		8E31F4651FC7BD5C00373437 /* TitleNoneImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleNoneImageTableViewCell.m; sourceTree = "<group>"; };
 		8E31F4661FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleNoneImageTableViewCell.xib; sourceTree = "<group>"; };
+		8E31F46A1FC7E67100373437 /* ExhibitionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionModel.h; sourceTree = "<group>"; };
+		8E31F46B1FC7E67100373437 /* ExhibitionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionModel.m; sourceTree = "<group>"; };
+		8E31F46D1FC7EAF300373437 /* MainMsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMsgModel.h; sourceTree = "<group>"; };
+		8E31F46E1FC7EAF300373437 /* MainMsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMsgModel.m; sourceTree = "<group>"; };
+		8E31F4701FC7FF9200373437 /* TravellingHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravellingHttpTool.h; sourceTree = "<group>"; };
+		8E31F4711FC7FF9200373437 /* TravellingHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravellingHttpTool.m; sourceTree = "<group>"; };
+		8E31F4741FC800BE00373437 /* TravellingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravellingModel.h; sourceTree = "<group>"; };
+		8E31F4751FC800BE00373437 /* TravellingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravellingModel.m; sourceTree = "<group>"; };
 		8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
 		8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewController.m; sourceTree = "<group>"; };
 		8E3779CE1FA7195B00A3BBEB /* MyPageButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageButtonTableViewCell.h; sourceTree = "<group>"; };
@@ -535,6 +547,7 @@
 		8E2E40821F94597B00B42477 /* mainPage */ = {
 			isa = PBXGroup;
 			children = (
+				8E31F4691FC7E64F00373437 /* model */,
 				8E721ADD1FB57C07001BD401 /* customs */,
 				8E6C74161F9DD785004B33D1 /* ExhibitionListViewController.h */,
 				8E6C74171F9DD785004B33D1 /* ExhibitionListViewController.m */,
@@ -552,6 +565,26 @@
 				8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */,
 			);
 			path = mainPage;
+			sourceTree = "<group>";
+		};
+		8E31F4691FC7E64F00373437 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8E31F46A1FC7E67100373437 /* ExhibitionModel.h */,
+				8E31F46B1FC7E67100373437 /* ExhibitionModel.m */,
+				8E31F46D1FC7EAF300373437 /* MainMsgModel.h */,
+				8E31F46E1FC7EAF300373437 /* MainMsgModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		8E31F4731FC8009700373437 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8E31F4741FC800BE00373437 /* TravellingModel.h */,
+				8E31F4751FC800BE00373437 /* TravellingModel.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		8E6C73F61F9D9983004B33D1 /* form */ = {
@@ -659,9 +692,12 @@
 		8E6C74861FA023C2004B33D1 /* travelling */ = {
 			isa = PBXGroup;
 			children = (
+				8E31F4731FC8009700373437 /* model */,
 				8E6C748F1FA02499004B33D1 /* views */,
 				8E6C74871FA0243E004B33D1 /* TravellingRootViewController.h */,
 				8E6C74881FA0243E004B33D1 /* TravellingRootViewController.m */,
+				8E31F4701FC7FF9200373437 /* TravellingHttpTool.h */,
+				8E31F4711FC7FF9200373437 /* TravellingHttpTool.m */,
 			);
 			path = travelling;
 			sourceTree = "<group>";
@@ -1254,6 +1290,7 @@
 				8EFC80301FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m in Sources */,
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
 				8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */,
+				8E31F46C1FC7E67100373437 /* ExhibitionModel.m in Sources */,
 				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
 				8E99AAA11F9068920078C452 /* MBProgressHUD+ZZCustom.m in Sources */,
 				8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */,
@@ -1266,6 +1303,7 @@
 				8E99AAA81F9068920078C452 /* SDImageCacheConfig.m in Sources */,
 				8E99AA9C1F9068920078C452 /* Foundation+Log.m in Sources */,
 				8E99AAAC1F9068920078C452 /* SDWebImageDownloaderOperation.m in Sources */,
+				8E31F46F1FC7EAF300373437 /* MainMsgModel.m in Sources */,
 				8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */,
 				8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */,
 				8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */,
@@ -1378,11 +1416,13 @@
 				8E6C73FE1F9D9B18004B33D1 /* FormBaseTableViewCell.m in Sources */,
 				8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */,
 				8E31F4671FC7BD5C00373437 /* TitleNoneImageTableViewCell.m in Sources */,
+				8E31F4761FC800BE00373437 /* TravellingModel.m in Sources */,
 				8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */,
 				8E99AA451F9068920078C452 /* ZZSearchBar.m in Sources */,
 				8EEF09171FB93984004ED5F0 /* TitleSwitchTableViewCell.m in Sources */,
 				8EA9E55B1FB19368003815B7 /* RentActionEditView.m in Sources */,
 				8E6C740C1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.m in Sources */,
+				8E31F4721FC7FF9200373437 /* TravellingHttpTool.m in Sources */,
 				8E99AA461F9068920078C452 /* NSDictionary+ext.m in Sources */,
 				8E99AA471F9068920078C452 /* NSObject+SwizzleClasses.m in Sources */,
 				8E9B0CEB1FAAC4B600770F8D /* OrderTypeBaseModel.m in Sources */,

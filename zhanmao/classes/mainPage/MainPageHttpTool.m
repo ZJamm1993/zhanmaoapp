@@ -52,4 +52,44 @@
     }];
 }
 
++(void)getNewExhibition:(void (^)(ExhibitionModel *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Exhibition/new_exhibition"];
+    [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        ExhibitionModel* exh=[[ExhibitionModel alloc]initWithDictionary:data];
+        if(success)
+        {
+            success(exh);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
++(void)getNewMessagesPage:(NSInteger)page pageSize:(NSInteger)pagesize cached:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSMutableDictionary* par=[self pageParamsWithPage:page size:pagesize];
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/News/show"];
+    [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* res=[NSMutableArray array];
+        for (NSDictionary* dic in list) {
+            MainMsgModel* msg=[[MainMsgModel alloc]initWithDictionary:dic];
+            [res addObject:msg];
+        }
+        if (success) {
+            success(res);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
 @end

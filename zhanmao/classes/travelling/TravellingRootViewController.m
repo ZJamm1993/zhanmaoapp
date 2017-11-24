@@ -10,6 +10,8 @@
 #import "LargeImageBlackLabelTableViewCell.h"
 #import "FourButtonsTableViewCell.h"
 
+#import "TravellingHttpTool.h"
+
 typedef NS_ENUM(NSInteger,TravellingSection)
 {
     TravellingSectionHeaders,
@@ -20,6 +22,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 @interface TravellingRootViewController ()<SimpleButtonsTableViewCellDelegate>
 {
     NSArray* arrayWithSimpleButtons;
+    NSMutableArray* topProvidersArray;
 }
 @end
 
@@ -29,16 +32,30 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     [super viewDidLoad];
     self.navigationItem.title=@"商旅";
     
-    [self setAdvertiseHeaderViewWithPicturesUrls:[NSArray arrayWithObjects:
-                        @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508838600421&di=657bb23fe8427c3b0bd101fe297214d2&imgtype=0&src=http%3A%2F%2Fwww.im4s.cn%2Ftrade%2Fuploads%2Fallimg%2F160606%2F456-160606114A6326.jpg",
-                        @"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1889566272,4112726323&fm=27&gp=0.jpg",
-                        @"0.jpg",@"1.jpg",@"2.jpg",@"3.jpg",@"4.jpg", nil]];
-    // Do any additional setup after loading the view.
-    
-    //test
+        //test
     for (int i=0; i<3; i++) {
         [self.dataSource addObject:[[NSObject alloc]init]];
     }
+    
+    [self refresh];
+}
+
+-(void)refresh
+{
+    [TravellingHttpTool getAdvertisementsByCid:1 cache:NO success:^(NSArray *result) {
+        self.advsArray=[NSMutableArray arrayWithArray:result];
+        NSMutableArray* pics=[NSMutableArray array];
+        for (TravellingModel* ad in self.advsArray) {
+            NSString* th=ad.thumb;
+            NSString* fu=[ZZUrlTool fullUrlWithTail:th];
+            [pics addObject:fu];
+        }
+        if (result.count>0) {
+            [self setAdvertiseHeaderViewWithPicturesUrls:pics];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

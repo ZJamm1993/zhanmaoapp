@@ -16,7 +16,7 @@
     
     self.bgView.layer.cornerRadius=4;
     self.bgView.layer.borderColor=gray_8.CGColor;
-    self.bgView.layer.borderWidth=1;
+    self.bgView.layer.borderWidth=0.5;
     self.bgView.clipsToBounds=YES;
     self.bgView.layer.masksToBounds=YES;
 }
