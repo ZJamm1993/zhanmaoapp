@@ -30,7 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
 @property (weak, nonatomic) IBOutlet UIView *personalBg;
-@property (weak, nonatomic) IBOutlet UIImageView *loginImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *loginBgImage;
+@property (weak, nonatomic) IBOutlet UIView *loginBg;
 
 -(void)setButtons:(NSArray<SimpleButtonModel*>*)buttons;
 -(void)setSimpleButtonsCellDelegate:(id<SimpleButtonsTableViewCellDelegate>)delegate;

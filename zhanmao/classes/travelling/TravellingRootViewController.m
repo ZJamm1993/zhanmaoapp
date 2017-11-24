@@ -31,12 +31,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title=@"商旅";
-    
-        //test
-    for (int i=0; i<3; i++) {
-        [self.dataSource addObject:[[NSObject alloc]init]];
-    }
-    
+    [self showLoadMoreView];
     [self refresh];
 }
 
@@ -56,6 +51,30 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     } failure:^(NSError *error) {
         
     }];
+    
+    [TravellingHttpTool getServiceProviderPage:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:result];
+        [self.tableView reloadData];
+        if (result.count>0) {
+            self.currentPage=1;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)loadMore
+{
+    [TravellingHttpTool getServiceProviderPage:self.currentPage+1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+        [self.dataSource addObjectsFromArray:result];
+        [self.tableView reloadData];
+        if (result.count>0) {
+            self.currentPage=self.currentPage+1;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,17 +86,17 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 {
     if (arrayWithSimpleButtons.count==0) {
         
-        NSMutableArray* array=[NSMutableArray array];
-        NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单", nil];
-        NSArray* imgs=[NSArray arrayWithObjects:@"orderRent",@"orderTransport",@"orderClean",@"orderCustom", nil];
-        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"CleanOrderPagerViewController",@"CustomOrderPagerViewController", nil];
-        
-        for (NSInteger i=0; i<4; i++) {
-            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:[imgs objectAtIndex:i] identifier:[ides objectAtIndex:i] type:i];
-            mo.circledImage=YES;
-            [array addObject:mo];
-        }
-        arrayWithSimpleButtons=array;
+//        NSMutableArray* array=[NSMutableArray array];
+//        NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单", nil];
+//        NSArray* imgs=[NSArray arrayWithObjects:@"orderRent",@"orderTransport",@"orderClean",@"orderCustom", nil];
+//        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"CleanOrderPagerViewController",@"CustomOrderPagerViewController", nil];
+//        
+//        for (NSInteger i=0; i<4; i++) {
+//            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:[imgs objectAtIndex:i] identifier:[ides objectAtIndex:i] type:i];
+//            mo.circledImage=YES;
+//            [array addObject:mo];
+//        }
+//        arrayWithSimpleButtons=array;
     }
     return arrayWithSimpleButtons;
 }
@@ -132,8 +151,10 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     {
         sec=sec-TravellingSectionTotalCount;
         LargeImageBlackLabelTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"LargeImageBlackLabelTableViewCell" forIndexPath:indexPath];
-        NSObject* obj=[self.dataSource objectAtIndex:sec];
-        cell.title.text=obj.description;
+        TravellingModel* obj=[self.dataSource objectAtIndex:sec];
+        cell.title.text=obj.name;
+        cell.detail.text=obj.provider;
+        [cell.image sd_setImageWithURL:[obj.thumb urlWithMainUrl]];
         return cell;
     }
     return [[UITableViewCell alloc]init];

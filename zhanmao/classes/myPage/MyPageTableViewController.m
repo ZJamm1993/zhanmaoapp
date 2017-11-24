@@ -39,6 +39,8 @@
     
     self.tabBarItem.title=@"我的";
     
+    [self.refreshControl removeFromSuperview];
+    
     cachesControllers=[NSMutableDictionary dictionary];
     
 //    self.tableView.contentInset=UIEdgeInsetsMake([[UIApplication sharedApplication]statusBarFrame].size.height,0, 0, 0);
@@ -52,7 +54,7 @@
              [MyPageCellModel modelWithTitle:@"地址管理" image:@"myAddress" detail:@"" identifier:@"MyAddressesTableViewController"],
              [MyPageCellModel modelWithTitle:@"个人资料" image:@"myInfo" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"申请发票" image:@"" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
+             [MyPageCellModel modelWithTitle:@"申请发票" image:@"myInvoice" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@""],
              [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@""],
@@ -96,7 +98,7 @@
         
         for (NSInteger i=0; i<4; i++) {
             SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:[imgs objectAtIndex:i] identifier:[ides objectAtIndex:i] type:i];
-            mo.circledImage=YES;
+//            mo.circledImage=YES;
             [array addObject:mo];
         }
         arrayWithSimpleButtons=array;
@@ -150,6 +152,7 @@
         [cell setButtons:[self arrayWithSimpleButtons]];
         [cell setDelegate:self];
         [cell setSimpleButtonsCellDelegate:self];
+        cell.headImageView.image=[UIImage imageNamed:@"defaultHeadImage"];
         return cell;
     }
     else
