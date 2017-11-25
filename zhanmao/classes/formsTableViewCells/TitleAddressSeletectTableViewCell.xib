@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <development version="8000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -12,45 +15,45 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="286" height="89.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" image="send" translatesAutoresizingMaskIntoConstraints="NO" id="1dK-Nh-Emo">
-                        <rect key="frame" x="10" y="31" width="22" height="28"/>
+                        <rect key="frame" x="10" y="21" width="22" height="28"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArY-f4-jT3">
-                        <rect key="frame" x="44" y="0.0" width="242" height="89.5"/>
+                        <rect key="frame" x="44" y="0.0" width="243" height="70"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="88" id="SS4-kI-f59"/>
+                            <constraint firstAttribute="height" constant="70" id="SS4-kI-f59"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.60123697919999997" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTa-7c-wLk" userLabel="textBgs">
-                        <rect key="frame" x="44" y="0.0" width="242" height="89.5"/>
+                        <rect key="frame" x="44" y="0.0" width="243" height="70"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBW-p2-g9L" userLabel="centerLine">
-                                <rect key="frame" x="0.0" y="44.5" width="242" height="1"/>
+                                <rect key="frame" x="0.0" y="35" width="243" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Z9t-dG-IuW"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="小敏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa4-GZ-v6Z">
-                                <rect key="frame" x="0.0" y="17" width="33" height="19.5"/>
+                                <rect key="frame" x="0.0" y="7.5" width="33" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18866668888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBS-cF-5rh">
-                                <rect key="frame" x="53" y="17" width="189" height="19.5"/>
+                                <rect key="frame" x="53" y="7.5" width="190" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="广州深圳上海北京杭州青岛广州深圳上海北京杭州青岛广州深圳上海北京杭州青岛" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UW2-V0-aU1">
-                                <rect key="frame" x="0.0" y="45.5" width="242" height="31.5"/>
+                                <rect key="frame" x="0.0" y="36" width="243" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.60123697919999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -75,14 +78,14 @@
                 <constraints>
                     <constraint firstItem="1dK-Nh-Emo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0SR-Wb-0zb"/>
                     <constraint firstItem="gTa-7c-wLk" firstAttribute="trailing" secondItem="ArY-f4-jT3" secondAttribute="trailing" id="4tz-qU-Bxq"/>
+                    <constraint firstItem="1dK-Nh-Emo" firstAttribute="centerY" secondItem="ArY-f4-jT3" secondAttribute="centerY" id="N6v-XB-NFf"/>
                     <constraint firstItem="ArY-f4-jT3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="P0U-WF-n3g"/>
-                    <constraint firstAttribute="bottom" secondItem="ArY-f4-jT3" secondAttribute="bottom" id="V2k-aq-XiA"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ArY-f4-jT3" secondAttribute="bottom" id="V2k-aq-XiA"/>
                     <constraint firstAttribute="trailing" secondItem="ArY-f4-jT3" secondAttribute="trailing" id="ijQ-Tz-7PV"/>
                     <constraint firstItem="ArY-f4-jT3" firstAttribute="leading" secondItem="1dK-Nh-Emo" secondAttribute="trailing" constant="12" id="kLP-tL-tRa"/>
                     <constraint firstItem="gTa-7c-wLk" firstAttribute="top" secondItem="ArY-f4-jT3" secondAttribute="top" id="rwW-0I-nU9"/>
                     <constraint firstItem="gTa-7c-wLk" firstAttribute="leading" secondItem="ArY-f4-jT3" secondAttribute="leading" id="tBn-cG-i0q"/>
                     <constraint firstItem="gTa-7c-wLk" firstAttribute="bottom" secondItem="ArY-f4-jT3" secondAttribute="bottom" id="trz-ab-v0o"/>
-                    <constraint firstItem="1dK-Nh-Emo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zkM-G4-HiE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

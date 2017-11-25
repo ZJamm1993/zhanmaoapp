@@ -96,7 +96,7 @@
         }
         else if(self.model.type==BaseFormTypeProviceCityDistrict)
         {
-            CitySelectionPicker* cit=[CitySelectionPicker defaultCityPickerWithSections:self.model.combination_arr.count];
+            CitySelectionPicker* cit=[CitySelectionPicker defaultCityPickerWithSections:3];
             [PickerShadowContainer showPickerContainerWithView:cit title:self.model.hint completion:^{
                 NSArray* citys=cit.selectedCity;
                 NSInteger count=citys.count;

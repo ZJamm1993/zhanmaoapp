@@ -8,7 +8,13 @@
 
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+#import "ZZPayTool.h"
+
+#import "BaseWebViewController.h"
+
+#define WXApiAppId @"wxdc1288a5c294339a"
+
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -16,12 +22,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-//    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
-//    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
-//        statusBar.backgroundColor = _mainColor;
-//    }
+   
     NSLog(@"%@",NSStringFromCGRect([[UIScreen mainScreen]bounds]));
+    
+    BaseWebViewController* preloadWeb=[[BaseWebViewController alloc]initWithUrl:nil];
+    preloadWeb.view.backgroundColor=[UIColor whiteColor];
+    
+    [WXApi registerApp:WXApiAppId enableMTA:NO];
+    
     return YES;
 }
 
@@ -52,5 +60,36 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+//ios9 or newer
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    NSLog(@"%@",url);
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+    }
+    else if([url.host isEqualToString:WXApiAppId])
+    {
+        [WXApi handleOpenURL:url delegate:self];
+    }
+    return YES;
+}
+
+-(void)onResp:(BaseResp*)resp{
+    if ([resp isKindOfClass:[PayResp class]]){
+        PayResp*response=(PayResp*)resp;
+        switch(response.errCode){
+            case WXSuccess:
+                //服务器端查询支付通知或查询API返回的结果再提示成功
+                NSLog(@"支付成功");
+                break;
+            default:
+                NSLog(@"支付失败，retcode=%d",resp.errCode);
+                break;
+        }
+    }
+}
 
 @end

@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     self.navigationItem.title=@"展贸在线";
     self.tabBarItem.title=@"主页";
     
-    [self setLocation:@""];
+    [self setLocation:@"广州"];
     
 //    self.tableView.contentInset=UIEdgeInsetsMake(-20, 0, 0, 0);
     
@@ -78,7 +78,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     
     [self refresh];
     
-    [self locate];
+//    [self locate];
 //    self.tableView.sectionHeaderHeight=44;
 }
 
@@ -222,8 +222,10 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 {
     NSLog(@"select location");
 //    [self setLocation:[NSString stringWithFormat:@"%ld",(long)(arc4random()%1000000)]];
-    [locationManager startUpdatingLocation];
-    locatedCity=NO;
+    
+//    [locationManager startUpdatingLocation];
+//    locatedCity=NO;
+    
 }
 
 #pragma mark UITableViewDelegate&Datasource

@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeMutiChoice                      =3,
     BaseFormTypeSingleChoice                    =31,
     BaseFormTypeSwitchCheck                     =32,
+    BaseFormTypeDoubleChoice                    =34,
     
     BaseFormTypeImage                           =4,
     
@@ -78,6 +79,8 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 -(BaseFormModel*)requiredModelWithStep:(NSInteger)step;
 
 -(NSDictionary*)parameters;
+
+-(NSArray*)allModels;
 
 @end
 

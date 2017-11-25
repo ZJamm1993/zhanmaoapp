@@ -52,7 +52,22 @@ typedef NS_ENUM(NSInteger,TravellingSection)
         
     }];
     
-    [TravellingHttpTool getServiceProviderPage:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+    [TravellingHttpTool getServiceProviderType:1 page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+        NSMutableArray* models=[NSMutableArray array];
+        for (TravellingModel* mo in result) {
+            SimpleButtonModel* sim=[[SimpleButtonModel alloc]init];
+            sim.identifier=mo.url;
+            sim.imageName=[ZZUrlTool fullUrlWithTail:mo.thumb];
+            sim.title=mo.name;
+            [models addObject:sim];
+        }
+        arrayWithSimpleButtons=models;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    [TravellingHttpTool getServiceProviderType:2 page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:result];
         [self.tableView reloadData];
@@ -66,7 +81,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 
 -(void)loadMore
 {
-    [TravellingHttpTool getServiceProviderPage:self.currentPage+1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+    [TravellingHttpTool getServiceProviderType:2 page:self.currentPage+1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
         [self.dataSource addObjectsFromArray:result];
         [self.tableView reloadData];
         if (result.count>0) {
@@ -80,25 +95,6 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(NSArray*)arrayWithSimpleButtons
-{
-    if (arrayWithSimpleButtons.count==0) {
-        
-//        NSMutableArray* array=[NSMutableArray array];
-//        NSArray* tits=[NSArray arrayWithObjects:@"租赁订单",@"物流订单",@"保洁订单",@"定制订单", nil];
-//        NSArray* imgs=[NSArray arrayWithObjects:@"orderRent",@"orderTransport",@"orderClean",@"orderCustom", nil];
-//        NSArray* ides=[NSArray arrayWithObjects:@"RentOrderPagerViewController",@"TransportOrderPagerViewController",@"CleanOrderPagerViewController",@"CustomOrderPagerViewController", nil];
-//        
-//        for (NSInteger i=0; i<4; i++) {
-//            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[tits objectAtIndex:i] imageName:[imgs objectAtIndex:i] identifier:[ides objectAtIndex:i] type:i];
-//            mo.circledImage=YES;
-//            [array addObject:mo];
-//        }
-//        arrayWithSimpleButtons=array;
-    }
-    return arrayWithSimpleButtons;
 }
 
 #pragma mark tableViews
@@ -137,7 +133,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     if (sec==0) {
         if (row==0) {
             FourButtonsTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"FourButtonsTableViewCell" forIndexPath:indexPath];
-            [cell setButtons:[self arrayWithSimpleButtons]];
+            [cell setButtons:arrayWithSimpleButtons];
             [cell setDelegate:self];
             return cell;
         }
@@ -158,6 +154,36 @@ typedef NS_ENUM(NSInteger,TravellingSection)
         return cell;
     }
     return [[UITableViewCell alloc]init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger sec=indexPath.section;
+    sec=sec-TravellingSectionTotalCount;
+    if (sec>=0&&sec<self.dataSource.count) {
+        TravellingModel* mo=[self.dataSource objectAtIndex:sec];
+        [self gotoUrl:mo.url];
+    }
+}
+
+-(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
+{
+    TravellingModel* mo=[self.advsArray objectAtIndex:index];
+    [self gotoUrl:mo.url];
+}
+
+-(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
+{
+    [self gotoUrl:model.identifier];
+}
+
+-(void)gotoUrl:(NSString*)url
+{
+    NSLog(@"url%@",url);
+    if (url.length>0) {
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+    }
 }
 
 @end

@@ -12,7 +12,29 @@
 "field": "sender_id",
 "hint": "请选择寄件人地址",
 "type": "81",
+"required": "1",
+"combination_arr":[
+{
+"name": "收",
+"field": "addressee_id",
+"hint": "请选择收件人地址",
+"type": "7",
 "required": "1"
+},
+{
+"name": "收",
+"field": "addressee_id",
+"hint": "请选择收件人地址",
+"type": "7",
+"required": "1"
+},
+{
+"name": "收",
+"field": "addressee_id",
+"hint": "请选择收件人地址",
+"type": "7",
+"required": "1"
+}]
 },
 {
 "name": "收",

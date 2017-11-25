@@ -30,7 +30,7 @@ const NSInteger simpleButtonRowCount=4;
 {
     if(count==0)
     {
-        return 0;;
+        return 1;
     }
     NSInteger rows=count/simpleButtonRowCount;
     if (count%simpleButtonRowCount>0) {
@@ -77,6 +77,12 @@ const NSInteger simpleButtonRowCount=4;
         imageView.contentMode=UIViewContentModeCenter;
         imageView.image=img;
         [bbg addSubview:imageView];
+        
+        if(!img)
+        {
+            imageView.contentMode=UIViewContentModeScaleAspectFit;
+            [imageView sd_setImageWithURL:[NSURL URLWithString:mo.imageName]];
+        }
         
         if (mo.circledImage) {
             UIView* circle=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageHeight+4, imageHeight+4)];

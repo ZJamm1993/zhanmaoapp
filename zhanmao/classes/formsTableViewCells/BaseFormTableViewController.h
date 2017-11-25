@@ -19,6 +19,7 @@
 #import "TitleSwitchTableViewCell.h"
 #import "TitleAddressSeletectTableViewCell.h"
 #import "TitleNoneImageTableViewCell.h"
+#import "TitleDoubleSelectionTableViewCell.h"
 
 #import "FormHttpTool.h"
 
@@ -33,9 +34,13 @@
 @property (nonatomic,strong) BaseFormStep* currentStep;
 @property (nonatomic,strong) BaseFormStepsModel* formSteps;
 
+@property (nonatomic,strong) NSDictionary* prefixValues;
+
 -(void)loadFormJson;
 
 -(void)valueChanged;
 -(void)submit;
+
++(NSString*)cellNibNameForFormType:(BaseFormType)type;
 
 @end

@@ -155,22 +155,36 @@
 -(NSDictionary*)parameters
 {
     NSMutableDictionary* dic=[NSMutableDictionary dictionary];
-    for (BaseFormStep* st in self.steps) {
-        for (BaseFormSection* sections in st.sections) {
-            for (BaseFormModel* mo in sections.models) {
-                if (mo.field.length>0&&mo.value.length>0) {
-                    [dic setValue:mo.value forKey:mo.field];
-                }
-                for(BaseFormModel* smo in mo.combination_arr)
-                {
-                    if (smo.field.length>0&&smo.value.length>0) {
-                        [dic setValue:smo.value forKey:smo.field];
-                    }
-                }
-            }
+    NSArray* alls=[self allModels];
+    for (BaseFormModel* mo in alls) {
+        if (mo.field.length>0&&mo.value.length>0) {
+            [dic setValue:mo.value forKey:mo.field];
         }
     }
     return dic;
+}
+
+-(NSArray*)allModels
+{
+    NSMutableArray* arr=[NSMutableArray array];
+    
+    for (BaseFormStep* st in self.steps) {
+        for (BaseFormSection* sections in st.sections) {
+            for (BaseFormModel* mo in sections.models) {
+                [self findModels:arr inModel:mo];
+            }
+        }
+    }
+    
+    return arr;
+}
+
+-(void)findModels:(NSMutableArray*)models inModel:(BaseFormModel*)model
+{
+    [models addObject:model];
+    for (BaseFormModel* mo in model.combination_arr) {
+        [self findModels:models inModel:mo];
+    }
 }
 
 @end

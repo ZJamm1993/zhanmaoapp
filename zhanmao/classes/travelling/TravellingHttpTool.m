@@ -34,12 +34,13 @@
     }];
 }
 
-+(void)getServiceProviderPage:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
++(void)getServiceProviderType:(NSInteger)type page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
 {
     
-    NSDictionary* par=[self pageParamsWithPage:page size:pagesize];
+    NSMutableDictionary* par=[self pageParamsWithPage:page size:pagesize];
+    [par setValue:[NSNumber numberWithInteger:type] forKey:@"type"];
     
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/service"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/travel_service"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
         NSDictionary* data=[dict valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];

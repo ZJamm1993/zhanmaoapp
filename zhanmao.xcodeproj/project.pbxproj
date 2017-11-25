@@ -29,6 +29,27 @@
 		8E31F46F1FC7EAF300373437 /* MainMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F46E1FC7EAF300373437 /* MainMsgModel.m */; };
 		8E31F4721FC7FF9200373437 /* TravellingHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4711FC7FF9200373437 /* TravellingHttpTool.m */; };
 		8E31F4761FC800BE00373437 /* TravellingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4751FC800BE00373437 /* TravellingModel.m */; };
+		8E31F4791FC8FAC700373437 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F4781FC8FAC700373437 /* AlipaySDK.framework */; };
+		8E31F47B1FC8FB2E00373437 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F47A1FC8FB2E00373437 /* libc++.tbd */; };
+		8E31F47D1FC8FB3500373437 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F47C1FC8FB3500373437 /* libz.tbd */; };
+		8E31F47F1FC8FB3D00373437 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F47E1FC8FB3D00373437 /* SystemConfiguration.framework */; };
+		8E31F4811FC8FB4500373437 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F4801FC8FB4500373437 /* CoreTelephony.framework */; };
+		8E31F4831FC8FB4B00373437 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F4821FC8FB4B00373437 /* QuartzCore.framework */; };
+		8E31F4851FC8FB5300373437 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F4841FC8FB5300373437 /* CoreText.framework */; };
+		8E31F4871FC8FB5C00373437 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F4861FC8FB5C00373437 /* CoreGraphics.framework */; };
+		8E31F4891FC8FB6400373437 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F4881FC8FB6400373437 /* UIKit.framework */; };
+		8E31F48B1FC8FB6A00373437 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F48A1FC8FB6A00373437 /* Foundation.framework */; };
+		8E31F48D1FC8FB7000373437 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F48C1FC8FB7000373437 /* CFNetwork.framework */; };
+		8E31F48F1FC8FB7900373437 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F48E1FC8FB7900373437 /* CoreMotion.framework */; };
+		8E31F4921FC8FD2B00373437 /* ZZPayTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4911FC8FD2B00373437 /* ZZPayTool.m */; };
+		8E31F4991FC9011300373437 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F4941FC9011300373437 /* libWeChatSDK.a */; };
+		8E31F49A1FC9011300373437 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E31F4951FC9011300373437 /* README.txt */; };
+		8E31F49C1FC9060300373437 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F49B1FC9060300373437 /* libsqlite3.0.tbd */; };
+		8E31F49E1FC90B4700373437 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E31F49D1FC90B4700373437 /* Security.framework */; };
+		8E31F4A21FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4A01FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.m */; };
+		8E31F4A31FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E31F4A11FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib */; };
+		8E31F4A61FC9543600373437 /* ProductCreateOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4A51FC9543600373437 /* ProductCreateOrderTableViewController.m */; };
+		8E31F4A91FC96B8200373437 /* RentNewOrderPriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4A81FC96B8200373437 /* RentNewOrderPriceTableViewCell.m */; };
 		8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */; };
 		8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */; };
 		8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */; };
@@ -234,6 +255,34 @@
 		8E31F4711FC7FF9200373437 /* TravellingHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravellingHttpTool.m; sourceTree = "<group>"; };
 		8E31F4741FC800BE00373437 /* TravellingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravellingModel.h; sourceTree = "<group>"; };
 		8E31F4751FC800BE00373437 /* TravellingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravellingModel.m; sourceTree = "<group>"; };
+		8E31F4781FC8FAC700373437 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		8E31F47A1FC8FB2E00373437 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8E31F47C1FC8FB3500373437 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8E31F47E1FC8FB3D00373437 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8E31F4801FC8FB4500373437 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8E31F4821FC8FB4B00373437 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8E31F4841FC8FB5300373437 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		8E31F4861FC8FB5C00373437 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8E31F4881FC8FB6400373437 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8E31F48A1FC8FB6A00373437 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8E31F48C1FC8FB7000373437 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8E31F48E1FC8FB7900373437 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		8E31F4901FC8FD2B00373437 /* ZZPayTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPayTool.h; sourceTree = "<group>"; };
+		8E31F4911FC8FD2B00373437 /* ZZPayTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPayTool.m; sourceTree = "<group>"; };
+		8E31F4941FC9011300373437 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		8E31F4951FC9011300373437 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		8E31F4961FC9011300373437 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		8E31F4971FC9011300373437 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		8E31F4981FC9011300373437 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		8E31F49B1FC9060300373437 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		8E31F49D1FC90B4700373437 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8E31F49F1FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleDoubleSelectionTableViewCell.h; sourceTree = "<group>"; };
+		8E31F4A01FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleDoubleSelectionTableViewCell.m; sourceTree = "<group>"; };
+		8E31F4A11FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleDoubleSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		8E31F4A41FC9543600373437 /* ProductCreateOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCreateOrderTableViewController.h; sourceTree = "<group>"; };
+		8E31F4A51FC9543600373437 /* ProductCreateOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCreateOrderTableViewController.m; sourceTree = "<group>"; };
+		8E31F4A71FC96B8200373437 /* RentNewOrderPriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentNewOrderPriceTableViewCell.h; sourceTree = "<group>"; };
+		8E31F4A81FC96B8200373437 /* RentNewOrderPriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentNewOrderPriceTableViewCell.m; sourceTree = "<group>"; };
 		8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
 		8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewController.m; sourceTree = "<group>"; };
 		8E3779CE1FA7195B00A3BBEB /* MyPageButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageButtonTableViewCell.h; sourceTree = "<group>"; };
@@ -537,7 +586,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E31F49E1FC90B4700373437 /* Security.framework in Frameworks */,
+				8E31F49C1FC9060300373437 /* libsqlite3.0.tbd in Frameworks */,
+				8E31F4991FC9011300373437 /* libWeChatSDK.a in Frameworks */,
+				8E31F48F1FC8FB7900373437 /* CoreMotion.framework in Frameworks */,
+				8E31F48D1FC8FB7000373437 /* CFNetwork.framework in Frameworks */,
+				8E31F48B1FC8FB6A00373437 /* Foundation.framework in Frameworks */,
+				8E31F4891FC8FB6400373437 /* UIKit.framework in Frameworks */,
+				8E31F4871FC8FB5C00373437 /* CoreGraphics.framework in Frameworks */,
+				8E31F4851FC8FB5300373437 /* CoreText.framework in Frameworks */,
+				8E31F4831FC8FB4B00373437 /* QuartzCore.framework in Frameworks */,
+				8E31F4811FC8FB4500373437 /* CoreTelephony.framework in Frameworks */,
+				8E31F47F1FC8FB3D00373437 /* SystemConfiguration.framework in Frameworks */,
+				8E31F47D1FC8FB3500373437 /* libz.tbd in Frameworks */,
+				8E31F47B1FC8FB2E00373437 /* libc++.tbd in Frameworks */,
 				8EEF09231FB98168004ED5F0 /* CoreLocation.framework in Frameworks */,
+				8E31F4791FC8FAC700373437 /* AlipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +651,26 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		8E31F4771FC8FABD00373437 /* AlipaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				8E31F4781FC8FAC700373437 /* AlipaySDK.framework */,
+			);
+			path = AlipaySDK;
+			sourceTree = "<group>";
+		};
+		8E31F4931FC9011300373437 /* WeChatPaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				8E31F4941FC9011300373437 /* libWeChatSDK.a */,
+				8E31F4951FC9011300373437 /* README.txt */,
+				8E31F4961FC9011300373437 /* WechatAuthSDK.h */,
+				8E31F4971FC9011300373437 /* WXApi.h */,
+				8E31F4981FC9011300373437 /* WXApiObject.h */,
+			);
+			path = WeChatPaySDK;
+			sourceTree = "<group>";
+		};
 		8E6C73F61F9D9983004B33D1 /* form */ = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +718,9 @@
 				8E31F4641FC7BD5C00373437 /* TitleNoneImageTableViewCell.h */,
 				8E31F4651FC7BD5C00373437 /* TitleNoneImageTableViewCell.m */,
 				8E31F4661FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib */,
+				8E31F49F1FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.h */,
+				8E31F4A01FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.m */,
+				8E31F4A11FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -658,6 +745,8 @@
 				8EDBF4F31FA1E5660073F37D /* ProductSearchTableViewController.m */,
 				8E24D1B31FC523AF00A437A0 /* ProductWebDetailViewController.h */,
 				8E24D1B41FC523AF00A437A0 /* ProductWebDetailViewController.m */,
+				8E31F4A41FC9543600373437 /* ProductCreateOrderTableViewController.h */,
+				8E31F4A51FC9543600373437 /* ProductCreateOrderTableViewController.m */,
 			);
 			path = onlineRent;
 			sourceTree = "<group>";
@@ -685,6 +774,8 @@
 				8EA9E5591FB19368003815B7 /* RentActionEditView.h */,
 				8EA9E55A1FB19368003815B7 /* RentActionEditView.m */,
 				8EA9E55C1FB1937A003815B7 /* RentActionEditView.xib */,
+				8E31F4A71FC96B8200373437 /* RentNewOrderPriceTableViewCell.h */,
+				8E31F4A81FC96B8200373437 /* RentNewOrderPriceTableViewCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -891,6 +982,8 @@
 		8E99A9D51F9068920078C452 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				8E31F4931FC9011300373437 /* WeChatPaySDK */,
+				8E31F4771FC8FABD00373437 /* AlipaySDK */,
 				8E99A9DA1F9068920078C452 /* Foundation+Log.m */,
 				8E99AAC51F906B190078C452 /* ZZnotificationName.h */,
 				8E99AAC61F906B190078C452 /* ZZnotificationName.m */,
@@ -905,6 +998,8 @@
 				8E99AA1F1F9068920078C452 /* ZZUrlTool.m */,
 				8E9B00221FB3FC9600B29188 /* ZZModel.h */,
 				8E9B00231FB3FC9600B29188 /* ZZModel.m */,
+				8E31F4901FC8FD2B00373437 /* ZZPayTool.h */,
+				8E31F4911FC8FD2B00373437 /* ZZPayTool.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -1153,6 +1248,19 @@
 		8EEF09211FB98168004ED5F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E31F49D1FC90B4700373437 /* Security.framework */,
+				8E31F49B1FC9060300373437 /* libsqlite3.0.tbd */,
+				8E31F48E1FC8FB7900373437 /* CoreMotion.framework */,
+				8E31F48C1FC8FB7000373437 /* CFNetwork.framework */,
+				8E31F48A1FC8FB6A00373437 /* Foundation.framework */,
+				8E31F4881FC8FB6400373437 /* UIKit.framework */,
+				8E31F4861FC8FB5C00373437 /* CoreGraphics.framework */,
+				8E31F4841FC8FB5300373437 /* CoreText.framework */,
+				8E31F4821FC8FB4B00373437 /* QuartzCore.framework */,
+				8E31F4801FC8FB4500373437 /* CoreTelephony.framework */,
+				8E31F47E1FC8FB3D00373437 /* SystemConfiguration.framework */,
+				8E31F47C1FC8FB3500373437 /* libz.tbd */,
+				8E31F47A1FC8FB2E00373437 /* libc++.tbd */,
 				8EEF09221FB98168004ED5F0 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
@@ -1246,6 +1354,7 @@
 				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				8E24D1B21FC521E900A437A0 /* hhh.html in Resources */,
+				8E31F49A1FC9011300373437 /* README.txt in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
 				8EF7E6C71FBE7B15003C6FB4 /* 2.txt in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
@@ -1263,6 +1372,7 @@
 				8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
+				8E31F4A31FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib in Resources */,
 				8E6C74031F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.xib in Resources */,
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
 				8EF7E6C51FBE7AFD003C6FB4 /* 1.txt in Resources */,
@@ -1318,6 +1428,7 @@
 				8E6C74101F9DBD9E004B33D1 /* BaseFormTableViewController.m in Sources */,
 				8EB674ED1F99F523008CC196 /* MyPageSimpleTableViewCell.m in Sources */,
 				8E2E408E1F9459F500B42477 /* BaseViewController.m in Sources */,
+				8E31F4A61FC9543600373437 /* ProductCreateOrderTableViewController.m in Sources */,
 				8E99AAB21F9068920078C452 /* UIImage+WebP.m in Sources */,
 				8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */,
 				8EDBF4E41FA1B47C0073F37D /* TransportOrderTableViewCell.m in Sources */,
@@ -1336,6 +1447,7 @@
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
 				8E9B0CD51FAAC25C00770F8D /* CleanOrderPagerViewController.m in Sources */,
 				8E6C74981FA03E9B004B33D1 /* ProductParameterTableViewCell.m in Sources */,
+				8E31F4921FC8FD2B00373437 /* ZZPayTool.m in Sources */,
 				8E72E9DD1FB2D744001FCD31 /* AddressModel.m in Sources */,
 				8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */,
 				8EDCF5C41FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m in Sources */,
@@ -1377,6 +1489,7 @@
 				8E99AAC41F9069AC0078C452 /* TabbarController.m in Sources */,
 				8E6C74131F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m in Sources */,
 				8E99AAA71F9068920078C452 /* SDImageCache.m in Sources */,
+				8E31F4A91FC96B8200373437 /* RentNewOrderPriceTableViewCell.m in Sources */,
 				8E99AAAA1F9068920078C452 /* SDWebImageDecoder.m in Sources */,
 				8ED4015A1FBA89230097A395 /* CalculateFeesView.m in Sources */,
 				8E6705851FC06FAF001E300E /* AddressAddNewFormTableViewController.m in Sources */,
@@ -1416,6 +1529,7 @@
 				8E6C73FE1F9D9B18004B33D1 /* FormBaseTableViewCell.m in Sources */,
 				8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */,
 				8E31F4671FC7BD5C00373437 /* TitleNoneImageTableViewCell.m in Sources */,
+				8E31F4A21FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.m in Sources */,
 				8E31F4761FC800BE00373437 /* TravellingModel.m in Sources */,
 				8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */,
 				8E99AA451F9068920078C452 /* ZZSearchBar.m in Sources */,
@@ -1545,6 +1659,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/UMMobClick",
+					"$(PROJECT_DIR)/zhanmao/classes/tool/AlipaySDK",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhanmao/PrefixHeader.pch";
 				INFOPLIST_FILE = zhanmao/Info.plist;
@@ -1553,6 +1668,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatOpenSDK1.7.8",
+					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatPaySDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1569,6 +1685,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/UMMobClick",
+					"$(PROJECT_DIR)/zhanmao/classes/tool/AlipaySDK",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhanmao/PrefixHeader.pch";
 				INFOPLIST_FILE = zhanmao/Info.plist;
@@ -1577,6 +1694,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatOpenSDK1.7.8",
+					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatPaySDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";

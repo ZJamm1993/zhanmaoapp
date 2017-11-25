@@ -8,6 +8,8 @@
 
 #import "ZZModel.h"
 
+#define RentGoodPriceUnit @"周期(4天)"
+
 @interface RentClass : BaseModel
 
 @end

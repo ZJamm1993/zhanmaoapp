@@ -63,6 +63,7 @@
                     NSStringFromClass([TitleSwitchTableViewCell class]),
                     NSStringFromClass([TitleAddressSeletectTableViewCell class]),
                     NSStringFromClass([TitleNoneImageTableViewCell class]),
+                    NSStringFromClass([TitleDoubleSelectionTableViewCell class]),
                   nil];
     
     for (NSString* nibName in nibsToRegister) {
@@ -229,8 +230,34 @@
         [submitButton setTitle:@"下一步" forState:UIControlStateNormal];
     }
     
+    [self prefixValuesIfNeed];
+    
     [self.tableView reloadData];
+    
+    [self valueChanged];
 }
+
+-(void)prefixValuesIfNeed
+{
+    if ([self.prefixValues respondsToSelector:@selector(allKeys)]) {
+        NSArray* allModels=[self.formSteps allModels];
+        NSArray* allKeys=self.prefixValues.allKeys;
+        for (BaseFormModel* mo in allModels) {
+            NSString* field=mo.field;
+            if ([allKeys containsObject:field]) {
+                NSString* value=[self.prefixValues valueForKey:field];
+                mo.value=value;
+            }
+        }
+    }
+}
+
+//#warning test prefix value
+//
+//-(NSDictionary*)prefixValues
+//{
+//    return [NSDictionary dictionaryWithObject:@"abcdefg" forKey:@"name"];
+//}
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 //{
@@ -269,43 +296,7 @@
     BaseFormSection* sectio=[self.currentStep.sections objectAtIndex:section];
     BaseFormModel* model=[sectio.models objectAtIndex:row];
     
-    NSString* nibName=@"";
-    if (model.type==BaseFormTypeNormal||model.type==BaseFormTypeNormalUnit)
-    {
-        nibName=NSStringFromClass([TitleTextFieldTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeLargeField)
-    {
-        nibName=NSStringFromClass([TitleTextViewTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeDatePicker||model.type==BaseFormTypeDateTimePicker||model.type==BaseFormTypeDateScopePicker||model.type==BaseFormTypeSingleChoice||model.type==BaseFormTypeProviceCityDistrict)
-    {
-        nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeMutiChoice)
-    {
-        nibName=NSStringFromClass([TitleMutiSelectionTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeStepDescription)
-    {
-        nibName=NSStringFromClass([TitleDescriptionTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeCalculateArea||model.type==BaseFormTypeCalculateSize)
-    {
-        nibName=NSStringFromClass([TitleAreaCalculationTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeSwitchCheck)
-    {
-        nibName=NSStringFromClass([TitleSwitchTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeAddressSelection)
-    {
-        nibName=NSStringFromClass([TitleAddressSeletectTableViewCell class]);
-    }
-    else if(model.type==BaseFormTypeImage)
-    {
-        nibName=NSStringFromClass([TitleNoneImageTableViewCell class]);
-    }
+    NSString* nibName=[BaseFormTableViewController cellNibNameForFormType:model.type];
     
     if (![nibsToRegister containsObject:nibName]) {
         return [[FormBaseTableViewCell alloc]init];
@@ -414,6 +405,52 @@
             [MBProgressHUD showErrorMessage:@"网络不通"];
         }];
     }
+}
+
++(NSString*)cellNibNameForFormType:(BaseFormType)type
+{
+    NSString* nibName=@"";
+    if (type==BaseFormTypeNormal||type==BaseFormTypeNormalUnit)
+    {
+        nibName=NSStringFromClass([TitleTextFieldTableViewCell class]);
+    }
+    else if(type==BaseFormTypeLargeField)
+    {
+        nibName=NSStringFromClass([TitleTextViewTableViewCell class]);
+    }
+    else if(type==BaseFormTypeDatePicker||type==BaseFormTypeDateTimePicker||type==BaseFormTypeDateScopePicker||type==BaseFormTypeSingleChoice||type==BaseFormTypeProviceCityDistrict)
+    {
+        nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
+    }
+    else if(type==BaseFormTypeMutiChoice)
+    {
+        nibName=NSStringFromClass([TitleMutiSelectionTableViewCell class]);
+    }
+    else if(type==BaseFormTypeStepDescription)
+    {
+        nibName=NSStringFromClass([TitleDescriptionTableViewCell class]);
+    }
+    else if(type==BaseFormTypeCalculateArea||type==BaseFormTypeCalculateSize)
+    {
+        nibName=NSStringFromClass([TitleAreaCalculationTableViewCell class]);
+    }
+    else if(type==BaseFormTypeSwitchCheck)
+    {
+        nibName=NSStringFromClass([TitleSwitchTableViewCell class]);
+    }
+    else if(type==BaseFormTypeAddressSelection)
+    {
+        nibName=NSStringFromClass([TitleAddressSeletectTableViewCell class]);
+    }
+    else if(type==BaseFormTypeImage)
+    {
+        nibName=NSStringFromClass([TitleNoneImageTableViewCell class]);
+    }
+    else if(type==BaseFormTypeDoubleChoice)
+    {
+        nibName=NSStringFromClass([TitleDoubleSelectionTableViewCell class]);
+    }
+    return nibName;
 }
 
 @end

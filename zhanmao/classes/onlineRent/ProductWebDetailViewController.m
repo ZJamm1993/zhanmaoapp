@@ -8,8 +8,10 @@
 
 #import "ProductWebDetailViewController.h"
 #import "RentCartTableViewController.h"
+#import "ProductCreateOrderTableViewController.h"
 #import "RentActionEditView.h"
 #import "ImageBadgeBarButtonItem.h"
+#import "ZZPayTool.h"
 
 @interface ProductWebDetailViewController ()<RentActionEditViewDelegate>
 {
@@ -97,6 +99,19 @@
             
         }];
     }
+}
+
+-(void)rentActionEditViewRentNow:(RentCartModel *)cartModel
+{
+//    UIAlertController* alert=[ZZPayTool testPayingAlertController];
+//    [self presentViewController:alert animated:YES completion:nil];
+    if (!cartModel) {
+        return;
+    }
+    
+    ProductCreateOrderTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductCreateOrderTableViewController"];
+    rent.cartObjects=[NSArray arrayWithObject:cartModel];
+    [self.navigationController pushViewController:rent animated:YES];
 }
 
 -(void)reEnableButton:(UIButton*)button

@@ -116,7 +116,7 @@ const CGFloat categoriesHeaderHeight=50;
             currentPage=1;
         }
         [self.goodsTableView reloadData];
-        [refreshControl endRefreshing];
+        [refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
     } failure:^(NSError *error) {
         [refreshControl endRefreshing];
     }];

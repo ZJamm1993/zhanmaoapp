@@ -97,7 +97,7 @@ static NSMutableArray* provincesStaticArray;
     picker.sections=sections;
     picker.delegate=picker;
     picker.dataSource=picker;
-    
+    [picker reloadAllComponents];
     return picker;
 }
 
