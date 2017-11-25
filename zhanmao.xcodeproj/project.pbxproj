@@ -1670,6 +1670,7 @@
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatOpenSDK1.7.8",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatPaySDK",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1696,6 +1697,7 @@
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatOpenSDK1.7.8",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatPaySDK",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

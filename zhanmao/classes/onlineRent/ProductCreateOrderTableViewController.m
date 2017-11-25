@@ -99,7 +99,15 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
                 deposit=allDepos;
                 total=rent+deposit;
                 
-                [self.tableView reloadData];
+                NSArray* allVisibleCells=[self.tableView visibleCells];
+                for (UITableViewCell* cel in allVisibleCells) {
+                    if ([cel isKindOfClass:[RentNewOrderPriceTableViewCell class]]) {
+                        RentNewOrderPriceTableViewCell* rentCell=(RentNewOrderPriceTableViewCell*)cel;
+                        rentCell.rent.text=[NSString stringWithFloat:rent headUnit:@"¥" tailUnit:nil];
+                        rentCell.deposit.text=[NSString stringWithFloat:deposit headUnit:@"¥" tailUnit:nil];
+                        rentCell.total.text=[NSString stringWithFloat:total headUnit:@"¥" tailUnit:nil];
+                    }
+                }
             }
             
         }
@@ -257,10 +265,10 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 
 -(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell *)cell
 {
-    if(cell.model.type==BaseFormTypeSingleChoice)
-    {
+//    if(cell.model.type==BaseFormTypeSingleChoice)
+//    {
         [self calculatePrices];
-    }
+//    }
 }
 
 @end
