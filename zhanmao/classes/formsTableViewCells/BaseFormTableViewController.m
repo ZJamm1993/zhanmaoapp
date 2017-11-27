@@ -250,6 +250,8 @@
             }
         }
     }
+    //set nil after using;
+    self.prefixValues=nil;
 }
 
 //#warning test prefix value

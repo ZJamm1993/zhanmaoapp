@@ -10,6 +10,8 @@
 #import "RentCartEditTableViewCell.h"
 #import "RentCartEditToolBar.h"
 
+#import "ProductCreateOrderTableViewController.h"
+
 @interface RentCartTableViewController ()<RentCartEditTableViewCellDelegate>
 
 @end
@@ -137,18 +139,19 @@
 
 -(void)editToolBarAction
 {
-    if (self.editing) {
-        NSMutableArray* arrToDel=[NSMutableArray array];
-        NSMutableArray* indToDel=[NSMutableArray array];
-        for (NSInteger i=0;i<self.dataSource.count;i++) {
-            RentCartModel* mo=[self.dataSource objectAtIndex:i];
-            if(mo.selected==YES)
-            {
-                [arrToDel addObject:mo];
-                NSIndexPath* indexPath=[NSIndexPath indexPathForRow:i inSection:0];
-                [indToDel addObject:indexPath];
-            }
+    NSMutableArray* arrToDel=[NSMutableArray array]; //Models
+    NSMutableArray* indToDel=[NSMutableArray array]; //NSIndexPath
+    for (NSInteger i=0;i<self.dataSource.count;i++) {
+        RentCartModel* mo=[self.dataSource objectAtIndex:i];
+        if(mo.selected==YES)
+        {
+            [arrToDel addObject:mo];
+            NSIndexPath* indexPath=[NSIndexPath indexPathForRow:i inSection:0];
+            [indToDel addObject:indexPath];
         }
+    }
+    if (self.editing) {
+        
         [self.dataSource removeObjectsInArray:arrToDel];
         [RentHttpTool removeRentCarts:arrToDel success:nil failure:nil];
         [self.tableView deleteRowsAtIndexPaths:indToDel withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -156,6 +159,11 @@
     else
     {
         //go to pay
+        if (indToDel.count>0) {
+            ProductCreateOrderTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductCreateOrderTableViewController"];
+            rent.cartObjects=[NSArray arrayWithArray:arrToDel];
+            [self.navigationController pushViewController:rent animated:YES];
+        }
     }
 }
 
