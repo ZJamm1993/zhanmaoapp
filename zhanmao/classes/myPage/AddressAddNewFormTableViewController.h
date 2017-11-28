@@ -7,9 +7,12 @@
 //
 
 #import "BaseFormTableViewController.h"
+#import "MyPageHttpTool.h"
 
 #define AddressAddNewNotification @"AddressAddNewNotification"
 
 @interface AddressAddNewFormTableViewController : BaseFormTableViewController
+
+@property (nonatomic,strong) AddressModel* editAddress;
 
 @end

@@ -291,7 +291,7 @@
                                                 <color key="titleColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="deleteClick:" destination="cu6-Vl-1Vj" eventType="touchUpOutside" id="kM5-rC-IiI"/>
+                                                <action selector="deleteClick:" destination="cu6-Vl-1Vj" eventType="touchUpInside" id="drW-jO-d2c"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cML-Gd-269">
@@ -301,7 +301,7 @@
                                                 <color key="titleColor" white="0.40000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="editClick:" destination="cu6-Vl-1Vj" eventType="touchUpOutside" id="awp-IC-7pJ"/>
+                                                <action selector="editClick:" destination="cu6-Vl-1Vj" eventType="touchUpInside" id="UxK-qB-3za"/>
                                             </connections>
                                         </button>
                                     </subviews>

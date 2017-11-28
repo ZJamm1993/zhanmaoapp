@@ -7,7 +7,6 @@
 //
 
 #import "AddressAddNewFormTableViewController.h"
-#import "MyPageHttpTool.h"
 
 @interface AddressAddNewFormTableViewController ()
 
@@ -89,6 +88,17 @@
     
     section2.models=[NSArray arrayWithObjects:classic, nil];
     
+    if (self.editAddress) {
+        name.value=self.editAddress.addressee;
+        phone.value=self.editAddress.phone;
+        province.value=self.editAddress.province;
+        city.value=self.editAddress.city;
+        district.value=self.editAddress.district;
+        detail.value=self.editAddress.address;
+        classic.value=self.editAddress.classic?@"1":@"0";
+        address.value=[NSString stringWithFormat:@"%@%@%@",province.value,city.value,district.value];
+    }
+    
     self.formSteps=steps;
     [self.tableView reloadData];
 }
@@ -113,13 +123,23 @@
     NSLog(@"%@",paras);
     
     NSString* token=[[UserModel getUser]access_token];
+    BOOL edit=(self.editAddress!=nil);
+    
+    if (edit) {
+        [paras setValue:self.editAddress.idd forKey:@"id"];
+    }
+    
     if (token.length>0) {
         [paras setValue:token forKey:@"access_token"];
-        [MyPageHttpTool postNewAddressParam:paras success:^(BOOL result, NSString *msg) {
+        [MBProgressHUD showProgressMessage:@"正在提交..."];
+        [MyPageHttpTool postNewAddressEdit:edit param:paras success:^(BOOL result, NSString *msg, NSString* idd) {
             if (result) {
                 [MBProgressHUD showSuccessMessage:msg];
                 [self.navigationController popViewControllerAnimated:YES];
-                
+                if(!edit)
+                {
+                    [paras setValue:idd forKey:@"id"];
+                }
                 [[NSNotificationCenter defaultCenter]postNotificationName:AddressAddNewNotification object:nil userInfo:paras];
             }
             else

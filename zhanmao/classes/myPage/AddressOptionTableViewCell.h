@@ -7,11 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddressModel.h"
+
+typedef NS_ENUM(NSInteger,AddressOptionAction)
+{
+    AddressOptionActionDefault,
+    AddressOptionActionEdit,
+    AddressOptionActionDelete,
+};
+
+@class AddressOptionTableViewCell;
+
+@protocol AddressOptionTableViewCellDelegate <NSObject>
+
+-(void)addressOtionTableViewCell:(AddressOptionTableViewCell*)cell doAction:(AddressOptionAction)action;
+
+@end
 
 @interface AddressOptionTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *defaulButton;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+
+@property (nonatomic,strong) AddressModel* model;
+
+@property (weak,nonatomic) id<AddressOptionTableViewCellDelegate>delegate;
 
 @end

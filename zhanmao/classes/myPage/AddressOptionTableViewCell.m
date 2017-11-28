@@ -23,13 +23,24 @@
 }
 
 - (IBAction)defaultClick:(id)sender {
-    self.defaulButton.selected=!self.defaulButton.selected;
+//    self.defaulButton.selected=!self.defaulButton.selected;
+//    self.defaulButton.selected=YES;
+    [self doAction:AddressOptionActionDefault];
 }
 
 - (IBAction)deleteClick:(id)sender {
+    [self doAction:AddressOptionActionDelete];
 }
 
 - (IBAction)editClick:(id)sender {
+    [self doAction:AddressOptionActionEdit];
+}
+     
+-(void)doAction:(AddressOptionAction)action
+{
+    if ([self.delegate respondsToSelector:@selector(addressOtionTableViewCell:doAction:)]) {
+        [self.delegate addressOtionTableViewCell:self doAction:action];
+    }
 }
 
 @end
