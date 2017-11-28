@@ -33,11 +33,26 @@
         add.address=[NSString stringWithFormat:@"guang%dzhouguang%dzhouguang%dzhouguang%dzhou",i,i,i,i];
         [self.dataSource addObject:add];
     }
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addressDidAddNewNotification:) name:AddressAddNewNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)addressDidAddNewNotification:(NSNotification*)notification
+{
+    NSDictionary* usr=notification.userInfo;
+    AddressModel* added=[[AddressModel alloc]initWithDictionary:usr];
+    if(added.idd.length==0)
+    {
+        added.idd=[NSString stringWithFormat:@"%ld",(long)[[NSDate date]timeIntervalSince1970]];
+    }
+    [self.dataSource insertObject:added atIndex:0];
+    
+    [self.tableView reloadData];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -63,6 +78,7 @@
     else if(indexPath.row==1)
     {
         AddressOptionTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"AddressOptionTableViewCell" forIndexPath:indexPath];
+        cell.defaulButton.selected=add.classic;
         return cell;
     }
     return [[UITableViewCell alloc]init];

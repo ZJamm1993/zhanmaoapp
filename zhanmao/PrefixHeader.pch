@@ -31,6 +31,8 @@
 #import "FormBaseTableViewCell.h"
 #import "CorneredImageView.h"
 
+#import "UserModel.h"
+
 //UIcolors
 
 #define rgba(a, b, c, d) ([UIColor colorWithRed:(a/255.0) green:(b/255.0) blue:(c/255.0) alpha:d])

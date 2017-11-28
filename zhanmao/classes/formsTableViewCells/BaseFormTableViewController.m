@@ -334,6 +334,7 @@
 
 -(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell *)cell
 {
+    NSLog(@"%@ valueChanged?",cell);
     [self valueChanged];
 }
 

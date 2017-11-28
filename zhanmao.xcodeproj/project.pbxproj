@@ -50,11 +50,11 @@
 		8E31F4A31FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E31F4A11FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib */; };
 		8E31F4A61FC9543600373437 /* ProductCreateOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4A51FC9543600373437 /* ProductCreateOrderTableViewController.m */; };
 		8E31F4A91FC96B8200373437 /* RentNewOrderPriceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E31F4A81FC96B8200373437 /* RentNewOrderPriceTableViewCell.m */; };
+		8E36FEBB1FCD3C56003CAEC5 /* MyPageHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E36FEBA1FCD3C56003CAEC5 /* MyPageHttpTool.m */; };
 		8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */; };
 		8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */; };
 		8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */; };
 		8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */; };
-		8E6705821FC06EDF001E300E /* address.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E6705811FC06EDF001E300E /* address.txt */; };
 		8E6705851FC06FAF001E300E /* AddressAddNewFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6705841FC06FAF001E300E /* AddressAddNewFormTableViewController.m */; };
 		8E69ECAC1FC1642400EEEC67 /* CitySelectionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */; };
 		8E69ECAE1FC16A9600EEEC67 /* cityJson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */; };
@@ -283,6 +283,8 @@
 		8E31F4A51FC9543600373437 /* ProductCreateOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCreateOrderTableViewController.m; sourceTree = "<group>"; };
 		8E31F4A71FC96B8200373437 /* RentNewOrderPriceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentNewOrderPriceTableViewCell.h; sourceTree = "<group>"; };
 		8E31F4A81FC96B8200373437 /* RentNewOrderPriceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentNewOrderPriceTableViewCell.m; sourceTree = "<group>"; };
+		8E36FEB91FCD3C56003CAEC5 /* MyPageHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHttpTool.h; sourceTree = "<group>"; };
+		8E36FEBA1FCD3C56003CAEC5 /* MyPageHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHttpTool.m; sourceTree = "<group>"; };
 		8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySettingTableViewController.h; sourceTree = "<group>"; };
 		8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySettingTableViewController.m; sourceTree = "<group>"; };
 		8E3779CE1FA7195B00A3BBEB /* MyPageButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageButtonTableViewCell.h; sourceTree = "<group>"; };
@@ -290,7 +292,6 @@
 		8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageButtonTableViewCell.xib; sourceTree = "<group>"; };
 		8E4E23D61FBBF0CB00C394E0 /* MainPageHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageHttpTool.h; sourceTree = "<group>"; };
 		8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageHttpTool.m; sourceTree = "<group>"; };
-		8E6705811FC06EDF001E300E /* address.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = address.txt; sourceTree = "<group>"; };
 		8E6705831FC06FAF001E300E /* AddressAddNewFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAddNewFormTableViewController.h; sourceTree = "<group>"; };
 		8E6705841FC06FAF001E300E /* AddressAddNewFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAddNewFormTableViewController.m; sourceTree = "<group>"; };
 		8E69ECAA1FC1642400EEEC67 /* CitySelectionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySelectionPicker.h; sourceTree = "<group>"; };
@@ -1084,7 +1085,6 @@
 				8E9B0CC01FA964E700770F8D /* AddressOptionTableViewCell.m */,
 				8E72E9DB1FB2D744001FCD31 /* AddressModel.h */,
 				8E72E9DC1FB2D744001FCD31 /* AddressModel.m */,
-				8E6705811FC06EDF001E300E /* address.txt */,
 				8E6705831FC06FAF001E300E /* AddressAddNewFormTableViewController.h */,
 				8E6705841FC06FAF001E300E /* AddressAddNewFormTableViewController.m */,
 			);
@@ -1159,6 +1159,8 @@
 				8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */,
 				8EFC802A1FBC32F4001CF3BF /* MyLoginViewController.h */,
 				8EFC802B1FBC32F4001CF3BF /* MyLoginViewController.m */,
+				8E36FEB91FCD3C56003CAEC5 /* MyPageHttpTool.h */,
+				8E36FEBA1FCD3C56003CAEC5 /* MyPageHttpTool.m */,
 			);
 			path = myPage;
 			sourceTree = "<group>";
@@ -1347,7 +1349,6 @@
 				8EF7E6C91FBE7B29003C6FB4 /* 3.txt in Resources */,
 				8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */,
 				8E69ECAE1FC16A9600EEEC67 /* cityJson.txt in Resources */,
-				8E6705821FC06EDF001E300E /* address.txt in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
 				8EFC80311FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib in Resources */,
 				8EF7E6CB1FBE7B44003C6FB4 /* 4.txt in Resources */,
@@ -1406,6 +1407,7 @@
 				8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */,
 				8E99AAB31F9068920078C452 /* UIImageView+HighlightedWebCache.m in Sources */,
 				8EB674F11F99F85D008CC196 /* MyPageCellModel.m in Sources */,
+				8E36FEBB1FCD3C56003CAEC5 /* MyPageHttpTool.m in Sources */,
 				8EB674C31F973818008CC196 /* BaseTableViewController.m in Sources */,
 				8E99AAA61F9068920078C452 /* NSImage+WebCache.m in Sources */,
 				8E99AAA91F9068920078C452 /* SDWebImageCompat.m in Sources */,
@@ -1655,6 +1657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9J7GGU5G9G;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",
@@ -1681,7 +1684,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9J7GGU5G9G;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",

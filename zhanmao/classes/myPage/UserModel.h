@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger,UserType)
-{
-    UserTypeNormal=3,
-    UserTypeDealer=2,
-};
-
 @interface UserModel : NSObject
 
 +(void)saveUser:(UserModel*)user;
@@ -32,6 +26,5 @@ typedef NS_ENUM(NSInteger,UserType)
 @property (nonatomic,strong) NSString* user_login;
 @property (nonatomic,strong) NSString* access_token;
 @property (nonatomic,strong) NSString* avatar;
-@property (nonatomic,assign) UserType type;
 
 @end

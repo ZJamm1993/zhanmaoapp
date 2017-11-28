@@ -8,6 +8,8 @@
 
 #import "BaseFormTableViewController.h"
 
+#define AddressAddNewNotification @"AddressAddNewNotification"
+
 @interface AddressAddNewFormTableViewController : BaseFormTableViewController
 
 @end

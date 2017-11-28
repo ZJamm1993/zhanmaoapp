@@ -23,7 +23,7 @@
         _avatar=[dictionary valueForKey:@"avatar"];
         _mobile=[dictionary valueForKey:@"mobile"];
         _idd=[dictionary valueForKey:@"id"];
-        _type=[[dictionary valueForKey:@"user_type"]integerValue];
+//        _type=[[dictionary valueForKey:@"user_type"]integerValue];
         _user_login=[dictionary valueForKey:@"user_login"];
     }
     
@@ -46,7 +46,6 @@
     [d setValue:user.avatar forKey:@"avatar"];
     [d setValue:user.mobile forKey:@"mobile"];
     [d setValue:user.idd forKey:@"id"];
-    [d setValue:[NSNumber numberWithInteger:user.type] forKey:@"user_type"];
     [d setValue:user.user_login forKey:@"user_login"];
     
     NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
@@ -56,6 +55,12 @@
 
 +(instancetype)getUser
 {
+#warning test user token
+    
+    UserModel* testUser=[[UserModel alloc]init];
+    testUser.access_token=@"123";
+    return testUser;
+    
     NSData * data=[[NSUserDefaults standardUserDefaults]valueForKey:UserKey];
     if (![data isKindOfClass:[NSData class]]) {
         [self deleteUser];
