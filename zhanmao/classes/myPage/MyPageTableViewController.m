@@ -153,6 +153,7 @@
         [cell setDelegate:self];
         [cell setSimpleButtonsCellDelegate:self];
         cell.headImageView.image=[UIImage imageNamed:@"defaultHeadImage"];
+        cell.loginBg.hidden=NO;
         return cell;
     }
     else
@@ -180,6 +181,38 @@
 //        return;
     }
     [self pushToViewControllerId:mo.identifier];
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+//    [super scrollViewDidScroll:scrollView];
+    
+    if (scrollView==self.tableView) {
+        CGFloat offY=scrollView.contentOffset.y;
+        
+        NSArray* cells=[self.tableView visibleCells];
+        for (UITableViewCell* cell in cells) {
+            if ([cell isKindOfClass:[MyPageHeaderTableViewCell class]]) {
+                MyPageHeaderTableViewCell* headerCell=(MyPageHeaderTableViewCell*)cell;
+                
+                CGFloat topCon=offY;
+                if (topCon>0) {
+                    topCon=0;
+                }
+                headerCell.loginBgTopContraint.constant=topCon;
+                
+//                CGFloat blurAlpha=topCon/-100;
+//                if (blurAlpha>1) {
+//                    blurAlpha=1;
+//                }
+//                if (blurAlpha<0) {
+//                    blurAlpha=0;
+//                }
+//                headerCell.loginBlurBg.alpha=blurAlpha;
+                
+            }
+        }
+    }
 }
 
 #pragma mark SimpleButtonsTableViewCellDelegate

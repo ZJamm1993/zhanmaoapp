@@ -8,6 +8,7 @@
 
 #import "ZZHttpTool.h"
 #import "BaseFormStepsModel.h"
+#import "HallModel.h"
 
 @interface FormHttpTool : ZZHttpTool
 
@@ -16,5 +17,7 @@
 +(BaseFormStepsModel*)stepsFromFileName:(NSString*)fileName;
 
 +(void)postCustomTableListByType:(NSInteger)type params:(NSDictionary*)params success:(void (^)(BOOL result, NSString* msg))success failure:(void(^)(NSError* err))failure;
+
++(void)getHallNames:(void(^)(NSArray* halls))success failure:(void(^)(NSError* err))failure;
 
 @end

@@ -83,7 +83,12 @@ const NSInteger mutiSelectionButtonRowCount=3;
         NSInteger row=i/mutiSelectionButtonRowCount;
         NSInteger sec=i%mutiSelectionButtonRowCount;
         NSString* tit=[titles objectAtIndex:i];
-        
+        if (tit.length>4) {
+            NSInteger cent=tit.length/2;
+            NSMutableString* str=[[NSMutableString alloc]initWithString:tit];
+            [str insertString:@"\n" atIndex:cent];
+            tit=str.description;
+        }
 //        tit=@"全部全部全部全部全部全部全部全部全部全部全部全部全部";
         
         UIButton* btn=[[UIButton alloc]initWithFrame:CGRectMake((widthPerEach+mutiSelectionButtonMarginX)*sec, mutiSelectionButtonMarginY+(heightPerEach+mutiSelectionButtonMarginY)*row, widthPerEach, heightPerEach)];
@@ -92,7 +97,7 @@ const NSInteger mutiSelectionButtonRowCount=3;
         [btn.titleLabel setLineBreakMode:NSLineBreakByClipping];
 //        btn.titleLabel.adjustsFontSizeToFitWidth=YES;
 //        btn.titleLabel.minimumScaleFactor=0;
-//        btn.titleLabel.numberOfLines=2;
+        btn.titleLabel.numberOfLines=2;
         
         [btn addTarget:self action:@selector(buttonClicks:) forControlEvents:UIControlEventTouchUpInside];
         [btn setTitle:tit forState:UIControlStateNormal];
@@ -100,6 +105,8 @@ const NSInteger mutiSelectionButtonRowCount=3;
         [btn setTitleColor:gray_6 forState:UIControlStateNormal];
         [btn.layer setCornerRadius:heightPerEach/2];
         [btn.layer setBorderWidth:0.5];
+        
+        btn.tag=i;
         
         [self addSubview:btn];
     }
@@ -110,7 +117,9 @@ const NSInteger mutiSelectionButtonRowCount=3;
 -(void)buttonClicks:(UIButton*)btn
 {
     [self setButton:btn selected:!btn.selected];
-    NSString* title=[btn titleForState:UIControlStateNormal];
+    NSInteger tag=btn.tag;
+    NSString* title=[self.titles objectAtIndex:tag];
+//    NSString* title=[btn titleForState:UIControlStateNormal];
     if (btn.selected) {
         if (![self.selectedTitles containsObject:title]) {
             [self.selectedTitles addObject:title];
@@ -132,7 +141,8 @@ const NSInteger mutiSelectionButtonRowCount=3;
 {
     for (UIButton* btn in self.subviews) {
         if ([btn isKindOfClass:[UIButton class]]) {
-            NSString* title=[btn titleForState:UIControlStateNormal];
+            NSInteger tag=btn.tag;
+            NSString* title=[self.titles objectAtIndex:tag];
             [self setButton:btn selected:[self.selectedTitles containsObject:title]];
         }
     }

@@ -614,6 +614,20 @@
                                                 <constraint firstAttribute="trailing" secondItem="kps-OG-ips" secondAttribute="trailing" id="ujX-wF-7oH"/>
                                             </constraints>
                                         </view>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0D-64-FaW" userLabel="loggedInBg">
+                                            <rect key="frame" x="0.0" y="-0.5" width="320" height="247"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chicken.png" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-nl-7HJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="hYh-nl-7HJ" firstAttribute="top" secondItem="r0D-64-FaW" secondAttribute="top" id="TPt-j7-0WM"/>
+                                                <constraint firstAttribute="bottom" secondItem="hYh-nl-7HJ" secondAttribute="bottom" id="Uvy-dH-SoD"/>
+                                                <constraint firstItem="hYh-nl-7HJ" firstAttribute="leading" secondItem="r0D-64-FaW" secondAttribute="leading" id="VcQ-9Z-jHx"/>
+                                                <constraint firstAttribute="trailing" secondItem="hYh-nl-7HJ" secondAttribute="trailing" id="hVB-G7-Z77"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnL-sS-5Gn" userLabel="cardBg">
                                             <rect key="frame" x="10" y="227" width="300" height="160.5"/>
                                             <subviews>
@@ -629,32 +643,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="UhM-t8-cPs" secondAttribute="trailing" id="UTL-n0-n34"/>
                                                 <constraint firstItem="UhM-t8-cPs" firstAttribute="top" secondItem="dnL-sS-5Gn" secondAttribute="top" id="YsE-Ma-o2Z"/>
                                                 <constraint firstAttribute="height" constant="160.5" id="bzf-Zh-Wq1"/>
-                                            </constraints>
-                                        </view>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0D-64-FaW" userLabel="loggedInBg">
-                                            <rect key="frame" x="0.0" y="-0.5" width="320" height="247"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-nl-7HJ">
-                                                    <rect key="frame" x="0.0" y="-100" width="320" height="347"/>
-                                                </imageView>
-                                                <visualEffectView opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ujt-0E-jE3">
-                                                    <rect key="frame" x="0.0" y="-100" width="320" height="347"/>
-                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aQ5-Ts-2UA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="347"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    </view>
-                                                    <blurEffect style="dark"/>
-                                                </visualEffectView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="hYh-nl-7HJ" firstAttribute="top" secondItem="r0D-64-FaW" secondAttribute="top" constant="-100" id="TPt-j7-0WM"/>
-                                                <constraint firstAttribute="bottom" secondItem="hYh-nl-7HJ" secondAttribute="bottom" id="Uvy-dH-SoD"/>
-                                                <constraint firstItem="hYh-nl-7HJ" firstAttribute="leading" secondItem="r0D-64-FaW" secondAttribute="leading" id="VcQ-9Z-jHx"/>
-                                                <constraint firstItem="Ujt-0E-jE3" firstAttribute="top" secondItem="hYh-nl-7HJ" secondAttribute="top" id="X7a-V9-deJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="hYh-nl-7HJ" secondAttribute="trailing" id="hVB-G7-Z77"/>
-                                                <constraint firstItem="Ujt-0E-jE3" firstAttribute="trailing" secondItem="hYh-nl-7HJ" secondAttribute="trailing" id="lqt-kA-i7v"/>
-                                                <constraint firstItem="Ujt-0E-jE3" firstAttribute="leading" secondItem="hYh-nl-7HJ" secondAttribute="leading" id="qAr-RB-xCs"/>
-                                                <constraint firstItem="Ujt-0E-jE3" firstAttribute="bottom" secondItem="hYh-nl-7HJ" secondAttribute="bottom" id="za6-Yh-PEd"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTa-MV-o52" userLabel="infoBg">
@@ -767,6 +755,7 @@
                                     <outlet property="headImageView" destination="RA1-BJ-hcQ" id="Wf8-bF-0ec"/>
                                     <outlet property="loginBg" destination="r0D-64-FaW" id="cOt-Gd-WbK"/>
                                     <outlet property="loginBgImage" destination="hYh-nl-7HJ" id="pB5-Tj-Fza"/>
+                                    <outlet property="loginBgTopContraint" destination="7IS-lF-dlc" id="2dl-98-v9z"/>
                                     <outlet property="name" destination="fgh-lK-W9w" id="Kvq-bH-3ki"/>
                                     <outlet property="personalBg" destination="ttF-oz-kdo" id="L1W-0u-FGX"/>
                                     <outlet property="settingButton" destination="bXY-L1-YTa" id="Rvb-eg-4SC"/>
@@ -965,6 +954,7 @@
     </scenes>
     <resources>
         <image name="buildings" width="749" height="140"/>
+        <image name="chicken.png" width="320" height="209"/>
         <image name="eyeGray" width="17" height="12"/>
         <image name="nav_home" width="30" height="29"/>
         <image name="nav_my" width="30" height="29"/>

@@ -122,8 +122,11 @@
 //            NSLog(@"resp:\n%@",response);
 //            NSLog(@"erro:\n%@",error);
             
+            NSLog(@"%@",url);
             NSDictionary* result=[ZZHttpTool dictionaryWithResponseData:data];
             [session finishTasksAndInvalidate];
+            
+            
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (data) {

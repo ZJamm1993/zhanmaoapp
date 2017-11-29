@@ -73,4 +73,25 @@
     }];
 }
 
++(void)getHallNames:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Hall/hall"];
+    
+    [self get:str params:nil usingCache:NO success:^(NSDictionary *dict) {
+        NSArray* data=[dict valueForKey:@"data"];
+        NSMutableArray* arr=[NSMutableArray array];
+        for (NSDictionary* d in data) {
+            HallModel* ha=[[HallModel alloc]initWithDictionary:d];
+            [arr addObject:ha];
+        }
+        if (success) {
+            success(arr);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
 @end

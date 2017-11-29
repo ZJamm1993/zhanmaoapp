@@ -55,7 +55,11 @@
         }
         _smeta=sem;
         
-        _pic_count=[dictionary valueForKey:@"pic_count"];
+        _pic_count=[[dictionary valueForKey:@"pic_count"]integerValue];
+    }
+    else
+    {
+        dictionary=[NSDictionary dictionary];
     }
     
     return self;

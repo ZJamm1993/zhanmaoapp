@@ -169,6 +169,7 @@
 		8EA6807F1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA6807D1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib */; };
 		8EA9E55B1FB19368003815B7 /* RentActionEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA9E55A1FB19368003815B7 /* RentActionEditView.m */; };
 		8EA9E55D1FB1937A003815B7 /* RentActionEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EA9E55C1FB1937A003815B7 /* RentActionEditView.xib */; };
+		8EB574781FCE9B380053BDA1 /* HallModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB574771FCE9B380053BDA1 /* HallModel.m */; };
 		8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674BE1F973818008CC196 /* BaseLoadMoreFooterView.m */; };
 		8EB674C31F973818008CC196 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C01F973818008CC196 /* BaseTableViewController.m */; };
 		8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB674C71F97416B008CC196 /* MessageSmallTableViewCell.m */; };
@@ -507,6 +508,8 @@
 		8EA9E5591FB19368003815B7 /* RentActionEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentActionEditView.h; sourceTree = "<group>"; };
 		8EA9E55A1FB19368003815B7 /* RentActionEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentActionEditView.m; sourceTree = "<group>"; };
 		8EA9E55C1FB1937A003815B7 /* RentActionEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentActionEditView.xib; sourceTree = "<group>"; };
+		8EB574761FCE9B380053BDA1 /* HallModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HallModel.h; sourceTree = "<group>"; };
+		8EB574771FCE9B380053BDA1 /* HallModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HallModel.m; sourceTree = "<group>"; };
 		8EB674BD1F973818008CC196 /* BaseLoadMoreFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLoadMoreFooterView.h; sourceTree = "<group>"; };
 		8EB674BE1F973818008CC196 /* BaseLoadMoreFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLoadMoreFooterView.m; sourceTree = "<group>"; };
 		8EB674BF1F973818008CC196 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
@@ -685,6 +688,8 @@
 				8E9B00201FB3FBAC00B29188 /* BaseFormStepsModel.m */,
 				8E9B00251FB3FF6C00B29188 /* FormHttpTool.h */,
 				8E9B00261FB3FF6C00B29188 /* FormHttpTool.m */,
+				8EB574761FCE9B380053BDA1 /* HallModel.h */,
+				8EB574771FCE9B380053BDA1 /* HallModel.m */,
 			);
 			name = form;
 			path = formsTableViewCells;
@@ -1475,6 +1480,7 @@
 				8E6C74251F9DF537004B33D1 /* MenuHeaderTableViewCell.m in Sources */,
 				8EDBF4D61FA181EE0073F37D /* RentOrderTableViewController.m in Sources */,
 				8E99AA9D1F9068920078C452 /* JRSwizzle.m in Sources */,
+				8EB574781FCE9B380053BDA1 /* HallModel.m in Sources */,
 				8E24D1AD1FC5204E00A437A0 /* BaseWebViewController.m in Sources */,
 				8E99AA491F9068920078C452 /* UIImage+ext.m in Sources */,
 				8E2E409F1F9460B300B42477 /* SimpleButtonsTableViewCell.m in Sources */,

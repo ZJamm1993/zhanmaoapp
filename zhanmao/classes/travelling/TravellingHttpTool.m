@@ -15,7 +15,7 @@
     
     NSDictionary* par=[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:cid] forKey:@"cid"];
     
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/advs"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Advs/Advs/show"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
         NSDictionary* data=[dict valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
