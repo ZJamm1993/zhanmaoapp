@@ -11,6 +11,8 @@
 #import "RentNewOrderPriceTableViewCell.h"
 #import "RentCartEditTableViewCell.h"
 
+#import "TotalFeeView.h"
+
 typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 {
     ProductCreateOrderSectionAddress,
@@ -35,6 +37,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     CGFloat rent;
     CGFloat deposit;
     CGFloat total;
+    
+    TotalFeeView* _totalFeeView;
 }
 
 
@@ -44,6 +48,18 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"提交订单";
+    
+    [self.bottomButton removeFromSuperview];
+    _totalFeeView=[[[UINib nibWithNibName:@"TotalFeeView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
+    CGRect fr=self.bottomToolBar.bounds;
+    fr.size.height=64;
+    _totalFeeView.frame=fr;
+    [_totalFeeView.submitButton addTarget:self action:@selector(orderSubmit) forControlEvents:UIControlEventTouchUpInside];
+    _totalFeeView.submitButton.enabled=NO;
+    [self.bottomToolBar addSubview:_totalFeeView];
+    
+    _totalFeeView.feeLabe.text=[NSString stringWithFloat:total headUnit:@"¥" tailUnit:nil];
     
     nibsToRegister=[NSArray arrayWithObjects:
                     NSStringFromClass([TitleTextViewTableViewCell class]),
@@ -98,6 +114,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
                 rent=allRents;
                 deposit=allDepos;
                 total=rent+deposit;
+                
+                _totalFeeView.feeLabe.text=[NSString stringWithFloat:total headUnit:@"¥" tailUnit:nil];
                 
                 NSArray* allVisibleCells=[self.tableView visibleCells];
                 for (UITableViewCell* cel in allVisibleCells) {
@@ -269,6 +287,30 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 //    {
         [self calculatePrices];
 //    }
+    
+    
 }
+
+-(void)formBaseTableViewCell:(FormBaseTableViewCell *)cell shouldPushViewController:(UIViewController *)viewController
+{
+    if (viewController) {
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+}
+
+-(void)orderSubmit
+{
+    
+}
+
+//-(NSArray*)allModels
+//{
+//    NSMutableArray* arr=[NSMutableArray array];
+//    
+////    BaseFormModel* addressModel=addressSectionArray.firstObject;
+////    if (addressModel.combination_arr.count>0) {
+////        statements
+////    }
+//}
 
 @end

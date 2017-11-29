@@ -8,11 +8,16 @@
 
 #import "ZZHttpTool.h"
 #import "TravellingModel.h"
+#import "BaseFormStepsModel.h"
 
 @interface TravellingHttpTool : ZZHttpTool
 
 +(void)getAdvertisementsByCid:(NSInteger)cid cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 +(void)getServiceProviderType:(NSInteger)type page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
+
++(void)getTravelQuestionnaire:(void(^)(BaseFormStepsModel* steps))success cache:(BOOL)cache failure:(void(^)(NSError* error))failure;
+
++(void)postTravelQuestionnaireParams:(NSDictionary*)parms success:(void(^)(BOOL result,NSString* msg))success;
 
 @end

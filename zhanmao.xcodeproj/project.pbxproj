@@ -55,6 +55,7 @@
 		8E3779D11FA7195B00A3BBEB /* MyPageButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */; };
 		8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */; };
 		8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */; };
+		8E5533A71FCE59540006ADC3 /* TravellingQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5533A61FCE59540006ADC3 /* TravellingQuestionsViewController.m */; };
 		8E6705851FC06FAF001E300E /* AddressAddNewFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6705841FC06FAF001E300E /* AddressAddNewFormTableViewController.m */; };
 		8E69ECAC1FC1642400EEEC67 /* CitySelectionPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */; };
 		8E69ECAE1FC16A9600EEEC67 /* cityJson.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */; };
@@ -292,6 +293,8 @@
 		8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageButtonTableViewCell.xib; sourceTree = "<group>"; };
 		8E4E23D61FBBF0CB00C394E0 /* MainPageHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageHttpTool.h; sourceTree = "<group>"; };
 		8E4E23D71FBBF0CB00C394E0 /* MainPageHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageHttpTool.m; sourceTree = "<group>"; };
+		8E5533A51FCE59540006ADC3 /* TravellingQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravellingQuestionsViewController.h; sourceTree = "<group>"; };
+		8E5533A61FCE59540006ADC3 /* TravellingQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravellingQuestionsViewController.m; sourceTree = "<group>"; };
 		8E6705831FC06FAF001E300E /* AddressAddNewFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressAddNewFormTableViewController.h; sourceTree = "<group>"; };
 		8E6705841FC06FAF001E300E /* AddressAddNewFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressAddNewFormTableViewController.m; sourceTree = "<group>"; };
 		8E69ECAA1FC1642400EEEC67 /* CitySelectionPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySelectionPicker.h; sourceTree = "<group>"; };
@@ -790,6 +793,8 @@
 				8E6C74881FA0243E004B33D1 /* TravellingRootViewController.m */,
 				8E31F4701FC7FF9200373437 /* TravellingHttpTool.h */,
 				8E31F4711FC7FF9200373437 /* TravellingHttpTool.m */,
+				8E5533A51FCE59540006ADC3 /* TravellingQuestionsViewController.h */,
+				8E5533A61FCE59540006ADC3 /* TravellingQuestionsViewController.m */,
 			);
 			path = travelling;
 			sourceTree = "<group>";
@@ -1448,6 +1453,7 @@
 				8EA680721FB697CA00EF5FC8 /* RentHttpTool.m in Sources */,
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
 				8E9B0CD51FAAC25C00770F8D /* CleanOrderPagerViewController.m in Sources */,
+				8E5533A71FCE59540006ADC3 /* TravellingQuestionsViewController.m in Sources */,
 				8E6C74981FA03E9B004B33D1 /* ProductParameterTableViewCell.m in Sources */,
 				8E31F4921FC8FD2B00373437 /* ZZPayTool.m in Sources */,
 				8E72E9DD1FB2D744001FCD31 /* AddressModel.m in Sources */,
@@ -1657,7 +1663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9J7GGU5G9G;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",
@@ -1686,7 +1692,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 9J7GGU5G9G;
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",

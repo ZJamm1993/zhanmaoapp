@@ -62,7 +62,25 @@
         if ([add isKindOfClass:[AddressModel class]]) {
             self.name.text=add.addressee;
             self.phone.text=add.phone;
-            self.address.text=add.address;
+            
+//            self.address.text=add.address;
+            NSString* pro=add.province;
+            NSString* cit=add.city;
+            NSString* dis=add.district;
+            NSString* adr=add.address;
+            if (pro.length==0) {
+                pro=@"";
+            }
+            if (cit.length==0) {
+                cit=@"";
+            }
+            if (dis.length==0) {
+                dis=@"";
+            }
+            if (adr.length==0) {
+                adr=@"";
+            }
+            self.address.text=[NSString stringWithFormat:@"%@%@%@%@",pro,cit,dis,adr];
         }
     }
     
@@ -74,6 +92,35 @@
     if (address) {
         self.model.accessoryObject=address;
         self.model.value=address.idd;
+        
+        NSInteger count=self.model.combination_arr.count;
+        for (NSInteger i=0;i<count;i++) {
+            BaseFormModel* subModel=[self.model.combination_arr objectAtIndex:i];
+            if (i==0)
+            {
+                subModel.value=address.addressee;
+            }
+            else if(i==1)
+            {
+                subModel.value=address.phone;
+            }
+            else if(i==2)
+            {
+                subModel.value=address.province;
+            }
+            else if(i==3)
+            {
+                subModel.value=address.city;
+            }
+            else if(i==4)
+            {
+                subModel.value=address.district;
+            }
+            else if(i==5)
+            {
+                subModel.value=address.address;
+            }
+        }
         [self reloadModel];
     }
 }

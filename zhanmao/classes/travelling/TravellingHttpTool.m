@@ -59,4 +59,36 @@
     }];
 }
 
++(void)getTravelQuestionnaire:(void (^)(BaseFormStepsModel *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/get_questionnaire"];
+    [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
+        if (success) {
+            success(steps);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
++(void)postTravelQuestionnaireParams:(NSDictionary *)parms success:(void (^)(BOOL, NSString *))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/made"];
+    [self post:str params:parms success:^(NSDictionary *responseObject) {
+        BOOL code=[[responseObject valueForKey:@"code"]integerValue]==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(code,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,@"网络不通");
+        }
+    }];
+}
+
 @end

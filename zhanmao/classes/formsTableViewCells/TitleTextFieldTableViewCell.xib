@@ -69,6 +69,7 @@
                 <outlet property="title" destination="vmh-my-bK9" id="r9u-FJ-iXA"/>
                 <outlet property="unit" destination="3uI-F5-Ey2" id="2gm-YU-qsS"/>
             </connections>
+            <point key="canvasLocation" x="26" y="-14"/>
         </tableViewCell>
     </objects>
 </document>

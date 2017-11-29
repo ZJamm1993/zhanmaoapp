@@ -10,6 +10,8 @@
 #import "LargeImageBlackLabelTableViewCell.h"
 #import "FourButtonsTableViewCell.h"
 
+#import "TravellingQuestionsViewController.h"
+
 #import "TravellingHttpTool.h"
 
 typedef NS_ENUM(NSInteger,TravellingSection)
@@ -182,7 +184,11 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 {
     NSLog(@"url%@",url);
     if (url.length>0) {
-        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+        TravellingQuestionsViewController* ques=[[TravellingQuestionsViewController alloc]init];
+        ques.completionBlock=^(){
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+        };
+        [self.navigationController pushViewController:ques animated:YES];
     }
 }
 

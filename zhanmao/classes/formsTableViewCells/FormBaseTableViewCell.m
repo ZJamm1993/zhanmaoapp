@@ -43,7 +43,21 @@
     BaseFormModel* newModel=model;
     NSString* newValue=model.value;
     
-    if ((![oldValue isEqualToString:newValue])&&(oldModel==newModel)) {
+    BOOL changed=NO;
+    BOOL sameObj=NO;
+    if (![newValue isEqualToString:oldValue]) {
+        changed=YES;
+    }
+    if (oldModel==newModel) {
+        sameObj=YES;
+        model.value=model.value;
+    }
+    
+    if (newValue==nil&&oldValue==nil) {
+        changed=NO;
+    }
+#warning 有问题！！！
+    if (changed&&sameObj) {
         if ([self.delegate respondsToSelector:@selector(formBaseTableViewCellValueChanged:)]) {
             [self.delegate formBaseTableViewCellValueChanged:self];
         }
