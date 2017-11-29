@@ -12,8 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *title1;
 @property (weak, nonatomic) IBOutlet UILabel *title2;
+
 @property (weak, nonatomic) IBOutlet UILabel *text1;
 @property (weak, nonatomic) IBOutlet UILabel *text2;
+
 @property (weak, nonatomic) IBOutlet UILabel *placeHolder1;
 @property (weak, nonatomic) IBOutlet UILabel *placeHolder2;
 

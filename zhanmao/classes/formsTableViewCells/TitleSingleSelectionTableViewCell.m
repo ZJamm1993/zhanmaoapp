@@ -25,8 +25,6 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    [[[UIApplication sharedApplication]keyWindow]endEditing:YES];
     
     if (selected) {
         if (self.model.type==BaseFormTypeDatePicker||self.model.type==BaseFormTypeDateScopePicker||self.model.type==BaseFormTypeDateTimePicker) {

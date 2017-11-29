@@ -121,7 +121,7 @@
 
 -(void)getDetailGoodModel:(void(^)(RentProductModel* model))success
 {
-    [MBProgressHUD showProgressMessage:@""];
+    
     if (self.detailedModel) {
         [MBProgressHUD hide];
         if (success) {
@@ -130,6 +130,7 @@
     }
    else
    {
+       [MBProgressHUD showProgressMessage:@""];
        [RentHttpTool getGoodDetailById:self.goodModel.idd cached:NO success:^(RentProductModel *result) {
            [MBProgressHUD hide];
            self.detailedModel=result;

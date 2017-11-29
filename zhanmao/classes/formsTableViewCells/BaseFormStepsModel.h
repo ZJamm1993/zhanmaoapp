@@ -20,7 +20,6 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeMutiChoice                      =3,
     BaseFormTypeSingleChoice                    =31,
     BaseFormTypeSwitchCheck                     =32,
-    BaseFormTypeDoubleChoice                    =34,
     
     BaseFormTypeImage                           =4,
     
@@ -29,6 +28,8 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeAddressSelection                =7,
     
     BaseFormTypeCalculateArea                   =8,
+    BaseFormTypeDoubleChoice                    =80,
+    BaseFormTypeExhiHallSelection               =BaseFormTypeDoubleChoice,
     BaseFormTypeProviceCityDistrict             =81,
     BaseFormTypeCalculateSize                   =82,
     
@@ -52,7 +53,7 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 @property (nonatomic,strong) NSString* unit; //unit
 @property (nonatomic,strong) NSArray* option; //option
 @property (nonatomic,strong) NSArray* combination_arr; //like area, location, and so on.F
-@property (nonatomic,strong) id accessoryObject; //some kinds of addressModel, and so on.
+@property (nonatomic,strong) id accessoryObject; //some kinds of addressModel, array, and so on.
 
 -(BaseFormModel*)requiredModel;
 

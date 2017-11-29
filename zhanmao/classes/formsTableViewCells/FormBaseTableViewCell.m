@@ -19,6 +19,9 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    
+    [[[UIApplication sharedApplication]keyWindow]endEditing:YES];
+    
     if (selected) {
 //        NSLog(@"%@",self);
         NSArray* subs=self.contentView.subviews;
