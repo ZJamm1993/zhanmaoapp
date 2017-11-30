@@ -29,7 +29,7 @@
 
 +(void)addSearchedString:(NSString*)searchedString success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 
-+(void)addSearchedStrings:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
++(void)getSearchedStrings:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 +(void)removeSearchedStrings:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 

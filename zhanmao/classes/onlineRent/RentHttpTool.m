@@ -219,9 +219,48 @@
     return arr;
 }
 
-+(void)addSearchedStrings:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
++(void)saveSearchedStrings:(NSArray*)strs
 {
+    [[NSUserDefaults standardUserDefaults]setValue:strs forKey:RentSearchedStringsKey];
+}
+
++(void)removeSearchedStrings
+{
+    [[NSUserDefaults standardUserDefaults]removeObjectForKey:RentSearchedStringsKey];
+}
+
++(void)addSearchedString:(NSString *)searchedString success:(void (^)(BOOL))success failure:(void (^)(NSError *))failure
+{
+    if (searchedString.length==0) {
+        return;
+    }
     NSArray* searcedArr=[self searchedStrings];
+    NSMutableArray* arr=[NSMutableArray arrayWithArray:searcedArr];
+    if ([arr containsObject:searchedString]) {
+        [arr removeObject:searchedString];
+    }
+    [arr insertObject:searchedString atIndex:0];
+    
+    [self saveSearchedStrings:arr];
+    if (success) {
+        success(YES);
+    }
+}
+
++(void)getSearchedStrings:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSArray* arr=[self searchedStrings];
+    if (success) {
+        success(arr);
+    }
+}
+
++(void)removeSearchedStrings:(void (^)(BOOL))success failure:(void (^)(NSError *))failure
+{
+    [self removeSearchedStrings];
+    if (success) {
+        success(YES);
+    }
 }
 
 @end
