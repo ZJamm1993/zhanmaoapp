@@ -30,6 +30,7 @@
 
     if (selected) {
         [self getHalls:^(NSArray *arr) {
+            self.model.accessoryObject=arr;
             if (self.model.type==BaseFormTypeExhiHallSelection) {
                 UIPickerView* pick=[[UIPickerView alloc]init];
                 pick.dataSource=self;
@@ -45,21 +46,61 @@
                 currentArray=exhNames;
                 
                 [pick reloadAllComponents];
-                NSString* title=@"";
-                
-                title=[self.model.combination_arr.firstObject hint];
+//                title=[self.model.combination_arr.firstObject hint];
+                BaseFormModel* firstObj=self.model.combination_arr.firstObject;
+                BaseFormModel* secndObj=self.model.combination_arr.lastObject;
+                NSString* title=firstObj.hint;
 
                 [PickerShadowContainer showPickerContainerWithView:pick title:title completion:^{
 //                    NSInteger sect=;
-                    NSString* selected=[self pickerView:pick titleForRow:[pick selectedRowInComponent:0] forComponent:0];
-                    self.model.combination_arr.firstObject
-                }]
+                    NSInteger row=[pick selectedRowInComponent:0];
+                    NSString* selectedString=[self pickerView:pick titleForRow:row forComponent:0];
+                    firstObj.value=selectedString;
+                    self.model.value=selectedString;
+                    
+                    NSArray* seconArr=[[halls objectAtIndex:row] child];
+                    currentArray=seconArr;
+                    if(![currentArray containsObject:secndObj.value])
+                    {
+                        secndObj.value=nil;
+                    }
+                    
+                    [self reloadModel];
+                    
+                    NSString* title2=secndObj.hint;
+                    [pick reloadAllComponents];
+                    [PickerShadowContainer showPickerContainerWithView:pick title:title2 completion:^{
+                        NSInteger row=[pick selectedRowInComponent:0];
+                        NSString* selectedString=[self pickerView:pick titleForRow:row forComponent:0];
+                        secndObj.value=selectedString;
+                        self.model.value=[NSString stringWithFormat:@"%@,%@",self.model.value,selectedString];
+                        [self reloadModel];
+                    }];
+                }];
                 //            [PickerShadowContainer ]
             }
         }];
         
     }
     // Configure the view for the selected state
+}
+
+-(void)setModel:(BaseFormModel *)model
+{
+    [super setModel:model];
+    
+    BaseFormModel* firstObj=self.model.combination_arr.firstObject;
+    BaseFormModel* secndObj=self.model.combination_arr.lastObject;
+    
+    self.title1.text=firstObj.name;
+    self.title2.text=secndObj.name;
+    self.text1.text=firstObj.value;
+    self.text2.text=secndObj.value;
+    
+    self.placeHolder1.text=firstObj.hint;
+    self.placeHolder2.text=secndObj.hint;
+    self.placeHolder1.hidden=firstObj.value.length>0;
+    self.placeHolder2.hidden=secndObj.value.length>0;
 }
 
 -(void)getHalls:(void(^)(NSArray* arr))success
@@ -83,6 +124,21 @@
             [MBProgressHUD showErrorMessage:@"加载展馆列表失败"];
         }];
     }
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return currentArray.count;
+}
+
+-(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [currentArray objectAtIndex:row];
 }
 
 @end
