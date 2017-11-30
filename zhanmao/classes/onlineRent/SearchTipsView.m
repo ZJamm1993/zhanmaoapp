@@ -124,7 +124,9 @@
 
 -(void)deleteButtonClick:(UIButton*)btn
 {
-    
+    if ([self.delegate respondsToSelector:@selector(searchTipsViewDeleteAllSearchedStrings:)]) {
+        [self.delegate searchTipsViewDeleteAllSearchedStrings:self];
+    }
 }
 
 @end

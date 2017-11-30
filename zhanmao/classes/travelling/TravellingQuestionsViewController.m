@@ -37,43 +37,26 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)submit
+-(void)submitToServer
 {
-    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];
-    if (requiredModel) {
-        NSString* warning=requiredModel.hint;
-        if (warning.length==0) {
-            warning=requiredModel.name;
+    //        [MBProgressHUD showSuccessMessage:@"最后一页了"];
+    [MBProgressHUD showProgressMessage:@"正在提交..."];
+    NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
+    NSLog(@"%@",paras);
+    [TravellingHttpTool postTravelQuestionnaireParams:paras success:^(BOOL result, NSString *msg) {
+        if (result) {
+            [MBProgressHUD showSuccessMessage:msg];
+            [self.navigationController popViewControllerAnimated:YES];
+            if (self.completionBlock) {
+                self.completionBlock();
+            }
         }
-        [MBProgressHUD showErrorMessage:warning];
-        return;
-    }
-    if (self.stepInteger<self.formSteps.steps.count-1) {
-        BaseFormTableViewController* nextPage=(BaseFormTableViewController*)[[[self class]alloc]init];
-        nextPage.stepInteger=self.stepInteger+1;
-        nextPage.formSteps=self.formSteps;
-        [self.navigationController pushViewController:nextPage animated:YES];
-    }
-    else
-    {
-        //        [MBProgressHUD showSuccessMessage:@"最后一页了"];
-        [MBProgressHUD showProgressMessage:@"正在提交..."];
-        NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
-        NSLog(@"%@",paras);
-        [TravellingHttpTool postTravelQuestionnaireParams:paras success:^(BOOL result, NSString *msg) {
-            if (result) {
-                [MBProgressHUD showSuccessMessage:msg];
-                [self.navigationController popViewControllerAnimated:YES];
-                if (self.completionBlock) {
-                    self.completionBlock();
-                }
-            }
-            else
-            {
-                [MBProgressHUD showErrorMessage:msg];
-            }
-        }];
-    }
+        else
+        {
+            [MBProgressHUD showErrorMessage:msg];
+        }
+    }];
 }
+
 
 @end

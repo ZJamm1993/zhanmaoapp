@@ -18,5 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *placeHolder1;
 @property (weak, nonatomic) IBOutlet UILabel *placeHolder2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeight;
 
 @end

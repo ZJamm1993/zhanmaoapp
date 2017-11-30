@@ -113,10 +113,10 @@
     {
         return @"待付款";
     }
-    else if(type==CleanOrderTypeProceeding)
-    {
-        return @"处理中";
-    }
+//    else if(type==CleanOrderTypeProceeding)
+//    {
+//        return @"处理中";
+//    }
     else if(type==CleanOrderTypeFinished)
     {
         return @"已完成";
@@ -130,10 +130,10 @@
     {
         return @"待付款";
     }
-    else if(type==CleanOrderTypeProceeding)
-    {
-        return @"处理中";
-    }
+//    else if(type==CleanOrderTypeProceeding)
+//    {
+//        return @"处理中";
+//    }
     else if(type==CleanOrderTypeFinished)
     {
         return @"已完成";

@@ -14,6 +14,7 @@
 
 @optional
 -(void)searchTipsView:(SearchTipsView*)tipsview selectedString:(NSString*)string;
+-(void)searchTipsViewDeleteAllSearchedStrings:(SearchTipsView *)tipsview;
 
 @end
 

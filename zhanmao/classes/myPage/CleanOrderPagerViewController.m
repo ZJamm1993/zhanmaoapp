@@ -29,7 +29,7 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 4;
+    return 3;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index

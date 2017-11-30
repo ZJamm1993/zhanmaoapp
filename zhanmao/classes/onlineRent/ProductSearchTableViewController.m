@@ -24,6 +24,10 @@
     NSMutableArray<MenuHeaderButtonModel*>* menuHeaderButtonModels;
     NSString* sortString;
     NSString* searchingString;
+    
+    NSArray* searchedStrings;
+    NSArray* trendStrings;
+    
 }
 @end
 
@@ -31,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    [self addTipsViewIfNeed];
     
 //    tip=[SearchTipsView searchTipsViewWithRecentlyStrings:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] trendyString:@[@"1-",@"2-",@"3-",@"4-",@"5-",@"6-"] delegate:self];
 //    [self.tableView addSubview:tip];
@@ -43,6 +49,7 @@
     searchBar.tintColor=_mainColor;
     self.navigationItem.titleView=searchBar;
     searchBar.placeholder=@"请输入您想要的商品";
+    [searchBar becomeFirstResponder];
     
     UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     
@@ -57,17 +64,46 @@
     [self showLoadMoreView];
 }
 
+
+
+-(void)addTipsViewIfNeed
+{
+    if (tip) {
+        [tip removeFromSuperview];
+    }
+    [RentHttpTool getSearchedStrings:^(NSArray *result) {
+        if (result.count>0) {
+            searchedStrings=result;
+            
+            tip=[SearchTipsView searchTipsViewWithRecentlyStrings:searchedStrings trendyString:nil delegate:self];
+            [self.tableView performSelector:@selector(addSubview:) withObject:tip afterDelay:0];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark tipsView delegate
 -(void)searchTipsView:(SearchTipsView *)tipsview selectedString:(NSString *)string
 {
     NSLog(@"%@",string);
     searchBar.text=string;
     [self goSearchString:string];
+    [searchBar resignFirstResponder];
 }
+
+-(void)searchTipsViewDeleteAllSearchedStrings:(SearchTipsView *)tipsview
+{
+    [RentHttpTool removeSearchedStrings:nil failure:nil];
+    [self addTipsViewIfNeed];
+}
+
+#pragma mark search texting
 
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -77,8 +113,6 @@
 
 -(void)cancel
 {
-//    [self goSearchString:searchBar.text];
-//    [searchBar resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -89,9 +123,17 @@
     return NO;
 }
 
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [self addTipsViewIfNeed];
+    return YES;
+}
+
 -(void)goSearchString:(NSString*)str
 {
     searchingString=str;
+    [RentHttpTool addSearchedString:str success:nil failure:nil];
+    [tip removeFromSuperview];
     [self refresh];
 }
 

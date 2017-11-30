@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger,CleanOrderType)
 {
     CleanOrderTypeAll,
     CleanOrderTypeNotPaid,
-    CleanOrderTypeProceeding,
+//    CleanOrderTypeProceeding,
     CleanOrderTypeFinished,
 };
 

@@ -73,7 +73,7 @@
 {
     NSMutableDictionary* par=[self pageParamsWithPage:page size:pagesize];
     
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/News/showList"];
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/News/news_all"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
         NSDictionary* data=[dict valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];

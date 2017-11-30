@@ -103,21 +103,9 @@
     [self.tableView reloadData];
 }
 
--(void)submit
+-(void)submitToServer
 {
-    if(self.formSteps.steps.count==0)
-    {
-        return;
-    }
-    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];
-    if (requiredModel) {
-        NSString* warning=requiredModel.hint;
-        if (warning.length==0) {
-            warning=requiredModel.name;
-        }
-        [MBProgressHUD showErrorMessage:warning];
-        return;
-    }
+    
 //    [MBProgressHUD showProgressMessage:@"正在提交..."];
     NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
     NSLog(@"%@",paras);

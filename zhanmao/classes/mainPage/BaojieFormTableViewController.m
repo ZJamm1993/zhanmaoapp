@@ -84,7 +84,7 @@
 
 -(void)orderSubmit
 {
-    
+    [self checkAndAction];
 }
 
 @end

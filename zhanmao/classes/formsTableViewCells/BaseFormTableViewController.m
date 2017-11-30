@@ -96,7 +96,7 @@
     [submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //    [submitButton.titleLabel setFont:[UIFont systemFontOfSize:17]];
-    [submitButton addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
+    [submitButton addTarget:self action:@selector(checkAndAction) forControlEvents:UIControlEventTouchUpInside];
     [submitButton.layer setCornerRadius:4];
     [submitButton.layer setMasksToBounds:YES];
     [bottomView addSubview:submitButton];
@@ -318,6 +318,11 @@
     
 }
 
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [scrollView endEditing:YES];
+}
+
 -(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
     BaseFormSection* sec=[self.currentStep.sections objectAtIndex:section];
@@ -356,7 +361,7 @@
 
 #pragma mark submitform
 
--(void)submit
+-(void)checkAndAction
 {
     if(self.formSteps.steps.count==0)
     {
@@ -375,39 +380,48 @@
         BaseFormTableViewController* nextPage=(BaseFormTableViewController*)[[[self class]alloc]init];
         nextPage.stepInteger=self.stepInteger+1;
         nextPage.formSteps=self.formSteps;
+        nextPage.type=self.type;
         [self.navigationController pushViewController:nextPage animated:YES];
     }
     else
     {
-//        [MBProgressHUD showSuccessMessage:@"最后一页了"];
-        [MBProgressHUD showProgressMessage:@"正在提交..."];
-        NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
-        NSLog(@"%@",paras);
-        [FormHttpTool postCustomTableListByType:[self type] params:paras success:^(BOOL result, NSString *msg) {
-            if(result)
-            {
-                [MBProgressHUD showSuccessMessage:msg];
-            }
-            else
-            {
-                [MBProgressHUD showErrorMessage:msg];
-            }
-            
-            [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomFormSubmitResultViewController"] animated:YES];
-            
-            NSArray* vcs=[self.navigationController viewControllers];
-            NSMutableArray* neVcs=[NSMutableArray array];
-            for (UIViewController* vc in vcs) {
-                if (![vc isKindOfClass:[BaseFormTableViewController class]]) {
-                    [neVcs addObject:vc];
-                }
-            }
-            self.navigationController.viewControllers=neVcs;
-        } failure:^(NSError *err) {
-            NSLog(@"wangluo");
-            [MBProgressHUD showErrorMessage:@"网络不通"];
-        }];
+        //really submit
+        [self submitToServer];
     }
+}
+
+-(void)submitToServer
+{
+    //        [MBProgressHUD showSuccessMessage:@"最后一页了"];
+    [MBProgressHUD showProgressMessage:@"正在提交..."];
+    NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
+//    [paras setValue:[NSNumber numberWithInteger:self.type] forKey:@"type"];
+    NSLog(@"%@",paras);
+    [FormHttpTool postCustomTableListByType:[self type] params:paras success:^(BOOL result, NSString *msg) {
+        if(result)
+        {
+            [MBProgressHUD showSuccessMessage:msg];
+        }
+        else
+        {
+            [MBProgressHUD showErrorMessage:msg];
+        }
+        
+        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomFormSubmitResultViewController"] animated:YES];
+        
+        NSArray* vcs=[self.navigationController viewControllers];
+        NSMutableArray* neVcs=[NSMutableArray array];
+        for (UIViewController* vc in vcs) {
+            if (![vc isKindOfClass:[BaseFormTableViewController class]]) {
+                [neVcs addObject:vc];
+            }
+        }
+        self.navigationController.viewControllers=neVcs;
+    } failure:^(NSError *err) {
+        NSLog(@"wangluo");
+        [MBProgressHUD showErrorMessage:@"网络不通"];
+    }];
+
 }
 
 +(NSString*)cellNibNameForFormType:(BaseFormType)type

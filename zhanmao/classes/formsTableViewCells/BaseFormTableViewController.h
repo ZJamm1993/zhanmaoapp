@@ -36,10 +36,13 @@
 
 @property (nonatomic,strong) NSDictionary* prefixValues;
 
--(void)loadFormJson;
+-(void)loadFormJson; //set formSteps after loading
 
--(void)valueChanged;
--(void)submit;
+-(void)valueChanged; //do something such calculating
+
+-(void)checkAndAction; //check models and submitToserver if OK
+
+-(void)submitToServer; //can be overwrite
 
 +(NSString*)cellNibNameForFormType:(BaseFormType)type;
 

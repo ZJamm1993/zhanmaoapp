@@ -22,6 +22,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    self.lineHeight.constant=1/[[UIScreen mainScreen]scale];
     // Initialization code
 }
 

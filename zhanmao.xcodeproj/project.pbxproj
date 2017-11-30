@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */; };
 		8E24D1AD1FC5204E00A437A0 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */; };
 		8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AF1FC5210300A437A0 /* UserModel.m */; };
 		8E24D1B21FC521E900A437A0 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.html */; };
@@ -219,6 +220,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3967A97D1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDesignableOnePixelConstant.h; sourceTree = "<group>"; };
+		3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDesignableOnePixelConstant.m; sourceTree = "<group>"; };
 		8E24D1AB1FC5204E00A437A0 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		8E24D1AE1FC5210300A437A0 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -1011,6 +1014,8 @@
 				8E9B00231FB3FC9600B29188 /* ZZModel.m */,
 				8E31F4901FC8FD2B00373437 /* ZZPayTool.h */,
 				8E31F4911FC8FD2B00373437 /* ZZPayTool.m */,
+				3967A97D1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.h */,
+				3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */,
 			);
 			path = tool;
 			sourceTree = "<group>";
@@ -1197,10 +1202,10 @@
 			children = (
 				8E9C9B4D1FC3FEB100AB31D4 /* views */,
 				8E9B0CE21FAAC3D100770F8D /* BaseOrders */,
-				8E72E9E11FB2ECAC001FCD31 /* CustomOrder */,
-				8E9B0CD21FAAC1DA00770F8D /* CleanOrder */,
-				8EDBF4DD1FA1B3FB0073F37D /* TransportOrder */,
 				8EDBF4CE1FA181930073F37D /* RentOrder */,
+				8EDBF4DD1FA1B3FB0073F37D /* TransportOrder */,
+				8E9B0CD21FAAC1DA00770F8D /* CleanOrder */,
+				8E72E9E11FB2ECAC001FCD31 /* CustomOrder */,
 			);
 			name = myorders;
 			sourceTree = "<group>";
@@ -1538,6 +1543,7 @@
 				8EB674D31F99A991008CC196 /* MainPageHeaderTableViewCell.m in Sources */,
 				8E6C73FA1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.m in Sources */,
 				8ED4015D1FBA907B0097A395 /* TotalFeeView.m in Sources */,
+				3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */,
 				8E9B0CC21FA964E700770F8D /* AddressOptionTableViewCell.m in Sources */,
 				8E9B0CE81FAAC49400770F8D /* OrderTypeDataSource.m in Sources */,
 				8E6C73FE1F9D9B18004B33D1 /* FormBaseTableViewCell.m in Sources */,
