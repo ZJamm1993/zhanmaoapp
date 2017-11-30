@@ -275,9 +275,11 @@ const CGFloat categoriesHeaderHeight=50;
     
     for (MenuHeaderButtonModel* mo in models) {
         if (mo.selected) {
-            sortString=mo.sortString;
-            NSLog(@"%@",sortString);
-            [self refresh];
+            if (![sortString isEqualToString:mo.sortString]) {
+                sortString=mo.sortString;
+                NSLog(@"%@",sortString);
+                [self refresh];
+            }
         }
     }
 

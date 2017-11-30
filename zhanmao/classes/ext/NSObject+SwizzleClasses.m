@@ -98,15 +98,23 @@
 +(void)load
 {
     NSLog(@"UIImageView Class Load");
-//    NSLog(@"swizzle sd_setImageWithURL");
-//    [[self class]jr_swizzleMethod:@selector(sd_setImageWithURL:) withMethod:@selector(my_sd_setImageWithURL:) error:nil];
+    NSLog(@"swizzle sd_setImageWithURL");
+    [[self class]jr_swizzleMethod:@selector(sd_setImageWithURL:) withMethod:@selector(my_sd_setImageWithURL:) error:nil];
 }
 
 -(void)my_sd_setImageWithURL:(NSURL*)url
 {
     NSString* urlstr=[url absoluteString];
     NSLog(@"load image: %@",urlstr);
-    [self my_sd_setImageWithURL:url];
+    UIImage* defaultImage=[UIImage imageNamed:@"chicken.png"];
+    //    CGFloat rate=self.frame.size.width/self.frame.size.height;
+    //    if (rate>1.5) {
+    //        defaultImage=[UIImage imageNamed:@"default_16_9"];
+    //    }
+    //    else if(rate<0.75){
+    //        defaultImage=[UIImage imageNamed:@"default_9_16"];
+    //    }
+    [self sd_setImageWithURL:url placeholderImage:defaultImage];
 }
 
 @end

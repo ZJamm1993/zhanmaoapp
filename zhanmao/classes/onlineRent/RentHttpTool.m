@@ -12,6 +12,8 @@
 #define RentCartsDaysKey @"992r3dayu8900i90901"
 #define RentCartsCountKey @"09i23Cou90nt9823e2e"
 
+#define RentSearchedStringsKey @"903ei9012e12iojwe"
+
 @implementation RentHttpTool
 
 +(void)getClasses:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
@@ -45,6 +47,31 @@
     [par setValue:sort forKey:@"sort"];
     
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Mall/Goods/getList"];
+    [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* res=[NSMutableArray array];
+        for (NSDictionary* dic in list) {
+            RentProductModel* pro=[[RentProductModel alloc]initWithDictionary:dic];
+            [res addObject:pro];
+        }
+        if (success) {
+            success(res);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
++(void)getGoodListSearchByKeyword:(NSString *)keyword sort:(NSString *)sort page:(NSInteger)page pageSize:(NSInteger)pagesize cached:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSMutableDictionary* par=[self pageParamsWithPage:page size:pagesize];
+    [par setValue:keyword forKey:@"keywords"];
+    [par setValue:sort forKey:@"sort"];
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Mall/Goods/search_goods"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
         NSDictionary* data=[dict valueForKey:@"data"];
         NSArray* list=[data valueForKey:@"list"];
@@ -184,6 +211,17 @@
 +(NSString*)mixedRentCartCountIdKey:(RentCartModel*)cart
 {
     return [NSString stringWithFormat:@"%@%@",RentCartsCountKey,cart.product.idd];
+}
+
++(NSArray*)searchedStrings
+{
+    NSArray* arr=[[NSUserDefaults standardUserDefaults]valueForKey:RentSearchedStringsKey];
+    return arr;
+}
+
++(void)addSearchedStrings:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSArray* searcedArr=[self searchedStrings];
 }
 
 @end

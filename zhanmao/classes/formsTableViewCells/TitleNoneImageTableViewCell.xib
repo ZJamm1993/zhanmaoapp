@@ -32,6 +32,7 @@
                     <constraint firstItem="0Yt-de-G9U" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Yoz-PJ-yfE"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="image" destination="0Yt-de-G9U" id="VlH-XA-dMA"/>
             </connections>

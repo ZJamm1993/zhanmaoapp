@@ -25,7 +25,7 @@
     [self.bottomButton setTitle:@"新增地址" forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
     
-    [self.refreshControl beginRefreshing];
+//    [self.refreshControl beginRefreshing];
     [self refresh];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addressDidAddNewNotification:) name:AddressAddNewNotification object:nil];

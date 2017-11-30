@@ -10,10 +10,20 @@
 #import "SearchTipsView.h"
 #import "ZZSearchBar.h"
 
-@interface ProductSearchTableViewController ()<SearchTipsViewDelegate,UITextFieldDelegate>
+#import "MenuHeaderTableViewCell.h"
+#import "GoodsTableViewCell.h"
+#import "ProductWebDetailViewController.h"
+
+#import "RentHttpTool.h"
+
+@interface ProductSearchTableViewController ()<SearchTipsViewDelegate,UITextFieldDelegate,MenuHeaderTableViewCellDelegate>
 {
     SearchTipsView* tip;
     ZZSearchBar* searchBar;
+    
+    NSMutableArray<MenuHeaderButtonModel*>* menuHeaderButtonModels;
+    NSString* sortString;
+    NSString* searchingString;
 }
 @end
 
@@ -22,20 +32,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    tip=[SearchTipsView searchTipsViewWithRecentlyStrings:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] trendyString:@[@"1-",@"2-",@"3-",@"4-",@"5-",@"6-"] delegate:self];
-    [self.tableView addSubview:tip];
+//    tip=[SearchTipsView searchTipsViewWithRecentlyStrings:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] trendyString:@[@"1-",@"2-",@"3-",@"4-",@"5-",@"6-"] delegate:self];
+//    [self.tableView addSubview:tip];
     
     searchBar=[ZZSearchBar defaultBar];
     searchBar.delegate=self;
     CGRect fr=searchBar.frame;
 //    fr.size.width=self.view.frame.size.width-64;
     searchBar.frame=fr;
+    searchBar.tintColor=_mainColor;
     self.navigationItem.titleView=searchBar;
+    searchBar.placeholder=@"请输入您想要的商品";
     
     UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     
     self.navigationItem.rightBarButtonItem=searchBtn;
-    // Do any additional setup after loading the view.
+    
+    menuHeaderButtonModels=[NSMutableArray arrayWithObjects:
+                            [MenuHeaderButtonModel modelWithTitle:@"日期" selected:NO ordered:YES ascending:NO ascendingString:@"post_modified_a" descendingString:@"post_modified_d"],
+                            [MenuHeaderButtonModel modelWithTitle:@"价格" selected:NO ordered:YES ascending:NO ascendingString:@"rent_a" descendingString:@"rent_d"],
+                            [MenuHeaderButtonModel modelWithTitle:@"销量" selected:NO ordered:NO ascending:NO ascendingString:@"post_hits_a" descendingString:@"post_hits_d"], nil];
+    [self.tableView registerClass:[MenuHeaderTableViewCell class] forHeaderFooterViewReuseIdentifier:@"MenuHeaderTableViewCell"];
+    
+    [self showLoadMoreView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +91,102 @@
 
 -(void)goSearchString:(NSString*)str
 {
-    
+    searchingString=str;
+    [self refresh];
 }
+
+#pragma refresh and loadmore
+
+-(void)refresh{
+    [self.dataSource removeAllObjects];
+    [self.tableView reloadData];
+    [RentHttpTool getGoodListSearchByKeyword:searchingString sort:sortString page:1 pageSize:[RentHttpTool pagesize] cached:NO success:^(NSArray *result) {
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:result];
+        if (result.count>0) {
+            self.currentPage=1;
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+-(void)loadmore{
+    [RentHttpTool getGoodListSearchByKeyword:searchingString sort:sortString page:self.currentPage+1 pageSize:[RentHttpTool pagesize] cached:NO success:^(NSArray *result) {
+        [self.dataSource addObjectsFromArray:result];
+        if (result.count>0) {
+            self.currentPage=self.currentPage+1;
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark tableviews
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GoodsTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"GoodsTableViewCell" forIndexPath:indexPath];
+    RentProductModel* pro=[self.dataSource objectAtIndex:indexPath.row];
+    
+    cell.title.text=pro.post_title;
+    cell.count.text=[NSString stringWithFormat:@"%ld",(long) pro.post_hits];
+    [cell.image sd_setImageWithURL:[pro.thumb urlWithMainUrl]];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+    prod.goodModel=[self.dataSource objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:prod animated:YES];
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    MenuHeaderTableViewCell* header=[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"MenuHeaderTableViewCell"];
+    header.buttonModelArray=menuHeaderButtonModels;
+    header.delegate=self;
+    return header;
+}
+
+#pragma mark menuHeaderDelegate
+
+-(void)menuHeaderTableViewCell:(MenuHeaderTableViewCell *)cell didChangeModels:(NSArray*)models
+{
+    menuHeaderButtonModels=[NSMutableArray arrayWithArray:models];
+    
+    for (MenuHeaderButtonModel* mo in models) {
+        if (mo.selected) {
+            if (![sortString isEqualToString:mo.sortString]) {
+                
+                sortString=mo.sortString;
+                NSLog(@"%@",sortString);
+                [self refresh];
+            }
+        }
+    }
+    
+    //do somethings
+}
+
 
 @end

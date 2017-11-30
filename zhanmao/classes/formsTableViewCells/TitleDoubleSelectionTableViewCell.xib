@@ -91,7 +91,7 @@
                                         <rect key="frame" x="302" y="15" width="8" height="14"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyD-Bk-T6x" userLabel="line">
-                                        <rect key="frame" x="10" y="-2" width="310" height="1"/>
+                                        <rect key="frame" x="0.0" y="-2" width="320" height="1"/>
                                         <color key="backgroundColor" white="0.80000000000000004" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="0.5" id="667-OQ-cd2"/>
@@ -111,7 +111,7 @@
                                     <constraint firstItem="E6N-kn-9RL" firstAttribute="centerY" secondItem="eNY-C4-2zW" secondAttribute="centerY" id="ZFG-m9-63l"/>
                                     <constraint firstItem="3Vx-xt-wbS" firstAttribute="centerY" secondItem="eNY-C4-2zW" secondAttribute="centerY" id="hED-yd-ep5"/>
                                     <constraint firstItem="BTv-Nk-ewh" firstAttribute="leading" secondItem="3Vx-xt-wbS" secondAttribute="trailing" constant="10" id="kja-WA-CrU"/>
-                                    <constraint firstItem="VyD-Bk-T6x" firstAttribute="leading" secondItem="eNY-C4-2zW" secondAttribute="leading" constant="10" id="p63-50-IaH"/>
+                                    <constraint firstItem="VyD-Bk-T6x" firstAttribute="leading" secondItem="eNY-C4-2zW" secondAttribute="leading" id="p63-50-IaH"/>
                                     <constraint firstAttribute="top" secondItem="VyD-Bk-T6x" secondAttribute="bottom" constant="0.5" id="s61-6u-d9o"/>
                                     <constraint firstItem="vm4-as-yud" firstAttribute="centerY" secondItem="BTv-Nk-ewh" secondAttribute="centerY" id="yKT-ML-Rpx"/>
                                 </constraints>

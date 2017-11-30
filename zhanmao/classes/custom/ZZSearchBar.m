@@ -16,6 +16,7 @@
     bar.layer.cornerRadius=bar.frame.size.height/2;
     bar.backgroundColor=[UIColor whiteColor];
 //    bar.textColor=pinkColor;
+    bar.textColor=gray_2;
     bar.font=[UIFont systemFontOfSize:13];
     bar.returnKeyType=UIReturnKeySearch;
     

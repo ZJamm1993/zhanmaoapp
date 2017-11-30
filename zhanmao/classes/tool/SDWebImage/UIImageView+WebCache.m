@@ -17,15 +17,7 @@
 @implementation UIImageView (WebCache)
 
 - (void)sd_setImageWithURL:(nullable NSURL *)url {
-    UIImage* defaultImage=[UIImage imageNamed:@"image_loading"];
-//    CGFloat rate=self.frame.size.width/self.frame.size.height;
-//    if (rate>1.5) {
-//        defaultImage=[UIImage imageNamed:@"default_16_9"];
-//    }
-//    else if(rate<0.75){
-//        defaultImage=[UIImage imageNamed:@"default_9_16"];
-//    }
-    [self sd_setImageWithURL:url placeholderImage:defaultImage options:0 progress:nil completed:nil];
+    [self sd_setImageWithURL:url placeholderImage:nil options:0 progress:nil completed:nil];
 }
 
 - (void)sd_setImageWithURL:(nullable NSURL *)url placeholderImage:(nullable UIImage *)placeholder {
