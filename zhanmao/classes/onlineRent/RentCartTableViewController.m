@@ -111,12 +111,14 @@
 
 -(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell deleteCartModel:(RentCartModel *)cartModel
 {
-    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"n" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"y" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除商品吗？删除后无法恢复" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if ([self.dataSource containsObject:cartModel]) {
+            NSInteger ind=[self.dataSource indexOfObject:cartModel];
             [self.dataSource removeObject:cartModel];
-            [self.tableView reloadData];
+            [RentHttpTool removeRentCarts:[NSArray arrayWithObject:cartModel] success:nil failure:nil];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:ind inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
     }]];
     
@@ -151,10 +153,14 @@
         }
     }
     if (self.editing) {
-        
-        [self.dataSource removeObjectsInArray:arrToDel];
-        [RentHttpTool removeRentCarts:arrToDel success:nil failure:nil];
-        [self.tableView deleteRowsAtIndexPaths:indToDel withRowAnimation:UITableViewRowAnimationAutomatic];
+        UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除商品吗？删除后无法恢复" preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.dataSource removeObjectsInArray:arrToDel];
+            [RentHttpTool removeRentCarts:arrToDel success:nil failure:nil];
+            [self.tableView deleteRowsAtIndexPaths:indToDel withRowAnimation:UITableViewRowAnimationAutomatic];
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     else
     {

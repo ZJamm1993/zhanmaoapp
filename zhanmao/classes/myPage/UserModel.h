@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserModel : NSObject
+@interface UserModel : ZZModel
 
 +(void)saveUser:(UserModel*)user;
 +(instancetype)getUser;
@@ -18,13 +18,13 @@
 +(void)savePassword:(NSString*)password;
 +(void)deletePassword;
 
--(instancetype)initWithDictionary:(NSDictionary*)dictionary;
 
-@property (nonatomic,strong) NSString* idd;
+@property (nonatomic,strong) NSString* access_token;
+
 @property (nonatomic,strong) NSString* mobile;
 @property (nonatomic,strong) NSString* user_nicename;
-@property (nonatomic,strong) NSString* user_login;
-@property (nonatomic,strong) NSString* access_token;
+@property (nonatomic,strong) NSString* user_email;
+@property (nonatomic,strong) NSString* position;
 @property (nonatomic,strong) NSString* avatar;
 
 @end

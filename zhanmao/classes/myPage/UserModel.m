@@ -15,16 +15,16 @@
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
-    self=[super init];
+    self=[super initWithDictionary:dictionary];
     
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
         _access_token=[dictionary valueForKey:@"access_token"];
+        
         _user_nicename=[dictionary valueForKey:@"user_nicename"];
         _avatar=[dictionary valueForKey:@"avatar"];
         _mobile=[dictionary valueForKey:@"mobile"];
-        _idd=[dictionary valueForKey:@"id"];
-//        _type=[[dictionary valueForKey:@"user_type"]integerValue];
-        _user_login=[dictionary valueForKey:@"user_login"];
+        _user_email=[dictionary valueForKey:@"user_email"];
+        _position=[dictionary valueForKey:@"position"];
     }
     
     if (_access_token.length==0) {
@@ -42,11 +42,12 @@
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     
     [d setValue:user.access_token forKey:@"access_token"];
+    
     [d setValue:user.user_nicename forKey:@"user_nicename"];
     [d setValue:user.avatar forKey:@"avatar"];
     [d setValue:user.mobile forKey:@"mobile"];
-    [d setValue:user.idd forKey:@"id"];
-    [d setValue:user.user_login forKey:@"user_login"];
+    [d setValue:user.user_email forKey:@"user_email"];
+    [d setValue:user.position forKey:@"position"];
     
     NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
     

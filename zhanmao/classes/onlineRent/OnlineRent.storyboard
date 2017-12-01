@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17B48" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -515,8 +515,8 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-aX-IAG" userLabel="editingBg">
                                             <rect key="frame" x="166" y="-0.5" width="144" height="95.5"/>
                                             <subviews>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-BI-CWx">
-                                                    <rect key="frame" x="131" y="37" width="13" height="22"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-BI-CWx">
+                                                    <rect key="frame" x="131" y="0.0" width="13" height="96"/>
                                                     <state key="normal" image="trash"/>
                                                     <connections>
                                                         <action selector="deleteButtonClick:" destination="h3W-pq-Shx" eventType="touchUpInside" id="EnD-uO-TeT"/>
@@ -570,6 +570,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                                 <constraint firstItem="nVu-7X-yLb" firstAttribute="height" secondItem="y0L-VY-W9n" secondAttribute="height" id="FGT-89-bjo"/>
                                                 <constraint firstItem="nVu-7X-yLb" firstAttribute="leading" secondItem="y0L-VY-W9n" secondAttribute="leading" id="FZH-Zs-ZCY"/>
                                                 <constraint firstAttribute="trailing" secondItem="Jd6-BI-CWx" secondAttribute="trailing" id="HTa-0g-xNT"/>
+                                                <constraint firstItem="Jd6-BI-CWx" firstAttribute="top" secondItem="KtD-aX-IAG" secondAttribute="top" id="QrR-DE-Df5"/>
                                                 <constraint firstItem="Jd6-BI-CWx" firstAttribute="centerY" secondItem="KtD-aX-IAG" secondAttribute="centerY" id="YA0-AC-CwF"/>
                                                 <constraint firstItem="y0L-VY-W9n" firstAttribute="leading" secondItem="8Sr-2t-4ml" secondAttribute="trailing" constant="5" id="cGk-4R-Zdy"/>
                                                 <constraint firstItem="8Sr-2t-4ml" firstAttribute="leading" secondItem="KtD-aX-IAG" secondAttribute="leading" id="dPO-g2-Fhr"/>

@@ -140,8 +140,8 @@
 #pragma refresh and loadmore
 
 -(void)refresh{
-    [self.dataSource removeAllObjects];
-    [self.tableView reloadData];
+//    [self.dataSource removeAllObjects];
+//    [self.tableView reloadData];
     [RentHttpTool getGoodListSearchByKeyword:searchingString sort:sortString page:1 pageSize:[RentHttpTool pagesize] cached:NO success:^(NSArray *result) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:result];
