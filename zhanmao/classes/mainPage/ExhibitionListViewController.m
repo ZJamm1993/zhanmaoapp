@@ -25,7 +25,7 @@
 //    self.title=[NSString stringWithFormat:@"%dxx案例",(int)self.type];;
     // Do any additional setup after loading the view.
     
-    [MainPageHttpTool getCustomShowingListByType:self.type cache:NO success:^(NSArray *result) {
+    [MainPageHttpTool getCustomShowingListByType:[NSString stringWithFormat:@"%d",(int)self.type] cache:NO success:^(NSArray *result) {
         self.dataSource=[NSMutableArray arrayWithArray:result];
         [self.tableView reloadData];
     } failure:^(NSError *error) {

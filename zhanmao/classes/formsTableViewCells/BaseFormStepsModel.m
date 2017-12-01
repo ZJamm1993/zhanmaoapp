@@ -124,15 +124,29 @@
 {
     self=[super initWithDictionary:dictionary];
     if (self) {
+        
         NSMutableArray* mutaSteps=[NSMutableArray array];
-        NSArray* allKey=dictionary.allKeys;
-        if (allKey.count==0) {
-            return self;
+        if([dictionary  respondsToSelector:@selector(lastObject)])
+        {
+            NSArray* arr=(NSArray*)dictionary;
+            for (NSDictionary* dic in arr) {
+                BaseFormStep* step=[[BaseFormStep alloc]initWithDictionary:dic];
+                [mutaSteps addObject:step];
+            }
+
         }
-        for (NSString* stepKey in allKey) {
-            BaseFormStep* step=[[BaseFormStep alloc]initWithDictionary:[dictionary valueForKey:stepKey]];
-            [mutaSteps addObject:step];
+        else
+        {
+            NSArray* allKey=dictionary.allKeys;
+            if (allKey.count==0) {
+                return self;
+            }
+            for (NSString* stepKey in allKey) {
+                BaseFormStep* step=[[BaseFormStep alloc]initWithDictionary:[dictionary valueForKey:stepKey]];
+                [mutaSteps addObject:step];
+            }
         }
+        
         self.steps=mutaSteps;
     }
     return self;

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */; };
+		398513901FD0F42A0056FB7F /* MyPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985138F1FD0F42A0056FB7F /* MyPersonalInfoViewController.m */; };
+		398513941FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513921FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m */; };
+		398513951FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 398513931FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib */; };
+		3985139B1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */; };
+		3985139E1FD139A80056FB7F /* MyHelpCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */; };
+		398513A41FD140FB0056FB7F /* MyFeedBackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */; };
 		8E24D1AD1FC5204E00A437A0 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */; };
 		8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AF1FC5210300A437A0 /* UserModel.m */; };
 		8E24D1B21FC521E900A437A0 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.html */; };
@@ -222,6 +228,17 @@
 /* Begin PBXFileReference section */
 		3967A97D1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDesignableOnePixelConstant.h; sourceTree = "<group>"; };
 		3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDesignableOnePixelConstant.m; sourceTree = "<group>"; };
+		3985138E1FD0F42A0056FB7F /* MyPersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPersonalInfoViewController.h; sourceTree = "<group>"; };
+		3985138F1FD0F42A0056FB7F /* MyPersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPersonalInfoViewController.m; sourceTree = "<group>"; };
+		398513911FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageSimpleImageTableViewCell.h; sourceTree = "<group>"; };
+		398513921FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageSimpleImageTableViewCell.m; sourceTree = "<group>"; };
+		398513931FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPageSimpleImageTableViewCell.xib; sourceTree = "<group>"; };
+		398513991FD126D50056FB7F /* MyPageOneTextFieldTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageOneTextFieldTableViewController.h; sourceTree = "<group>"; };
+		3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageOneTextFieldTableViewController.m; sourceTree = "<group>"; };
+		3985139C1FD139A80056FB7F /* MyHelpCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHelpCenterTableViewController.h; sourceTree = "<group>"; };
+		3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpCenterTableViewController.m; sourceTree = "<group>"; };
+		398513A21FD140FB0056FB7F /* MyFeedBackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeedBackTableViewController.h; sourceTree = "<group>"; };
+		398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeedBackTableViewController.m; sourceTree = "<group>"; };
 		8E24D1AB1FC5204E00A437A0 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		8E24D1AE1FC5210300A437A0 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -618,6 +635,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3985138D1FD0F3F90056FB7F /* mypersonal */ = {
+			isa = PBXGroup;
+			children = (
+				8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */,
+				8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */,
+				8EFC802A1FBC32F4001CF3BF /* MyLoginViewController.h */,
+				8EFC802B1FBC32F4001CF3BF /* MyLoginViewController.m */,
+				3985138E1FD0F42A0056FB7F /* MyPersonalInfoViewController.h */,
+				3985138F1FD0F42A0056FB7F /* MyPersonalInfoViewController.m */,
+				398513991FD126D50056FB7F /* MyPageOneTextFieldTableViewController.h */,
+				3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */,
+			);
+			name = mypersonal;
+			sourceTree = "<group>";
+		};
+		3985139F1FD139B60056FB7F /* myhelp */ = {
+			isa = PBXGroup;
+			children = (
+				3985139C1FD139A80056FB7F /* MyHelpCenterTableViewController.h */,
+				3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */,
+			);
+			name = myhelp;
+			sourceTree = "<group>";
+		};
+		398513A01FD140B90056FB7F /* myfeed */ = {
+			isa = PBXGroup;
+			children = (
+				398513A21FD140FB0056FB7F /* MyFeedBackTableViewController.h */,
+				398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */,
+			);
+			name = myfeed;
+			sourceTree = "<group>";
+		};
+		398513A11FD140D70056FB7F /* myprotocal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = myprotocal;
+			sourceTree = "<group>";
+		};
 		8E2E40821F94597B00B42477 /* mainPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1161,19 +1218,19 @@
 		8EB674E01F99E9C8008CC196 /* myPage */ = {
 			isa = PBXGroup;
 			children = (
-				8E24D1AE1FC5210300A437A0 /* UserModel.h */,
-				8E24D1AF1FC5210300A437A0 /* UserModel.m */,
+				398513A11FD140D70056FB7F /* myprotocal */,
+				398513A01FD140B90056FB7F /* myfeed */,
+				3985139F1FD139B60056FB7F /* myhelp */,
+				3985138D1FD0F3F90056FB7F /* mypersonal */,
 				8E9B0CB61FA9611800770F8D /* myaddress */,
 				8EDCF5B91FA6D45000AA4359 /* myinvoice */,
 				8EDBF4CD1FA1816F0073F37D /* myorders */,
 				8EB674E91F99EB7B008CC196 /* views */,
 				8EB674E11F99E9EA008CC196 /* MyPageTableViewController.h */,
 				8EB674E21F99E9EA008CC196 /* MyPageTableViewController.m */,
+				8E24D1AE1FC5210300A437A0 /* UserModel.h */,
+				8E24D1AF1FC5210300A437A0 /* UserModel.m */,
 				8EDBF4CB1FA17F770073F37D /* MyPage.storyboard */,
-				8E3779CB1FA7188500A3BBEB /* MySettingTableViewController.h */,
-				8E3779CC1FA7188500A3BBEB /* MySettingTableViewController.m */,
-				8EFC802A1FBC32F4001CF3BF /* MyLoginViewController.h */,
-				8EFC802B1FBC32F4001CF3BF /* MyLoginViewController.m */,
 				8E36FEB91FCD3C56003CAEC5 /* MyPageHttpTool.h */,
 				8E36FEBA1FCD3C56003CAEC5 /* MyPageHttpTool.m */,
 			);
@@ -1193,6 +1250,9 @@
 				8E3779CE1FA7195B00A3BBEB /* MyPageButtonTableViewCell.h */,
 				8E3779CF1FA7195B00A3BBEB /* MyPageButtonTableViewCell.m */,
 				8E3779D01FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib */,
+				398513911FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.h */,
+				398513921FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m */,
+				398513931FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1374,6 +1434,7 @@
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
 				8EF7E6C71FBE7B15003C6FB4 /* 2.txt in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
+				398513951FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
 				8E24D1B71FC6A45000A437A0 /* chicken.png in Resources */,
 				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
@@ -1420,6 +1481,7 @@
 				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
 				8E99AAA11F9068920078C452 /* MBProgressHUD+ZZCustom.m in Sources */,
 				8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */,
+				3985139E1FD139A80056FB7F /* MyHelpCenterTableViewController.m in Sources */,
 				8E99AAB31F9068920078C452 /* UIImageView+HighlightedWebCache.m in Sources */,
 				8EB674F11F99F85D008CC196 /* MyPageCellModel.m in Sources */,
 				8E36FEBB1FCD3C56003CAEC5 /* MyPageHttpTool.m in Sources */,
@@ -1431,6 +1493,7 @@
 				8E99AA9C1F9068920078C452 /* Foundation+Log.m in Sources */,
 				8E99AAAC1F9068920078C452 /* SDWebImageDownloaderOperation.m in Sources */,
 				8E31F46F1FC7EAF300373437 /* MainMsgModel.m in Sources */,
+				398513941FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m in Sources */,
 				8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */,
 				8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */,
 				8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */,
@@ -1454,7 +1517,9 @@
 				8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */,
 				8E721AE91FB58195001BD401 /* HuiyiFormTableViewController.m in Sources */,
 				8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */,
+				398513901FD0F42A0056FB7F /* MyPersonalInfoViewController.m in Sources */,
 				8E6C749F1FA0669D004B33D1 /* ProductDetailViewController.m in Sources */,
+				398513A41FD140FB0056FB7F /* MyFeedBackTableViewController.m in Sources */,
 				8EDBF4E81FA1B4D20073F37D /* TransportOrderTableViewController.m in Sources */,
 				8E6C74931FA03E69004B33D1 /* ProductDetailInfoTableViewCell.m in Sources */,
 				8E2E40A91F94A46B00B42477 /* LinedTableViewCell.m in Sources */,
@@ -1510,6 +1575,7 @@
 				8E99AAA71F9068920078C452 /* SDImageCache.m in Sources */,
 				8E31F4A91FC96B8200373437 /* RentNewOrderPriceTableViewCell.m in Sources */,
 				8E99AAAA1F9068920078C452 /* SDWebImageDecoder.m in Sources */,
+				3985139B1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m in Sources */,
 				8ED4015A1FBA89230097A395 /* CalculateFeesView.m in Sources */,
 				8E6705851FC06FAF001E300E /* AddressAddNewFormTableViewController.m in Sources */,
 				8E99AAAB1F9068920078C452 /* SDWebImageDownloader.m in Sources */,

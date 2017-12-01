@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 
 -(void)refresh
 {
-    [TravellingHttpTool getAdvertisementsByCid:1 cache:NO success:^(NSArray *result) {
+    [TravellingHttpTool getAdvertisementsByCid:@"1" cache:NO success:^(NSArray *result) {
         self.advsArray=[NSMutableArray arrayWithArray:result];
         NSMutableArray* pics=[NSMutableArray array];
         for (TravellingModel* ad in self.advsArray) {
@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
         
     }];
     
-    [TravellingHttpTool getServiceProviderType:1 page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+    [TravellingHttpTool getServiceProviderType:@"1" page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
         NSMutableArray* models=[NSMutableArray array];
         for (TravellingModel* mo in result) {
             SimpleButtonModel* sim=[[SimpleButtonModel alloc]init];
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
         
     }];
     
-    [TravellingHttpTool getServiceProviderType:2 page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+    [TravellingHttpTool getServiceProviderType:@"2" page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:result];
         [self.tableView reloadData];
@@ -83,7 +83,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 
 -(void)loadMore
 {
-    [TravellingHttpTool getServiceProviderType:2 page:self.currentPage+1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+    [TravellingHttpTool getServiceProviderType:@"2" page:self.currentPage+1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
         [self.dataSource addObjectsFromArray:result];
         [self.tableView reloadData];
         if (result.count>0) {

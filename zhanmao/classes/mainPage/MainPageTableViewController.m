@@ -23,6 +23,8 @@
 
 #import "MainPageHttpTool.h"
 
+#import "ProductWebDetailViewController.h"
+
 typedef NS_ENUM(NSInteger,MainPageSection)
 {
     MainPageSectionEights,
@@ -80,6 +82,9 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     
 //    [self locate];
 //    self.tableView.sectionHeaderHeight=44;
+    
+//    self.toolbarItems=[NSArray arrayWithObject:[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:nil action:nil]];
+//    self.navigationController.toolbarHidden=NO;
 }
 
 - (void)locate {
@@ -299,37 +304,54 @@ typedef NS_ENUM(NSInteger,MainPageSection)
             [cell.image sd_setImageWithURL:[mo.thumb urlWithMainUrl]];
             return cell;
         }
-        else
+        else if(sec==MainPageSectionGoodsPushes)
+        {
+            // there is no goods pushed any more;
+        }
+        else if(sec==MainPageSectionNewMsgs)
         {
             MessageSmallTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MessageSmallTableViewCell" forIndexPath:indexPath];
-            if(sec==MainPageSectionGoodsPushes)
-            {
-                cell.showImage=YES;
-                cell.showReadCount=NO;
-                cell.headerTitle.text=@"新品推送";
-                cell.headerImage.image=[UIImage imageNamed:@"newProduct"];
-            }
-            
-            else if(sec==MainPageSectionNewMsgs)
-            {
-                MainMsgModel* msg=[messagesArray objectAtIndex:row];
-                cell.showImage=msg.type==MainMsgTypeImageText;
-                cell.showReadCount=YES;
+
+            MainMsgModel* msg=[messagesArray objectAtIndex:row];
+            cell.showImage=msg.show_type==MainMsgShowTypeImageText;
+            cell.showReadCount=msg.model_type==MainMsgModelTypeNews;
+            if (cell.showReadCount) {
                 cell.headerImage.image=[UIImage imageNamed:@"newMessage"];
                 cell.headerTitle.text=@"最新消息";
-                if (msg.thumb.length>0) {
-                    [cell.image sd_setImageWithURL:[msg.thumb urlWithMainUrl]];
-                }
-                cell.title.text=msg.post_title;
-                cell.content.text=msg.post_excerpt;
-                cell.time.text=msg.post_modified;
-                cell.readCount.text=[NSString stringWithFormat:@"%ld",(long)msg.post_hits];
             }
+            else
+            {
+                cell.headerImage.image=[UIImage imageNamed:@"newProduct"];
+                cell.headerTitle.text=@"新品推送";
+            }
+            cell.title.text=msg.post_title;
+            cell.content.text=msg.post_excerpt;
+            cell.time.text=msg.post_modified;
+            cell.readCount.text=[NSString stringWithFormat:@"%ld",(long)msg.post_hits];
+            [cell.image sd_setImageWithURL:[msg.thumb urlWithMainUrl]];
             return cell;
         }
     }
     
     return [[UITableViewCell alloc]init];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger sec=indexPath.section;
+    NSInteger row=indexPath.row;
+    if(sec==MainPageSectionNewMsgs)
+    {
+        MainMsgModel* msg=[messagesArray objectAtIndex:row];
+        if (msg.model_type==MainMsgModelTypeProduct) {
+            RentProductModel* pro=[[RentProductModel alloc]init];
+            pro.idd=msg.idd;
+            ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+            prod.goodModel=pro;
+            [self.navigationController pushViewController:prod animated:YES];
+        }
+    }
 }
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -341,12 +363,12 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 //    return 44;
 //}
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([cell isKindOfClass:[ExhibitionLargeCardTableViewCell class]]) {
-        [((ExhibitionLargeCardTableViewCell*)cell) setCornerRadius];
-    }
-}
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([cell isKindOfClass:[ExhibitionLargeCardTableViewCell class]]) {
+//        [((ExhibitionLargeCardTableViewCell*)cell) setCornerRadius];
+//    }
+//}
 
 #pragma mark SimpleButtonsTableViewCellDelegate
 

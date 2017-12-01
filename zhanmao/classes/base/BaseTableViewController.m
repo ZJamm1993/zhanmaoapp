@@ -229,6 +229,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    if (tableView.style==UITableViewStylePlain) {
+        return 0.0001;
+    }
     return 8;
 }
 

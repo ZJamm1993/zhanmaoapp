@@ -20,4 +20,11 @@
     return m;
 }
 
++(instancetype)modelWithTitle:(NSString *)title image:(NSString *)image detail:(NSString *)detail identifier:(NSString *)identifier type:(NSInteger)type
+{
+    MyPageCellModel* mm=[self modelWithTitle:title image:image detail:detail identifier:identifier];
+    mm.type=type;
+    return mm;
+}
+
 @end

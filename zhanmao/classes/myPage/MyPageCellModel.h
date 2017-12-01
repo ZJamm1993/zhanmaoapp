@@ -8,13 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger,MyPageCellModelType)
+{
+    MyPageCellModelTypeText,
+    MyPageCellModelTypeImage,
+    MyPageCellModelTypePhone,
+    MyPageCellModelTypeMail,
+};
+
 @interface MyPageCellModel : NSObject
 
 @property (nonatomic,strong) NSString* title;
 @property (nonatomic,strong) NSString* image;
 @property (nonatomic,strong) NSString* detail;
 @property (nonatomic,strong) NSString* identifier;
+@property (nonatomic,assign) NSInteger type;
 
 +(instancetype)modelWithTitle:(NSString*)title image:(NSString*)image detail:(NSString*)detail identifier:(NSString*)identifier;
++(instancetype)modelWithTitle:(NSString*)title image:(NSString*)image detail:(NSString*)detail identifier:(NSString*)identifier type:(NSInteger)type;
 
 @end

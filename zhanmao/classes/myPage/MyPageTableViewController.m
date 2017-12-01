@@ -52,12 +52,12 @@
              [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@""], nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"地址管理" image:@"myAddress" detail:@"" identifier:@"MyAddressesTableViewController"],
-             [MyPageCellModel modelWithTitle:@"个人资料" image:@"myInfo" detail:@"" identifier:@""], nil],
+             [MyPageCellModel modelWithTitle:@"个人资料" image:@"myInfo" detail:@"" identifier:@"MyPersonalInfoViewController"], nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"申请发票" image:@"myInvoice" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
             [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@""],
-             [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@""],
+             [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@"MyHelpCenterTableViewController"],
+             [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@"MyFeedBackTableViewController"],
              [MyPageCellModel modelWithTitle:@"租赁协议" image:@"myProtocal" detail:@"" identifier:@""],
              [MyPageCellModel modelWithTitle:@"客服电话" image:@"myService" detail:@"020-88888888" identifier:@""], nil],
             nil];
@@ -220,19 +220,26 @@
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
     NSLog(@"%@",model.title);
-    [self pushToViewControllerId:model.identifier];
+//    [self pushToViewControllerId:model.identifier];
+    if (model.identifier.length>0) {
+        Class pagerClass=NSClassFromString(model.identifier);
+        if (pagerClass) {
+            UIViewController* vc=[[pagerClass alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
 }
 
 -(void)pushToViewControllerId:(NSString*)identifier
 {
     if (identifier.length>0) {
-        UIViewController* viewController=[cachesControllers valueForKey:identifier];
-        if (viewController==nil) {
-            UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MyPage" bundle:nil];
-            NSLog(@"%@",sb);
-            viewController=[sb instantiateViewControllerWithIdentifier:identifier];
-            [cachesControllers setValue:viewController forKey:identifier];
-        }
+//        UIViewController* viewController;//=[cachesControllers valueForKey:identifier];
+//        if (viewController==nil) {
+        UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MyPage" bundle:nil];
+        NSLog(@"%@",sb);
+        UIViewController* viewController=[sb instantiateViewControllerWithIdentifier:identifier];
+//            [cachesControllers setValue:viewController forKey:identifier];
+//        }
         
         [self.navigationController pushViewController:viewController animated:YES];
     }

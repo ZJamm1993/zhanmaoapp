@@ -130,6 +130,15 @@
     }
 }
 
+-(NSMutableDictionary*)params
+{
+    if(_params.count==0)
+    {
+        _params=[NSMutableDictionary dictionary];
+    }
+    return _params;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
@@ -149,23 +158,23 @@
     else if (self.url) {
         NSString* abs=[self.url absoluteString];
         
-        NSMutableDictionary* params=[NSMutableDictionary dictionary];
         
-        [params setValue:[NSNumber numberWithInteger:self.idd] forKey:@"id"];
+        
+        [self.params setValue:[NSNumber numberWithInteger:self.idd] forKey:@"id"];
         if (self.type.length>0) {
-            [params setValue:self.type forKey:@"type"];
+            [self.params setValue:self.type forKey:@"type"];
         }
-        [params setValue:@"ios" forKey:@"sys"];
-        [params setValue:[NSNumber numberWithInteger:[[NSDate date]timeIntervalSince1970]] forKey:@"time"];
+        [self.params setValue:@"ios" forKey:@"sys"];
+        [self.params setValue:[NSNumber numberWithInteger:[[NSDate date]timeIntervalSince1970]] forKey:@"time"];
         NSString* access_token=[[UserModel getUser]access_token];
         if (access_token.length>0) {
-            [params setValue:access_token forKey:@"access_token"];
+            [self.params setValue:access_token forKey:@"access_token"];
         }
         
-        NSArray* keys=[params allKeys];
+        NSArray* keys=[self.params allKeys];
         NSMutableArray* keysAndValues=[NSMutableArray array];
         for (NSString* key in keys) {
-            NSString* value=[params valueForKey:key];
+            NSString* value=[self.params valueForKey:key];
             
             NSString* kv=[NSString stringWithFormat:@"%@=%@",key,value];
             [keysAndValues addObject:kv];

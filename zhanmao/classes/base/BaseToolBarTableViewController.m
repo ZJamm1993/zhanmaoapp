@@ -36,6 +36,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    UIToolbar* too=[[UIToolbar alloc]init];;
+//    too.frame=CGRectMake(0, 0, 100, 64);
+//    [self.tableView addSubview:too];
+////    self.navigationController.toolbarHidden=NO;
+//    return;
+//    self.bottomLayoutGuide;
+    
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
     
     self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, 200)];

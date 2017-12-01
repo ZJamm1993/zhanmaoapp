@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-#define GoodsShowDetail @"/themes/simplebootx/Mall/goods_show.html"
+#define GoodsShowDetail @"/Mall/Goods/show"
 
 @interface BaseWebViewController : BaseViewController
 
@@ -23,5 +23,7 @@
 
 @property (nonatomic,strong) UIView* bottomView;
 @property (nonatomic,assign) CGRect bottomBgBounds;
+
+@property (nonatomic,strong) NSMutableDictionary* params;
 
 @end

@@ -10,10 +10,10 @@
 
 @implementation TravellingHttpTool
 
-+(void)getAdvertisementsByCid:(NSInteger)cid cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
++(void)getAdvertisementsByCid:(NSString*)cid cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
 {
     
-    NSDictionary* par=[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:cid] forKey:@"cid"];
+    NSDictionary* par=[NSDictionary dictionaryWithObject:cid forKey:@"cid"];
     
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Advs/Advs/show"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
@@ -34,11 +34,11 @@
     }];
 }
 
-+(void)getServiceProviderType:(NSInteger)type page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
++(void)getServiceProviderType:(NSString*)type page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
 {
     
     NSMutableDictionary* par=[self pageParamsWithPage:page size:pagesize];
-    [par setValue:[NSNumber numberWithInteger:type] forKey:@"type"];
+    [par setValue:type forKey:@"type"];
     
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/travel_service"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {

@@ -12,9 +12,9 @@
 
 @interface MainPageHttpTool : ZZHttpTool
 
-+(void)getCustomShowingListByType:(NSInteger)type cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
++(void)getCustomShowingListByType:(NSString*)type cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
-+(void)getCustomShowingCaseListByCid:(NSInteger)cid cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
++(void)getCustomShowingCaseListByCid:(NSString*)cid cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 +(void)getNewExhibition:(void(^)(ExhibitionModel* exh))success cache:(BOOL)cache failure:(void(^)(NSError* error))failure;
 

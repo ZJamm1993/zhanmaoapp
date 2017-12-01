@@ -23,6 +23,8 @@
 @implementation ProductWebDetailViewController
 
 - (void)viewDidLoad {
+    
+    [self.params setValue:@"1" forKey:@"html"];
     self.url=[GoodsShowDetail urlWithMainUrl];
     self.idd=self.goodModel.idd.integerValue;
     [super viewDidLoad];
@@ -133,7 +135,13 @@
        [MBProgressHUD showProgressMessage:@""];
        [RentHttpTool getGoodDetailById:self.goodModel.idd cached:NO success:^(RentProductModel *result) {
            [MBProgressHUD hide];
+           if(result.idd.length==0)
+           {
+               [MBProgressHUD showErrorMessage:@"商品不存在"];
+               return;
+           }
            self.detailedModel=result;
+           
            if (success) {
                success(self.detailedModel);
            }

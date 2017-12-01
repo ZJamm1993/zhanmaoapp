@@ -12,9 +12,9 @@
 
 @interface TravellingHttpTool : ZZHttpTool
 
-+(void)getAdvertisementsByCid:(NSInteger)cid cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
++(void)getAdvertisementsByCid:(NSString*)cid cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
-+(void)getServiceProviderType:(NSInteger)type page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
++(void)getServiceProviderType:(NSString*)type page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 +(void)getTravelQuestionnaire:(void(^)(BaseFormStepsModel* steps))success cache:(BOOL)cache failure:(void(^)(NSError* error))failure;
 

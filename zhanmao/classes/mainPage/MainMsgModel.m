@@ -14,7 +14,8 @@
 {
     self=[super initWithDictionary:dictionary];
     if (self) {
-        _type=[[dictionary valueForKey:@"type"]integerValue];
+        _show_type=[[dictionary valueForKey:@"show_type"]integerValue];
+        _model_type=[[dictionary valueForKey:@"model_type"]integerValue];
     }
     return self;
 }

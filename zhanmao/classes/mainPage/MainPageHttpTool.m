@@ -10,10 +10,10 @@
 
 @implementation MainPageHttpTool
 
-+(void)getCustomShowingListByType:(NSInteger)type cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
++(void)getCustomShowingListByType:(NSString*)type cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Show/classification"];
-    NSDictionary* par=[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:type] forKey:@"type"];
+    NSDictionary* par=[NSDictionary dictionaryWithObject:type forKey:@"type"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
         NSArray* data=[dict valueForKey:@"data"];
         NSMutableArray* res=[NSMutableArray array];
@@ -31,10 +31,10 @@
     }];
 }
 
-+(void)getCustomShowingCaseListByCid:(NSInteger)cid cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
++(void)getCustomShowingCaseListByCid:(NSString*)cid cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Show/caselist"];
-    NSDictionary* par=[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:cid] forKey:@"cid"];
+    NSDictionary* par=[NSDictionary dictionaryWithObject:cid forKey:@"cid"];
     [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
         NSArray* data=[dict valueForKey:@"data"];
         NSMutableArray* res=[NSMutableArray array];

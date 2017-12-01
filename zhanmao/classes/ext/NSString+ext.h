@@ -14,6 +14,8 @@
 
 -(BOOL)isMobileNumber;
 
+-(BOOL)isEMailAddress;
+
 @property (nonatomic,assign) BOOL passwordLength;
 
 

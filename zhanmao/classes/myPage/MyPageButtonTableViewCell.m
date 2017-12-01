@@ -16,9 +16,10 @@
     self.selectionStyle=UITableViewCellSelectionStyleNone;
     self.backgroundColor=[UIColor clearColor];
     
-    self.button.userInteractionEnabled=NO;
-    self.button.backgroundColor=_mainColor;
-    self.button.layer.cornerRadius=2;
+//    self.button.userInteractionEnabled=NO;
+    [self.button setBackgroundImage:[UIImage imageWithColor:_mainColor size:self.button.frame.size] forState:UIControlStateNormal];
+    self.button.layer.cornerRadius=6;
+    self.button.clipsToBounds=YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

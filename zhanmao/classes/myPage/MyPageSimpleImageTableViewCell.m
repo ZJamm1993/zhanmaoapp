@@ -1,22 +1,20 @@
 //
-//  MyPageSimpleTableViewCell.m
+//  MyPageSimpleImageTableViewCell.m
 //  zhanmao
 //
-//  Created by bangju on 2017/10/20.
+//  Created by jam on 2017/12/1.
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "MyPageSimpleTableViewCell.h"
+#import "MyPageSimpleImageTableViewCell.h"
 
-@implementation MyPageSimpleTableViewCell
+@implementation MyPageSimpleImageTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    self.separatorInset=UIEdgeInsetsMake(0, 16, 0, 0);
+    // Initialization code
     
     self.accessoryView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rightArrow"]];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

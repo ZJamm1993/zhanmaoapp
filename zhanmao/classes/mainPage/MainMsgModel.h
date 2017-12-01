@@ -8,14 +8,21 @@
 
 #import "BaseModel.h"
 
-typedef NS_ENUM(NSInteger,MainMsgType)
+typedef NS_ENUM(NSInteger,MainMsgShowType)
 {
-    MainMsgTypeImageText=1,
-    MainMsgTypeOnlyText=2,
+    MainMsgShowTypeImageText=1,
+    MainMsgShowTypeOnlyText=2,
+};
+
+typedef NS_ENUM(NSInteger,MainMsgModelType)
+{
+    MainMsgModelTypeNews=1,
+    MainMsgModelTypeProduct=2,
 };
 
 @interface MainMsgModel : BaseModel
 
-@property (nonatomic,assign) NSInteger type;
+@property (nonatomic,assign) NSInteger show_type;
+@property (nonatomic,assign) NSInteger model_type;
 
 @end
