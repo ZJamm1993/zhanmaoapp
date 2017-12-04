@@ -8,7 +8,9 @@
 
 #import "BaseViewController.h"
 
-#define GoodsShowDetail @"/Mall/Goods/show"
+#define HTML_GoodsShowDetail @"/Mall/Goods/show"
+#define HTML_BugProtocol @"/Content/Page/bugprotocol"
+#define HTML_HelpDetail @"/Content/Help/show"
 
 @interface BaseWebViewController : BaseViewController
 

@@ -29,6 +29,7 @@
     self.cardBg.layer.shadowOpacity=0.5;
     
     self.titleBg.backgroundColor=_mainColor;
+    self.colorBg.backgroundColor=_mainColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

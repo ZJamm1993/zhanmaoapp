@@ -31,4 +31,6 @@
 @property (nonatomic,strong) NSString* position;
 @property (nonatomic,strong) NSString* avatar;
 
+-(BOOL)isNullUser;
+
 @end

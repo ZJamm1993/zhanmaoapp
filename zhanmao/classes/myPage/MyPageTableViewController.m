@@ -13,6 +13,8 @@
 #import "MyPageCellModel.h"
 #import "MyPageHttpTool.h"
 
+#import "BaseWebViewController.h"
+
 //typedef NS_ENUM(NSInteger, MyPageSection) {
 //    
 //    MyPageSectionHeaders,
@@ -33,6 +35,7 @@
     NSMutableDictionary* cachesControllers;
     
     UserModel* myUser;
+    BOOL askedToPerfectInfo;
 }
 @end
 
@@ -62,8 +65,8 @@
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@"MyHelpCenterTableViewController"],
              [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@"MyFeedBackTableViewController"],
-             [MyPageCellModel modelWithTitle:@"租赁协议" image:@"myProtocal" detail:@"" identifier:@""],
-             [MyPageCellModel modelWithTitle:@"客服电话" image:@"myService" detail:@"020-88888888" identifier:@""], nil],
+             [MyPageCellModel modelWithTitle:@"租赁协议" image:@"myProtocal" detail:@"" identifier:@"pro"],
+             [MyPageCellModel modelWithTitle:@"客服电话" image:@"myService" detail:@"136-4066-2115" identifier:@"tel"], nil],
             nil];
     
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userInfoDidUpdateNotification:) name:UserInfoDidUpdateNotification object:nil];
@@ -79,19 +82,35 @@
         myUser=[UserModel getUser];
         [self.tableView reloadData];
         
-        if (myUser.user_nicename.length==0) {
+        if ([myUser isNullUser])
+        {
             [self refresh];
         }
+    }
+    else
+    {
+        [self.tableView reloadData];
     }
 }
 
 -(void)refresh
 {
-    [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user) {
-        [UserModel saveUser:user];
-        myUser=[UserModel getUser];
-        [self.tableView reloadData];
-    }];
+    if ([UserModel token].length>0) {
+        [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user) {
+            [UserModel saveUser:user];
+            myUser=[UserModel getUser];
+            
+            //        if ([myUser isNullUser]&&!askedToPerfectInfo) {
+            //            [self pushToViewControllerId:@"MyPersonalInfoViewController"];
+            //            askedToPerfectInfo=YES;
+            //        }
+            [self.tableView reloadData];
+        }];
+    }
+    else
+    {
+        [self.refreshControl endRefreshing];
+    }
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -184,12 +203,16 @@
         [cell setSimpleButtonsCellDelegate:self];
         cell.headImageView.image=[UIImage imageNamed:@"defaultHeadImage"];
         cell.name.text=@"请登录";
+        cell.loginBg.hidden=YES;
         
         if ([UserModel token].length>0) {
             cell.loginBg.hidden=NO;
             [cell.headImageView sd_setImageWithURL:[myUser.avatar urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
             [cell.loginBgImage sd_setImageWithURL:[myUser.avatar urlWithMainUrl] placeholderImage:nil];
             cell.name.text=myUser.user_nicename;
+//            if (myUser.user_nicename.length==0) {
+//                cell.name.text=
+//            }
         }
         return cell;
     }
@@ -214,15 +237,51 @@
     NSArray* arr=[cellModelsArray objectAtIndex:indexPath.section];
     MyPageCellModel* mo=[arr objectAtIndex:indexPath.row];
     NSLog(@"%@",mo.identifier);
-    if (indexPath.section>0&&indexPath.section<=2) {
+//    if (indexPath.section>0&&indexPath.section<=2) {
         //requires loging
 //        return;
         if ([UserModel token].length==0) {
             [self askToLogin];
             return;
         }
+//    }
+    
+    //specials
+    //specials
+    if ([mo.identifier isEqualToString:@"tel"]) {
+        NSString* str=[NSString stringWithFormat:@"tel://%@",mo.detail];
+        NSURL* phone=[NSURL URLWithString:str];
+        if ([[UIApplication sharedApplication]canOpenURL:phone] ) {
+            UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否拨打客服电话" message:mo.detail preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                
+            }]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"拨打" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [[UIApplication sharedApplication]openURL:phone];
+            }]];
+            [self presentViewController:alert animated:YES completion:^{
+                
+            }];
+        }
+        else{
+            [MBProgressHUD showErrorMessage:@"设备不支持拨打电话"];
+        }
+        return;
     }
-    [self pushToViewControllerId:mo.identifier];
+    else if([mo.identifier isEqualToString:@"pro"])
+    {
+        BaseWebViewController* proto=[[BaseWebViewController alloc]initWithUrl:[HTML_BugProtocol urlWithMainUrl]];
+        proto.title=@"租赁协议";
+        [self.navigationController pushViewController:proto animated:YES];
+        return;
+    }
+    
+    //normals
+    else
+    {
+        [self pushToViewControllerId:mo.identifier];
+    }
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -274,6 +333,7 @@
 
 -(void)pushToViewControllerId:(NSString*)identifier
 {
+    //normals
     if (identifier.length>0) {
 //        UIViewController* viewController;//=[cachesControllers valueForKey:identifier];
 //        if (viewController==nil) {
@@ -284,6 +344,9 @@
 //        }
         
         [self.navigationController pushViewController:viewController animated:YES];
+//        if ([identifier isEqualToString:@"MyPersonalInfoViewController"]) {
+//            askedToPerfectInfo=YES;
+//        }
     }
 }
 
@@ -297,15 +360,20 @@
 -(void)myPageHeaderTableViewCellPersonalButtonClicked:(MyPageHeaderTableViewCell *)cell
 {
     if ([UserModel token].length==0) {
-        [self askToLogin];
+        [self goToLogin];
     }
 }
 
 -(void)askToLogin
 {
     [MBProgressHUD showErrorMessage:@"请先登录"];
-    [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+    [self goToLogin];
     return;
+}
+
+-(void)goToLogin
+{
+    [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
 }
 
 @end

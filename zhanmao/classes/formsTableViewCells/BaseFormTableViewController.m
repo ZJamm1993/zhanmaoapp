@@ -419,7 +419,7 @@
         self.navigationController.viewControllers=neVcs;
     } failure:^(NSError *err) {
         NSLog(@"wangluo");
-        [MBProgressHUD showErrorMessage:@"网络不通"];
+        [MBProgressHUD showErrorMessage:BadNetworkDescription];
     }];
 
 }

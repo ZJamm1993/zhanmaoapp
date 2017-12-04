@@ -33,6 +33,10 @@
 
 #import "UserModel.h"
 
+//Strings
+
+#define BadNetworkDescription @"网络不通畅"
+
 //UIcolors
 
 #define rgba(a, b, c, d) ([UIColor colorWithRed:(a/255.0) green:(b/255.0) blue:(c/255.0) alpha:d])

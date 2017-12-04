@@ -35,9 +35,21 @@
     return self;
 }
 
+-(BOOL)isNullUser
+{
+    BOOL nulName=_user_nicename.length==0;
+    BOOL nulAvatar=_avatar.length==0;
+    BOOL nulMobile=_mobile.length==0;
+    BOOL nulEmail=_user_email.length==0;
+    BOOL nulPosition=_position.length==0;
+    
+    return nulName&&nulAvatar&&nulMobile&&nulEmail&&nulPosition;
+}
+
 +(NSString*)token
 {
-//    return @"123";
+    #warning test user token
+    return @"123";
     NSString* to=[[NSUserDefaults standardUserDefaults]valueForKey:UserTokenKey];
     return to;
 }

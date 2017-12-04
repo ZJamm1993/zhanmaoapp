@@ -150,6 +150,11 @@
     [loadingIndicator stopAnimating];
     [self.view addSubview:loadingIndicator];
     
+    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"hhh.html"];
+    
+    NSError* err=nil;
+    NSString* mTxt=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
+    [self.ios8WebView loadHTMLString:mTxt baseURL:nil];
     
     if(self.html.length>0)
     {
@@ -171,6 +176,8 @@
             [self.params setValue:access_token forKey:@"access_token"];
         }
         
+        [self.params setValue:@"1" forKey:@"html"];
+        
         NSArray* keys=[self.params allKeys];
         NSMutableArray* keysAndValues=[NSMutableArray array];
         for (NSString* key in keys) {
@@ -190,11 +197,7 @@
         }
         self.url=[NSURL URLWithString:abs];
         
-        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"hhh.html"];
         
-        NSError* err=nil;
-        NSString* mTxt=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
-        [self.ios8WebView loadHTMLString:mTxt baseURL:nil];
         
         NSLog(@"webview:  %@",abs);
         NSURLRequest* req=[NSURLRequest requestWithURL:self.url];

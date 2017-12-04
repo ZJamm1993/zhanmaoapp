@@ -62,7 +62,7 @@
     
     [self post:str params:dic success:^(NSDictionary *responseObject) {
         NSString* msg=[responseObject valueForKey:@"message"];
-        BOOL ok=[[responseObject valueForKey:@"code"]integerValue]==0;
+        BOOL ok=responseObject.code==0;
         if (success) {
             success(ok,msg);
         }

@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     
     [self.params setValue:@"1" forKey:@"html"];
-    self.url=[GoodsShowDetail urlWithMainUrl];
+    self.url=[HTML_GoodsShowDetail urlWithMainUrl];
     self.idd=self.goodModel.idd.integerValue;
     [super viewDidLoad];
     

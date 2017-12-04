@@ -7,6 +7,7 @@
 //
 
 #import "MyFeedBackTableViewController.h"
+#import "MyPageHttpTool.h"
 
 @interface MyFeedBackTableViewController ()<UITextViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bg1;
@@ -30,6 +31,8 @@
     
     self.adviceTextView.delegate=self;
     self.contactTextField.delegate=self;
+    
+    [self.adviceTextView becomeFirstResponder];
     
     self.title=@"建议反馈";
 }
@@ -81,6 +84,17 @@
         return;
     }
     NSLog(@"commit advice:%@\ncontact:%@",advice,contact);
+    
+    [MyPageHttpTool postFeedbackContent:advice contact:contact token:[UserModel token] success:^(BOOL result, NSString *msg) {
+        if (result) {
+            [MBProgressHUD showSuccessMessage:msg];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else
+        {
+            [MBProgressHUD showErrorMessage:msg];
+        }
+    }];
 }
 
 @end

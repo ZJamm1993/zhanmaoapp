@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title=@"设置";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageButtonTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageButtonTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
@@ -94,6 +95,7 @@
     if (sec==tableView.numberOfSections-1) {
         MyPageButtonTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageButtonTableViewCell" forIndexPath:indexPath];
         [cell.button setTitle:@"安全退出" forState:UIControlStateNormal];
+        [cell.button addTarget:self action:@selector(logOut) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     else
@@ -117,11 +119,25 @@
     NSArray* arr=[cellModelsArray objectAtIndex:indexPath.section];
     MyPageCellModel* mo=[arr objectAtIndex:indexPath.row];
     NSLog(@"%@",mo.identifier);
-//    if (indexPath.section==1) {
-        //requires loging
-        return;
-//    }
-//    [self pushToViewControllerId:mo.identifier];
+    
+    if (indexPath.section==1) {
+        [self logOut];
+    }
+    else
+    {
+        if ([mo.identifier isEqualToString:@"clean"]) {
+            [[SDImageCache sharedImageCache]clearMemory];
+            [[SDImageCache sharedImageCache]clearDiskOnCompletion:nil];
+            [self refreshData];
+        }
+    }
+}
+
+-(void)logOut
+{
+    [UserModel saveToken:@""];
+    [UserModel deleteUser];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

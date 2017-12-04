@@ -79,14 +79,14 @@
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/made"];
     [self post:str params:parms success:^(NSDictionary *responseObject) {
-        BOOL code=[[responseObject valueForKey:@"code"]integerValue]==0;
+        BOOL code=responseObject.code==0;
         NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
             success(code,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO,@"网络不通");
+            success(NO,BadNetworkDescription);
         }
     }];
 }

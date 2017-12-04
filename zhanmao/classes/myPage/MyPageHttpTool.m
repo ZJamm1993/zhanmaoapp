@@ -17,7 +17,7 @@
         str=[ZZUrlTool fullUrlWithTail:@"/User/Address/edit_post"];
     }
     [self post:str params:param success:^(NSDictionary *responseObject) {
-        BOOL code=[[responseObject valueForKey:@"code"]integerValue]==0;
+        BOOL code=responseObject.code==0;
         NSString* msg=[responseObject valueForKey:@"message"];
         NSString* idd=[[responseObject valueForKey:@"data"]description];
         if (success) {
@@ -25,7 +25,7 @@
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO,@"网络不通畅",@"");
+            success(NO,BadNetworkDescription,@"");
         }
     }];
 }
@@ -37,14 +37,14 @@
     [param setValue:token forKey:@"access_token"];
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Address/setdefault"];
     [self post:str params:param success:^(NSDictionary *responseObject) {
-        BOOL code=[[responseObject valueForKey:@"code"]integerValue]==0;
+        BOOL code=responseObject.code==0;
         NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
             success(code,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO,@"网络不通畅");
+            success(NO,BadNetworkDescription);
         }
     }];
 }
@@ -56,14 +56,14 @@
     [param setValue:token forKey:@"access_token"];
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Address/del"];
     [self post:str params:param success:^(NSDictionary *responseObject) {
-        BOOL code=[[responseObject valueForKey:@"code"]integerValue]==0;
+        BOOL code=responseObject.code==0;
         NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
             success(code,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO,@"网络不通畅");
+            success(NO,BadNetworkDescription);
         }
     }];
 }
@@ -173,14 +173,14 @@
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/edit_post"];
     
     [self post:str params:pp success:^(NSDictionary *responseObject) {
-        BOOL code=[[responseObject valueForKey:@"code"]integerValue]==0;
+        BOOL code=responseObject.code==0;
         NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
             success(code,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(NO,@"网络不通");
+            success(NO,BadNetworkDescription);
         }
     }];
 }
@@ -226,10 +226,55 @@
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(nil,@"网络不通");
+            success(nil,BadNetworkDescription);
         }
     }];
 
+}
+
++(void)postFeedbackContent:(NSString *)content contact:(NSString *)contact token:(NSString *)token success:(void (^)(BOOL, NSString *))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Freeback/add_post"];
+    NSMutableDictionary* p=[NSMutableDictionary dictionary];
+    
+    [p setValue:contact forKey:@"contact"];
+    [p setValue:content forKey:@"post_content"];
+    [p setValue:token forKey:@"access_token"];
+    
+    [self post:str params:p success:^(NSDictionary *responseObject) {
+        BOOL result=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(result,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,BadNetworkDescription);
+        }
+    }];
+}
+
++(void)getHelpCenterListPage:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSMutableDictionary* par=[self pageParamsWithPage:page size:pagesize];
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Help/index"];
+    [self get:str params:par usingCache:cache success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        NSArray* list=[data valueForKey:@"list"];
+        NSMutableArray* res=[NSMutableArray array];
+        for (NSDictionary* dic in list) {
+            BaseModel* mo=[[BaseModel alloc]initWithDictionary:dic];
+            [res addObject:mo];
+        }
+        if (success) {
+            success(res);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
 }
 
 @end

@@ -23,7 +23,7 @@
 
 +(void)getMyAddressesToken:(NSString*)token cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
-#pragma mark info
+#pragma mark personal info
 
 +(void)uploadAvatar:(UIImage*)avatar token:(NSString*)token success:(void(^)(NSString* imageUrl))success;
 
@@ -34,5 +34,13 @@
 +(void)getCodeWithMobile:(NSString*)mobile success:(void(^)(BOOL sent,NSString* msg))success;
 
 +(void)loginUserWithMobile:(NSString*)mobile code:(NSString*)code success:(void(^) (NSString* token,NSString* msg))success;
+
+#pragma mark feedback
+
++(void)postFeedbackContent:(NSString*)content contact:(NSString*)contact token:(NSString*)token success:(void(^)(BOOL result,NSString* msg))success;
+
+#pragma mark help center
+
++(void)getHelpCenterListPage:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 @end
