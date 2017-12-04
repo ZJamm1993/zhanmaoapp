@@ -110,7 +110,7 @@
     NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
     NSLog(@"%@",paras);
     
-    NSString* token=[[UserModel getUser]access_token];
+    NSString* token=[UserModel token];
     BOOL edit=(self.editAddress!=nil);
     
     if (edit) {

@@ -7,13 +7,23 @@
 //
 
 #import "MyLoginViewController.h"
+#import "MyPageHttpTool.h"
 
 @interface MyLoginViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *fieldBgs;
+@property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *getCodeButton;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
 @implementation MyLoginViewController
+
++(instancetype)loginViewController
+{
+    return [[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"MyLoginViewController"];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +45,62 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)getCode:(id)sender {
+    if ([self.mobileTextField.text isMobileNumber]) {
+        self.getCodeButton.enabled=NO;
+        [self startCountDownSeconds:60];
+        
+        [MBProgressHUD showProgressMessage:@"正在发送验证码"];
+        [MyPageHttpTool getCodeWithMobile:self.mobileTextField.text success:^(BOOL sent, NSString *msg) {
+            if (sent) {
+                [MBProgressHUD showSuccessMessage:msg];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+                self.getCodeButton.enabled=YES;
+            }
+        }];
+    }
+    else
+    {
+        [MBProgressHUD showErrorMessage:@"请输入正确的手机号码"];
+    }
+}
+
+- (IBAction)login:(id)sender {
+    if (![self.mobileTextField.text isMobileNumber]) {
+        [MBProgressHUD showErrorMessage:@"请输入正确的手机号码"];
+        return;
+    }
+    if (self.codeTextField.text.length==0) {
+        [MBProgressHUD showErrorMessage:@"请获取并输入验证码"];
+        return;
+    }
+    
+    [MyPageHttpTool loginUserWithMobile:self.mobileTextField.text code:self.codeTextField.text success:^(NSString *token,NSString* msg) {
+        if (token.length>0) {
+            [UserModel saveToken:token];
+            [UserModel deleteUser];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else
+        {
+            [MBProgressHUD showErrorMessage:msg];
+        }
+    }];
+}
+
+-(void)countingDownSeconds:(NSInteger)second
+{
+    [self.getCodeButton setTitle:[NSString stringWithFormat:@"%d秒后重新发送",(int)second] forState:UIControlStateDisabled];
+}
+
+-(void)endingCountDown
+{
+    self.getCodeButton.enabled=YES;
 }
 
 @end

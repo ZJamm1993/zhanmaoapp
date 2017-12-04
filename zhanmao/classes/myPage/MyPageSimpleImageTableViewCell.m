@@ -14,6 +14,9 @@
     [super awakeFromNib];
     // Initialization code
     
+    self.image.layer.cornerRadius=self.image.frame.size.width/2;
+    self.image.clipsToBounds=YES;
+    
     self.accessoryView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rightArrow"]];
 }
 

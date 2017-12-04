@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#define UserInfoDidUpdateNotification @"UserInfoDidUpdateNotification"
+
 @interface UserModel : ZZModel
+
++(NSString*)token;
++(void)saveToken:(NSString*)token;
 
 +(void)saveUser:(UserModel*)user;
 +(instancetype)getUser;
@@ -18,8 +23,7 @@
 +(void)savePassword:(NSString*)password;
 +(void)deletePassword;
 
-
-@property (nonatomic,strong) NSString* access_token;
+//@property (nonatomic,strong) NSString* access_token;
 
 @property (nonatomic,strong) NSString* mobile;
 @property (nonatomic,strong) NSString* user_nicename;

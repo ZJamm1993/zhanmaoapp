@@ -27,7 +27,8 @@
 {
     [super setModel:model];
     
-    self.textField.text=model.value;
+    if(!self.textField.isFirstResponder)
+        self.textField.text=model.value;
     self.title.text=model.name;
     self.unit.text=model.unit;
     self.placeHolder.text=model.hint;

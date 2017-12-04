@@ -22,6 +22,8 @@
 @property (nonatomic,assign) NSInteger editingType;
 @property (nonatomic,strong) NSString* presetString;
 
+@property (nonatomic,weak) MyPageCellModel* cellModel;
+
 @property (nonatomic,weak) id<MyPageOneTextFieldTableViewControllerDelegate>delegate;
 
 @end

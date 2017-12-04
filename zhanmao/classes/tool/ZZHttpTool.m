@@ -159,6 +159,101 @@
     }
 }
 
+//3rd method, came from stackoverflow.com
++(void)uploadImage:(NSData *)imageData url:(NSString*)url params:(NSDictionary *)params success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure
+{
+    NSURL* _ur=[NSURL URLWithString:url];
+    
+    // Dictionary that holds post parameters. You can set your post parameters that your server accepts or programmed to accept.
+    NSMutableDictionary* _params = [NSMutableDictionary dictionaryWithDictionary:params];
+    // the boundary string : a random string, that will not repeat in post data, to separate post data fields.
+    NSString *BoundaryConstant = [NSString stringWithFormat:@"----------V2ymH3ehbqg%dZCaKO6jy",(int)arc4random()%100];
+    
+    // string constant for the post parameter 'file'. My server uses this name: `file`. Your's may differ
+    NSString* FileParamConstant = @"img";
+    
+    // the server url to which the image (or the media) is uploaded. Use your server url here
+    NSURL* requestURL = _ur;
+    
+    // create request
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    [request setHTTPShouldHandleCookies:NO];
+    [request setTimeoutInterval:30];
+    [request setHTTPMethod:@"POST"];
+    
+    // set Content-Type in HTTP header
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", BoundaryConstant];
+    [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+    
+    // post body
+    NSMutableData *body = [NSMutableData data];
+    
+    // add params (all params are strings)
+    for (NSString *param in _params) {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    // add image data
+//    CGSize size=CGSizeMake(200,200);
+//    UIGraphicsBeginImageContext(CGSizeMake(size.width,size.height));
+//    [avatar drawInRect:CGRectMake(0, 0, size.width, size.height)];
+//    
+//    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    NSData *imageData = UIImageJPEGRepresentation(scaledImage, 0.8);\
+    
+    if (imageData) {
+        [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", FileParamConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:imageData];
+        [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    // setting the body of the post to the reqeust
+    [request setHTTPBody:body];
+    
+    // set the content-length
+    NSString *postLength = [NSString stringWithFormat:@"%d",(int) [body length]];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    // set URL
+    [request setURL:requestURL];
+    NSURLSession* session=[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSURLSessionDataTask* dataTast=[session dataTaskWithRequest:request completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
+        //            NSLog(@"data:\n%@",data);
+        //            NSLog(@"resp:\n%@",response);
+        //            NSLog(@"erro:\n%@",error);
+        [session finishTasksAndInvalidate];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (data) {
+                NSDictionary* result=[self dictionaryWithResponseData:data];
+//                NSString* d=[result valueForKey:@"data"];
+                if (success) {
+                    success(result);
+                }
+                return;
+            }
+            else if(error)
+            {
+                if (failure) {
+                    failure(error);
+                }
+                return;
+            }
+        });
+        
+    }];
+    [dataTast resume];
+}
+
 +(NSDictionary*)dictionaryWithResponseData:(NSData*)data
 {
     if (!data) {

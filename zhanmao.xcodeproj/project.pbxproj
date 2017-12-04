@@ -1744,8 +1744,6 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",
-					"$(PROJECT_DIR)/zhanmao/classes/tool/UMMobClick",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AlipaySDK",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhanmao/PrefixHeader.pch";
@@ -1754,7 +1752,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatOpenSDK1.7.8",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatPaySDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
@@ -1773,8 +1770,6 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/zhanmao/classes/tool/AMap",
-					"$(PROJECT_DIR)/zhanmao/classes/tool/UMMobClick",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/AlipaySDK",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/zhanmao/PrefixHeader.pch";
@@ -1783,7 +1778,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatOpenSDK1.7.8",
 					"$(PROJECT_DIR)/zhanmao/classes/tool/WeChatPaySDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";

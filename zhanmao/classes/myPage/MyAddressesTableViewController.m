@@ -38,9 +38,9 @@
 
 -(void)refresh
 {
-    UserModel* us=[UserModel getUser];
-    if (us.access_token.length>0) {
-        [MyPageHttpTool getMyAddressesToken:us.access_token cache:NO success:^(NSArray *result) {
+    NSString* token=[UserModel token];
+    if (token.length>0) {
+        [MyPageHttpTool getMyAddressesToken:token cache:NO success:^(NSArray *result) {
             [self.dataSource removeAllObjects];
             [self.dataSource addObjectsFromArray:result];
             [self.tableView reloadData];
@@ -139,7 +139,7 @@
 
 -(void)addressOtionTableViewCell:(AddressOptionTableViewCell *)cell doAction:(AddressOptionAction)action
 {
-    NSString* token=[UserModel getUser].access_token;
+    NSString* token=[UserModel token];
     if (token.length==0) {
         return;
     }

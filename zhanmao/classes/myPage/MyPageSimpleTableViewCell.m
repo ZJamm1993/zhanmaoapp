@@ -25,4 +25,15 @@
     // Configure the view for the selected state
 }
 
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if (self.accessoryView) {
+        CGRect fr=self.detailTextLabel.frame;
+        fr.origin.x=fr.origin.x-10;
+        self.detailTextLabel.frame=fr;
+    }
+}
+
 @end

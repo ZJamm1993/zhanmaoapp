@@ -10,4 +10,6 @@
 
 @interface MyLoginViewController : BaseViewController
 
++(instancetype)loginViewController;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "ZZUrlTool.h"
 #import "BaseModel.h"
 
@@ -17,6 +18,8 @@
 +(void)post:(NSString *)url params:(NSDictionary *)params success:(void(^)(NSDictionary* responseObject))success failure:(void(^)(NSError *error))failure;
 
 +(void)requestMethod:(NSString*)method url:(NSString *)url params:(NSDictionary *)params usingCache:(BOOL)isCache success:(void (^)(NSDictionary * dict))success failure:(void (^)(NSError *err))failure;
+
++(void)uploadImage:(NSData *)imageData url:(NSString*)url params:(NSDictionary*)params success:(void (^)(NSDictionary * dict))success failure:(void (^)(NSError *err))failure;
 
 +(NSInteger)pagesize;
 +(NSMutableDictionary*)pageParams;

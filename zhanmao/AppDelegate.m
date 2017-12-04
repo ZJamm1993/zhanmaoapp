@@ -12,6 +12,8 @@
 
 #import "BaseWebViewController.h"
 
+#import "MyPageHttpTool.h"
+
 #define WXApiAppId @"wxdc1288a5c294339a"
 
 @interface AppDelegate ()<WXApiDelegate>
@@ -29,6 +31,10 @@
     preloadWeb.view.backgroundColor=[UIColor whiteColor];
     
     [WXApi registerApp:WXApiAppId enableMTA:NO];
+    
+    [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user) {
+        [UserModel saveUser:user];
+    }];
     
     return YES;
 }

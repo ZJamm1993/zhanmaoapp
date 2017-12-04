@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -614,18 +615,29 @@
                                                 <constraint firstAttribute="trailing" secondItem="kps-OG-ips" secondAttribute="trailing" id="ujX-wF-7oH"/>
                                             </constraints>
                                         </view>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0D-64-FaW" userLabel="loggedInBg">
+                                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0D-64-FaW" userLabel="loggedInBg">
                                             <rect key="frame" x="0.0" y="-0.5" width="320" height="247"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chicken.png" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-nl-7HJ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-nl-7HJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="hYh-nl-7HJ" secondAttribute="height" multiplier="320:247" id="uic-xT-XDO"/>
+                                                    </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-x7-CNN" userLabel="blur">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hs2-x7-CNN" firstAttribute="leading" secondItem="r0D-64-FaW" secondAttribute="leading" id="KGF-pH-Lqs"/>
+                                                <constraint firstAttribute="trailing" secondItem="hs2-x7-CNN" secondAttribute="trailing" id="TDZ-Ap-TtF"/>
                                                 <constraint firstItem="hYh-nl-7HJ" firstAttribute="top" secondItem="r0D-64-FaW" secondAttribute="top" id="TPt-j7-0WM"/>
                                                 <constraint firstAttribute="bottom" secondItem="hYh-nl-7HJ" secondAttribute="bottom" id="Uvy-dH-SoD"/>
-                                                <constraint firstItem="hYh-nl-7HJ" firstAttribute="leading" secondItem="r0D-64-FaW" secondAttribute="leading" id="VcQ-9Z-jHx"/>
-                                                <constraint firstAttribute="trailing" secondItem="hYh-nl-7HJ" secondAttribute="trailing" id="hVB-G7-Z77"/>
+                                                <constraint firstItem="hYh-nl-7HJ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="r0D-64-FaW" secondAttribute="leading" id="VcQ-9Z-jHx"/>
+                                                <constraint firstItem="hYh-nl-7HJ" firstAttribute="centerX" secondItem="r0D-64-FaW" secondAttribute="centerX" id="s1y-Or-yMX"/>
+                                                <constraint firstItem="hs2-x7-CNN" firstAttribute="top" secondItem="r0D-64-FaW" secondAttribute="top" id="skx-gS-Yuc"/>
+                                                <constraint firstAttribute="bottom" secondItem="hs2-x7-CNN" secondAttribute="bottom" id="yJh-ou-DDT"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnL-sS-5Gn" userLabel="cardBg">
@@ -649,21 +661,21 @@
                                             <rect key="frame" x="0.0" y="60" width="320" height="151"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgh-lK-W9w">
-                                                    <rect key="frame" x="142.5" y="96" width="35" height="55"/>
+                                                    <rect key="frame" x="142.5" y="98" width="35" height="53"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oK-gg-NxM" userLabel="headbg">
-                                                    <rect key="frame" x="117" y="0.0" width="86" height="86"/>
+                                                    <rect key="frame" x="116" y="0.0" width="88" height="88"/>
                                                     <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="0oK-gg-NxM" secondAttribute="height" multiplier="1:1" id="Tsc-i3-seb"/>
-                                                        <constraint firstAttribute="height" constant="86" id="oBJ-qP-fBi"/>
+                                                        <constraint firstAttribute="height" constant="88" id="oBJ-qP-fBi"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RA1-BJ-hcQ">
-                                                    <rect key="frame" x="119" y="2" width="82" height="82"/>
+                                                    <rect key="frame" x="119" y="3" width="82" height="82"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="82" id="CXm-TT-Y3B"/>
@@ -671,7 +683,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioO-a0-VrL">
-                                                    <rect key="frame" x="117" y="0.0" width="86" height="151"/>
+                                                    <rect key="frame" x="116" y="0.0" width="88" height="151"/>
                                                     <connections>
                                                         <action selector="headButtonClicked:" destination="HbZ-FL-XNo" eventType="touchUpInside" id="p0D-qB-WLm"/>
                                                     </connections>
@@ -729,6 +741,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="dnL-sS-5Gn" secondAttribute="trailing" constant="10" id="1y8-Ls-8So"/>
                                         <constraint firstItem="aTa-MV-o52" firstAttribute="leading" secondItem="EXB-zg-5mU" secondAttribute="leading" id="2Qb-vc-Fz4"/>
+                                        <constraint firstItem="dnL-sS-5Gn" firstAttribute="top" secondItem="EXB-zg-5mU" secondAttribute="topMargin" constant="219" id="4lj-L0-iBH"/>
                                         <constraint firstItem="r0D-64-FaW" firstAttribute="bottom" secondItem="ttF-oz-kdo" secondAttribute="bottom" id="5h8-CZ-81O"/>
                                         <constraint firstItem="r0D-64-FaW" firstAttribute="top" secondItem="EXB-zg-5mU" secondAttribute="top" id="7IS-lF-dlc"/>
                                         <constraint firstAttribute="trailing" secondItem="r0D-64-FaW" secondAttribute="trailing" id="EPy-m3-sMr"/>
@@ -954,7 +967,6 @@
     </scenes>
     <resources>
         <image name="buildings" width="749" height="140"/>
-        <image name="chicken.png" width="320" height="209"/>
         <image name="eyeGray" width="17" height="12"/>
         <image name="nav_home" width="30" height="29"/>
         <image name="nav_my" width="30" height="29"/>

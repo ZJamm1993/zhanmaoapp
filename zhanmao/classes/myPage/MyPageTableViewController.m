@@ -9,7 +9,9 @@
 #import "MyPageTableViewController.h"
 #import "MyPageHeaderTableViewCell.h"
 #import "MyPageSimpleTableViewCell.h"
+#import "MyLoginViewController.h"
 #import "MyPageCellModel.h"
+#import "MyPageHttpTool.h"
 
 //typedef NS_ENUM(NSInteger, MyPageSection) {
 //    
@@ -29,6 +31,8 @@
     NSArray* cellModelsArray;
     
     NSMutableDictionary* cachesControllers;
+    
+    UserModel* myUser;
 }
 @end
 
@@ -39,7 +43,7 @@
     
     self.tabBarItem.title=@"我的";
     
-    [self.refreshControl removeFromSuperview];
+//    [self.refreshControl removeFromSuperview];
     
     cachesControllers=[NSMutableDictionary dictionary];
     
@@ -62,7 +66,32 @@
              [MyPageCellModel modelWithTitle:@"客服电话" image:@"myService" detail:@"020-88888888" identifier:@""], nil],
             nil];
     
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userInfoDidUpdateNotification:) name:UserInfoDidUpdateNotification object:nil];
+//    [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top)];
     // Do any additional setup after loading the view.
+}
+
+-(void)updateUserInfo
+{
+    myUser=nil;
+    
+    if ([UserModel token].length>0) {
+        myUser=[UserModel getUser];
+        [self.tableView reloadData];
+        
+        if (myUser.user_nicename.length==0) {
+            [self refresh];
+        }
+    }
+}
+
+-(void)refresh
+{
+    [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user) {
+        [UserModel saveUser:user];
+        myUser=[UserModel getUser];
+        [self.tableView reloadData];
+    }];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -74,6 +103,7 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self updateUserInfo];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -153,7 +183,14 @@
         [cell setDelegate:self];
         [cell setSimpleButtonsCellDelegate:self];
         cell.headImageView.image=[UIImage imageNamed:@"defaultHeadImage"];
-        cell.loginBg.hidden=NO;
+        cell.name.text=@"请登录";
+        
+        if ([UserModel token].length>0) {
+            cell.loginBg.hidden=NO;
+            [cell.headImageView sd_setImageWithURL:[myUser.avatar urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
+            [cell.loginBgImage sd_setImageWithURL:[myUser.avatar urlWithMainUrl] placeholderImage:nil];
+            cell.name.text=myUser.user_nicename;
+        }
         return cell;
     }
     else
@@ -165,6 +202,7 @@
         cell.textLabel.text=mo.title;
         cell.imageView.image=[UIImage imageNamed:mo.image];
         cell.detailTextLabel.text=mo.detail;
+        
         return cell;
     }
     return [[UITableViewCell alloc]init];
@@ -176,9 +214,13 @@
     NSArray* arr=[cellModelsArray objectAtIndex:indexPath.section];
     MyPageCellModel* mo=[arr objectAtIndex:indexPath.row];
     NSLog(@"%@",mo.identifier);
-    if (indexPath.section==1) {
+    if (indexPath.section>0&&indexPath.section<=2) {
         //requires loging
 //        return;
+        if ([UserModel token].length==0) {
+            [self askToLogin];
+            return;
+        }
     }
     [self pushToViewControllerId:mo.identifier];
 }
@@ -254,10 +296,16 @@
 
 -(void)myPageHeaderTableViewCellPersonalButtonClicked:(MyPageHeaderTableViewCell *)cell
 {
-#warning  login check
-    if (YES) {
-        [self pushToViewControllerId:@"MyLoginViewController"];
+    if ([UserModel token].length==0) {
+        [self askToLogin];
     }
+}
+
+-(void)askToLogin
+{
+    [MBProgressHUD showErrorMessage:@"请先登录"];
+    [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+    return;
 }
 
 @end

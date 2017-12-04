@@ -42,6 +42,11 @@
 {
     [super viewDidAppear:animated];
     [self.textingField becomeFirstResponder];
+    
+//    if (self.textingField.text.length>0) {
+//        [self.textingField selectAll:self.textingField];
+//    }
+    [self.textingField performSelector:@selector(selectAll:) withObject:nil afterDelay:0.01];
 }
 
 -(void)viewWillDisappear:(BOOL)animated

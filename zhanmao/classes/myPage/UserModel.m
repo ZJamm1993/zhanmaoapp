@@ -10,6 +10,7 @@
 
 #define UserKey @"CW5QPB0hXYfXt3zY8QKLI8ahj95yMPdF"
 #define UserPasswordKey @"CW5QPB0hXYfXt3zY8QK99I8ahj95yMPdF"
+#define UserTokenKey @"CW5QrB0hXYfXt3zY8QK99I8ahj95yMPdF"
 
 @implementation UserModel
 
@@ -18,7 +19,7 @@
     self=[super initWithDictionary:dictionary];
     
     if ([dictionary isKindOfClass:[NSDictionary class]]) {
-        _access_token=[dictionary valueForKey:@"access_token"];
+//        _access_token=[dictionary valueForKey:@"access_token"];
         
         _user_nicename=[dictionary valueForKey:@"user_nicename"];
         _avatar=[dictionary valueForKey:@"avatar"];
@@ -27,21 +28,39 @@
         _position=[dictionary valueForKey:@"position"];
     }
     
-    if (_access_token.length==0) {
-        return nil;
-    }
+//    if (_access_token.length==0) {
+//        return nil;
+//    }
     
     return self;
 }
 
++(NSString*)token
+{
+//    return @"123";
+    NSString* to=[[NSUserDefaults standardUserDefaults]valueForKey:UserTokenKey];
+    return to;
+}
+
++(void)saveToken:(NSString *)token
+{
+    if (token.length==0) {
+        [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserTokenKey];
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults]setValue:token forKey:UserTokenKey];
+    }
+}
+
 +(void)saveUser:(UserModel *)user
 {
-    if (user.access_token.length==0) {
-        return;
-    }
+//    if (user.access_token.length==0) {
+//        return;
+//    }
     NSMutableDictionary* d=[NSMutableDictionary dictionary];
     
-    [d setValue:user.access_token forKey:@"access_token"];
+//    [d setValue:user.access_token forKey:@"access_token"];
     
     [d setValue:user.user_nicename forKey:@"user_nicename"];
     [d setValue:user.avatar forKey:@"avatar"];
@@ -52,15 +71,17 @@
     NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
     
     [[NSUserDefaults standardUserDefaults]setValue:data forKey:UserKey];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:UserInfoDidUpdateNotification object:nil];
 }
 
 +(instancetype)getUser
 {
-#warning test user token
-    
-    UserModel* testUser=[[UserModel alloc]init];
-    testUser.access_token=@"123";
-    return testUser;
+//#warning test user token
+//    
+//    UserModel* testUser=[[UserModel alloc]init];
+//    testUser.access_token=@"123";
+//    return testUser;
     
     NSData * data=[[NSUserDefaults standardUserDefaults]valueForKey:UserKey];
     if (![data isKindOfClass:[NSData class]]) {
@@ -79,6 +100,7 @@
 +(void)deleteUser
 {
     [[NSUserDefaults standardUserDefaults]removeObjectForKey:UserKey];
+    [[NSNotificationCenter defaultCenter]postNotificationName:UserInfoDidUpdateNotification object:nil];
 }
 
 +(NSString*)getPassword

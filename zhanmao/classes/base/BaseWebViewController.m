@@ -166,7 +166,7 @@
         }
         [self.params setValue:@"ios" forKey:@"sys"];
         [self.params setValue:[NSNumber numberWithInteger:[[NSDate date]timeIntervalSince1970]] forKey:@"time"];
-        NSString* access_token=[[UserModel getUser]access_token];
+        NSString* access_token=[UserModel token];
         if (access_token.length>0) {
             [self.params setValue:access_token forKey:@"access_token"];
         }

@@ -92,4 +92,144 @@
     }];
 }
 
++(void)uploadAvatar:(UIImage *)avatar token:(NSString *)token success:(void (^)(NSString *))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/avatar_upload"];
+    
+    if (token.length==0) {
+        return;
+    }
+    if (avatar==nil) {
+        return;
+    }
+    
+    NSDictionary* par=[NSDictionary dictionaryWithObject:token forKey:@"access_token"];
+    CGSize size=CGSizeMake(600,600);
+    UIGraphicsBeginImageContext(CGSizeMake(size.width,size.height));
+    [avatar drawInRect:CGRectMake(0, 0, size.width, size.height)];
+
+    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    NSData *imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
+    [self uploadImage:imageData url:str params:par success:^(NSDictionary *dict) {
+        NSString* data=[dict valueForKey:@"data"];
+        if (success) {
+            success(data);
+        }
+    } failure:^(NSError *err) {
+        if (success) {
+            success(@"");
+        }
+    }];
+}
+
++(void)getPersonalInfoToken:(NSString *)token success:(void (^)(UserModel *))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/show_info"];
+    if (token.length==0) {
+        return;
+    }
+    NSDictionary* par=[NSDictionary dictionaryWithObject:token forKey:@"access_token"];
+    
+    [self get:str params:par usingCache:NO success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        UserModel* mo=[[UserModel alloc]initWithDictionary:data];
+        if (success) {
+//            if (data.count>0) {
+//                mo.access_token=token;
+                success(mo);
+//            }
+//            else
+//            {
+//                success(nil);
+//            }
+        }
+    } failure:^(NSError *err) {
+        if (success) {
+            success(nil);
+        }
+    }];
+}
+
++(void)postPersonalInfo:(NSDictionary *)params success:(void (^)(BOOL,NSString*))success
+{
+    NSMutableDictionary* pp=[NSMutableDictionary dictionaryWithDictionary:params];
+    
+    // fake
+    if ([pp valueForKey:@"province"]) {
+        [pp setValue:@" " forKey:@"province"];
+    }
+    if ([pp valueForKey:@"city"]) {
+        [pp setValue:@" " forKey:@"city"];
+    }
+    if ([pp valueForKey:@"district"]) {
+        [pp setValue:@" " forKey:@"cdistrictity"];
+    }
+    if ([pp valueForKey:@"address"]) {
+        [pp setValue:@" " forKey:@"address"];
+    }
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/edit_post"];
+    
+    [self post:str params:pp success:^(NSDictionary *responseObject) {
+        BOOL code=[[responseObject valueForKey:@"code"]integerValue]==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(code,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,@"网络不通");
+        }
+    }];
+}
+
++(void)getCodeWithMobile:(NSString *)mobile success:(void (^)(BOOL,NSString*))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Register/getmobilenum"];
+    [self post:str params:[NSDictionary dictionaryWithObject:mobile forKey:@"mobile"] success:^(NSDictionary *responseObject) {
+        NSString* msg=[responseObject valueForKey:@"message"];
+        NSLog(@"msg:%@",msg);
+        
+        if (success) {
+            if (responseObject.code==0) {
+                success(YES,msg);
+                //#warning 不要告诉我验证码
+                //                [MBProgressHUD showSuccessMessage:msg];
+            }
+            else
+            {
+                success(NO,msg);
+            }
+        }
+    } failure:^(NSError *error) {
+        success(NO,@"");
+    }];
+}
+
++(void)loginUserWithMobile:(NSString *)mobile code:(NSString *)code success:(void (^)(NSString*, NSString*))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Login/dologin"];
+    
+    NSMutableDictionary* p=[NSMutableDictionary dictionary];
+    
+    [p setValue:mobile forKey:@"mobile"];
+    [p setValue:code forKey:@"code"];
+    
+    [self post:str params:p success:^(NSDictionary *responseObject) {
+        NSDictionary* data=[responseObject valueForKey:@"data"];
+        NSString* token=[data valueForKey:@"access_token"];
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(token,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(nil,@"网络不通");
+        }
+    }];
+
+}
+
 @end

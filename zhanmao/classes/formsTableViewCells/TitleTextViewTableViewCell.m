@@ -24,8 +24,8 @@
 -(void)setModel:(BaseFormModel *)model
 {
     [super setModel:model];
-    
-    self.textView.text=model.value;
+    if(!self.textView.isFirstResponder)
+        self.textView.text=model.value;
     self.placeHolder.text=model.hint;
     self.title.text=model.name;
     

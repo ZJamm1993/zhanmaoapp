@@ -84,6 +84,9 @@
                                     <constraint firstAttribute="width" constant="120" id="irH-Fd-SY1"/>
                                 </constraints>
                                 <state key="normal" title="获取验证码"/>
+                                <connections>
+                                    <action selector="getCode:" destination="KJS-rS-gWh" eventType="touchUpInside" id="nxI-9C-wLs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhT-Nh-aUk">
                                 <rect key="frame" x="20" y="171" width="280" height="44"/>
@@ -91,6 +94,9 @@
                                     <constraint firstAttribute="height" constant="44" id="Gej-T1-0X7"/>
                                 </constraints>
                                 <state key="normal" title="登录"/>
+                                <connections>
+                                    <action selector="login:" destination="KJS-rS-gWh" eventType="touchUpInside" id="9b4-Fo-2bj"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -110,6 +116,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="codeTextField" destination="0S6-OL-TRa" id="jF5-x3-15p"/>
+                        <outlet property="getCodeButton" destination="Z1I-Ki-3pu" id="JUt-6Q-fXu"/>
+                        <outlet property="loginButton" destination="WhT-Nh-aUk" id="xAU-PQ-YBd"/>
+                        <outlet property="mobileTextField" destination="c0W-Pj-1Md" id="vFx-Wp-h07"/>
                         <outletCollection property="fieldBgs" destination="Tma-dl-bts" id="Sdc-TY-9eo"/>
                         <outletCollection property="fieldBgs" destination="0Rg-4w-18v" id="Lrx-g1-JtF"/>
                         <outletCollection property="fieldBgs" destination="Z1I-Ki-3pu" id="8r9-96-bf6"/>

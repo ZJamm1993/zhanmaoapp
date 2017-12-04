@@ -11,11 +11,13 @@
 #import "MyPageSimpleImageTableViewCell.h"
 #import "MyPageCellModel.h"
 
+#import "MyPageHttpTool.h"
 #import "MyPageOneTextFieldTableViewController.h"
 
-@interface MyPersonalInfoViewController ()<MyPageOneTextFieldTableViewControllerDelegate>
+@interface MyPersonalInfoViewController ()<MyPageOneTextFieldTableViewControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 {
     NSArray* cellModelsArray;
+    UserModel* user;
 }
 @end
 
@@ -23,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title=@"个人资料";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleImageTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleImageTableViewCell"];
@@ -39,13 +43,14 @@
 -(void)resetCellsModels
 {
     
+    user=[UserModel getUser];
     cellModelsArray=[NSArray arrayWithObjects:
                      [NSArray arrayWithObjects:
-                      [MyPageCellModel modelWithTitle:@"头像" image:@"" detail:@"" identifier:@"" type:MyPageCellModelTypeImage],
-                      [MyPageCellModel modelWithTitle:@"昵称" image:@"" detail:@"" identifier:@""],
-                      [MyPageCellModel modelWithTitle:@"电话" image:@"" detail:@"" identifier:@"" type:MyPageCellModelTypePhone],
-                      [MyPageCellModel modelWithTitle:@"职位" image:@"" detail:@"" identifier:@""],
-                      [MyPageCellModel modelWithTitle:@"邮箱" image:@"" detail:@"" identifier:@"" type:MyPageCellModelTypeMail], nil],
+                      [MyPageCellModel modelWithTitle:@"头像" image:@"" detail:user.avatar identifier:@"avatar" type:MyPageCellModelTypeImage],
+                      [MyPageCellModel modelWithTitle:@"昵称" image:@"" detail:user.user_nicename identifier:@"user_nicename"],
+//                      [MyPageCellModel modelWithTitle:@"电话" image:@"" detail:user.mobile identifier:@"mo" type:MyPageCellModelTypePhone],
+                      [MyPageCellModel modelWithTitle:@"职位" image:@"" detail:user.position identifier:@"position"],
+                      [MyPageCellModel modelWithTitle:@"邮箱" image:@"" detail:user.user_email identifier:@"user_email" type:MyPageCellModelTypeMail], nil],
                      nil];
     [self.tableView reloadData];
 }
@@ -81,6 +86,7 @@
     if (mo.type==MyPageCellModelTypeImage) {
         MyPageSimpleImageTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageSimpleImageTableViewCell" forIndexPath:indexPath];
         cell.title.text=mo.title;
+        [cell.image sd_setImageWithURL:[mo.detail urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
         return cell;
     }
     MyPageSimpleTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"MyPageSimpleTableViewCell" forIndexPath:indexPath];
@@ -99,6 +105,13 @@
     MyPageCellModel* mo=[arr objectAtIndex:row];
     if (mo.type==MyPageCellModelTypeImage) {
         // select image;
+        UIImagePickerController* pick=[[UIImagePickerController alloc]init];
+        pick.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
+        pick.delegate=self;
+        pick.allowsEditing=YES;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            [self presentViewController:pick animated:YES completion:nil];
+        }
     }
     else
     {
@@ -107,6 +120,7 @@
         myEdit.editingType=mo.type;
         myEdit.title=[NSString stringWithFormat:@"设置%@",mo.title];
         myEdit.delegate=self;
+        myEdit.cellModel=mo;
         [self.navigationController pushViewController:myEdit animated:YES];
     }
 }
@@ -116,6 +130,98 @@
     //do commit then pop it;
     NSLog(@"%@",viewController);
     NSLog(@"%@",text);
+    
+    MyPageCellModel* model=viewController.cellModel;
+    model.detail=text;
+    
+    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+    
+    [dic setValue:[UserModel token] forKey:@"access_token"];
+    
+    for (NSArray* arr in cellModelsArray) {
+        for (MyPageCellModel* mo in arr) {
+            [dic setValue:mo.detail forKey:mo.identifier];
+        }
+    }
+    
+    [MBProgressHUD showProgressMessage:@"正在修改"];
+    [MyPageHttpTool postPersonalInfo:dic success:^(BOOL result, NSString *msg) {
+        if (result) {
+            
+            [MBProgressHUD showSuccessMessage:msg];
+            
+            if ([model.identifier isEqualToString:@"user_nicename"]) {
+                user.user_nicename=model.detail;
+            }
+            else if ([model.identifier isEqualToString:@"position"]) {
+                user.position=model.detail;
+            }
+            else if ([model.identifier isEqualToString:@"mobile"]) {
+                user.mobile=model.detail;
+            }
+            else if ([model.identifier isEqualToString:@"user_email"]) {
+                user.user_email=model.detail;
+            }
+            [UserModel saveUser:user];
+            
+            [viewController.navigationController popViewControllerAnimated:YES];
+        }
+        else
+        {
+            [MBProgressHUD showErrorMessage:msg];
+        }
+    }];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage* pic=[info valueForKey:UIImagePickerControllerEditedImage];
+    [MBProgressHUD showProgressMessage:@"正在上传图片"];
+    [MyPageHttpTool uploadAvatar:pic token:[UserModel token] success:^(NSString *imageUrl) {
+        
+        [MBProgressHUD hide];
+        if(imageUrl.length>0)
+        {
+            NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+            
+            [dic setValue:[UserModel token] forKey:@"access_token"];
+            
+            for (NSArray* arr in cellModelsArray) {
+                for (MyPageCellModel* mo in arr) {
+                    if ([mo.identifier isEqualToString:@"avatar"]) {
+                        mo.detail=imageUrl;
+                    }
+                    [dic setValue:mo.detail forKey:mo.identifier];
+                }
+            }
+            
+            [MyPageHttpTool postPersonalInfo:dic success:^(BOOL result, NSString *msg) {
+                if (result) {
+                    [MBProgressHUD showSuccessMessage:msg];
+                    
+                    UserModel* us=[UserModel getUser];
+                    us.avatar=imageUrl;
+                    [UserModel saveUser:us];
+                }
+                else
+                {
+                    [MBProgressHUD showErrorMessage:msg];
+                    
+                }
+                
+                [picker dismissViewControllerAnimated:YES completion:nil];
+            }];
+            
+        }
+        else
+        {
+            NSLog(@"fail image");
+            [MBProgressHUD showErrorMessage:@"上传失败"];
+            [picker dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+    
+//    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
