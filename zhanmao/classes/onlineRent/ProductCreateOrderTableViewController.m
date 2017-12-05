@@ -10,8 +10,10 @@
 #import "BaseFormTableViewController.h"
 #import "RentNewOrderPriceTableViewCell.h"
 #import "RentCartEditTableViewCell.h"
-
+#import "RentHttpTool.h"
 #import "TotalFeeView.h"
+
+#import "PayOrderTableViewController.h"
 
 typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 {
@@ -56,7 +58,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     fr.size.height=64;
     _totalFeeView.frame=fr;
     [_totalFeeView.submitButton addTarget:self action:@selector(orderSubmit) forControlEvents:UIControlEventTouchUpInside];
-    _totalFeeView.submitButton.enabled=NO;
+//    _totalFeeView.submitButton.enabled=NO;
     [self.bottomToolBar addSubview:_totalFeeView];
     
     _totalFeeView.feeLabe.text=[NSString stringWithFloat:total headUnit:@"¥" tailUnit:nil];
@@ -116,6 +118,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
                 total=rent+deposit;
                 
                 _totalFeeView.feeLabe.text=[NSString stringWithFloat:total headUnit:@"¥" tailUnit:nil];
+                _totalFeeView.title.text=@"需付款：";
                 
                 NSArray* allVisibleCells=[self.tableView visibleCells];
                 for (UITableViewCell* cel in allVisibleCells) {
@@ -139,8 +142,34 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     BaseFormModel* form=[[BaseFormModel alloc]init];
     form.type=BaseFormTypeAddressSelection;
     form.required=YES;
-    form.name=@"收";
     form.hint=@"请填写收货地址";
+    
+    NSMutableArray* combination=[NSMutableArray array];
+    for (NSInteger i=0; i<6; i++) {
+        BaseFormModel* subModel=[[BaseFormModel alloc]init];
+        if (i==0)
+        {
+            subModel.field=@"addressee";
+        }
+        else if (i==1) {
+            subModel.field=@"phone";
+        }
+        else if (i==2) {
+            subModel.field=@"province";
+        }
+        else if (i==3) {
+            subModel.field=@"city";
+        }
+        else if (i==4) {
+            subModel.field=@"district";
+        }
+        else if (i==5) {
+            subModel.field=@"address";
+        }
+        [combination addObject:subModel];
+    }
+    form.combination_arr=combination;
+    
     return [NSArray arrayWithObject:form];
 }
 
@@ -150,12 +179,14 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     form.type=BaseFormTypeNormal;
     form.name=@"紧急电话";
     form.hint=@"请输入紧急联系电话";
+    form.field=@"emergency_phone";
     
     BaseFormModel* form2=[[BaseFormModel alloc]init];
     form2.type=BaseFormTypeDatePicker;
     form2.name=@"配送时间";
     form2.required=YES;
     form2.hint=@"请选择配送时间";
+    form2.field=@"delivery_date";
     
     return [NSArray arrayWithObjects:form, form2, nil];
 }
@@ -174,9 +205,10 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 {
     BaseFormModel* form=[[BaseFormModel alloc]init];
     form.type=BaseFormTypeSingleChoice;
-    form.name=@"商品租期(4天为一周期)";
-    form.hint=@"请选择商品租期";
+    form.name=@"商品租期";
+    form.hint=@"请选择商品租期(4天为一周期)";
     form.required=YES;
+    form.field=@"rent_days";
     NSMutableArray* options=[NSMutableArray array];
     for (NSInteger i=1; i<=5; i++) {
         NSString* str=[NSString stringWithFormat:@"%ld周期(%ld天)",(long)i,(long)(i*4)];
@@ -283,12 +315,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 
 -(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell *)cell
 {
-//    if(cell.model.type==BaseFormTypeSingleChoice)
-//    {
-        [self calculatePrices];
-//    }
-    
-    
+    [self calculatePrices];
 }
 
 -(void)formBaseTableViewCell:(FormBaseTableViewCell *)cell shouldPushViewController:(UIViewController *)viewController
@@ -300,17 +327,110 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 
 -(void)orderSubmit
 {
+    NSMutableArray* realGoods=[NSMutableArray array];
+    for (NSObject* obj in goodsSectionArray) {
+        if ([obj isKindOfClass:[RentCartModel class]]) {
+            [realGoods addObject:obj];
+        }
+    }
+    NSInteger goodsCount=realGoods.count;
+    if (goodsCount==0) {
+        [MBProgressHUD showErrorMessage:@"未选择商品"];
+        return;
+    }
     
+    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+    
+    NSArray* forms=[self allFormsModel];
+    
+    for (BaseFormModel* mo in forms) {
+        if (mo.requiredModel) {
+            [MBProgressHUD showErrorMessage:mo.requiredModel.hint];
+            return;
+        }
+        
+        if(mo.field.length>0)
+        {
+            NSString* value=mo.value;
+            if(mo.type==BaseFormTypeSingleChoice)
+            {
+                if ([mo.option containsObject:value]) {
+                    NSInteger i=[mo.option indexOfObject:value];
+                    value=[NSString stringWithFormat:@"%ld",(long)i+1];
+                }
+            }
+            
+            [dic setValue:value forKey:mo.field];
+        }
+    }
+    
+    
+    for (NSInteger i=0;i<goodsCount;i++) {
+        
+        RentCartModel* car=[realGoods objectAtIndex:i];
+        
+        NSString* goosKey=[NSString stringWithFormat:@"goods[%ld]",(long)i+1];
+        NSString* goosValue=car.product.idd;
+        
+        NSString* saleNumKey=[NSString stringWithFormat:@"sale_num[%ld]",(long)i+1];
+        NSNumber* saleNumValue=[NSNumber numberWithInteger:car.count];
+        
+        [dic setValue:goosValue forKey:goosKey];
+        [dic setValue:saleNumValue forKey:saleNumKey];
+    }
+    
+    if ([UserModel token].length==0) {
+        [MBProgressHUD showErrorMessage:AskToLoginDescription];
+        return;
+    }
+    
+    [dic setValue:[UserModel token] forKey:@"access_token"];
+    
+    NSLog(@"%@",dic);
+    
+    [RentHttpTool postRentOrderParams:dic success:^(BOOL result, NSString *msg, PayOrderModel *order) {
+        if(result)
+        {
+            [MBProgressHUD showSuccessMessage:msg];
+            if (order.idd.length>0) {
+                PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+                pay.orderModel=order;
+                [self.navigationController pushViewController:pay animated:YES];
+            }
+        }
+        else
+        {
+            [MBProgressHUD showErrorMessage:msg];
+        }
+    }];
 }
 
-//-(NSArray*)allModels
-//{
-//    NSMutableArray* arr=[NSMutableArray array];
-//    
-////    BaseFormModel* addressModel=addressSectionArray.firstObject;
-////    if (addressModel.combination_arr.count>0) {
-////        statements
-////    }
-//}
+-(NSArray*)allFormsModel
+{
+//    NSArray* addressSectionArray;
+//    NSArray* infosSectionArray;
+//    NSArray* goodsSectionArray;
+//    NSArray* cycleSectionArray;
+//    NSArray* pricesSectionArray;
+    
+    NSMutableArray* arr=[NSMutableArray array];
+    
+    NSArray* arrs=[NSArray arrayWithObjects:addressSectionArray,infosSectionArray,cycleSectionArray, nil];
+    for (NSArray* a in arrs) {
+        for (BaseFormModel* mo in a) {
+            [self findModels:arr inModel:mo];
+        }
+    }
+    
+    return arr;
+}
+
+-(void)findModels:(NSMutableArray*)models inModel:(BaseFormModel*)model
+{
+    [models addObject:model];
+    for (BaseFormModel* mo in model.combination_arr) {
+        [self findModels:models inModel:mo];
+    }
+}
 
 @end

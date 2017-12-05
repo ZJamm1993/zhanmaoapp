@@ -36,6 +36,7 @@
 //Strings
 
 #define BadNetworkDescription @"网络不通畅"
+#define AskToLoginDescription @"需要登录"
 
 //UIcolors
 

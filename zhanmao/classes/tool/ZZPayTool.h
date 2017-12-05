@@ -22,4 +22,6 @@
 +(void)testGotoWechatpay;
 +(void)testGotoUnionpay;
 
++(void)payWithAlipayString:(NSString*)string;
+
 @end

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */; };
 		3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */; };
+		3955BBCB1FD6791400239336 /* PayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBCA1FD6791400239336 /* PayOrderModel.m */; };
+		3955BBCE1FD6795F00239336 /* PayOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBCD1FD6795F00239336 /* PayOrderTableViewController.m */; };
+		3955BBD11FD67B9D00239336 /* PayOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBD01FD67B9D00239336 /* PayOrderTableViewCell.m */; };
+		3955BBD41FD67C7100239336 /* PayOrderCountDownHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBD31FD67C7100239336 /* PayOrderCountDownHeaderView.m */; };
+		3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3955BBD51FD67C8600239336 /* PayOrderCountDownHeaderView.xib */; };
 		3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */; };
 		398513901FD0F42A0056FB7F /* MyPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985138F1FD0F42A0056FB7F /* MyPersonalInfoViewController.m */; };
 		398513941FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513921FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m */; };
@@ -232,6 +237,15 @@
 		3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHelpHeaderCell.m; sourceTree = "<group>"; };
 		3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNewUserFixInfoViewController.h; sourceTree = "<group>"; };
 		3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNewUserFixInfoViewController.m; sourceTree = "<group>"; };
+		3955BBC91FD6791400239336 /* PayOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderModel.h; sourceTree = "<group>"; };
+		3955BBCA1FD6791400239336 /* PayOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderModel.m; sourceTree = "<group>"; };
+		3955BBCC1FD6795F00239336 /* PayOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderTableViewController.h; sourceTree = "<group>"; };
+		3955BBCD1FD6795F00239336 /* PayOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderTableViewController.m; sourceTree = "<group>"; };
+		3955BBCF1FD67B9D00239336 /* PayOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderTableViewCell.h; sourceTree = "<group>"; };
+		3955BBD01FD67B9D00239336 /* PayOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderTableViewCell.m; sourceTree = "<group>"; };
+		3955BBD21FD67C7100239336 /* PayOrderCountDownHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderCountDownHeaderView.h; sourceTree = "<group>"; };
+		3955BBD31FD67C7100239336 /* PayOrderCountDownHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderCountDownHeaderView.m; sourceTree = "<group>"; };
+		3955BBD51FD67C8600239336 /* PayOrderCountDownHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayOrderCountDownHeaderView.xib; sourceTree = "<group>"; };
 		3967A97D1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDesignableOnePixelConstant.h; sourceTree = "<group>"; };
 		3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDesignableOnePixelConstant.m; sourceTree = "<group>"; };
 		3985138E1FD0F42A0056FB7F /* MyPersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPersonalInfoViewController.h; sourceTree = "<group>"; };
@@ -824,6 +838,8 @@
 				8E24D1B41FC523AF00A437A0 /* ProductWebDetailViewController.m */,
 				8E31F4A41FC9543600373437 /* ProductCreateOrderTableViewController.h */,
 				8E31F4A51FC9543600373437 /* ProductCreateOrderTableViewController.m */,
+				3955BBCC1FD6795F00239336 /* PayOrderTableViewController.h */,
+				3955BBCD1FD6795F00239336 /* PayOrderTableViewController.m */,
 			);
 			path = onlineRent;
 			sourceTree = "<group>";
@@ -853,6 +869,11 @@
 				8EA9E55C1FB1937A003815B7 /* RentActionEditView.xib */,
 				8E31F4A71FC96B8200373437 /* RentNewOrderPriceTableViewCell.h */,
 				8E31F4A81FC96B8200373437 /* RentNewOrderPriceTableViewCell.m */,
+				3955BBCF1FD67B9D00239336 /* PayOrderTableViewCell.h */,
+				3955BBD01FD67B9D00239336 /* PayOrderTableViewCell.m */,
+				3955BBD21FD67C7100239336 /* PayOrderCountDownHeaderView.h */,
+				3955BBD31FD67C7100239336 /* PayOrderCountDownHeaderView.m */,
+				3955BBD51FD67C8600239336 /* PayOrderCountDownHeaderView.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1313,6 +1334,8 @@
 			children = (
 				8EA680731FB6999700EF5FC8 /* RentModel.h */,
 				8EA680741FB6999700EF5FC8 /* RentModel.m */,
+				3955BBC91FD6791400239336 /* PayOrderModel.h */,
+				3955BBCA1FD6791400239336 /* PayOrderModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1456,6 +1479,7 @@
 				8E31F4631FC7B4F100373437 /* LaunchScreen.storyboard in Resources */,
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
+				3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */,
 				8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
@@ -1509,6 +1533,8 @@
 				8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */,
 				8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */,
 				8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */,
+				3955BBD41FD67C7100239336 /* PayOrderCountDownHeaderView.m in Sources */,
+				3955BBCB1FD6791400239336 /* PayOrderModel.m in Sources */,
 				8E99AAC31F9069AC0078C452 /* NaviController.m in Sources */,
 				8E72E9E41FB2ECDF001FCD31 /* CustomOrderPagerViewController.m in Sources */,
 				8E99AACA1F906E660078C452 /* AdvertiseView.m in Sources */,
@@ -1603,6 +1629,8 @@
 				8E3779CD1FA7188500A3BBEB /* MySettingTableViewController.m in Sources */,
 				8EB674E81F99EB35008CC196 /* MyPageHeaderTableViewCell.m in Sources */,
 				8EA680791FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m in Sources */,
+				3955BBCE1FD6795F00239336 /* PayOrderTableViewController.m in Sources */,
+				3955BBD11FD67B9D00239336 /* PayOrderTableViewCell.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				8E6C74021F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.m in Sources */,
 				8E99AAA31F9068920078C452 /* Reachability.m in Sources */,

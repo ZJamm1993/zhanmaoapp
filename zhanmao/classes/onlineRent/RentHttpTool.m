@@ -263,4 +263,40 @@
     }
 }
 
++(void)postRentOrderParams:(NSDictionary *)params success:(void (^)(BOOL,NSString*, PayOrderModel *))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Order/add"];
+    [self post:str params:params success:^(NSDictionary *responseObject) {
+        BOOL result=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        NSDictionary* data=[responseObject valueForKey:@"data"];
+        PayOrderModel* mo=[[PayOrderModel alloc]initWithDictionary:data];
+        if (success) {
+            success(result,msg,mo);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,BadNetworkDescription,nil);
+        }
+    }];
+}
+
++(void)getPayOrderStringWithToken:(NSString *)token payType:(NSString *)payType orderId:(NSString *)orderId success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Pay/paypost"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+    [dic setValue:token forKey:@"access_token"];
+    [dic setValue:payType forKey:@"pid"];
+    [dic setValue:orderId forKey:@"oid"];
+    [self post:str params:dic success:^(NSDictionary *responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 @end

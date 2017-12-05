@@ -24,6 +24,8 @@ typedef NS_ENUM(NSInteger,MyPageCellModelType)
 @property (nonatomic,strong) NSString* identifier;
 @property (nonatomic,assign) NSInteger type;
 
+@property (nonatomic,assign) BOOL selected;
+
 +(instancetype)modelWithTitle:(NSString*)title image:(NSString*)image detail:(NSString*)detail identifier:(NSString*)identifier;
 +(instancetype)modelWithTitle:(NSString*)title image:(NSString*)image detail:(NSString*)detail identifier:(NSString*)identifier type:(NSInteger)type;
 

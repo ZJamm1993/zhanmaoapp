@@ -7,6 +7,7 @@
 //
 
 #import "ProductWebDetailViewController.h"
+#import "MyLoginViewController.h"
 #import "RentCartTableViewController.h"
 #import "ProductCreateOrderTableViewController.h"
 #import "RentActionEditView.h"
@@ -90,6 +91,11 @@
 
 -(void)rentActionEditViewAddToRentCart:(RentCartModel *)cartModel
 {
+    if ([UserModel token].length==0) {
+        [MBProgressHUD showErrorMessage:AskToLoginDescription];
+        [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+        return;
+    }
     if (cartModel) {
         [RentHttpTool addRentCarts:[NSArray arrayWithObject:cartModel] success:^(BOOL result) {
             if(result)
@@ -108,6 +114,11 @@
 //    UIAlertController* alert=[ZZPayTool testPayingAlertController];
 //    [self presentViewController:alert animated:YES completion:nil];
     if (!cartModel) {
+        return;
+    }
+    if ([UserModel token].length==0) {
+        [MBProgressHUD showErrorMessage:AskToLoginDescription];
+        [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
         return;
     }
     

@@ -50,4 +50,11 @@
     
 }
 
++(void)payWithAlipayString:(NSString *)string
+{
+    [[AlipaySDK defaultService]payOrder:string fromScheme:@"com.bangju.zhanmao" callback:^(NSDictionary *resultDic) {
+        NSLog(@"%@",resultDic);
+    }];
+}
+
 @end

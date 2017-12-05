@@ -366,7 +366,7 @@
 
 -(void)askToLogin
 {
-    [MBProgressHUD showErrorMessage:@"请先登录"];
+    [MBProgressHUD showErrorMessage:AskToLoginDescription];
     [self goToLogin];
     return;
 }

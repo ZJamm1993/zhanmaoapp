@@ -151,6 +151,68 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
             </objects>
             <point key="canvasLocation" x="-60" y="26"/>
         </scene>
+        <!--Pay Order Table View Controller-->
+        <scene sceneID="4SX-iL-SqI">
+            <objects>
+                <tableViewController storyboardIdentifier="PayOrderTableViewController" id="8ww-yY-lsg" customClass="PayOrderTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="84" sectionHeaderHeight="18" sectionFooterHeight="18" id="dLW-aV-EBC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PayOrderTableViewCell" rowHeight="84" id="e0J-C4-uJW" customClass="PayOrderTableViewCell">
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e0J-C4-uJW" id="4LZ-q3-gDi">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wechatpay" translatesAutoresizingMaskIntoConstraints="NO" id="iQP-1H-pPa">
+                                            <rect key="frame" x="15" y="10" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="iQP-1H-pPa" secondAttribute="height" multiplier="1:1" id="frT-vF-hXA"/>
+                                                <constraint firstAttribute="height" constant="40" id="wcW-LW-DbH"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信支付" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdY-Hz-Tzl">
+                                            <rect key="frame" x="63" y="21" width="61.5" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rkk-FI-6DK">
+                                            <rect key="frame" x="285" y="19" width="20" height="22"/>
+                                            <state key="normal" image="deselected"/>
+                                            <state key="selected" image="selected"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iQP-1H-pPa" secondAttribute="bottom" constant="10" id="F17-EQ-x5h"/>
+                                        <constraint firstItem="PdY-Hz-Tzl" firstAttribute="centerY" secondItem="iQP-1H-pPa" secondAttribute="centerY" id="HF2-dx-CMU"/>
+                                        <constraint firstItem="iQP-1H-pPa" firstAttribute="leading" secondItem="4LZ-q3-gDi" secondAttribute="leading" constant="15" id="Isi-Al-Xib"/>
+                                        <constraint firstItem="Rkk-FI-6DK" firstAttribute="centerY" secondItem="iQP-1H-pPa" secondAttribute="centerY" id="N15-nv-Ulq"/>
+                                        <constraint firstItem="iQP-1H-pPa" firstAttribute="top" secondItem="4LZ-q3-gDi" secondAttribute="top" constant="10" id="NSf-K8-ftn"/>
+                                        <constraint firstItem="PdY-Hz-Tzl" firstAttribute="leading" secondItem="iQP-1H-pPa" secondAttribute="trailing" constant="8" id="h2E-gX-gdx"/>
+                                        <constraint firstAttribute="trailing" secondItem="Rkk-FI-6DK" secondAttribute="trailing" constant="15" id="vzS-9J-34m"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button" destination="Rkk-FI-6DK" id="e4s-4E-yIR"/>
+                                    <outlet property="image" destination="iQP-1H-pPa" id="6m8-DG-ejl"/>
+                                    <outlet property="title" destination="PdY-Hz-Tzl" id="dtI-QY-Mc4"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8ww-yY-lsg" id="KvL-52-sZe"/>
+                            <outlet property="delegate" destination="8ww-yY-lsg" id="wfO-QC-7x2"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pE6-z2-tIT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-705" y="677.11267605633805"/>
+        </scene>
         <!--Product Create Order Table View Controller-->
         <scene sceneID="XYX-0M-jlk">
             <objects>
@@ -706,5 +768,6 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
         <image name="deselected" width="20" height="20"/>
         <image name="selected" width="20" height="20"/>
         <image name="trash" width="13" height="15"/>
+        <image name="wechatpay" width="28" height="28"/>
     </resources>
 </document>

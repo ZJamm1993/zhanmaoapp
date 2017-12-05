@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TotalFeeView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *feeLabe;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 

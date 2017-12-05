@@ -54,7 +54,7 @@
     }
     else
     {
-        self.image.image=[UIImage imageNamed:@"locationBlue"];
+        self.image.image=[UIImage imageNamed:@"addressBlue"];
     }
     
     if (model.accessoryObject) {
