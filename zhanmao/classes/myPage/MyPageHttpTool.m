@@ -72,6 +72,9 @@
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Address/index"];
     if (token.length==0) {
+        if (failure) {
+            failure(nil);
+        }
         return;
     }
     NSDictionary* par=[NSDictionary dictionaryWithObject:token forKey:@"access_token"];
@@ -94,40 +97,47 @@
 
 +(void)uploadAvatar:(UIImage *)avatar token:(NSString *)token success:(void (^)(NSString *))success
 {
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/avatar_upload"];
-    
-    if (token.length==0) {
-        return;
-    }
-    if (avatar==nil) {
-        return;
-    }
-    
-    NSDictionary* par=[NSDictionary dictionaryWithObject:token forKey:@"access_token"];
-    CGSize size=CGSizeMake(600,600);
-    UIGraphicsBeginImageContext(CGSizeMake(size.width,size.height));
-    [avatar drawInRect:CGRectMake(0, 0, size.width, size.height)];
-
-    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-    NSData *imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
-    [self uploadImage:imageData url:str params:par success:^(NSDictionary *dict) {
-        NSString* data=[dict valueForKey:@"data"];
-        if (success) {
-            success(data);
+//    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/avatar_upload"];
+        
+        if (token.length==0||avatar==nil) {
+            if (success) {
+                success(@"");
+            };
+            return;
         }
-    } failure:^(NSError *err) {
-        if (success) {
-            success(@"");
-        }
-    }];
+        
+        NSDictionary* par=[NSDictionary dictionaryWithObject:token forKey:@"access_token"];
+        CGSize size=CGSizeMake(600,600);
+        UIGraphicsBeginImageContext(CGSizeMake(size.width,size.height));
+        [avatar drawInRect:CGRectMake(0, 0, size.width, size.height)];
+        
+        UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        NSData *imageData = UIImageJPEGRepresentation(scaledImage, 0.5);
+        [self uploadImage:imageData url:str params:par success:^(NSDictionary *dict) {
+            NSString* data=[dict valueForKey:@"data"];
+            if (success) {
+                success(data);
+            }
+        } failure:^(NSError *err) {
+            if (success) {
+                success(@"");
+            }
+        }];
+//    });
+    
 }
 
 +(void)getPersonalInfoToken:(NSString *)token success:(void (^)(UserModel *))success
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/show_info"];
     if (token.length==0) {
+        if(success)
+        {
+            success(nil);
+        }
         return;
     }
     NSDictionary* par=[NSDictionary dictionaryWithObject:token forKey:@"access_token"];
@@ -208,7 +218,7 @@
     }];
 }
 
-+(void)loginUserWithMobile:(NSString *)mobile code:(NSString *)code success:(void (^)(NSString*, NSString*))success
++(void)loginUserWithMobile:(NSString *)mobile code:(NSString *)code success:(void (^)(NSString*,BOOL, NSString*))success
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Login/dologin"];
     
@@ -220,13 +230,14 @@
     [self post:str params:p success:^(NSDictionary *responseObject) {
         NSDictionary* data=[responseObject valueForKey:@"data"];
         NSString* token=[data valueForKey:@"access_token"];
+        BOOL newUser=[[data valueForKey:@"newuser"]boolValue];
         NSString* msg=[responseObject valueForKey:@"message"];
         if (success) {
-            success(token,msg);
+            success(token,newUser,msg);
         }
     } failure:^(NSError *error) {
         if (success) {
-            success(nil,BadNetworkDescription);
+            success(nil,NO,BadNetworkDescription);
         }
     }];
 

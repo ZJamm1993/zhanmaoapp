@@ -140,9 +140,7 @@
 -(void)addressOtionTableViewCell:(AddressOptionTableViewCell *)cell doAction:(AddressOptionAction)action
 {
     NSString* token=[UserModel token];
-    if (token.length==0) {
-        return;
-    }
+    
     AddressModel* model=cell.model;
     NSLog(@"%@,%@",model.idd,model.address);
     if(action==AddressOptionActionDefault)

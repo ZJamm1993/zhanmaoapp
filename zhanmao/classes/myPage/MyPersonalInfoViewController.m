@@ -176,6 +176,8 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage* pic=[info valueForKey:UIImagePickerControllerEditedImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
     [MBProgressHUD showProgressMessage:@"正在上传图片"];
     [MyPageHttpTool uploadAvatar:pic token:[UserModel token] success:^(NSString *imageUrl) {
         
@@ -209,7 +211,6 @@
                     
                 }
                 
-                [picker dismissViewControllerAnimated:YES completion:nil];
             }];
             
         }
@@ -217,7 +218,6 @@
         {
             NSLog(@"fail image");
             [MBProgressHUD showErrorMessage:@"上传失败"];
-            [picker dismissViewControllerAnimated:YES completion:nil];
         }
     }];
     

@@ -33,7 +33,7 @@
 
 +(void)getCodeWithMobile:(NSString*)mobile success:(void(^)(BOOL sent,NSString* msg))success;
 
-+(void)loginUserWithMobile:(NSString*)mobile code:(NSString*)code success:(void(^) (NSString* token,NSString* msg))success;
++(void)loginUserWithMobile:(NSString*)mobile code:(NSString*)code success:(void(^) (NSString* token,BOOL newUser, NSString* msg))success;
 
 #pragma mark feedback
 

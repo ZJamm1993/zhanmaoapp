@@ -71,6 +71,12 @@
 }
 
 - (IBAction)login:(id)sender {
+    
+//    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController presentViewController:[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"MyNewUserFixInfoNavigationController"] animated:YES completion:nil];
+//    return ;
+//    //test
+    
     if (![self.mobileTextField.text isMobileNumber]) {
         [MBProgressHUD showErrorMessage:@"请输入正确的手机号码"];
         return;
@@ -80,11 +86,24 @@
         return;
     }
     
-    [MyPageHttpTool loginUserWithMobile:self.mobileTextField.text code:self.codeTextField.text success:^(NSString *token,NSString* msg) {
+    [MBProgressHUD showProgressMessage:@"正在登录"];
+    [MyPageHttpTool loginUserWithMobile:self.mobileTextField.text code:self.codeTextField.text success:^(NSString *token,BOOL newUser,NSString* msg) {
         if (token.length>0) {
             [UserModel saveToken:token];
             [UserModel deleteUser];
-            [self.navigationController popViewControllerAnimated:YES];
+            
+            if (newUser) {
+                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController presentViewController:[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"MyNewUserFixInfoNavigationController"] animated:YES completion:nil];
+            }
+            else
+            {
+                [MyPageHttpTool getPersonalInfoToken:token success:^(UserModel *user) {
+                    [MBProgressHUD showSuccessMessage:msg];
+                    [UserModel saveUser:user];
+                    [self.navigationController popViewControllerAnimated:YES];
+                }];
+            }
         }
         else
         {

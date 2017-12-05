@@ -48,8 +48,8 @@
 
 +(NSString*)token
 {
-    #warning test user token
-    return @"123";
+//    #warning test user token
+//    return @"123";
     NSString* to=[[NSUserDefaults standardUserDefaults]valueForKey:UserTokenKey];
     return to;
 }
@@ -67,6 +67,10 @@
 
 +(void)saveUser:(UserModel *)user
 {
+    if (user==nil) {
+        [self deleteUser];
+        return ;
+    }
 //    if (user.access_token.length==0) {
 //        return;
 //    }

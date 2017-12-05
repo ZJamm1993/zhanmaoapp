@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */; };
+		3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */; };
 		3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */; };
 		398513901FD0F42A0056FB7F /* MyPersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985138F1FD0F42A0056FB7F /* MyPersonalInfoViewController.m */; };
 		398513941FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513921FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m */; };
@@ -229,6 +230,8 @@
 /* Begin PBXFileReference section */
 		3955BBC31FD5485200239336 /* MyPageHelpHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHelpHeaderCell.h; sourceTree = "<group>"; };
 		3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHelpHeaderCell.m; sourceTree = "<group>"; };
+		3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNewUserFixInfoViewController.h; sourceTree = "<group>"; };
+		3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNewUserFixInfoViewController.m; sourceTree = "<group>"; };
 		3967A97D1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDesignableOnePixelConstant.h; sourceTree = "<group>"; };
 		3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDesignableOnePixelConstant.m; sourceTree = "<group>"; };
 		3985138E1FD0F42A0056FB7F /* MyPersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPersonalInfoViewController.h; sourceTree = "<group>"; };
@@ -649,6 +652,8 @@
 				3985138F1FD0F42A0056FB7F /* MyPersonalInfoViewController.m */,
 				398513991FD126D50056FB7F /* MyPageOneTextFieldTableViewController.h */,
 				3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */,
+				3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */,
+				3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */,
 			);
 			name = mypersonal;
 			sourceTree = "<group>";
@@ -1496,6 +1501,7 @@
 				8E99AAA91F9068920078C452 /* SDWebImageCompat.m in Sources */,
 				8EA6807E1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.m in Sources */,
 				8E99AAA81F9068920078C452 /* SDImageCacheConfig.m in Sources */,
+				3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */,
 				8E99AA9C1F9068920078C452 /* Foundation+Log.m in Sources */,
 				8E99AAAC1F9068920078C452 /* SDWebImageDownloaderOperation.m in Sources */,
 				8E31F46F1FC7EAF300373437 /* MainMsgModel.m in Sources */,
