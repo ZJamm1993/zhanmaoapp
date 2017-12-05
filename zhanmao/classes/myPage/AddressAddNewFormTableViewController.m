@@ -7,6 +7,7 @@
 //
 
 #import "AddressAddNewFormTableViewController.h"
+#import "MyLoginViewController.h"
 
 @interface AddressAddNewFormTableViewController ()
 
@@ -17,6 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"新增地址";
+    
+    if ([UserModel token].length==0) {
+        [MBProgressHUD showErrorMessage:AskToLoginDescription];
+        [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+    }
     // Do any additional setup after loading the view.
 }
 

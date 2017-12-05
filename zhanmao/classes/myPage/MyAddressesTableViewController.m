@@ -10,7 +10,7 @@
 #import "AddressListTableViewCell.h"
 #import "AddressOptionTableViewCell.h"
 #import "AddressAddNewFormTableViewController.h"
-
+#import "MyLoginViewController.h"
 #import "MyPageHttpTool.h"
 
 @interface MyAddressesTableViewController ()<AddressOptionTableViewCellDelegate>
@@ -39,6 +39,7 @@
 -(void)refresh
 {
     NSString* token=[UserModel token];
+    
     if (token.length>0) {
         [MyPageHttpTool getMyAddressesToken:token cache:NO success:^(NSArray *result) {
             [self.dataSource removeAllObjects];
@@ -48,7 +49,11 @@
             
         }];
     }
-    
+    else
+    {
+        [MBProgressHUD showErrorMessage:AskToLoginDescription];
+        [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+    }
 }
 
 -(void)addressDidAddNewNotification:(NSNotification*)notification

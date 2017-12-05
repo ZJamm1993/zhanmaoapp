@@ -26,7 +26,7 @@
 {
     [super setModel:model];
     
-    [self.image sd_setImageWithURL:[model.name urlWithMainUrl]];
+    [self.image sd_setImageWithURL:[model.thumb urlWithMainUrl]];
 }
 
 @end

@@ -56,6 +56,7 @@
         [MyPageHttpTool getCodeWithMobile:self.mobileTextField.text success:^(BOOL sent, NSString *msg) {
             if (sent) {
                 [MBProgressHUD showSuccessMessage:msg];
+                [self.codeTextField becomeFirstResponder];
             }
             else
             {

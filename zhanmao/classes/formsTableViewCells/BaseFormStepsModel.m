@@ -21,6 +21,7 @@
         self.field=[dictionary valueForKey:@"field"];
         self.hint=[dictionary valueForKey:@"hint"];
         self.unit=[dictionary valueForKey:@"unit"];
+        self.thumb=[dictionary valueForKey:@"thumb"];
         self.option=[dictionary valueForKey:@"option"];
         
         //default Value for some type

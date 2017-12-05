@@ -91,6 +91,17 @@ const CGFloat categoriesHeaderHeight=50;
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.goodsTableView addSubview:refreshControl];
     
+    //preset "all" category
+    RentClass* allClass=[[RentClass alloc]init];
+    allClass.cid=@"0";
+    allClass.name=@"全部";
+    categoriesArray=[NSMutableArray array];
+    [categoriesArray addObject:allClass];
+    [self.catesTableView reloadData];
+    NSIndexPath* zeroIndexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    [self.catesTableView selectRowAtIndexPath:zeroIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+    [self tableView:self.catesTableView didSelectRowAtIndexPath:zeroIndexPath];
+    
     //will not call delegate...
     
     [RentHttpTool getClasses:^(NSArray *result) {
@@ -100,7 +111,7 @@ const CGFloat categoriesHeaderHeight=50;
         {
             NSIndexPath* zeroIndexPath=[NSIndexPath indexPathForRow:0 inSection:0];
             [self.catesTableView selectRowAtIndexPath:zeroIndexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
-            [self tableView:self.catesTableView didSelectRowAtIndexPath:zeroIndexPath];
+//            [self tableView:self.catesTableView didSelectRowAtIndexPath:zeroIndexPath];
         }
     } failure:^(NSError *error) {
         

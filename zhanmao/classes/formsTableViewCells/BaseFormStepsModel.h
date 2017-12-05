@@ -46,6 +46,7 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 @property (nonatomic,strong) NSString* name; //title for cell
 @property (nonatomic,strong) NSString* field; //key for params
 @property (nonatomic,strong) NSString* hint; //place holder
+@property (nonatomic,strong) NSString* thumb;
 
 @property (nonatomic,strong) NSString* oldValue; //
 @property (nonatomic,strong) NSString* value; //value for params
