@@ -32,8 +32,8 @@
         _idd=[dictionary valueForKey:@"id"];
         _number=[dictionary valueForKey:@"number"];
         
-        _status=[dictionary valueForKey:@"status"];
-        _pay_status=[dictionary valueForKey:@"pay_status"];
+        _status=[[dictionary valueForKey:@"status"]integerValue];
+//        _pay_status=[dictionary valueForKey:@"pay_status"];
         
         _amount=[dictionary valueForKey:@"amount"];
         
@@ -71,17 +71,24 @@
 }
 
 +(NSString*)cellStateForType:(NSInteger)type{
-    if (type==RentOrderTypeNotPaid) {
+    if (type==RentOrderStatusNotPaid) {
         return @"待付款";
     }
-    else if (type==RentOrderTypeNotSigned) {
+    else if (type==RentOrderStatusNotSigned) {
         return @"待收货";
     }
-    else if (type==RentOrderTypeNotReturned) {
+    else if (type==RentOrderStatusProcessing) {
+        return @"使用中";
+    }
+    else if (type==RentOrderStatusNotReturned) {
         return @"待归还";
     }
-    else if (type==RentOrderTypeFinished) {
+    else if (type==RentOrderStatusFinished) {
         return @"交易成功";
+    }
+    else if (type==RentOrderStatusDeleted)
+    {
+        
     }
     return @"";
 }
@@ -89,17 +96,20 @@
 +(NSString*)cellButtonTitleForType:(NSInteger)type
 {
     NSString* buttonTitle=@"";
-    if (type==RentOrderTypeFinished) {
+    if (type==RentOrderStatusFinished) {
         buttonTitle=@"关闭交易";
     }
-    else if (type==RentOrderTypeNotPaid) {
+    else if (type==RentOrderStatusNotPaid) {
         buttonTitle=@"立即付款";
     }
-    else if (type==RentOrderTypeNotSigned) {
+    else if (type==RentOrderStatusNotSigned) {
         buttonTitle=@"确认收货";
     }
-    else if (type==RentOrderTypeNotReturned) {
+    else if (type==RentOrderStatusNotReturned) {
         buttonTitle=@"确认归还";
+    }
+    else if (type==RentOrderStatusFinished) {
+        buttonTitle=@"关闭交易";
     }
     return buttonTitle;
 }
@@ -108,6 +118,9 @@
 {
     self=[super initWithDictionary:dictionary];
     if (self) {
+        //the "pay uses the same dictionary
+        self.pay=[[PayOrderModel alloc]initWithDictionary:dictionary];
+        
         // the "address" uses the same dictionary
         self.address=[[AddressModel alloc]initWithDictionary:dictionary];
     

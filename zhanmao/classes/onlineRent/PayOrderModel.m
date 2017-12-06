@@ -17,6 +17,7 @@
         _idd=[dictionary valueForKey:@"id"];
         _amount=[[dictionary valueForKey:@"amount"]doubleValue];
         _expiration=[[dictionary valueForKey:@"expiration"]doubleValue];
+        _payStatus=[[dictionary valueForKey:@"pay_status"]integerValue];
     }
     return self;
 }

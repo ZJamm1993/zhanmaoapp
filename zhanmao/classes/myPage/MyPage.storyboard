@@ -847,6 +847,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="createTime" destination="GjA-fW-Cci" id="fba-KZ-yHK"/>
                                     <outlet property="stateTitle" destination="xdp-2g-qgj" id="RDr-bR-MJH"/>
                                 </connections>
                             </tableViewCell>
@@ -882,19 +883,19 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥500.0/天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVN-bS-Xpl">
-                                                                    <rect key="frame" x="40" y="2.5" width="61" height="16"/>
+                                                                    <rect key="frame" x="40" y="2.5" width="61.5" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" red="0.9673119187" green="0.36028417940000002" blue="0.16180282830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天数：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyk-Yf-YCo">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyk-Yf-YCo">
                                                                     <rect key="frame" x="0.0" y="40" width="40" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WO-6T-CDf">
-                                                                    <rect key="frame" x="40" y="40" width="8" height="16"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥1000.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WO-6T-CDf">
+                                                                    <rect key="frame" x="40" y="40" width="50" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <color key="textColor" red="0.9673119187" green="0.36028417940000002" blue="0.16180282830000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -971,6 +972,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="count" destination="Fqr-9q-Yvn" id="gl0-iz-eDA"/>
+                                    <outlet property="deposit" destination="7WO-6T-CDf" id="GJK-zn-2PB"/>
+                                    <outlet property="image" destination="UkN-ts-fV0" id="uRA-mV-QNO"/>
+                                    <outlet property="rent" destination="vVN-bS-Xpl" id="jPx-3Y-980"/>
                                     <outlet property="title" destination="zbP-iz-AGZ" id="by8-xf-V0v"/>
                                 </connections>
                             </tableViewCell>
@@ -1005,14 +1010,30 @@
                                                             <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品租期：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubB-Xb-xmS">
+                                                            <rect key="frame" x="10" y="15" width="61.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1周期(4天)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTt-CQ-Aa5">
+                                                            <rect key="frame" x="71.5" y="15.5" width="59" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="PdP-K7-2Xh" firstAttribute="leading" secondItem="Qdj-bq-mX7" secondAttribute="trailing" constant="4" id="0gw-yg-4b0"/>
+                                                        <constraint firstItem="yTt-CQ-Aa5" firstAttribute="leading" secondItem="ubB-Xb-xmS" secondAttribute="trailing" id="1bR-dv-SEV"/>
                                                         <constraint firstItem="Qdj-bq-mX7" firstAttribute="centerY" secondItem="PdP-K7-2Xh" secondAttribute="centerY" id="20q-ws-Tzl"/>
+                                                        <constraint firstItem="yTt-CQ-Aa5" firstAttribute="centerY" secondItem="ubB-Xb-xmS" secondAttribute="centerY" id="4LV-AT-5Eu"/>
                                                         <constraint firstAttribute="height" constant="44" id="NNv-lg-10V"/>
+                                                        <constraint firstItem="ubB-Xb-xmS" firstAttribute="centerY" secondItem="3Xv-XX-Tde" secondAttribute="centerY" id="Q1k-QO-gYr"/>
                                                         <constraint firstItem="Qdj-bq-mX7" firstAttribute="leading" secondItem="en1-qc-zm6" secondAttribute="trailing" constant="15" id="buI-34-soJ"/>
                                                         <constraint firstAttribute="trailing" secondItem="PdP-K7-2Xh" secondAttribute="trailing" constant="10" id="hKh-Mh-8sN"/>
+                                                        <constraint firstItem="ubB-Xb-xmS" firstAttribute="leading" secondItem="3Xv-XX-Tde" secondAttribute="leading" constant="10" id="krY-qL-29Q"/>
                                                         <constraint firstItem="PdP-K7-2Xh" firstAttribute="centerY" secondItem="3Xv-XX-Tde" secondAttribute="centerY" id="ua3-dw-q47"/>
                                                         <constraint firstItem="en1-qc-zm6" firstAttribute="centerY" secondItem="PdP-K7-2Xh" secondAttribute="centerY" id="yhU-Wu-Rz4"/>
                                                     </constraints>
@@ -1034,6 +1055,10 @@
                                         <constraint firstItem="HAM-b1-m0N" firstAttribute="leading" secondItem="mAy-PP-yZ4" secondAttribute="leading" id="rgZ-rN-XjZ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="amount" destination="PdP-K7-2Xh" id="r6J-qc-8ed"/>
+                                    <outlet property="days" destination="yTt-CQ-Aa5" id="sc4-EU-JCY"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RentOrderTableViewCellAction" rowHeight="49" id="d8F-fU-ITi" customClass="RentOrderTableViewCell">
                                 <rect key="frame" x="0.0" y="255.5" width="320" height="49"/>
@@ -1105,7 +1130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3MU-w8-ONR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-418" y="639"/>
+            <point key="canvasLocation" x="-418.125" y="638.02816901408448"/>
         </scene>
         <!--My Page One Text Field Table View Controller-->
         <scene sceneID="x4b-GN-ao5">

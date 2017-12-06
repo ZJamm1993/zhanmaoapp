@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AddressModel.h"
 #import "RentModel.h"
+#import "PayOrderModel.h"
 
 typedef NS_ENUM(NSInteger,RentOrderType)
 {
@@ -17,6 +18,16 @@ typedef NS_ENUM(NSInteger,RentOrderType)
     RentOrderTypeNotSigned,
     RentOrderTypeNotReturned,
     RentOrderTypeFinished,
+};
+
+typedef NS_ENUM(NSInteger,RentOrderStatus)
+{
+    RentOrderStatusNotPaid,
+    RentOrderStatusNotSigned,
+    RentOrderStatusProcessing,
+    RentOrderStatusNotReturned,
+    RentOrderStatusFinished,
+    RentOrderStatusDeleted,
 };
 
 typedef NS_ENUM(NSInteger,TransportOrderType)
@@ -57,9 +68,7 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* number;
 
-//status
-@property (nonatomic,strong) NSString* status;
-@property (nonatomic,strong) NSString* pay_status;
+@property (nonatomic,assign) NSInteger status;
 
 @property (nonatomic,strong) NSString* amount;
 
@@ -77,6 +86,7 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
  **/
 @interface RentOrderModel : OrderTypeBaseModel
 
+@property (nonatomic,strong) PayOrderModel* pay;
 @property (nonatomic,strong) AddressModel* address;
 @property (nonatomic,strong) NSArray<RentCartModel*>* goods;
 

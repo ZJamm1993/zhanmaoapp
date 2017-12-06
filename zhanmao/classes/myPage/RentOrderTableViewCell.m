@@ -26,6 +26,9 @@
     self.grayButton.layer.borderWidth=1/[[UIScreen mainScreen]scale];
     [self.grayButton setTitleColor:gray_4 forState:UIControlStateNormal];
     [self.grayButton setBackgroundColor:[UIColor clearColor]];
+    
+    self.blueButton.userInteractionEnabled=NO;
+    self.grayButton.userInteractionEnabled=NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -34,33 +37,41 @@
     // Configure the view for the selected state
 }
 
--(void)setModel:(RentOrderModel *)model
+-(void)setOrderModel:(RentOrderModel *)orderModel
 {
-    _model=model;
+    _orderModel=orderModel;
     
-    self.title.text=model.title;
+    self.title.text=orderModel.title;
     
-    self.stateTitle.text=[RentOrderModel cellStateForType:model.type];
+    self.stateTitle.text=[RentOrderModel cellStateForType:orderModel.type];
     
-    RentOrderType type=model.type;
-    self.blueButton.hidden=(type==RentOrderTypeFinished);
+    RentOrderStatus type=orderModel.status;
+    self.blueButton.hidden=(type==RentOrderStatusDeleted||type==RentOrderStatusFinished);
     self.grayButton.hidden=!self.blueButton.hidden;
     
-    NSString* buttonTitle=@"";
-    if (type==RentOrderTypeFinished) {
-        buttonTitle=@"关闭交易";
-    }
-    else if (type==RentOrderTypeNotPaid) {
-        buttonTitle=@"立即付款";
-    }
-    else if (type==RentOrderTypeNotSigned) {
-        buttonTitle=@"确认收货";
-    }
-    else if (type==RentOrderTypeNotReturned) {
-        buttonTitle=@"确认归还";
-    }
+    NSString* buttonTitle=[RentOrderModel cellButtonTitleForType:orderModel.status];
     [self.blueButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self.grayButton setTitle:buttonTitle forState:UIControlStateNormal];
+    
+    if (orderModel.goods.firstObject) {
+        RentCartModel* car=orderModel.goods.firstObject;
+        if ([car isKindOfClass:[RentCartModel class]]) {
+            self.days.text=[NSString stringWithFormat:@"%ld周期(%ld天)",(long)car.days,(long)car.days*4];
+        }
+    }
+    
+    self.amount.text=[NSString stringWithFloat:orderModel.pay.amount headUnit:@"¥" tailUnit:nil];
+}
+
+-(void)setCartModel:(RentCartModel *)cartModel
+{
+    _cartModel=cartModel;
+    
+    self.title.text=cartModel.product.post_title;
+    [self.image sd_setImageWithURL:[cartModel.product.thumb urlWithMainUrl]];
+    self.rent.text=[NSString stringWithFloat:cartModel.product.rent headUnit:@"¥" tailUnit:@"/一周期(4天)"];
+    self.count.text=[NSString stringWithFormat:@"%ld",(long)cartModel.count];
+    self.deposit.text=[NSString stringWithFloat:cartModel.product.deposit headUnit:@"¥" tailUnit:nil];
 }
 
 @end

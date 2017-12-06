@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self refresh];
+    
+    [self showLoadMoreView];
     // Do any additional setup after loading the view.
 }
 

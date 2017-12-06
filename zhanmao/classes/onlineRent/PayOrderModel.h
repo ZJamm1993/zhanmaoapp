@@ -15,10 +15,19 @@ typedef NS_ENUM(NSInteger, PayMethodType)
     PayMethodTypeUnionpay=3,
 };
 
+typedef NS_ENUM(NSInteger, PayStatus)
+{
+    PayStatusNotYet=0,
+    PayStatusSuccess=1,
+    PayStatusFailure=2,
+    PayStatusExpired=3,
+};
+
 @interface PayOrderModel : ZZModel
 
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,assign) CGFloat amount;
 @property (nonatomic,assign) CGFloat expiration;
+@property (nonatomic,assign) NSInteger payStatus;
 
 @end

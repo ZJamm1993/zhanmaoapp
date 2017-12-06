@@ -19,15 +19,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
 }
 
--(void)viewWillAppear:(BOOL)animated
+-(void)refresh
 {
-    [super viewWillAppear:animated];
-    self.dataSource=[NSMutableArray arrayWithArray:[OrderTypeDataSource rentOrderDatasWithType:self.type]];
-    [self.tableView reloadData];
-    
+    [OrderTypeDataSource getMyRentOrderByType:self.type token:[UserModel token] page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:result];
+        if (result.count>0) {
+            self.currentPage=1;
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+-(void)loadMore
+{
+    [OrderTypeDataSource getMyRentOrderByType:self.type token:[UserModel token] page:self.currentPage+1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+        [self.dataSource addObjectsFromArray:result];
+        if (result.count>0) {
+            self.currentPage=self.currentPage+1;
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,7 +86,7 @@
     RentOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:idd forIndexPath:indexPath];
     
     RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
-    cell.model=mo;
+    cell.orderModel=mo;
     
     return cell;
 }
