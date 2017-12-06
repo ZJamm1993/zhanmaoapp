@@ -63,7 +63,8 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+     RentOrderModel* mo=[self.dataSource objectAtIndex:section];
+    return 1+mo.goods.count+2; // 1 title + n goods + 1 price + 1 action
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -83,10 +84,16 @@
     {
         idd=@"RentOrderTableViewCellPriceDetail";
     }
+    
     RentOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:idd forIndexPath:indexPath];
     
     RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
     cell.orderModel=mo;
+    
+    NSInteger rowForGoods=row-1;
+    if (rowForGoods<mo.goods.count) {
+        cell.cartModel=[mo.goods objectAtIndex:rowForGoods];
+    }
     
     return cell;
 }

@@ -60,10 +60,10 @@
         
         _pic_count=[[dictionary valueForKey:@"pic_count"]integerValue];
     }
-    else
-    {
-        dictionary=[NSDictionary dictionary];
-    }
+//    else
+//    {
+//        dictionary=[NSDictionary dictionary];
+//    }
     
     return self;
 }

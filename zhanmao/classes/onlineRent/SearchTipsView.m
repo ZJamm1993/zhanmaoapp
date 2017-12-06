@@ -26,7 +26,7 @@
         currentY=[view addSectionsViewWithTitle:@"最近搜索" imageName:@"searchGraySmall" canBeDeleted:YES strings:recently currentX:currentX currentY:currentY margin:m];
     }
     if (trendy.count>0) {
-        currentY=[view addSectionsViewWithTitle:@"热门搜索" imageName:@"searchHot" canBeDeleted:NO strings:trendy currentX:currentX currentY:currentY margin:m];
+        [view addSectionsViewWithTitle:@"热门搜索" imageName:@"searchHot" canBeDeleted:NO strings:trendy currentX:currentX currentY:currentY margin:m];
     }
     
     return view;

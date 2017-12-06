@@ -6,11 +6,11 @@
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
+#import "BaseToolBarTableViewController.h"
 #import "OrderTypeBaseModel.h"
 #import "OrderTypeDataSource.h"
 
-@interface OrderTypeDetailTableViewController : BaseTableViewController
+@interface OrderTypeDetailTableViewController : BaseToolBarTableViewController
 
 @property (nonatomic,strong) OrderTypeBaseModel* model;
 
