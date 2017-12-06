@@ -630,6 +630,33 @@
                                         <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0D-64-FaW" userLabel="loggedInBg">
                                             <rect key="frame" x="0.0" y="-0.5" width="320" height="247"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUU-5X-uz9" userLabel="realblurBg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OdE-o7-0ca">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                        </imageView>
+                                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-q2-7MC">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Sg3-vy-LJX">
+                                                                <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            </view>
+                                                            <blurEffect style="light"/>
+                                                        </visualEffectView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="OdE-o7-0ca" firstAttribute="leading" secondItem="zUU-5X-uz9" secondAttribute="leading" id="L0O-8x-bdi"/>
+                                                        <constraint firstAttribute="trailing" secondItem="OdE-o7-0ca" secondAttribute="trailing" id="QRW-Jz-TQe"/>
+                                                        <constraint firstItem="kfT-q2-7MC" firstAttribute="leading" secondItem="zUU-5X-uz9" secondAttribute="leading" id="Qbs-SI-pbu"/>
+                                                        <constraint firstItem="kfT-q2-7MC" firstAttribute="top" secondItem="zUU-5X-uz9" secondAttribute="top" id="XTq-o1-FSd"/>
+                                                        <constraint firstAttribute="trailing" secondItem="kfT-q2-7MC" secondAttribute="trailing" id="aO7-6q-Hzb"/>
+                                                        <constraint firstAttribute="bottom" secondItem="kfT-q2-7MC" secondAttribute="bottom" id="kFB-yA-Uhu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="OdE-o7-0ca" secondAttribute="bottom" id="o3s-Xs-r4V"/>
+                                                        <constraint firstItem="OdE-o7-0ca" firstAttribute="top" secondItem="zUU-5X-uz9" secondAttribute="top" id="xIi-Da-QF8"/>
+                                                    </constraints>
+                                                </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYh-nl-7HJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="247"/>
                                                     <constraints>
@@ -643,12 +670,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hs2-x7-CNN" firstAttribute="leading" secondItem="r0D-64-FaW" secondAttribute="leading" id="KGF-pH-Lqs"/>
+                                                <constraint firstAttribute="bottom" secondItem="zUU-5X-uz9" secondAttribute="bottom" id="MvR-al-afS"/>
                                                 <constraint firstAttribute="trailing" secondItem="hs2-x7-CNN" secondAttribute="trailing" id="TDZ-Ap-TtF"/>
                                                 <constraint firstItem="hYh-nl-7HJ" firstAttribute="top" secondItem="r0D-64-FaW" secondAttribute="top" id="TPt-j7-0WM"/>
+                                                <constraint firstItem="zUU-5X-uz9" firstAttribute="top" secondItem="r0D-64-FaW" secondAttribute="top" id="UmK-8a-n0i"/>
                                                 <constraint firstAttribute="bottom" secondItem="hYh-nl-7HJ" secondAttribute="bottom" id="Uvy-dH-SoD"/>
                                                 <constraint firstItem="hYh-nl-7HJ" firstAttribute="leading" relation="lessThanOrEqual" secondItem="r0D-64-FaW" secondAttribute="leading" id="VcQ-9Z-jHx"/>
+                                                <constraint firstItem="zUU-5X-uz9" firstAttribute="leading" secondItem="r0D-64-FaW" secondAttribute="leading" id="YAk-yh-avb"/>
                                                 <constraint firstItem="hYh-nl-7HJ" firstAttribute="centerX" secondItem="r0D-64-FaW" secondAttribute="centerX" id="s1y-Or-yMX"/>
                                                 <constraint firstItem="hs2-x7-CNN" firstAttribute="top" secondItem="r0D-64-FaW" secondAttribute="top" id="skx-gS-Yuc"/>
+                                                <constraint firstAttribute="trailing" secondItem="zUU-5X-uz9" secondAttribute="trailing" id="uwp-wi-RX6"/>
                                                 <constraint firstAttribute="bottom" secondItem="hs2-x7-CNN" secondAttribute="bottom" id="yJh-ou-DDT"/>
                                             </constraints>
                                         </view>
@@ -779,6 +810,7 @@
                                     <outlet property="headImageBg" destination="0oK-gg-NxM" id="gN6-Yn-UsF"/>
                                     <outlet property="headImageView" destination="RA1-BJ-hcQ" id="Wf8-bF-0ec"/>
                                     <outlet property="loginBg" destination="r0D-64-FaW" id="cOt-Gd-WbK"/>
+                                    <outlet property="loginBgBlurImage" destination="OdE-o7-0ca" id="xdG-Tp-CS0"/>
                                     <outlet property="loginBgImage" destination="hYh-nl-7HJ" id="pB5-Tj-Fza"/>
                                     <outlet property="loginBgTopContraint" destination="7IS-lF-dlc" id="2dl-98-v9z"/>
                                     <outlet property="name" destination="fgh-lK-W9w" id="Kvq-bH-3ki"/>

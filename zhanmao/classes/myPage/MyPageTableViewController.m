@@ -213,6 +213,7 @@
             cell.loginBg.hidden=NO;
             [cell.headImageView sd_setImageWithURL:[myUser.avatar urlWithMainUrl] placeholderImage:[UIImage imageNamed:@"defaultHeadImage"]];
             [cell.loginBgImage sd_setImageWithURL:[myUser.avatar urlWithMainUrl] placeholderImage:nil];
+            [cell.loginBgBlurImage sd_setImageWithURL:[myUser.avatar urlWithMainUrl] placeholderImage:nil];
             cell.name.text=myUser.user_nicename;
 //            if (myUser.user_nicename.length==0) {
 //                cell.name.text=
@@ -306,14 +307,15 @@
                 }
                 headerCell.loginBgTopContraint.constant=topCon;
                 
-//                CGFloat blurAlpha=topCon/-100;
-//                if (blurAlpha>1) {
-//                    blurAlpha=1;
-//                }
-//                if (blurAlpha<0) {
-//                    blurAlpha=0;
-//                }
-//                headerCell.loginBlurBg.alpha=blurAlpha;
+                CGFloat fa=64;
+                CGFloat blurAlpha=(fa+offY)/fa;
+                if (blurAlpha>1) {
+                    blurAlpha=1;
+                }
+                if (blurAlpha<0) {
+                    blurAlpha=0;
+                }
+                headerCell.loginBgImage.alpha=blurAlpha;
                 
             }
         }

@@ -163,7 +163,7 @@
                 user.user_email=model.detail;
             }
             [UserModel saveUser:user];
-            
+            [self.tableView reloadData];
             [viewController.navigationController popViewControllerAnimated:YES];
         }
         else
@@ -204,6 +204,7 @@
                     UserModel* us=[UserModel getUser];
                     us.avatar=imageUrl;
                     [UserModel saveUser:us];
+                    [self.tableView reloadData];
                 }
                 else
                 {
