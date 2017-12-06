@@ -78,6 +78,10 @@
     {
         [indicatorView stopAnimating];
     }
+    
+    self.frame=CGRectMake(0, 0, self.superview.bounds.size.width, 44);
+    indicatorView.frame=self.bounds;
+    textLabel.frame=self.bounds;
 }
 
 -(void)startLoading

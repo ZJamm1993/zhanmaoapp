@@ -24,7 +24,7 @@ static MBProgressHUD* lastShowingHUD;
 {
     [self removeLastOne];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    
+    hud.userInteractionEnabled=NO;
     // Set the custom view mode to show any view.
     hud.mode = MBProgressHUDModeCustomView;
     // Set an image view with a checkmark.
@@ -43,7 +43,7 @@ static MBProgressHUD* lastShowingHUD;
 {
     [self removeLastOne];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    
+    hud.userInteractionEnabled=NO;
     // Set the text mode to show only text.
     hud.mode = MBProgressHUDModeText;
     hud.label.text = msg;
@@ -57,7 +57,7 @@ static MBProgressHUD* lastShowingHUD;
 {
     [self removeLastOne];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
-    
+//    hud.userInteractionEnabled=NO;
     // Set the determinate mode to show task progress.
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = msg;

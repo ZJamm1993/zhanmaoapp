@@ -763,9 +763,75 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
             </objects>
             <point key="canvasLocation" x="1299" y="25"/>
         </scene>
+        <!--Pay Result View Controller-->
+        <scene sceneID="GhG-y4-f4w">
+            <objects>
+                <viewController storyboardIdentifier="PayResultViewController" id="fFf-vb-QfU" customClass="PayResultViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OQc-Fa-tTw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fbd-aH-Ojf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CiA-ha-99l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paySuccess" translatesAutoresizingMaskIntoConstraints="NO" id="uYT-eC-ALe">
+                                <rect key="frame" x="116.5" y="84" width="87" height="87"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7DC-LL-bgY">
+                                <rect key="frame" x="127.5" y="191" width="66" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMM-SI-j8S">
+                                <rect key="frame" x="80" y="246.5" width="160" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="dI8-Xo-dVe"/>
+                                    <constraint firstAttribute="height" constant="44" id="lW4-bO-MRI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="返回首页"/>
+                                <connections>
+                                    <action selector="goHome:" destination="fFf-vb-QfU" eventType="touchUpInside" id="PYB-sG-W6W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvH-HC-XJs">
+                                <rect key="frame" x="80" y="306.5" width="160" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="查看订单"/>
+                                <connections>
+                                    <action selector="checkOrder:" destination="fFf-vb-QfU" eventType="touchUpInside" id="GUR-bB-F6q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TvH-HC-XJs" firstAttribute="top" secondItem="aMM-SI-j8S" secondAttribute="bottom" constant="16" id="2F1-qt-rBw"/>
+                            <constraint firstItem="7DC-LL-bgY" firstAttribute="top" secondItem="uYT-eC-ALe" secondAttribute="bottom" constant="20" id="64W-AF-vTM"/>
+                            <constraint firstItem="TvH-HC-XJs" firstAttribute="centerX" secondItem="aMM-SI-j8S" secondAttribute="centerX" id="6AW-cP-zgT"/>
+                            <constraint firstItem="uYT-eC-ALe" firstAttribute="top" secondItem="OQc-Fa-tTw" secondAttribute="bottom" constant="64" id="PPC-QM-XLJ"/>
+                            <constraint firstItem="TvH-HC-XJs" firstAttribute="width" secondItem="aMM-SI-j8S" secondAttribute="width" id="Tff-Id-PeE"/>
+                            <constraint firstItem="uYT-eC-ALe" firstAttribute="centerX" secondItem="CiA-ha-99l" secondAttribute="centerX" id="WCv-BH-Tdw"/>
+                            <constraint firstItem="TvH-HC-XJs" firstAttribute="height" secondItem="aMM-SI-j8S" secondAttribute="height" id="WdR-gs-GOB"/>
+                            <constraint firstItem="aMM-SI-j8S" firstAttribute="centerX" secondItem="uYT-eC-ALe" secondAttribute="centerX" id="bp8-hZ-5bY"/>
+                            <constraint firstItem="aMM-SI-j8S" firstAttribute="top" secondItem="7DC-LL-bgY" secondAttribute="bottom" constant="36" id="dIf-RS-J6y"/>
+                            <constraint firstItem="7DC-LL-bgY" firstAttribute="centerX" secondItem="uYT-eC-ALe" secondAttribute="centerX" id="pNZ-WV-6Dk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="checkOrderButton" destination="TvH-HC-XJs" id="JPW-C6-aQT"/>
+                        <outlet property="goHomeButton" destination="aMM-SI-j8S" id="Z0S-SY-DeU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDI-aT-tbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60" y="678"/>
+        </scene>
     </scenes>
     <resources>
         <image name="deselected" width="20" height="20"/>
+        <image name="paySuccess" width="87" height="87"/>
         <image name="selected" width="20" height="20"/>
         <image name="trash" width="13" height="15"/>
         <image name="wechatpay" width="28" height="28"/>

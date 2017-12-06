@@ -32,8 +32,18 @@
     
     [WXApi registerApp:WXApiAppId enableMTA:NO];
     
-    [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user) {
-        [UserModel saveUser:user];
+    [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user,NSInteger code) {
+        if (code==ZZHttpCodeTokenInvalid) {
+            [MBProgressHUD showErrorMessage:@"登录信息已过期"];
+            [UserModel saveToken:@""];
+            [UserModel deleteUser];
+        }
+        else
+        {
+            if (user) {
+                [UserModel saveUser:user];
+            }
+        }
     }];
     
     return YES;
@@ -78,6 +88,7 @@
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
+            [MBProgressHUD showErrorMessage:resultDic.description];
         }];
     }
     else if([url.host isEqualToString:WXApiAppId])

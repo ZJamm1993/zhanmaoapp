@@ -27,7 +27,7 @@
 
 +(void)uploadAvatar:(UIImage*)avatar token:(NSString*)token success:(void(^)(NSString* imageUrl))success;
 
-+(void)getPersonalInfoToken:(NSString*)token success:(void(^)(UserModel* user))success;
++(void)getPersonalInfoToken:(NSString*)token success:(void(^)(UserModel* user,NSInteger code))success;
 
 +(void)postPersonalInfo:(NSDictionary*)params success:(void(^)(BOOL result,NSString* msg))success;
 

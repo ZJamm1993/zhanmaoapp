@@ -25,6 +25,27 @@
     return @"";
 }
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    self=[super initWithDictionary:dictionary];
+    if (self) {
+        _idd=[dictionary valueForKey:@"id"];
+        _number=[dictionary valueForKey:@"number"];
+        
+        _status=[dictionary valueForKey:@"status"];
+        _pay_status=[dictionary valueForKey:@"pay_status"];
+        
+        _amount=[dictionary valueForKey:@"amount"];
+        
+        _pay_type=[dictionary valueForKey:@"pay_type"];
+        
+        _createtime=[dictionary valueForKey:@"createtime"];
+        _paytime=[dictionary valueForKey:@"paytime"];
+        _delivery_date=[dictionary valueForKey:@"delivery"];
+    }
+    return self;
+}
+
 @end
 
 @implementation RentOrderModel
@@ -81,6 +102,24 @@
         buttonTitle=@"确认归还";
     }
     return buttonTitle;
+}
+
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    self=[super initWithDictionary:dictionary];
+    if (self) {
+        // the "address" uses the same dictionary
+        self.address=[[AddressModel alloc]initWithDictionary:dictionary];
+    
+        NSMutableArray* goods_muta=[NSMutableArray array];
+        NSArray* goos=[dictionary valueForKey:@"goods"];
+        for (NSDictionary* go in goos) {
+            RentCartModel* cart=[[RentCartModel alloc]initWithDictionary:go];
+            [goods_muta addObject:cart];
+        }
+        self.goods=goods_muta;
+    }
+    return self;
 }
 
 @end

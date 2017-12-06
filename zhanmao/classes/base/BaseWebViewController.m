@@ -150,7 +150,7 @@
     [loadingIndicator stopAnimating];
     [self.view addSubview:loadingIndicator];
     
-    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"hhh.html"];
+    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"hhh.txt"];
     
     NSError* err=nil;
     NSString* mTxt=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];

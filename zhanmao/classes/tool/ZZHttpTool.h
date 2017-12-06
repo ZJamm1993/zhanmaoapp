@@ -11,6 +11,11 @@
 #import "ZZUrlTool.h"
 #import "BaseModel.h"
 
+typedef NS_ENUM(NSInteger,ZZHttpCode)
+{
+    ZZHttpCodeTokenInvalid=130,
+};
+
 @interface ZZHttpTool : NSObject
 
 +(void)get:(NSString *)url params:(NSDictionary *)params usingCache:(BOOL)isCache success:(void (^)(NSDictionary *dict))success failure:(void (^)(NSError *err))failure;

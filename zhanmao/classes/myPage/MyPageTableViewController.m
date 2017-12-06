@@ -96,14 +96,18 @@
 -(void)refresh
 {
     if ([UserModel token].length>0) {
-        [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user) {
-            [UserModel saveUser:user];
-            myUser=[UserModel getUser];
+        [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user,NSInteger code) {
             
-            //        if ([myUser isNullUser]&&!askedToPerfectInfo) {
-            //            [self pushToViewControllerId:@"MyPersonalInfoViewController"];
-            //            askedToPerfectInfo=YES;
-            //        }
+            if (code==ZZHttpCodeTokenInvalid) {
+                [MBProgressHUD showErrorMessage:@"登录信息已过期"];
+                [UserModel saveToken:@""];
+                [UserModel deleteUser];
+            }
+            else
+            {
+                [UserModel saveUser:user];
+                myUser=[UserModel getUser];
+            }
             [self.tableView reloadData];
         }];
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391384591FD79359006BC6EA /* PayResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391384581FD79359006BC6EA /* PayResultViewController.m */; };
 		3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */; };
 		3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */; };
 		3955BBCB1FD6791400239336 /* PayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBCA1FD6791400239336 /* PayOrderModel.m */; };
@@ -23,7 +24,7 @@
 		398513A41FD140FB0056FB7F /* MyFeedBackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */; };
 		8E24D1AD1FC5204E00A437A0 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */; };
 		8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AF1FC5210300A437A0 /* UserModel.m */; };
-		8E24D1B21FC521E900A437A0 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.html */; };
+		8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.txt */; };
 		8E24D1B51FC523AF00A437A0 /* ProductWebDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1B41FC523AF00A437A0 /* ProductWebDetailViewController.m */; };
 		8E24D1B71FC6A45000A437A0 /* chicken.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B61FC6A44F00A437A0 /* chicken.png */; };
 		8E2E408B1F9459ED00B42477 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2E408A1F9459ED00B42477 /* BaseModel.m */; };
@@ -233,6 +234,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		391384571FD79359006BC6EA /* PayResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayResultViewController.h; sourceTree = "<group>"; };
+		391384581FD79359006BC6EA /* PayResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayResultViewController.m; sourceTree = "<group>"; };
 		3955BBC31FD5485200239336 /* MyPageHelpHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHelpHeaderCell.h; sourceTree = "<group>"; };
 		3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHelpHeaderCell.m; sourceTree = "<group>"; };
 		3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNewUserFixInfoViewController.h; sourceTree = "<group>"; };
@@ -263,7 +266,7 @@
 		8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		8E24D1AE1FC5210300A437A0 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
 		8E24D1AF1FC5210300A437A0 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
-		8E24D1B11FC521E800A437A0 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
+		8E24D1B11FC521E800A437A0 /* hhh.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = hhh.txt; sourceTree = "<group>"; };
 		8E24D1B31FC523AF00A437A0 /* ProductWebDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductWebDetailViewController.h; sourceTree = "<group>"; };
 		8E24D1B41FC523AF00A437A0 /* ProductWebDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductWebDetailViewController.m; sourceTree = "<group>"; };
 		8E24D1B61FC6A44F00A437A0 /* chicken.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chicken.png; sourceTree = "<group>"; };
@@ -840,6 +843,8 @@
 				8E31F4A51FC9543600373437 /* ProductCreateOrderTableViewController.m */,
 				3955BBCC1FD6795F00239336 /* PayOrderTableViewController.h */,
 				3955BBCD1FD6795F00239336 /* PayOrderTableViewController.m */,
+				391384571FD79359006BC6EA /* PayResultViewController.h */,
+				391384581FD79359006BC6EA /* PayResultViewController.m */,
 			);
 			path = onlineRent;
 			sourceTree = "<group>";
@@ -1002,7 +1007,7 @@
 		8E99A8E51F9068910078C452 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				8E24D1B11FC521E800A437A0 /* hhh.html */,
+				8E24D1B11FC521E800A437A0 /* hhh.txt */,
 				8E24D1AB1FC5204E00A437A0 /* BaseWebViewController.h */,
 				8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */,
 				8EB674BD1F973818008CC196 /* BaseLoadMoreFooterView.h */,
@@ -1462,7 +1467,7 @@
 				8EF7E6CB1FBE7B44003C6FB4 /* 4.txt in Resources */,
 				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
-				8E24D1B21FC521E900A437A0 /* hhh.html in Resources */,
+				8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */,
 				8E31F49A1FC9011300373437 /* README.txt in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
 				8EF7E6C71FBE7B15003C6FB4 /* 2.txt in Resources */,
@@ -1652,6 +1657,7 @@
 				3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */,
 				8E9B0CC21FA964E700770F8D /* AddressOptionTableViewCell.m in Sources */,
 				8E9B0CE81FAAC49400770F8D /* OrderTypeDataSource.m in Sources */,
+				391384591FD79359006BC6EA /* PayResultViewController.m in Sources */,
 				8E6C73FE1F9D9B18004B33D1 /* FormBaseTableViewCell.m in Sources */,
 				8E99AAC71F906B190078C452 /* ZZnotificationName.m in Sources */,
 				8E31F4671FC7BD5C00373437 /* TitleNoneImageTableViewCell.m in Sources */,

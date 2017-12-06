@@ -396,6 +396,12 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
                 PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
                 pay.orderModel=order;
                 [self.navigationController pushViewController:pay animated:YES];
+                
+                NSMutableArray* vcs=[NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+                if ([vcs containsObject:self]) {
+                    [vcs removeObject:self];
+                }
+                self.navigationController.viewControllers=vcs;
             }
         }
         else

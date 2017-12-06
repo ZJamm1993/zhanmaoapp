@@ -130,13 +130,13 @@
     
 }
 
-+(void)getPersonalInfoToken:(NSString *)token success:(void (^)(UserModel *))success
++(void)getPersonalInfoToken:(NSString *)token success:(void (^)(UserModel *,NSInteger))success
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Profile/show_info"];
     if (token.length==0) {
         if(success)
         {
-            success(nil);
+            success(nil,-1);
         }
         return;
     }
@@ -145,10 +145,11 @@
     [self get:str params:par usingCache:NO success:^(NSDictionary *dict) {
         NSDictionary* data=[dict valueForKey:@"data"];
         UserModel* mo=[[UserModel alloc]initWithDictionary:data];
+        NSInteger code=dict.code;
         if (success) {
 //            if (data.count>0) {
 //                mo.access_token=token;
-                success(mo);
+                success(mo,code);
 //            }
 //            else
 //            {
@@ -157,7 +158,7 @@
         }
     } failure:^(NSError *err) {
         if (success) {
-            success(nil);
+            success(nil,-1);
         }
     }];
 }

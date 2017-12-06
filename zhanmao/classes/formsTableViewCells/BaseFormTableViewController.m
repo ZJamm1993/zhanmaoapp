@@ -7,6 +7,8 @@
 //
 
 #import "BaseFormTableViewController.h"
+#import "UserModel.h"
+#import "MyLoginViewController.h"
 
 @interface BaseFormTableViewController ()
 {
@@ -386,6 +388,11 @@
     else
     {
         //really submit
+        if ([UserModel token].length==0) {
+            [MBProgressHUD showErrorMessage:AskToLoginDescription];
+            [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+            return;
+        }
         [self submitToServer];
     }
 }

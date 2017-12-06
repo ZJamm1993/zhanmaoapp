@@ -54,6 +54,8 @@
 {
     [[AlipaySDK defaultService]payOrder:string fromScheme:@"com.bangju.zhanmao" callback:^(NSDictionary *resultDic) {
         NSLog(@"%@",resultDic);
+        
+        [MBProgressHUD showSuccessMessage:resultDic.description];
     }];
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AddressModel.h"
+#import "RentModel.h"
 
 typedef NS_ENUM(NSInteger,RentOrderType)
 {
@@ -41,7 +43,7 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
  
  base
  **/
-@interface OrderTypeBaseModel : NSObject
+@interface OrderTypeBaseModel : ZZModel
 
 @property (nonatomic,strong) NSString* title;
 @property (nonatomic,assign) NSInteger type;
@@ -50,6 +52,24 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 +(NSString*)cellStateForType:(NSInteger)type;
 +(NSString*)cellButtonTitleForType:(NSInteger)type;
 
+//property from json
+
+@property (nonatomic,strong) NSString* idd;
+@property (nonatomic,strong) NSString* number;
+
+//status
+@property (nonatomic,strong) NSString* status;
+@property (nonatomic,strong) NSString* pay_status;
+
+@property (nonatomic,strong) NSString* amount;
+
+@property (nonatomic,strong) NSString* pay_type;
+
+//times
+@property (nonatomic,strong) NSString* createtime;
+@property (nonatomic,strong) NSString* paytime;
+@property (nonatomic,strong) NSString* delivery_date;
+
 @end
 
 /***
@@ -57,6 +77,8 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
  **/
 @interface RentOrderModel : OrderTypeBaseModel
 
+@property (nonatomic,strong) AddressModel* address;
+@property (nonatomic,strong) NSArray<RentCartModel*>* goods;
 
 @end
 

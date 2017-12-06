@@ -40,7 +40,7 @@
 -(void)refreshData
 {
     NSString* version=[NSString stringWithFormat:@"v%@",[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleShortVersionString"]];
-    NSInteger mb=[[SDImageCache sharedImageCache]getSize]/1024;
+    NSInteger mb=[[SDImageCache sharedImageCache]getSize]/1024/1024;
     NSString* cacheStr=[NSString stringWithFormat:@"%ldMB",(long)mb];
     cellModelsArray=[NSArray arrayWithObjects:
                      [NSArray arrayWithObjects:

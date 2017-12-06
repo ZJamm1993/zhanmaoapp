@@ -99,7 +99,7 @@
             }
             else
             {
-                [MyPageHttpTool getPersonalInfoToken:token success:^(UserModel *user) {
+                [MyPageHttpTool getPersonalInfoToken:token success:^(UserModel *user,NSInteger code) {
                     [MBProgressHUD showSuccessMessage:msg];
                     [UserModel saveUser:user];
                     [self.navigationController popViewControllerAnimated:YES];
