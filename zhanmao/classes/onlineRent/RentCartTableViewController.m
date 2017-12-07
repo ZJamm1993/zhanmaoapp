@@ -35,7 +35,7 @@
     CGRect fr=self.bottomToolBar.bounds;
     fr.size.height=64;
     editToolBar.frame=fr;
-    [self.bottomToolBar addSubview:editToolBar];
+    [self.bottomToolBar insertSubview:editToolBar atIndex:0];
     
     editToolBar.editing=self.editing;
     [editToolBar.actionButton addTarget:self action:@selector(editToolBarAction) forControlEvents:UIControlEventTouchUpInside];

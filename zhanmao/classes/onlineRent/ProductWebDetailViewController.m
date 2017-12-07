@@ -52,9 +52,17 @@
     self.bottomView=sub;
     
     self.title=@"产品详情";
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:1 target:self selector:@selector(cartItemClicked)];
-    self.navigationItem.rightBarButtonItem=cartItem;
+    [RentHttpTool getRentCartsCountSuccess:^(NSInteger count) {
+        ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:count target:self selector:@selector(cartItemClicked)];
+        self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, nil];
+    } failure:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {

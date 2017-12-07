@@ -52,10 +52,7 @@ const CGFloat categoriesHeaderHeight=50;
     self.title=@"在线租赁";
 //    self.view.backgroundColor=[UIColor groupTableViewBackgroundColor];
     
-    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:1 target:self selector:@selector(cartItemClicked)];
     
-//    UIBarButtonItem* searchItem=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"searchWhite"] style:UIBarButtonItemStylePlain target:self action:@selector(goSearch)];
-    self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, nil];
     
     [self selectLocation];
     
@@ -116,6 +113,17 @@ const CGFloat categoriesHeaderHeight=50;
     } failure:^(NSError *error) {
         
     }];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [RentHttpTool getRentCartsCountSuccess:^(NSInteger count) {
+        ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:count target:self selector:@selector(cartItemClicked)];
+        self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, nil];
+    } failure:nil];
+    
 }
 
 #pragma mark refresh adn load more

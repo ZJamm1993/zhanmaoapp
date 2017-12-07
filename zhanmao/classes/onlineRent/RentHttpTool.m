@@ -182,6 +182,14 @@
     }];
 }
 
++(void)getRentCartsCountSuccess:(void (^)(NSInteger))success failure:(void (^)(NSError *))failure
+{
+    NSArray* ids=[self localRentCartIds];
+    if (success) {
+        success(ids.count);
+    }
+}
+
 +(NSArray*)localRentCartIds
 {
     NSString* str=[[NSUserDefaults standardUserDefaults]valueForKey:RentCartsIdsKey];

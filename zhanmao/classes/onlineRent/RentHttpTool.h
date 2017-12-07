@@ -10,6 +10,8 @@
 #import "RentModel.h"
 #import "PayOrderModel.h"
 
+//#define RentCartCountDidChangedNotification @"RentCartCountDidChangedNotification"
+
 @interface RentHttpTool : ZZHttpTool
 
 #pragma mark products
@@ -27,6 +29,8 @@
 +(void)addRentCarts:(NSArray*)carts success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 
 +(void)getRentCartsSuccess:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
+
++(void)getRentCartsCountSuccess:(void(^)(NSInteger count))success failure:(void(^)(NSError* error))failure;
 
 +(void)removeRentCarts:(NSArray*)carts success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 

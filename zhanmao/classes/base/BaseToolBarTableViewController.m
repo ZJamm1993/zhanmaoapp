@@ -45,7 +45,7 @@
     
     self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
     
-    self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, 200)];
+    self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, self.tableView.contentInset.bottom+bottomSafe)];
     self.bottomToolBar.backgroundColor=[UIColor whiteColor];
     [self.tableView addSubview:self.bottomToolBar];
     
