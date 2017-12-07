@@ -282,6 +282,15 @@
     return 10;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    BaseFormSection* sec=[self.currentStep.sections objectAtIndex:section];
+    if (sec.d3scription.length>0) {
+        return UITableViewAutomaticDimension;
+    }
+    return 10;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.currentStep.sections.count;

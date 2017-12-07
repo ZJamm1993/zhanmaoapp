@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
         SimpleButtonsTableViewCell* buttonsCell=[[SimpleButtonsTableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, h)];
         buttonsCell.buttons=buttomButtnModels;
         buttonsCell.delegate=self;
-        buttonsCell.backgroundColor=_mainColor;
+        buttonsCell.backgroundColor=rgb(38, 104, 209);
         [self.bottomToolBar addSubview:buttonsCell];
         
         self.tableView.contentInset=UIEdgeInsetsMake(0, 0, h, 0);

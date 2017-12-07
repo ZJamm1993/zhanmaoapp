@@ -76,19 +76,20 @@
 
 -(void)updateUserInfo
 {
-    myUser=nil;
-    
     if ([UserModel token].length>0) {
         myUser=[UserModel getUser];
-        [self.tableView reloadData];
-        
         if ([myUser isNullUser])
         {
-            [self refresh];
+            [self performSelector:@selector(refresh) withObject:nil afterDelay:0.01];
+        }
+        else
+        {
+            [self.tableView reloadData];
         }
     }
     else
     {
+        myUser=nil;
         [self.tableView reloadData];
     }
 }
@@ -126,7 +127,7 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [self updateUserInfo];
+    [self performSelector:@selector(updateUserInfo) withObject:nil afterDelay:0.1];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
