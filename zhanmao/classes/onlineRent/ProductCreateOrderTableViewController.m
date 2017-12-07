@@ -12,6 +12,7 @@
 #import "RentCartEditTableViewCell.h"
 #import "RentHttpTool.h"
 #import "TotalFeeView.h"
+#import "MyPageHttpTool.h"
 
 #import "PayOrderTableViewController.h"
 
@@ -87,6 +88,19 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     pricesSectionArray=[self priceSectionArray];
     
     [self calculatePrices];
+    
+    [MyPageHttpTool getMyAddressesToken:[UserModel token] cache:NO success:^(NSArray *result) {
+        for (AddressModel* add in result) {
+            if (add.class) {
+                BaseFormModel* addModel=addressSectionArray.firstObject;
+                if (addModel.accessoryObject==nil) {
+                    addModel.accessoryObject=add;
+                    [self.tableView reloadData];
+                }
+                break;
+            }
+        }
+    } failure:nil];
 }
 
 -(void)calculatePrices

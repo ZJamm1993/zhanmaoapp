@@ -59,6 +59,7 @@
     
     if (model.accessoryObject) {
         AddressModel* add=model.accessoryObject;
+        model.value=add.idd;
         if ([add isKindOfClass:[AddressModel class]]) {
             self.name.text=add.addressee;
             self.phone.text=add.phone;
@@ -85,6 +86,7 @@
     }
     
     self.textBg.hidden=model.value.length==0;
+    self.placeHolder.hidden=!self.textBg.hidden;
 }
 
 -(void)myAddressesTableViewController:(MyAddressesTableViewController *)controller didSelectedAddress:(AddressModel *)address
