@@ -11,6 +11,8 @@
 #define HTML_GoodsShowDetail @"/Mall/Goods/show"
 #define HTML_BugProtocol @"/Content/Page/bugprotocol"
 #define HTML_HelpDetail @"/Content/Help/show"
+#define HTML_NewsDetail @"/Content/News/showDetail"
+#define HTML_ExhiDetail @"/Content/Exhibition/detail"
 
 @interface BaseWebViewController : BaseViewController
 

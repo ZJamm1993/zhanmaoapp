@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.title=self.pictureTitle;
     CGRect re=self.view.bounds;
     re.origin.y=-64;
     PhotoSliderView* php=[[PhotoSliderView alloc]initWithFrame:re];

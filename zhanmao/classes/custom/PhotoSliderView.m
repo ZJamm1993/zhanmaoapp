@@ -82,7 +82,7 @@ const NSInteger PageLabelTag=40;
         imageBg.maximumZoomScale=3;
         imageBg.minimumZoomScale=1;
         
-        UIActivityIndicatorView* wheel=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        UIActivityIndicatorView* wheel=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         [wheel startAnimating];
         wheel.center=CGPointMake(siz.width/2, siz.height/2);
         [imageBg addSubview:wheel];

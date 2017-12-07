@@ -1210,7 +1210,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="Msk-WE-EOc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderDetailStatusSimpleStyleCell" rowHeight="67" id="Msk-WE-EOc" customClass="OrderDetailStatusSimpleStyleCell">
                                 <rect key="frame" x="0.0" y="28" width="320" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Msk-WE-EOc" id="mQQ-1l-wqG">
@@ -1262,8 +1262,12 @@
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nJR-V3-lC7" secondAttribute="bottom" id="lQ3-oQ-x4j"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detail" destination="pge-yp-aVi" id="0Mv-Yl-lkB"/>
+                                    <outlet property="title" destination="MLn-mW-BTK" id="UUX-JM-aCI"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="kpr-Id-bDi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderDetailAddressCell" rowHeight="70" id="kpr-Id-bDi" customClass="OrderDetailAddressCell">
                                 <rect key="frame" x="0.0" y="95" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kpr-Id-bDi" id="Tkz-nL-0QD">
@@ -1306,6 +1310,11 @@
                                         <constraint firstItem="jmH-pQ-9wj" firstAttribute="leading" secondItem="Tkz-nL-0QD" secondAttribute="leading" constant="10" id="zC3-EE-VFY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="address" destination="YsO-IJ-8nz" id="KgL-JJ-fvU"/>
+                                    <outlet property="name" destination="eMb-jF-Kvl" id="nRq-cK-yFB"/>
+                                    <outlet property="phone" destination="FYd-Kv-FL9" id="JtQ-Gn-Msl"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RentOrderTableViewCellProductDetail" rowHeight="110" id="qF1-W5-TYO" customClass="RentOrderTableViewCell">
                                 <rect key="frame" x="0.0" y="165" width="320" height="110"/>
@@ -1514,6 +1523,31 @@
                                 <connections>
                                     <outlet property="amount" destination="aIp-wi-8RN" id="KSr-yg-9Mv"/>
                                     <outlet property="days" destination="WqJ-Fx-2b0" id="eBl-VQ-Dmd"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderDetailSimpleLeftLabelCell" rowHeight="50" id="wWt-Qf-6ZS" customClass="OrderDetailSimpleLeftLabelCell">
+                                <rect key="frame" x="0.0" y="320" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wWt-Qf-6ZS" id="Ka5-K9-Yc3">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付饱：0000" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rLh-hL-gEY">
+                                            <rect key="frame" x="10" y="15" width="300" height="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.40462239579999998" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="rLh-hL-gEY" secondAttribute="trailing" constant="10" id="MH6-28-TRQ"/>
+                                        <constraint firstItem="rLh-hL-gEY" firstAttribute="leading" secondItem="Ka5-K9-Yc3" secondAttribute="leading" constant="10" id="RwR-AH-Uty"/>
+                                        <constraint firstAttribute="bottom" secondItem="rLh-hL-gEY" secondAttribute="bottom" constant="15" id="lfN-0n-CbW"/>
+                                        <constraint firstItem="rLh-hL-gEY" firstAttribute="top" secondItem="Ka5-K9-Yc3" secondAttribute="top" constant="15" id="nS1-3v-5ii"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="label" destination="rLh-hL-gEY" id="lYh-mM-aHD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

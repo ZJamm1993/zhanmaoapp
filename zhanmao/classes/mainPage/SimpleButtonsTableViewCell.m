@@ -8,8 +8,11 @@
 
 #import "SimpleButtonsTableViewCell.h"
 
-const CGFloat simpleButtonMarginY=20;
-const CGFloat simpleButtonHeight=64;
+const CGFloat simpleButtonMarginY=17;
+const CGFloat simpleButtonImageHeight=40;
+const CGFloat simpleButtonTitleHeight=15;
+const CGFloat simpleButtonImageTitleMarginY=12;
+const CGFloat simpleButtonHeight=simpleButtonImageTitleMarginY+simpleButtonImageHeight+simpleButtonTitleHeight;
 const CGFloat simpleButtonWidth=74;
 const NSInteger simpleButtonRowCount=4;
 
@@ -51,8 +54,8 @@ const NSInteger simpleButtonRowCount=4;
     CGFloat heightPerEach=simpleButtonHeight;
 //    CGFloat height_2=heightPerEach/2;
     
-    CGFloat titleHeight=15;
-    CGFloat imageHeight=heightPerEach-titleHeight-10;
+    CGFloat titleHeight=simpleButtonTitleHeight;
+    CGFloat imageHeight=simpleButtonImageHeight;
     
     NSInteger counts=buttons.count;
     for (NSInteger i=0; i<counts; i++) {
@@ -67,6 +70,9 @@ const NSInteger simpleButtonRowCount=4;
         UILabel* titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(0, heightPerEach-titleHeight, widthPerEach, titleHeight)];
         titleLabel.textAlignment=NSTextAlignmentCenter;
         titleLabel.textColor=gray_4;
+        if (mo.titleColor) {
+            titleLabel.textColor=mo.titleColor;
+        }
         titleLabel.font=[UIFont systemFontOfSize:14];
         titleLabel.text=mo.title;
         [bbg addSubview:titleLabel];
@@ -85,10 +91,14 @@ const NSInteger simpleButtonRowCount=4;
         }
         
         if (mo.circledImage) {
-            UIView* circle=[[UIView alloc]initWithFrame:CGRectMake(0, 0, imageHeight+4, imageHeight+4)];
+            CGFloat w=imageHeight+12;
+            UIView* circle=[[UIView alloc]initWithFrame:CGRectMake(0, 0, w,w)];
             circle.backgroundColor=rgb(86,133,229);
             circle.layer.cornerRadius=circle.frame.size.width/2;
             circle.center=imageView.center;
+            if (mo.circleColor) {
+                circle.backgroundColor=mo.circleColor;
+            }
             [bbg insertSubview:circle belowSubview:imageView];
         }
         
@@ -140,6 +150,24 @@ const NSInteger simpleButtonRowCount=4;
         self.type=type;
     }
     return self;
+}
+
++(NSArray*)exampleButtonModelsWithTypes:(NSArray *)types
+{
+    NSMutableArray* array=[NSMutableArray array];
+    NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"舞台",@"演艺",@"邀约",@"保洁",@"物流",@"",@"", nil];
+    NSArray* images=[NSArray arrayWithObjects:@"zhuchang",@"zhantai",@"zhanting",@"wutai",@"yanyi",@"yaoyue",@"baojie",@"wuliu",@"",@"", nil];
+    NSArray* identis=[NSArray arrayWithObjects:
+                      @"ExhibitionListViewController",@"ExhibitionListViewController",
+                      @"ExhibitionListViewController",@"ExhibitionListViewController",
+                      @"ExhibitionListViewController",@"HuiyiFormTableViewController",
+                      @"BaojieFormTableViewController",@"WuliuFormTableViewController", nil];
+    for (NSNumber* num in types) {
+        NSInteger i=num.integerValue;
+        SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:[images objectAtIndex:i] identifier:i<identis.count?[identis objectAtIndex:i]:@"" type:i+1];
+        [array addObject:mo];
+    }
+    return array;
 }
 
 @end

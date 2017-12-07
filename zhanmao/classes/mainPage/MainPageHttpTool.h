@@ -16,7 +16,9 @@
 
 +(void)getCustomShowingCaseListByCid:(NSString*)cid cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
-+(void)getNewExhibition:(void(^)(ExhibitionModel* exh))success cache:(BOOL)cache failure:(void(^)(NSError* error))failure;
++(void)getNewExhibitions:(void(^)(NSArray* exhis))success cache:(BOOL)cache failure:(void(^)(NSError* error))failure;
+
++(void)getExhibitionDetailById:(NSString*)idd success:(void(^)(ExhibitionModel* exhi))success cache:(BOOL)cache failure:(void(^)(NSError* error))failure;
 
 +(void)getNewMessagesPage:(NSInteger)page pageSize:(NSInteger)pagesize cached:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 

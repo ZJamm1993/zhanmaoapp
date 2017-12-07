@@ -24,6 +24,7 @@
 #import "MainPageHttpTool.h"
 
 #import "ProductWebDetailViewController.h"
+#import "ExhibitionDetailViewController.h"
 
 typedef NS_ENUM(NSInteger,MainPageSection)
 {
@@ -146,10 +147,9 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 -(void)refresh
 {
-    [MainPageHttpTool getNewExhibition:^(ExhibitionModel *exh) {
-        if (exh) {
-            exhibitionArray=[NSMutableArray array];
-            [exhibitionArray addObject:exh];
+    [MainPageHttpTool getNewExhibitions:^(NSArray *exhs) {
+        if (exhs.count>0) {
+            exhibitionArray=[NSMutableArray arrayWithArray:exhs];
             [self.tableView reloadData];
         }
     } cache:NO failure:^(NSError *error) {
@@ -202,18 +202,11 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     if (arrayWithSimpleButtons.count==0) {
         
         NSMutableArray* array=[NSMutableArray array];
-        NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"舞台",@"演艺",@"邀约",@"保洁",@"物流",@"",@"", nil];
-        NSArray* images=[NSArray arrayWithObjects:@"zhuchang",@"zhantai",@"zhanting",@"wutai",@"yanyi",@"yaoyue",@"baojie",@"wuliu",@"",@"", nil];
-        NSArray* identis=[NSArray arrayWithObjects:
-                          @"ExhibitionListViewController",@"ExhibitionListViewController",
-                          @"ExhibitionListViewController",@"ExhibitionListViewController",
-                          @"ExhibitionListViewController",@"HuiyiFormTableViewController",
-                          @"BaojieFormTableViewController",@"WuliuFormTableViewController", nil];
         for (NSInteger i=0; i<8; i++) {
-            SimpleButtonModel* mo=[[SimpleButtonModel alloc]initWithTitle:[titles objectAtIndex:i] imageName:[images objectAtIndex:i] identifier:i<identis.count?[identis objectAtIndex:i]:@"" type:i+1];
-            [array addObject:mo];
+            NSNumber* num=[NSNumber numberWithInteger:i];
+            [array addObject:num];
         }
-        arrayWithSimpleButtons=array;
+        arrayWithSimpleButtons=[SimpleButtonModel exampleButtonModelsWithTypes:array];;
     }
     return arrayWithSimpleButtons;
 }
@@ -351,6 +344,17 @@ typedef NS_ENUM(NSInteger,MainPageSection)
             prod.goodModel=pro;
             [self.navigationController pushViewController:prod animated:YES];
         }
+        else
+        {
+            BaseWebViewController* web=[[BaseWebViewController alloc]initWithUrl:[HTML_NewsDetail urlWithMainUrl]];
+            [self.navigationController pushViewController:web animated:YES];
+        }
+    }
+    if (sec==MainPageSectionExhibitions) {
+        ExhibitionModel* mo=[exhibitionArray objectAtIndex:row];
+        ExhibitionDetailViewController* exh=[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"ExhibitionDetailViewController"];
+        exh.exhi=mo;
+        [self.navigationController pushViewController:exh animated:YES];
     }
 }
 

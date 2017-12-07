@@ -34,7 +34,12 @@
 @property (nonatomic,strong) NSString* identifier;
 @property (nonatomic,assign) NSInteger type;
 @property (nonatomic,assign) BOOL circledImage;
+@property (nonatomic,strong) UIColor* titleColor;
+@property (nonatomic,strong) UIColor* circleColor;
+
 
 -(instancetype)initWithTitle:(NSString*)title imageName:(NSString*)imageName identifier:(NSString*)identifier type:(NSInteger)type;
+
++(NSArray*)exampleButtonModelsWithTypes:(NSArray<NSNumber*>*)types;
 
 @end

@@ -96,6 +96,7 @@
     CGFloat b=scrollView.contentInset.bottom;
     CGRect appf=self.bottomToolBar.frame;
     appf.origin.y=offy+h-b-bottomSafe;
+    appf.size.height=b+bottomSafe;
     self.bottomToolBar.frame=appf;
     
     [self.bottomToolBar removeFromSuperview];

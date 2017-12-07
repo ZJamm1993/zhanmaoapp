@@ -52,10 +52,35 @@
     }];
 }
 
-+(void)getNewExhibition:(void (^)(ExhibitionModel *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure
++(void)getNewExhibitions:(void (^)(NSArray *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Exhibition/new_exhibition"];
     [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        ExhibitionModel* exh=[[ExhibitionModel alloc]initWithDictionary:data];
+        NSArray* arr=[NSArray arrayWithObject:exh];
+        if(success)
+        {
+            success(arr);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
++(void)getExhibitionDetailById:(NSString *)idd success:(void (^)(ExhibitionModel *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Exhibition/detail"];
+    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+    if (idd.length==0) {
+        if (failure) {
+            failure(nil);
+        }
+    }
+    [dic setValue:idd forKey:@"id"];
+    [self get:str params:dic usingCache:cache success:^(NSDictionary *dict) {
         NSDictionary* data=[dict valueForKey:@"data"];
         ExhibitionModel* exh=[[ExhibitionModel alloc]initWithDictionary:data];
         if(success)

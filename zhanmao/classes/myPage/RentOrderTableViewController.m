@@ -98,4 +98,19 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1) {
+        // do action;
+        NSLog(@"do action");
+        
+    }
+    else
+    {
+        
+    }
+}
+
 @end

@@ -58,40 +58,39 @@
 
 @end
 
-@implementation UIViewController(SwizzleClasses)
-
-+(void)load
-{
-    NSLog(@"UIViewController Class Load");
-    NSLog(@"swizzle viewdidload");
-    [[self class]jr_swizzleMethod:@selector(viewDidLoad) withMethod:@selector(myViewDidLoad) error:nil];
-}
-
--(void)myViewDidLoad
-{
-    
-    [self myViewDidLoad];
-    NSLog(@"\"%@\" view did load",NSStringFromClass([self class]));
-    BOOL isNotUIViewController=![self isMemberOfClass:[UIViewController class]];
-    BOOL isNotNavgationController=![self isKindOfClass:[UINavigationController class]];
-    BOOL isNotTabbarController=![self isKindOfClass:[UITabBarController class]];
-    
-//    if (@available(iOS 11.0, *)) {
-//        if ([self respondsToSelector:@selector(tableView)]) {
-//            UITableView* tabl=[self performSelector:@selector(tableView)];
-//            tabl.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-//        }
-//    } else {
-//        self.automaticallyAdjustsScrollViewInsets = NO;
-//    }
-    
-    BOOL isChecked=isNotUIViewController&&isNotNavgationController&&isNotTabbarController;
-    if (isChecked) {
-        
-    }
-}
-
-@end
+//@implementation UIViewController(SwizzleClasses)
+//
+//+(void)load
+//{
+//    NSLog(@"UIViewController Class Load");
+//    NSLog(@"swizzle viewdidload");
+//    [[self class]jr_swizzleMethod:@selector(viewDidLoad) withMethod:@selector(myViewDidLoad) error:nil];
+//}
+//
+//-(void)myViewDidLoad
+//{
+//    [self myViewDidLoad];
+////    NSLog(@"\"%@\" view did load",NSStringFromClass([self class]));
+////    BOOL isNotUIViewController=![self isMemberOfClass:[UIViewController class]];
+////    BOOL isNotNavgationController=![self isKindOfClass:[UINavigationController class]];
+////    BOOL isNotTabbarController=![self isKindOfClass:[UITabBarController class]];
+////    
+//////    if (@available(iOS 11.0, *)) {
+//////        if ([self respondsToSelector:@selector(tableView)]) {
+//////            UITableView* tabl=[self performSelector:@selector(tableView)];
+//////            tabl.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//////        }
+//////    } else {
+//////        self.automaticallyAdjustsScrollViewInsets = NO;
+//////    }
+////    
+////    BOOL isChecked=isNotUIViewController&&isNotNavgationController&&isNotTabbarController;
+////    if (isChecked) {
+////        
+////    }
+//}
+//
+//@end
 
 @implementation UIImageView(SwizzleClasses)
 
