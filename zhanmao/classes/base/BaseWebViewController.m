@@ -98,6 +98,9 @@
         _ios8WebView.dataDetectorTypes=UIDataDetectorTypeNone;
         _ios8WebView.delegate=self;
         
+        _ios8WebView.scrollView.showsVerticalScrollIndicator=NO;
+        _ios8WebView.scrollView.showsHorizontalScrollIndicator=NO;
+        
         //wkwebview's
 //        _ios8WebView.navigationDelegate=self;
 //        _ios8WebView.UIDelegate=self;
