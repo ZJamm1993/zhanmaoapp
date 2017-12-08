@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
     // Initialization code
     
     self.blueButton.layer.cornerRadius=2;
@@ -27,8 +28,8 @@
     [self.grayButton setTitleColor:gray_4 forState:UIControlStateNormal];
     [self.grayButton setBackgroundColor:[UIColor clearColor]];
     
-    self.blueButton.userInteractionEnabled=NO;
-    self.grayButton.userInteractionEnabled=NO;
+    [self.blueButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.grayButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -72,6 +73,13 @@
     self.rent.text=[NSString stringWithFloat:cartModel.product.rent headUnit:@"¥" tailUnit:@"/一周期(4天)"];
     self.count.text=[NSString stringWithFormat:@"%ld",(long)cartModel.count];
     self.deposit.text=[NSString stringWithFloat:cartModel.product.deposit headUnit:@"¥" tailUnit:nil];
+}
+
+-(void)buttonClick
+{
+    if ([self.delegate respondsToSelector:@selector(rentOrderTableViewCellActionButtonClick:)]) {
+        [self.delegate rentOrderTableViewCellActionButtonClick:self];
+    }
 }
 
 @end

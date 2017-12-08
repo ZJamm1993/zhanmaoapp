@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "OrderTypeBaseModel.h"
 
+@class RentOrderTableViewCell;
+
+@protocol RentOrderTableViewCellDelegate <NSObject>
+
+-(void)rentOrderTableViewCellActionButtonClick:(RentOrderTableViewCell*)cell;
+
+@end
 
 @interface RentOrderTableViewCell : LinedTableViewCell
 
@@ -29,5 +36,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *blueButton;
 @property (weak, nonatomic) IBOutlet UIButton *grayButton;
+
+@property (nonatomic,weak) id<RentOrderTableViewCellDelegate>delegate;
 
 @end

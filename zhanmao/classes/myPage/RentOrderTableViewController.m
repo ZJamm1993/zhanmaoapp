@@ -9,7 +9,7 @@
 #import "RentOrderTableViewController.h"
 #import "RentOrderTableViewCell.h"
 
-@interface RentOrderTableViewController ()
+@interface RentOrderTableViewController ()<RentOrderTableViewCellDelegate>
 
 @end
 
@@ -87,6 +87,7 @@
     
     RentOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:idd forIndexPath:indexPath];
     
+    cell.delegate=self;
     RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
     cell.orderModel=mo;
     
@@ -98,19 +99,11 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)rentOrderTableViewCellActionButtonClick:(RentOrderTableViewCell *)cell
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RentOrderModel* rentOrder=cell.orderModel;
+    RentOrderStatus sta=rentOrder.status;
     
-    if (indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1) {
-        // do action;
-        NSLog(@"do action");
-        
-    }
-    else
-    {
-        
-    }
 }
 
 @end

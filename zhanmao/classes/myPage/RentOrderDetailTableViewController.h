@@ -10,4 +10,6 @@
 
 @interface RentOrderDetailTableViewController : OrderTypeDetailTableViewController
 
+@property (nonatomic,strong) RentOrderModel* rentModel;
+
 @end

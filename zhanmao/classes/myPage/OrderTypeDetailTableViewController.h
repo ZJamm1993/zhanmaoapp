@@ -12,6 +12,6 @@
 
 @interface OrderTypeDetailTableViewController : BaseToolBarTableViewController
 
-@property (nonatomic,strong) OrderTypeBaseModel* model;
+//@property (nonatomic,strong) OrderTypeBaseModel* model;
 
 @end

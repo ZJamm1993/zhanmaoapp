@@ -273,6 +273,12 @@
     {
         NSLog(@"get null dictionary");//why nil??
     }
+    if ([[result valueForKey:@"data"]isKindOfClass:[NSNumber class]]) {
+        NSLog(@"get zero data");
+        NSMutableDictionary* noNumberData=[NSMutableDictionary dictionaryWithDictionary:result];
+        [noNumberData removeObjectForKey:@"data"];
+        result=noNumberData;
+    }
     NSLog(@"%@",result);
     return result;
 }

@@ -33,6 +33,7 @@
     CGRect fr=self.bottomView.bounds;
     fr.size.height=64;
     _totalFeeView.frame=fr;
+    _totalFeeView.title.text=@"估计";
     [_totalFeeView.submitButton addTarget:self action:@selector(orderSubmit) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:_totalFeeView];
     
@@ -76,10 +77,32 @@
 
 -(void)valueChanged
 {
-    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];
-    if (requiredModel==nil) {
-        //go to calculate;
+//    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];
+//    if (requiredModel==nil) {
+//        //go to calculate;
+//    }
+    
+#warning i dont know which values using to calculate;
+    CGFloat professor=0;
+    CGFloat scholar=0;
+    NSArray* allModels=[self.formSteps allModels];
+    for (BaseFormModel* model in allModels) {
+        if([model.field isEqualToString:@"professor"])
+        {
+            professor=model.value.floatValue;
+        }
+        else if([model.field isEqualToString:@"scholar"])
+        {
+            scholar=model.value.floatValue;
+        }
     }
+    
+    professor=professor*10;
+    scholar=scholar*5;
+    _smallFeeView.packageFee.text=[NSString stringWithFloat:professor headUnit:@"¥" tailUnit:nil];
+    _smallFeeView.otherFee.text=[NSString stringWithFloat:scholar headUnit:@"¥" tailUnit:nil];
+    
+    _totalFeeView.feeLabe.text=[NSString stringWithFloat:professor+scholar headUnit:@"¥" tailUnit:nil];
 }
 
 -(void)orderSubmit

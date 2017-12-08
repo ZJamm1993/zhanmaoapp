@@ -341,6 +341,10 @@
 -(void)pushToViewControllerId:(NSString*)identifier
 {
     //normals
+    if ([UserModel token].length==0) {
+        [self askToLogin];
+        return;
+    }
     if (identifier.length>0) {
 //        UIViewController* viewController;//=[cachesControllers valueForKey:identifier];
 //        if (viewController==nil) {

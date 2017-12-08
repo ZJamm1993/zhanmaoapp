@@ -103,8 +103,8 @@
 
 -(void)my_sd_setImageWithURL:(NSURL*)url
 {
-    NSString* urlstr=[url absoluteString];
-    NSLog(@"load image: %@",urlstr);
+//    NSString* urlstr=[url absoluteString];
+//    NSLog(@"load image: %@",urlstr);
     UIImage* defaultImage=[UIImage imageNamed:@"image_loading"];
     //    CGFloat rate=self.frame.size.width/self.frame.size.height;
     //    if (rate>1.5) {
