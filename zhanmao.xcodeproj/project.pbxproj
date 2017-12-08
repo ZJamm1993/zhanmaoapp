@@ -719,6 +719,13 @@
 			name = myprotocal;
 			sourceTree = "<group>";
 		};
+		39CDDE9D1FDA8C360079A49D /* detailcell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = detailcell;
+			sourceTree = "<group>";
+		};
 		8E2E40821F94597B00B42477 /* mainPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,6 +963,7 @@
 		8E72E9E11FB2ECAC001FCD31 /* CustomOrder */ = {
 			isa = PBXGroup;
 			children = (
+				39CDDE9D1FDA8C360079A49D /* detailcell */,
 				8E72E9E21FB2ECDF001FCD31 /* CustomOrderPagerViewController.h */,
 				8E72E9E31FB2ECDF001FCD31 /* CustomOrderPagerViewController.m */,
 				8E72E9E51FB2ED02001FCD31 /* CustomOrderTableViewController.h */,

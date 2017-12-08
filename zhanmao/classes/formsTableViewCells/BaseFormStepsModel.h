@@ -21,7 +21,6 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeSingleChoice                    =31,
     BaseFormTypeSwitchCheck                     =32,
     
-    
     BaseFormTypeStepDescription                 =6,
     BaseFormTypeImage                           =61,
     
@@ -85,68 +84,3 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 -(NSArray*)allModels;
 
 @end
-
-/* 面积
-{
-    combination_arr = [
-    {
-        field = long,
-        hint = 请输入长,
-        type = 1,
-        unit = 米,
-        name = 长
-    },
-    {
-        field = width,
-        hint = 请输入宽,
-        type = 1,
-        unit = 米,
-        name = 宽
-    },
-    {
-        field = high,
-        hint = 请输入高,
-        type = 1,
-        unit = 米,
-        name = 高
-    },
-    {
-        field = hall_area,
-        hint = 请输入展厅面积,
-        type = 1,
-        unit = m2,
-        name = 展厅面积
-    }
-                       ],
-    hint = ,
-    name = 长宽高,
-    field = ,
-    type = 8
-    },
-*/
- 
-/*
-{
-    "code": 0,
-    "message": "ok",
-    "state": "success",
-    "data": {
-        "step1": {
-            "title": "主场",
-            "data": [
-                     {
-                         "description":" aosidfjoasjoiweoiwejfoweij",
-                         "data":[
-                          {
-                              "name": "展会名称",
-                              "field": "name",
-                              "hint": "请输入展会名称",
-                              "type": "1",
-                              "required": "1"
-                          }]
-                     }
-                     ]
-        }
-    }
-}
-*/

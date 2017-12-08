@@ -31,6 +31,7 @@
     CGRect fr=self.bottomView.bounds;
     fr.size.height=64;
     _totalFeeView.frame=fr;
+    _totalFeeView.title.text=@"运费估计：";
     [_totalFeeView.submitButton addTarget:self action:@selector(orderSubmit) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:_totalFeeView];
     // Do any additional setup after loading the view.
@@ -63,6 +64,31 @@
 -(NSInteger)type
 {
     return 8;
+}
+
+-(void)valueChanged
+{
+    //    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];
+    //    if (requiredModel==nil) {
+    //        //go to calculate;
+    //    }
+    
+#warning i dont know which values using to calculate;
+    CGFloat professor=0;
+    CGFloat volume=0;
+    NSArray* allModels=[self.formSteps allModels];
+    for (BaseFormModel* model in allModels) {
+        if([model.field isEqualToString:@"professor"])
+        {
+            professor=model.value.floatValue;
+        }
+        else if([model.field isEqualToString:@"volume"])
+        {
+            volume=model.value.floatValue;
+        }
+    }
+    
+    _totalFeeView.feeLabe.text=[NSString stringWithFloat:professor+volume headUnit:@"¥" tailUnit:nil];
 }
 
 -(void)orderSubmit

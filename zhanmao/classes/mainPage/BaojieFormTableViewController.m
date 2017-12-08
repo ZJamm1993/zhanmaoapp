@@ -33,7 +33,7 @@
     CGRect fr=self.bottomView.bounds;
     fr.size.height=64;
     _totalFeeView.frame=fr;
-    _totalFeeView.title.text=@"估计";
+    _totalFeeView.title.text=@"估计：";
     [_totalFeeView.submitButton addTarget:self action:@selector(orderSubmit) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomView addSubview:_totalFeeView];
     
@@ -77,12 +77,6 @@
 
 -(void)valueChanged
 {
-//    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];
-//    if (requiredModel==nil) {
-//        //go to calculate;
-//    }
-    
-#warning i dont know which values using to calculate;
     CGFloat professor=0;
     CGFloat scholar=0;
     NSArray* allModels=[self.formSteps allModels];
@@ -90,10 +84,12 @@
         if([model.field isEqualToString:@"professor"])
         {
             professor=model.value.floatValue;
+//            model.value=[NSString stringWithFloat:professor headUnit:nil tailUnit:nil];
         }
         else if([model.field isEqualToString:@"scholar"])
         {
             scholar=model.value.floatValue;
+//            model.value=[NSString stringWithFloat:scholar headUnit:nil tailUnit:nil];
         }
     }
     
