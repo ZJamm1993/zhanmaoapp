@@ -38,8 +38,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.senderName.text=@"sadj09fi092ir09r2i3ifj 09ji3j029ff10dk13k3k10238102";
+    [self reloadModel];
     // Do any additional setup after loading the view.
+    
+    [OrderTypeDataSource getMyTransportOrderDetailById:self.transportModel.idd token:[UserModel token] success:^(TransportOrderModel *model) {
+        if (model.idd.length>0) {
+            self.transportModel=model;
+            [self reloadModel];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+-(void)reloadModel
+{
+    TransportOrderModel* mo=self.transportModel;
+    
+    self.expressName.text=mo.logistics_type;
+    self.senderAddress.text=mo.sender_addr;
+    self.senderName.text=mo.sender;
+    self.receiverAddress.text=mo.collect_addr;
+    self.receiverName.text=mo.collect;
+    
+    self.objectType.text=mo.item_type;
+    self.objectWeight.text=[NSString stringWithFormat:@"%@%@",mo.professor,@"kg"];
+    self.objectVolume.text=[NSString stringWithFormat:@"%@%@",mo.volume,@"m³"];
+    
+    self.fee.text=[NSString stringWithFloat:mo.evaluate.floatValue headUnit:@"¥" tailUnit:nil];
+    
+    self.payMethod.text=mo.pay_type;
+    
+    self.orderId.text=mo.order_num;
+    self.createTime.text=mo.post_modified;
+    self.sendTime.text=mo.send_date;
 }
 
 - (void)didReceiveMemoryWarning {

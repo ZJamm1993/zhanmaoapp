@@ -151,6 +151,28 @@
     return @"";
 }
 
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    self=[super initWithDictionary:dictionary];
+    if (self) {
+        _logistics_type=[dictionary valueForKey:@"logistics_type"];
+        _order_num=[dictionary valueForKey:@"order_num"];
+        _sender=[dictionary valueForKey:@"sender"];
+        _collect=[dictionary valueForKey:@"collect"];
+        _order_status_string=[dictionary valueForKey:@"order_status"];
+        
+        _send_date=[dictionary valueForKey:@"send_date"];
+        _item_type=[dictionary valueForKey:@"item_type"];
+        _volume=[dictionary valueForKey:@"volume"];
+        _professor=[dictionary valueForKey:@"professor"];
+        _evaluate=[dictionary valueForKey:@"evaluate"];
+        _post_modified=[dictionary valueForKey:@"post_modified"];
+        _sender_addr=[dictionary valueForKey:@"sender_addr"];
+        _collect_addr=[dictionary valueForKey:@"collect_addr"];
+    }
+    return self;
+}
+
 @end
 
 @implementation CleanOrderModel

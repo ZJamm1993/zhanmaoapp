@@ -38,8 +38,8 @@ typedef NS_ENUM(NSInteger,RentOrderStatus)
 
 typedef NS_ENUM(NSInteger,TransportOrderType)
 {
-    TransportOrderTypeNow,
-    TransportOrderTypeHistory,
+    TransportOrderTypeNow=1,
+    TransportOrderTypeHistory=2,
 };
 
 typedef NS_ENUM(NSInteger,CleanOrderType)
@@ -105,6 +105,21 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 @end
 
 @interface TransportOrderModel : OrderTypeBaseModel
+
+@property (nonatomic,strong) NSString* logistics_type;
+@property (nonatomic,strong) NSString* order_num;
+@property (nonatomic,strong) NSString* sender;
+@property (nonatomic,strong) NSString* collect;
+@property (nonatomic,strong) NSString* order_status_string;
+
+@property (nonatomic,strong) NSString* send_date;
+@property (nonatomic,strong) NSString* item_type;
+@property (nonatomic,strong) NSString* volume;
+@property (nonatomic,strong) NSString* professor;
+@property (nonatomic,strong) NSString* evaluate;
+@property (nonatomic,strong) NSString* post_modified;
+@property (nonatomic,strong) NSString* sender_addr;
+@property (nonatomic,strong) NSString* collect_addr;
 
 @end
 

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TransportOrderTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *expressName;
+@property (weak, nonatomic) IBOutlet UILabel *expressOrderId;
+@property (weak, nonatomic) IBOutlet UILabel *sender;
+@property (weak, nonatomic) IBOutlet UILabel *receiver;
+@property (weak, nonatomic) IBOutlet UILabel *cancelString;
 
 @end

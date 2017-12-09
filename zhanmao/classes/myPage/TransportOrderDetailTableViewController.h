@@ -10,4 +10,6 @@
 
 @interface TransportOrderDetailTableViewController : OrderTypeDetailTableViewController
 
+@property (nonatomic,strong) TransportOrderModel* transportModel;
+
 @end

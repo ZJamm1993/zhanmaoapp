@@ -19,8 +19,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self refresh];
     // Do any additional setup after loading the view.
+}
+
+-(void)refresh
+{
+    [OrderTypeDataSource getMyTransportOrderByType:self.type token:[UserModel token] page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+        [self.dataSource removeAllObjects];
+        [self.dataSource addObjectsFromArray:result];
+        if (result.count>0) {
+            self.currentPage=1;
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+-(void)loadMore
+{
+    [OrderTypeDataSource getMyTransportOrderByType:self.type token:[UserModel token] page:self.currentPage+1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
+        [self.dataSource addObjectsFromArray:result];
+        if (result.count>0) {
+            self.currentPage=self.currentPage+1;
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +57,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+    return self.dataSource.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -41,7 +68,12 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TransportOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"TransportOrderTableViewCell" forIndexPath:indexPath];
-    
+    TransportOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
+    cell.expressName.text=mo.logistics_type;
+    cell.expressOrderId.text=mo.order_num;
+    cell.sender.text=mo.sender;
+    cell.receiver.text=mo.collect;
+    cell.cancelString.text=mo.order_status_string;
     return cell;
 }
 
@@ -50,6 +82,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     TransportOrderDetailTableViewController* tranDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderDetailTableViewController"];
+    TransportOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
+    tranDetail.transportModel=mo;
     [self.navigationController pushViewController:tranDetail animated:YES];
 }
 

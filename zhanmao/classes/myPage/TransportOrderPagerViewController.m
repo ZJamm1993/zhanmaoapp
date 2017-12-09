@@ -35,13 +35,13 @@
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
     TransportOrderTableViewController* tran=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderTableViewController"];
-    tran.type=index;
+    tran.type=index+1; //attention
     return tran;
 }
 
 -(NSString*)pagerController:(ZZPagerController *)pager titleAtIndex:(NSInteger)index
 {
-    return [TransportOrderModel controllerTitleForType:index];
+    return [TransportOrderModel controllerTitleForType:index+1];
 }
 
 -(CGRect)pagerController:(ZZPagerController *)pager frameForMenuView:(ZZPagerMenu *)menu

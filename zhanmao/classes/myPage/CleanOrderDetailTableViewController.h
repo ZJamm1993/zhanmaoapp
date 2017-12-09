@@ -10,4 +10,6 @@
 
 @interface CleanOrderDetailTableViewController : OrderTypeDetailTableViewController
 
+@property (nonatomic,strong) CleanOrderModel* cleanModel;
+
 @end

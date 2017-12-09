@@ -8,6 +8,7 @@
 
 #import "CleanOrderTableViewController.h"
 #import "CleanOrderTableViewCell.h"
+#import "CleanOrderDetailTableViewController.h"
 
 @interface CleanOrderTableViewController ()
 
@@ -39,6 +40,14 @@
 {
     CleanOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"CleanOrderTableViewCell" forIndexPath:indexPath];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    CleanOrderDetailTableViewController* cleanDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"CleanOrderDetailTableViewController"];
+    [self.navigationController pushViewController:cleanDetail animated:YES];
 }
 
 @end
