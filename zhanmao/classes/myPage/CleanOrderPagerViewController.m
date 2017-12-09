@@ -34,7 +34,7 @@
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
-    CleanOrderTableViewController* cle=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CleanOrderTableViewController"];
+    CleanOrderTableViewController* cle=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"CleanOrderTableViewController"];
     cle.type=index;
     return cle;
 }

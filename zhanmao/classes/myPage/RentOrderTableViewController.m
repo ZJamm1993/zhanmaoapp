@@ -8,6 +8,7 @@
 
 #import "RentOrderTableViewController.h"
 #import "RentOrderTableViewCell.h"
+#import "RentOrderDetailTableViewController.h"
 
 @interface RentOrderTableViewController ()<RentOrderTableViewCellDelegate>
 
@@ -58,11 +59,13 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    return 10;
     return self.dataSource.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    return 5;
      RentOrderModel* mo=[self.dataSource objectAtIndex:section];
     return 1+mo.goods.count+2; // 1 title + n goods + 1 price + 1 action
 }
@@ -88,12 +91,15 @@
     RentOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:idd forIndexPath:indexPath];
     
     cell.delegate=self;
-    RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
-    cell.orderModel=mo;
     
-    NSInteger rowForGoods=row-1;
-    if (rowForGoods<mo.goods.count) {
-        cell.cartModel=[mo.goods objectAtIndex:rowForGoods];
+    if (indexPath.section<self.dataSource.count) {
+        RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
+        cell.orderModel=mo;
+        
+        NSInteger rowForGoods=row-1;
+        if (rowForGoods<mo.goods.count) {
+            cell.cartModel=[mo.goods objectAtIndex:rowForGoods];
+        }
     }
     
     return cell;
@@ -101,9 +107,17 @@
 
 -(void)rentOrderTableViewCellActionButtonClick:(RentOrderTableViewCell *)cell
 {
-    RentOrderModel* rentOrder=cell.orderModel;
-    RentOrderStatus sta=rentOrder.status;
+//    RentOrderModel* rentOrder=cell.orderModel;
+//    RentOrderStatus sta=rentOrder.status;
+//    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    RentOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderDetailTableViewController"];
+    [self.navigationController pushViewController:rentDetail animated:YES];
 }
 
 @end

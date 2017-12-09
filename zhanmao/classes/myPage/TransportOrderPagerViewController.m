@@ -34,7 +34,7 @@
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
-    TransportOrderTableViewController* tran=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderTableViewController"];
+    TransportOrderTableViewController* tran=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderTableViewController"];
     tran.type=index;
     return tran;
 }

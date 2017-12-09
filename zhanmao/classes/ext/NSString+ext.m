@@ -65,6 +65,24 @@
     return self.length>=5&&self.length<=20;
 }
 
+-(NSString*)dateString
+{
+    NSString* str=[[self componentsSeparatedByString:@" "]firstObject];
+    if (str.length==0) {
+        str=@"";
+    }
+    return str;
+}
+
+-(NSString*)timeString
+{
+    NSString* str=[[self componentsSeparatedByString:@" "]lastObject];
+    if (str.length==0) {
+        str=@"";
+    }
+    return str;
+}
+
 +(NSString*)stringWithFloat:(CGFloat)floatValue headUnit:(NSString *)head tailUnit:(NSString *)tail
 {
     if (head.length==0) {

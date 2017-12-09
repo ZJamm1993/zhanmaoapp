@@ -67,7 +67,7 @@
     }
     else if(section==1)
     {
-        NSInteger row=3;
+        NSInteger row=self.rentModel.goods.count+2;
         if (self.rentModel.status!=RentOrderStatusNotPaid)
         {
             row=row+1; //showing pay method:
@@ -90,6 +90,51 @@
             statusCell.title.text=[RentOrderModel cellStateForType:self.rentModel.status];
             statusCell.detail.text=@"?";
             return statusCell;
+        }
+        else if(row==1)
+        {
+            OrderDetailAddressCell* addressCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailAddressCell" forIndexPath:indexPath];
+            
+            return addressCell;
+        }
+        else if(row==2)
+        {
+            OrderDetailSimpleLeftLabelCell* emergCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
+            emergCell.label.text=@"紧急联系人 110 120 119";
+            return emergCell;
+        }
+    }
+    else if(sec==1)
+    {
+        NSInteger totalRowOfSection=[tableView numberOfRowsInSection:sec];
+        
+        BOOL isPaid=self.rentModel.status!=RentOrderStatusNotPaid;
+        
+        if (row==totalRowOfSection-1) {
+            OrderDetailSimpleLeftLabelCell* longDetailCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
+            longDetailCell.label.text=@"订单编号：139819823712837\n下单时间：2011-12-32 12:12:23\n上单时间：2011-12-32 12:12:23";
+            return longDetailCell;
+        }
+        else if ((isPaid&&row==totalRowOfSection-2)) {
+            OrderDetailSimpleLeftLabelCell* payMethodCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
+            payMethodCell.label.text=@"支付方式：paypal";
+            return payMethodCell;
+        }
+        else if((isPaid&&row==totalRowOfSection-3)||(!isPaid&&row==totalRowOfSection-2))
+        {
+            RentOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"RentOrderTableViewCellPriceDetail" forIndexPath:indexPath];
+            cell.orderModel=self.rentModel;
+            return cell;
+        }
+        else
+        {
+            RentOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"RentOrderTableViewCellProductDetail" forIndexPath:indexPath];
+            if(row<self.rentModel.goods.count)
+            {
+                RentCartModel* goo=[self.rentModel.goods objectAtIndex:row];
+                cell.cartModel=goo;
+            }
+            return cell;
         }
     }
     return [[UITableViewCell alloc]init];

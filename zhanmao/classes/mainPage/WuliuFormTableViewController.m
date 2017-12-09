@@ -73,7 +73,6 @@
     //        //go to calculate;
     //    }
     
-#warning i dont know which values using to calculate;
     CGFloat professor=0;
     CGFloat volume=0;
     NSArray* allModels=[self.formSteps allModels];

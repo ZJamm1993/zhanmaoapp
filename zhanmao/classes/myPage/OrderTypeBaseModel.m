@@ -208,12 +208,117 @@
 
 +(NSString*)controllerTitleForType:(NSInteger)type
 {
-    if (type==CustomOrderTypeNow) {
-        return @"当前订单";
+    if (type==CustomOrderTypeZhuchang) {
+        return @"主场";
     }
-    else if(type==CustomOrderTypeHistory)
+    else if(type==CustomOrderTypeZhantai)
     {
-        return @"历史订单";
+        return @"展台";
+    }
+    else if(type==CustomOrderTypeZhanting)
+    {
+        return @"展厅";
+    }
+    else if(type==CustomOrderTypeWutai)
+    {
+        return @"舞台";
+    }
+    else if(type==CustomOrderTypeYanyi)
+    {
+        return @"演艺";
+    }
+    else if(type==CustomOrderTypeYaoyue)
+    {
+        return @"邀约";
+    }
+    return @"";
+}
+
++(NSString*)cellOrderTypeNameForType:(NSInteger)type
+{
+    if (type==CustomOrderTypeZhuchang) {
+        return @"";
+    }
+    else if(type==CustomOrderTypeZhantai)
+    {
+        return @"展会名称：";
+    }
+    else if(type==CustomOrderTypeZhanting)
+    {
+        return @"项目名称：";
+    }
+    else if(type==CustomOrderTypeWutai)
+    {
+        return @"活动名称：";
+    }
+    else if(type==CustomOrderTypeYanyi)
+    {
+        return @"活动名称：";
+    }
+    else if(type==CustomOrderTypeYaoyue)
+    {
+        return @"展会名称：";
+    }
+    return @"";
+}
+
++(NSString*)cellOrderIdNameForType:(NSInteger)type
+{
+    return @"定制单号";
+}
+
++(NSString*)cellOrderDateNameForType:(NSInteger)type
+{
+    if (type==CustomOrderTypeZhuchang) {
+        return @"展会日期";
+    }
+    else if(type==CustomOrderTypeZhantai)
+    {
+        return @"展位日期";
+    }
+    else if(type==CustomOrderTypeZhanting)
+    {
+        return @"竣工日期";
+    }
+    else if(type==CustomOrderTypeWutai)
+    {
+        return @"活动日期";
+    }
+    else if(type==CustomOrderTypeYanyi)
+    {
+        return @"活动日期";
+    }
+    else if(type==CustomOrderTypeYaoyue)
+    {
+        return @"展会日期";
+    }
+    return @"";
+}
+
++(NSString*)cellOrderUnitNameForType:(NSInteger)type
+{
+    if (type==CustomOrderTypeZhuchang) {
+        return @"承办单位";
+    }
+    else if(type==CustomOrderTypeZhantai)
+    {
+        return @"参展单位";
+    }
+    else if(type==CustomOrderTypeZhanting)
+    {
+        return @"设计单位";
+    }
+    else if(type==CustomOrderTypeWutai)
+    {
+        return @"承办单位";
+    }
+    else if(type==CustomOrderTypeYanyi)
+    {
+        return @"承办单位";
+    }
+    else if(type==CustomOrderTypeYaoyue)
+    {
+        return @"承办单位";
     }
     return @"";
 }

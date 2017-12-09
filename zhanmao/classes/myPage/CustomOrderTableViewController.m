@@ -38,6 +38,14 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CustomOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"CustomOrderTableViewCell" forIndexPath:indexPath];
+    
+    cell.titleName.text=[CustomOrderModel cellOrderTypeNameForType:self.type];
+    cell.idName.text=[CustomOrderModel cellOrderIdNameForType:self.type];
+    cell.dateName.text=[CustomOrderModel cellOrderDateNameForType:self.type];
+    cell.UnitName.text=[CustomOrderModel cellOrderUnitNameForType:self.type];
+    
+    cell.canceled=indexPath.section%2==0;
+    
     return cell;
 }
 

@@ -83,6 +83,7 @@ const NSInteger mutiSelectionButtonRowCount=3;
         NSInteger row=i/mutiSelectionButtonRowCount;
         NSInteger sec=i%mutiSelectionButtonRowCount;
         NSString* tit=[titles objectAtIndex:i];
+        tit=[tit stringByReplacingOccurrencesOfString:@" " withString:@""];
         if (tit.length>4) {
             NSInteger cent=tit.length/2;
             NSMutableString* str=[[NSMutableString alloc]initWithString:tit];

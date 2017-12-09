@@ -30,6 +30,7 @@
     
     [self.blueButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.grayButton addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+    self.grayButton.userInteractionEnabled=NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

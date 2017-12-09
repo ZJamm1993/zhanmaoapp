@@ -12,6 +12,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *stateTitle;
+@property (weak, nonatomic) IBOutlet UILabel *createTime;
+
+@property (weak, nonatomic) IBOutlet UILabel *baseFee;
+@property (weak, nonatomic) IBOutlet UILabel *otherFee;
+@property (weak, nonatomic) IBOutlet UILabel *totalFee;
 
 @property (weak, nonatomic) IBOutlet UIButton *blueButton;
 @property (weak, nonatomic) IBOutlet UIButton *grayButton;

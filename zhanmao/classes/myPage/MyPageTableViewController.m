@@ -60,8 +60,8 @@
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"地址管理" image:@"myAddress" detail:@"" identifier:@"MyAddressesTableViewController"],
              [MyPageCellModel modelWithTitle:@"个人资料" image:@"myInfo" detail:@"" identifier:@"MyPersonalInfoViewController"], nil],
-            [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"申请发票" image:@"myInvoice" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
+//            [NSArray arrayWithObjects:
+//             [MyPageCellModel modelWithTitle:@"申请发票" image:@"myInvoice" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
             [NSArray arrayWithObjects:
              [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@"MyHelpCenterTableViewController"],
              [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@"MyFeedBackTableViewController"],

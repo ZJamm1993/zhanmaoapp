@@ -23,7 +23,10 @@
         self.unit=[dictionary valueForKey:@"unit"];
         self.thumb=[dictionary valueForKey:@"thumb"];
         self.option=[dictionary valueForKey:@"option"];
-        
+        if (![self.option isKindOfClass:[NSArray class]])
+        {
+            self.option=nil;
+        }
         //default Value for some type
         if(self.type==BaseFormTypeSwitchCheck)
         {

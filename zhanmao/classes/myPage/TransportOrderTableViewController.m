@@ -8,6 +8,7 @@
 
 #import "TransportOrderTableViewController.h"
 #import "TransportOrderTableViewCell.h"
+#import "TransportOrderDetailTableViewController.h"
 
 @interface TransportOrderTableViewController ()
 
@@ -42,6 +43,14 @@
     TransportOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"TransportOrderTableViewCell" forIndexPath:indexPath];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    TransportOrderDetailTableViewController* tranDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderDetailTableViewController"];
+    [self.navigationController pushViewController:tranDetail animated:YES];
 }
 
 @end

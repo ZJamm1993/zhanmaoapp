@@ -29,12 +29,12 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 2;
+    return CustomOrderTypeTotalCount;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
-    CustomOrderTableViewController* cle=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomOrderTableViewController"];
+    CustomOrderTableViewController* cle=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomOrderTableViewController"];
     cle.type=index;
     return cle;
 }

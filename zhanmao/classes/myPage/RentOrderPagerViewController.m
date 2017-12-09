@@ -29,12 +29,12 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 5;
+    return RentOrderTypeTotalCount;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index
 {
-    RentOrderTableViewController* rent=[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderTableViewController"];
+    RentOrderTableViewController* rent=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderTableViewController"];
     rent.type=index;
     return rent;
 }

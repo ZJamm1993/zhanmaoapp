@@ -11,6 +11,10 @@
 #import "RentModel.h"
 #import "PayOrderModel.h"
 
+/***
+#warning "TYPE" is not equal to "STATUS"
+ */
+
 typedef NS_ENUM(NSInteger,RentOrderType)
 {
     RentOrderTypeAll,
@@ -18,6 +22,8 @@ typedef NS_ENUM(NSInteger,RentOrderType)
     RentOrderTypeNotSigned,
     RentOrderTypeNotReturned,
     RentOrderTypeFinished,
+    
+    RentOrderTypeTotalCount,
 };
 
 typedef NS_ENUM(NSInteger,RentOrderStatus)
@@ -46,8 +52,14 @@ typedef NS_ENUM(NSInteger,CleanOrderType)
 
 typedef NS_ENUM(NSInteger,CustomOrderType)
 {
-    CustomOrderTypeNow,
-    CustomOrderTypeHistory,
+    CustomOrderTypeZhuchang,
+    CustomOrderTypeZhantai,
+    CustomOrderTypeZhanting,
+    CustomOrderTypeWutai,
+    CustomOrderTypeYanyi,
+    CustomOrderTypeYaoyue,
+    
+    CustomOrderTypeTotalCount,
 };
 
 /***
@@ -101,5 +113,10 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 @end
 
 @interface CustomOrderModel : OrderTypeBaseModel
+
++(NSString*)cellOrderTypeNameForType:(NSInteger)type;
++(NSString*)cellOrderIdNameForType:(NSInteger)type;
++(NSString*)cellOrderDateNameForType:(NSInteger)type;
++(NSString*)cellOrderUnitNameForType:(NSInteger)type;
 
 @end

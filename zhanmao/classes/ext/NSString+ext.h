@@ -16,6 +16,9 @@
 
 -(BOOL)isEMailAddress;
 
+-(NSString*)dateString;
+-(NSString*)timeString;
+
 @property (nonatomic,assign) BOOL passwordLength;
 
 

@@ -29,6 +29,12 @@
 		3985139B1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */; };
 		3985139E1FD139A80056FB7F /* MyHelpCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */; };
 		398513A41FD140FB0056FB7F /* MyFeedBackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */; };
+		39CDDEC21FDB87460079A49D /* cityJson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39CDDEC11FDB87460079A49D /* cityJson.plist */; };
+		39CDDEC41FDB8F390079A49D /* MyOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CDDEC31FDB8F390079A49D /* MyOrder.storyboard */; };
+		39CDDEC71FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */; };
+		39CDDECA1FDBB5E20079A49D /* TransportOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */; };
+		39CDDECD1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */; };
+		39CDDED01FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDECF1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m */; };
 		8E24D1AD1FC5204E00A437A0 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */; };
 		8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AF1FC5210300A437A0 /* UserModel.m */; };
 		8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.txt */; };
@@ -123,7 +129,6 @@
 		8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A8D11F90664D0078C452 /* AppDelegate.m */; };
 		8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E99A8D61F90664D0078C452 /* Main.storyboard */; };
 		8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E99A8D91F90664D0078C452 /* Assets.xcassets */; };
-		8E99AA3D1F9068920078C452 /* hhh.html in Resources */ = {isa = PBXBuildFile; fileRef = 8E99A91F1F9068910078C452 /* hhh.html */; };
 		8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A92B1F9068910078C452 /* ZZPagerController.m */; };
 		8E99AA451F9068920078C452 /* ZZSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A92D1F9068910078C452 /* ZZSearchBar.m */; };
 		8E99AA461F9068920078C452 /* NSDictionary+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A9301F9068910078C452 /* NSDictionary+ext.m */; };
@@ -282,6 +287,16 @@
 		3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpCenterTableViewController.m; sourceTree = "<group>"; };
 		398513A21FD140FB0056FB7F /* MyFeedBackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeedBackTableViewController.h; sourceTree = "<group>"; };
 		398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeedBackTableViewController.m; sourceTree = "<group>"; };
+		39CDDEC11FDB87460079A49D /* cityJson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityJson.plist; sourceTree = "<group>"; };
+		39CDDEC31FDB8F390079A49D /* MyOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyOrder.storyboard; sourceTree = "<group>"; };
+		39CDDEC51FDBB3AB0079A49D /* CleanOrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CleanOrderDetailTableViewController.h; sourceTree = "<group>"; };
+		39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CleanOrderDetailTableViewController.m; sourceTree = "<group>"; };
+		39CDDEC81FDBB5E20079A49D /* TransportOrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransportOrderDetailTableViewController.h; sourceTree = "<group>"; };
+		39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportOrderDetailTableViewController.m; sourceTree = "<group>"; };
+		39CDDECB1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailStatusComplexStyleCell.h; sourceTree = "<group>"; };
+		39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailStatusComplexStyleCell.m; sourceTree = "<group>"; };
+		39CDDECE1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOrderDetailZhuchangTableViewController.h; sourceTree = "<group>"; };
+		39CDDECF1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOrderDetailZhuchangTableViewController.m; sourceTree = "<group>"; };
 		8E24D1AB1FC5204E00A437A0 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		8E24D1AE1FC5210300A437A0 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -443,7 +458,6 @@
 		8E99A8D71F90664D0078C452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E99A8D91F90664D0078C452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E99A8DE1F90664D0078C452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E99A91F1F9068910078C452 /* hhh.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hhh.html; sourceTree = "<group>"; };
 		8E99A92A1F9068910078C452 /* ZZPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPagerController.h; sourceTree = "<group>"; };
 		8E99A92B1F9068910078C452 /* ZZPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPagerController.m; sourceTree = "<group>"; };
 		8E99A92C1F9068910078C452 /* ZZSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZSearchBar.h; sourceTree = "<group>"; };
@@ -719,13 +733,6 @@
 			name = myprotocal;
 			sourceTree = "<group>";
 		};
-		39CDDE9D1FDA8C360079A49D /* detailcell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = detailcell;
-			sourceTree = "<group>";
-		};
 		8E2E40821F94597B00B42477 /* mainPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,13 +970,14 @@
 		8E72E9E11FB2ECAC001FCD31 /* CustomOrder */ = {
 			isa = PBXGroup;
 			children = (
-				39CDDE9D1FDA8C360079A49D /* detailcell */,
 				8E72E9E21FB2ECDF001FCD31 /* CustomOrderPagerViewController.h */,
 				8E72E9E31FB2ECDF001FCD31 /* CustomOrderPagerViewController.m */,
 				8E72E9E51FB2ED02001FCD31 /* CustomOrderTableViewController.h */,
 				8E72E9E61FB2ED02001FCD31 /* CustomOrderTableViewController.m */,
 				8E72E9E81FB2ED24001FCD31 /* CustomOrderTableViewCell.h */,
 				8E72E9E91FB2ED24001FCD31 /* CustomOrderTableViewCell.m */,
+				39CDDECE1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.h */,
+				39CDDECF1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m */,
 			);
 			name = CustomOrder;
 			sourceTree = "<group>";
@@ -1071,7 +1079,6 @@
 				8E2E40941F945A2E00B42477 /* NothingWarningView.xib */,
 				8E99AAC81F906E660078C452 /* AdvertiseView.h */,
 				8E99AAC91F906E660078C452 /* AdvertiseView.m */,
-				8E99A91F1F9068910078C452 /* hhh.html */,
 				8E99A92A1F9068910078C452 /* ZZPagerController.h */,
 				8E99A92B1F9068910078C452 /* ZZPagerController.m */,
 				8E99A92C1F9068910078C452 /* ZZSearchBar.h */,
@@ -1089,6 +1096,7 @@
 				8E69ECAA1FC1642400EEEC67 /* CitySelectionPicker.h */,
 				8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */,
 				8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */,
+				39CDDEC11FDB87460079A49D /* cityJson.plist */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -1234,6 +1242,8 @@
 				8E9B0CD71FAAC28C00770F8D /* CleanOrderTableViewController.m */,
 				8E9B0CD91FAAC2AF00770F8D /* CleanOrderTableViewCell.h */,
 				8E9B0CDA1FAAC2AF00770F8D /* CleanOrderTableViewCell.m */,
+				39CDDEC51FDBB3AB0079A49D /* CleanOrderDetailTableViewController.h */,
+				39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */,
 			);
 			name = CleanOrder;
 			sourceTree = "<group>";
@@ -1256,12 +1266,15 @@
 		8E9C9B4D1FC3FEB100AB31D4 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				39CDDEC31FDB8F390079A49D /* MyOrder.storyboard */,
 				3931CFFB1FD8D999006C5948 /* OrderDetailStatusSimpleStyleCell.h */,
 				3931CFFC1FD8D999006C5948 /* OrderDetailStatusSimpleStyleCell.m */,
 				3931CFFE1FD8D9D9006C5948 /* OrderDetailAddressCell.h */,
 				3931CFFF1FD8D9D9006C5948 /* OrderDetailAddressCell.m */,
 				3931D0011FD8DA15006C5948 /* OrderDetailSimpleLeftLabelCell.h */,
 				3931D0021FD8DA15006C5948 /* OrderDetailSimpleLeftLabelCell.m */,
+				39CDDECB1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.h */,
+				39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1370,6 +1383,8 @@
 				8EDBF4E21FA1B47C0073F37D /* TransportOrderTableViewCell.m */,
 				8EDBF4E61FA1B4D20073F37D /* TransportOrderTableViewController.h */,
 				8EDBF4E71FA1B4D20073F37D /* TransportOrderTableViewController.m */,
+				39CDDEC81FDBB5E20079A49D /* TransportOrderDetailTableViewController.h */,
+				39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */,
 			);
 			name = TransportOrder;
 			sourceTree = "<group>";
@@ -1514,7 +1529,6 @@
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				398513951FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
-				8E99AA3D1F9068920078C452 /* hhh.html in Resources */,
 				8E6C74A11FA06B45004B33D1 /* OnlineRent.storyboard in Resources */,
 				8EDBF4CC1FA17F770073F37D /* MyPage.storyboard in Resources */,
 				8ED4015F1FBA908B0097A395 /* TotalFeeView.xib in Resources */,
@@ -1523,9 +1537,11 @@
 				8E31F4631FC7B4F100373437 /* LaunchScreen.storyboard in Resources */,
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
+				39CDDEC21FDB87460079A49D /* cityJson.plist in Resources */,
 				3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */,
 				8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
+				39CDDEC41FDB8F390079A49D /* MyOrder.storyboard in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
 				8E31F4A31FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib in Resources */,
 				8E6C74031F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.xib in Resources */,
@@ -1555,6 +1571,7 @@
 				3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */,
 				8EFC80301FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m in Sources */,
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
+				39CDDED01FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m in Sources */,
 				8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */,
 				8E31F46C1FC7E67100373437 /* ExhibitionModel.m in Sources */,
 				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
@@ -1572,9 +1589,11 @@
 				3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */,
 				8E99AA9C1F9068920078C452 /* Foundation+Log.m in Sources */,
 				8E99AAAC1F9068920078C452 /* SDWebImageDownloaderOperation.m in Sources */,
+				39CDDECD1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m in Sources */,
 				8E31F46F1FC7EAF300373437 /* MainMsgModel.m in Sources */,
 				398513941FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.m in Sources */,
 				8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */,
+				39CDDEC71FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m in Sources */,
 				8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */,
 				8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */,
 				3955BBD41FD67C7100239336 /* PayOrderCountDownHeaderView.m in Sources */,
@@ -1656,6 +1675,7 @@
 				8E99AAAE1F9068920078C452 /* SDWebImagePrefetcher.m in Sources */,
 				8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */,
 				8E99AAC41F9069AC0078C452 /* TabbarController.m in Sources */,
+				39CDDECA1FDBB5E20079A49D /* TransportOrderDetailTableViewController.m in Sources */,
 				8E6C74131F9DC0C4004B33D1 /* ZhuchangFormTableViewController.m in Sources */,
 				8E99AAA71F9068920078C452 /* SDImageCache.m in Sources */,
 				8E31F4A91FC96B8200373437 /* RentNewOrderPriceTableViewCell.m in Sources */,

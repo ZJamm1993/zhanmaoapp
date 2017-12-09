@@ -34,20 +34,29 @@
                     </constraints>
                     <state key="normal" title="提交订单"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yx-Ru-BSa">
+                    <rect key="frame" x="98" y="10" width="211.5" height="102"/>
+                    <state key="normal" title="提交订单"/>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="VAP-87-rfF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="A9t-my-M5u"/>
                 <constraint firstItem="VAP-87-rfF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Bcy-tq-dgQ"/>
+                <constraint firstItem="9Yx-Ru-BSa" firstAttribute="trailing" secondItem="laR-IJ-mYF" secondAttribute="trailing" id="EiB-v1-jQ8"/>
                 <constraint firstItem="fUU-1j-UYy" firstAttribute="leading" secondItem="VAP-87-rfF" secondAttribute="trailing" id="F7i-nj-jZG"/>
                 <constraint firstItem="laR-IJ-mYF" firstAttribute="leading" secondItem="fUU-1j-UYy" secondAttribute="trailing" constant="20" id="Fys-Jb-6l5"/>
                 <constraint firstItem="laR-IJ-mYF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="UlO-An-MQC"/>
+                <constraint firstItem="9Yx-Ru-BSa" firstAttribute="bottom" secondItem="laR-IJ-mYF" secondAttribute="bottom" id="Uvm-BC-YQV"/>
                 <constraint firstItem="fUU-1j-UYy" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VB0-3h-Gc3"/>
                 <constraint firstItem="laR-IJ-mYF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="axx-y1-d6n"/>
+                <constraint firstItem="9Yx-Ru-BSa" firstAttribute="top" secondItem="laR-IJ-mYF" secondAttribute="top" id="cl8-ht-vNv"/>
+                <constraint firstItem="9Yx-Ru-BSa" firstAttribute="leading" secondItem="laR-IJ-mYF" secondAttribute="leading" id="pQt-Hy-EJd"/>
                 <constraint firstAttribute="trailing" secondItem="laR-IJ-mYF" secondAttribute="trailing" constant="10" id="xFw-fD-XgL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="feeLabe" destination="fUU-1j-UYy" id="WlQ-gt-rYa"/>
+                <outlet property="grayButton" destination="9Yx-Ru-BSa" id="9c5-3Q-I7e"/>
                 <outlet property="submitButton" destination="laR-IJ-mYF" id="X8M-6j-o9A"/>
                 <outlet property="title" destination="VAP-87-rfF" id="fJm-Es-GNf"/>
             </connections>

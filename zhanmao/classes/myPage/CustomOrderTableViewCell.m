@@ -21,6 +21,10 @@
     // Configure the view for the selected state
 }
 
-
+-(void)setCanceled:(BOOL)canceled
+{
+    _canceled=canceled;
+    self.cancelLabel.text=canceled?@"已取消":@"";
+}
 
 @end
