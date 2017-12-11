@@ -107,12 +107,6 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardShows:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHides:) name:UIKeyboardWillHideNotification object:nil];
     
-    [self setStepsTable];
-    
-    if (self.formSteps.steps.count==0) {
-        [self loadFormJson];
-    }
-    
 //#warning do not show this title
 //    self.title=NSStringFromClass(self.class);
     
@@ -126,6 +120,19 @@
     [self setStepsTable];
     [self performSelector:@selector(relayoutViews) withObject:nil afterDelay:0.01];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+//    if ([UserModel token].length==0) {
+//        [self.navigationController popViewControllerAnimated:YES];
+//        self
+//        return;
+//    }
+    if (self.formSteps.steps.count==0) {
+        [self loadFormJson];
+    }
 }
 
 -(void)relayoutViews
@@ -151,12 +158,6 @@
     }
     //    lastCount=_dataSource.count;
     return _dataSource;
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
 }
 
 #pragma mark keyboards
@@ -201,6 +202,10 @@
 -(void)setFormSteps:(BaseFormStepsModel *)formSteps
 {
     _formSteps=formSteps;
+    if (formSteps.steps.count==0) {
+        [MBProgressHUD showErrorMessage:@"无法获取表格"];
+        return ;
+    }
     [self setStepsTable];
 }
 

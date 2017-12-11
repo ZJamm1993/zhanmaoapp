@@ -42,6 +42,13 @@ typedef NS_ENUM(NSInteger,TransportOrderType)
     TransportOrderTypeHistory=2,
 };
 
+typedef NS_ENUM(NSInteger,TransportOrderStatus)
+{
+    TransportOrderStatusCancel=0,
+    TransportOrderStatusSubmited=1,
+    TransportOrderStatusCompleted=2,
+};
+
 typedef NS_ENUM(NSInteger,CleanOrderType)
 {
     CleanOrderTypeAll,
@@ -80,7 +87,9 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* number;
 
-@property (nonatomic,assign) NSInteger status;
+//@property (nonatomic,assign) NSInteger status;
+
+@property (nonatomic,assign) NSInteger order_status;
 
 @property (nonatomic,strong) NSString* amount;
 
@@ -110,7 +119,6 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 @property (nonatomic,strong) NSString* order_num;
 @property (nonatomic,strong) NSString* sender;
 @property (nonatomic,strong) NSString* collect;
-@property (nonatomic,strong) NSString* order_status_string;
 
 @property (nonatomic,strong) NSString* send_date;
 @property (nonatomic,strong) NSString* item_type;

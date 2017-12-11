@@ -102,4 +102,39 @@
     }];
 }
 
++(void)postMyTransportOrderCancelById:(NSString *)idd token:(NSString *)token success:(void (^)(BOOL, NSString *))success
+{
+    if (token.length==0) {
+        if (success) {
+            success(NO,nil);
+        }
+        return;
+    }
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/LogisticsOrder/del"];
+    
+    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+    [dic setValue:idd forKey:@"id"];
+    [dic setValue:token forKey:@"access_token"];
+    
+    [self post:str params:dic success:^(NSDictionary *responseObject) {
+        BOOL code=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(code,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,BadNetworkDescription);
+        }
+    }];
+}
+
++(void)postOrderStatusChangedNotificationWithOrder:(OrderTypeBaseModel *)orderModel
+{
+    if (orderModel) {
+        NSDictionary* dictionary=[NSDictionary dictionaryWithObject:orderModel forKey:@"order"];
+        [[NSNotificationCenter defaultCenter]postNotificationName:OrderTypeStatusChangedNotification object:nil userInfo:dictionary];
+    }
+}
+
 @end

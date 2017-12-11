@@ -14,4 +14,6 @@
 
 @property (nonatomic,assign) NSInteger type;
 
+-(void)orderStatusChanged:(OrderTypeBaseModel*)orderModel;
+
 @end

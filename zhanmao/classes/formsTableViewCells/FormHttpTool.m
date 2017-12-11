@@ -12,6 +12,12 @@
 
 +(void)getCustomTableListByType:(NSInteger)type success:(void (^)(BaseFormStepsModel* ste))success failure:(void (^)(NSError *err))failure
 {
+    if ([UserModel token].length==0) {
+        if (success) {
+            success(nil);
+        }
+        return;
+    }
     BOOL test=NO;
     if (test) {
         //test
@@ -25,8 +31,8 @@
     else
     {
         NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Table/gettable"];
-        NSDictionary* pa=[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:type] forKey:@"type"];
-        
+        NSMutableDictionary* pa=[NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInteger:type] forKey:@"type"];
+        [pa setValue:[UserModel token] forKey:@"access_token"];
         [self get:str params:pa usingCache:NO success:^(NSDictionary *dict) {
             NSLog(@"%@",dict);
             NSDictionary* data=[dict valueForKey:@"data"];
@@ -35,8 +41,11 @@
             if (success) {
                 success(steps);
             }
-        } failure:^(NSError *err) {
             
+        } failure:^(NSError *err) {
+            if (failure) {
+                failure(err);
+            }
         }];
     }
 }

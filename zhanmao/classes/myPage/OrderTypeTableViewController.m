@@ -20,6 +20,8 @@
     [self refresh];
     
     [self showLoadMoreView];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(orderTypeChangedNotification:) name:OrderTypeStatusChangedNotification object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -39,6 +41,18 @@
         return 10;
     }
     return 0.001;
+}
+
+-(void)orderTypeChangedNotification:(NSNotification*)noti
+{
+    NSDictionary* us=noti.userInfo;
+    OrderTypeBaseModel* model=[us valueForKey:@"order"];
+    [self orderStatusChanged:model];
+}
+
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    NSLog(@"order status changed: %@",orderModel);
 }
 
 @end

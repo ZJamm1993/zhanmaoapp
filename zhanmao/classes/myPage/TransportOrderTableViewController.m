@@ -23,6 +23,18 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    for (TransportOrderModel* mo in self.dataSource) {
+        if ([mo isMemberOfClass:[orderModel class]]) {
+            if ([mo.idd isEqualToString:orderModel.idd]) {
+                mo.order_status=orderModel.order_status;
+                [self.tableView reloadData];
+            }
+        }
+    }
+}
+
 -(void)refresh
 {
     [OrderTypeDataSource getMyTransportOrderByType:self.type token:[UserModel token] page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
@@ -73,7 +85,7 @@
     cell.expressOrderId.text=mo.order_num;
     cell.sender.text=mo.sender;
     cell.receiver.text=mo.collect;
-    cell.cancelString.text=mo.order_status_string;
+    cell.cancelString.text=mo.order_status==TransportOrderStatusCancel?@"已取消":@"";
     return cell;
 }
 
@@ -84,6 +96,7 @@
     TransportOrderDetailTableViewController* tranDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"TransportOrderDetailTableViewController"];
     TransportOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
     tranDetail.transportModel=mo;
+    tranDetail.title=[NSString stringWithFormat:@"%@%@",[TransportOrderModel controllerTitleForType:self.type],@"详情"];
     [self.navigationController pushViewController:tranDetail animated:YES];
 }
 

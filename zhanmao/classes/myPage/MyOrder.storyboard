@@ -1136,16 +1136,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="252.5"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pc7-LS-IMp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联邦快递" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLX-Lw-7dC">
-                                                            <rect key="frame" x="10" y="21" width="249" height="18"/>
+                                                            <rect key="frame" x="10" y="16" width="249" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="已取消" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ7-Te-jSH">
-                                                            <rect key="frame" x="264" y="21" width="46" height="18"/>
+                                                            <rect key="frame" x="264" y="16" width="46" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="0.59999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -1157,12 +1157,12 @@
                                                         <constraint firstAttribute="trailing" secondItem="rZ7-Te-jSH" secondAttribute="trailing" constant="10" id="FA9-JE-7nL"/>
                                                         <constraint firstItem="rZ7-Te-jSH" firstAttribute="leading" secondItem="dLX-Lw-7dC" secondAttribute="trailing" constant="5" id="FEf-vK-5Ba"/>
                                                         <constraint firstItem="dLX-Lw-7dC" firstAttribute="leading" secondItem="pc7-LS-IMp" secondAttribute="leading" constant="10" id="Jr1-ug-5K6"/>
-                                                        <constraint firstAttribute="height" constant="60" id="Wdh-Ks-RO1"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Wdh-Ks-RO1"/>
                                                         <constraint firstItem="rZ7-Te-jSH" firstAttribute="centerY" secondItem="pc7-LS-IMp" secondAttribute="centerY" id="tIi-Tn-QuU"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tk7-Dq-BYA">
-                                                    <rect key="frame" x="0.0" y="60.5" width="320" height="192"/>
+                                                    <rect key="frame" x="0.0" y="50.5" width="320" height="202"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快递单号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88h-Re-ZD4">
                                                             <rect key="frame" x="10" y="15" width="80" height="17"/>
@@ -1581,7 +1581,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CleanOrderTableViewCell" rowHeight="144" id="mfk-WC-Z6Y" customClass="CleanOrderTableViewCell">
-                                <rect key="frame" x="0.0" y="193" width="320" height="144"/>
+                                <rect key="frame" x="0.0" y="192.5" width="320" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mfk-WC-Z6Y" id="sUo-mp-MEp">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>

@@ -32,8 +32,8 @@
         _idd=[dictionary valueForKey:@"id"];
         _number=[dictionary valueForKey:@"number"];
         
-        _status=[[dictionary valueForKey:@"status"]integerValue];
-//        _pay_status=[dictionary valueForKey:@"pay_status"];
+//        _status=[[dictionary valueForKey:@"status"]integerValue];
+        _order_status=[[dictionary valueForKey:@"order_status"]integerValue];
         
         _amount=[dictionary valueForKey:@"amount"];
         
@@ -159,7 +159,6 @@
         _order_num=[dictionary valueForKey:@"order_num"];
         _sender=[dictionary valueForKey:@"sender"];
         _collect=[dictionary valueForKey:@"collect"];
-        _order_status_string=[dictionary valueForKey:@"order_status"];
         
         _send_date=[dictionary valueForKey:@"send_date"];
         _item_type=[dictionary valueForKey:@"item_type"];
