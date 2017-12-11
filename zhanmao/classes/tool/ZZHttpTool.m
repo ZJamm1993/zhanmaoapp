@@ -273,14 +273,26 @@
     {
         NSLog(@"get null dictionary");//why nil??
     }
-    if ([[result valueForKey:@"data"]isKindOfClass:[NSNumber class]]) {
+    
+    //remove useless "data"
+    
+    NSMutableDictionary* mutaRes=[NSMutableDictionary dictionaryWithDictionary:result];
+    
+    id d=[result valueForKey:@"data"];
+    
+    if ([d isKindOfClass:[NSNumber class]]) {
         NSLog(@"get zero data");
-        NSMutableDictionary* noNumberData=[NSMutableDictionary dictionaryWithDictionary:result];
-        [noNumberData removeObjectForKey:@"data"];
-        result=noNumberData;
+        [mutaRes removeObjectForKey:@"data"];
     }
-    NSLog(@"%@",result);
-    return result;
+    if ([d respondsToSelector:@selector(count)]) {
+        NSInteger count=[d count];
+        if (count==0) {
+            [mutaRes removeObjectForKey:@"data"];
+        }
+    }
+    
+    NSLog(@"%@",mutaRes);
+    return mutaRes;
 }
 
 //encode

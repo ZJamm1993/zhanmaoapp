@@ -29,7 +29,7 @@
 
 -(NSInteger)numbersOfChildControllersInPagerController:(ZZPagerController *)pager
 {
-    return 3;
+    return CleanOrderTypeTotalCount;
 }
 
 -(UIViewController*)pagerController:(ZZPagerController *)pager viewControllerAtIndex:(NSInteger)index

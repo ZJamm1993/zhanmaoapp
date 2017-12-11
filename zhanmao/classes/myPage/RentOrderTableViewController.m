@@ -59,13 +59,13 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 10;
+//    return 10;
     return self.dataSource.count;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+//    return 5;
      RentOrderModel* mo=[self.dataSource objectAtIndex:section];
     return 1+mo.goods.count+2; // 1 title + n goods + 1 price + 1 action
 }
@@ -117,6 +117,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     RentOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderDetailTableViewController"];
+    RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
+    rentDetail.rentModel=mo;
     [self.navigationController pushViewController:rentDetail animated:YES];
 }
 

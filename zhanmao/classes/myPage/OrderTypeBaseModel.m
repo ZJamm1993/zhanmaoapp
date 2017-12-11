@@ -25,13 +25,23 @@
     return @"";
 }
 
++(NSString*)detailHeaderTitleForType:(NSInteger)type
+{
+    return @"";
+}
+
++(NSString*)detailHeaderDescritionForType:(NSInteger)type
+{
+    return @"";
+}
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self=[super initWithDictionary:dictionary];
     if (self) {
         _idd=[dictionary valueForKey:@"id"];
         _number=[dictionary valueForKey:@"number"];
-        
+        _order_num=[dictionary valueForKey:@"order_num"];
 //        _status=[[dictionary valueForKey:@"status"]integerValue];
         _order_status=[[dictionary valueForKey:@"order_status"]integerValue];
         
@@ -41,7 +51,8 @@
         
         _createtime=[dictionary valueForKey:@"createtime"];
         _paytime=[dictionary valueForKey:@"paytime"];
-        _delivery_date=[dictionary valueForKey:@"delivery"];
+        
+        _post_modified=[dictionary valueForKey:@"post_modified"];
     }
     return self;
 }
@@ -77,18 +88,14 @@
     else if (type==RentOrderStatusNotSigned) {
         return @"待收货";
     }
-    else if (type==RentOrderStatusProcessing) {
-        return @"使用中";
-    }
     else if (type==RentOrderStatusNotReturned) {
         return @"待归还";
     }
-    else if (type==RentOrderStatusFinished) {
-        return @"交易成功";
+    else if (type==RentOrderStatusFinishing) {
+        return @"已归还";
     }
-    else if (type==RentOrderStatusDeleted)
-    {
-        
+    else if (type==RentOrderStatusFinished) {
+        return @"已归还";
     }
     return @"";
 }
@@ -96,28 +103,74 @@
 +(NSString*)cellButtonTitleForType:(NSInteger)type
 {
     NSString* buttonTitle=@"";
-    if (type==RentOrderStatusFinished) {
-        buttonTitle=@"关闭交易";
-    }
-    else if (type==RentOrderStatusNotPaid) {
+    if (type==RentOrderStatusNotPaid) {
         buttonTitle=@"立即付款";
     }
     else if (type==RentOrderStatusNotSigned) {
         buttonTitle=@"确认收货";
     }
     else if (type==RentOrderStatusNotReturned) {
-        buttonTitle=@"确认归还";
+        buttonTitle=@"归还中";
+    }
+    else if (type==RentOrderStatusFinishing) {
+        buttonTitle=@"已完成";
     }
     else if (type==RentOrderStatusFinished) {
-        buttonTitle=@"关闭交易";
+        buttonTitle=@"已完成";
     }
     return buttonTitle;
+}
+
++(NSString*)detailHeaderTitleForType:(NSInteger)type
+{
+    if (type==RentOrderStatusNotPaid) {
+        return @"等待付款";
+    }
+    else if (type==RentOrderStatusNotSigned) {
+        return @"等待收货";
+    }
+    else if (type==RentOrderStatusNotReturned) {
+        return @"商品等待归还中";
+    }
+    else if (type==RentOrderStatusFinishing) {
+        return @"订单已完成";
+    }
+    else if (type==RentOrderStatusFinished) {
+        return @"订单已完成";
+    }
+    return @"";
+}
+
++(NSString*)detailHeaderDescritionForType:(NSInteger)type
+{
+    if (type==RentOrderStatusNotPaid) {
+        return @"%@后自动取消订单";
+    }
+    else if (type==RentOrderStatusNotSigned) {
+        return @"订单已处理，请耐心等待";
+    }
+    else if (type==RentOrderStatusNotReturned) {
+        return @"我们将安排工作人员上门回收租赁商品";
+    }
+    else if (type==RentOrderStatusFinishing) {
+        return @"押金会在一周内原路返回";
+    }
+    else if (type==RentOrderStatusFinished) {
+        return @"押金已原路返回，请注意查收";
+    }
+    return @"";
 }
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self=[super initWithDictionary:dictionary];
     if (self) {
+        self.leaseperiod=[[dictionary valueForKey:@"leaseperiod"]integerValue];
+        self.order_status=[[dictionary valueForKey:@"order_status"]integerValue];
+        self.delivery_date=[dictionary valueForKey:@"dilivery_date"];
+        self.return_date=[dictionary valueForKey:@"return_date"];
+        self.recover_date=[dictionary valueForKey:@"recover_date"];
+        
         //the "pay uses the same dictionary
         self.pay=[[PayOrderModel alloc]initWithDictionary:dictionary];
         
@@ -151,12 +204,35 @@
     return @"";
 }
 
++(NSString*)detailHeaderTitleForType:(NSInteger)type
+{
+    NSString* headerTitle=@"订单已取消";
+    if (type==TransportOrderStatusSubmited) {
+        headerTitle=@"订单已提交";
+    }
+    else if (type==TransportOrderStatusCompleted) {
+        headerTitle=@"订单已完成";
+    }
+    return headerTitle;
+}
+
++(NSString*)detailHeaderDescritionForType:(NSInteger)type
+{
+    NSString* headerDetail=@"您的订单已取消";
+    if (type==TransportOrderStatusSubmited) {
+        headerDetail=@"请等待快递员上门取件";
+    }
+    else if (type==TransportOrderStatusCompleted) {
+        headerDetail=@"您的订单已完成";
+    }
+    return headerDetail;
+}
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self=[super initWithDictionary:dictionary];
     if (self) {
         _logistics_type=[dictionary valueForKey:@"logistics_type"];
-        _order_num=[dictionary valueForKey:@"order_num"];
         _sender=[dictionary valueForKey:@"sender"];
         _collect=[dictionary valueForKey:@"collect"];
         
@@ -165,7 +241,6 @@
         _volume=[dictionary valueForKey:@"volume"];
         _professor=[dictionary valueForKey:@"professor"];
         _evaluate=[dictionary valueForKey:@"evaluate"];
-        _post_modified=[dictionary valueForKey:@"post_modified"];
         _sender_addr=[dictionary valueForKey:@"sender_addr"];
         _collect_addr=[dictionary valueForKey:@"collect_addr"];
     }
@@ -186,10 +261,10 @@
     {
         return @"待付款";
     }
-//    else if(type==CleanOrderTypeProceeding)
-//    {
-//        return @"处理中";
-//    }
+    else if(type==CleanOrderTypeProceeding)
+    {
+        return @"已付款";
+    }
     else if(type==CleanOrderTypeFinished)
     {
         return @"已完成";
@@ -199,15 +274,15 @@
 
 +(NSString*)cellStateForType:(NSInteger)type
 {
-    if(type==CleanOrderTypeNotPaid)
+    if(type==CleanOrderStatusNotPaid)
     {
         return @"待付款";
     }
-//    else if(type==CleanOrderTypeProceeding)
-//    {
-//        return @"处理中";
-//    }
-    else if(type==CleanOrderTypeFinished)
+    else if(type==CleanOrderStatusProceeding)
+    {
+        return @"已付款";
+    }
+    else if(type==CleanOrderStatusFinished)
     {
         return @"已完成";
     }
@@ -216,11 +291,70 @@
 
 +(NSString*)cellButtonTitleForType:(NSInteger)type
 {
-    if(type==CleanOrderTypeNotPaid)
+    if(type==CleanOrderStatusNotPaid)
     {
         return @"立即付款";
     }
     return @"查看详情";
+}
+
++(NSString*)detailHeaderTitleForType:(NSInteger)type
+{
+    if (type==RentOrderStatusNotPaid) {
+        return @"等待付款";
+    }
+    else if (type==RentOrderStatusNotSigned) {
+        return @"等待收货";
+    }
+    else if (type==RentOrderStatusNotReturned) {
+        return @"商品等待归还中";
+    }
+    else if (type==RentOrderStatusFinishing) {
+        return @"订单已完成";
+    }
+    else if (type==RentOrderStatusFinished) {
+        return @"订单已完成";
+    }
+    return @"";
+}
+
++(NSString*)detailHeaderDescritionForType:(NSInteger)type
+{
+    if (type==RentOrderStatusNotPaid) {
+        return @"%@后自动取消订单";
+    }
+    else if (type==RentOrderStatusNotSigned) {
+        return @"订单已处理，请耐心等待";
+    }
+    else if (type==RentOrderStatusNotReturned) {
+        return @"我们将安排工作人员上门回收租赁商品";
+    }
+    else if (type==RentOrderStatusFinishing) {
+        return @"押金会在一周内原路返回";
+    }
+    else if (type==RentOrderStatusFinished) {
+        return @"押金已原路返回，请注意查收";
+    }
+    return @"";
+}
+
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
+{
+    self=[super initWithDictionary:dictionary];
+    if (self) {
+        _other=[[dictionary valueForKey:@"other"]floatValue];
+        _professor=[[dictionary valueForKey:@"professor"]floatValue];
+        
+        _cost=[[dictionary valueForKey:@"cost"]floatValue];
+        _other_cost=[[dictionary valueForKey:@"other_cost"]floatValue];
+        _total_cost=[[dictionary valueForKey:@"total_cost"]floatValue];
+        
+        _addressee=[dictionary valueForKey:@"addressee"];
+        _m_phone=[dictionary valueForKey:@"m_phone"];
+        _date=[dictionary valueForKey:@"date"];
+        _addr=[dictionary valueForKey:@"addr"];
+    }
+    return self;
 }
 
 @end

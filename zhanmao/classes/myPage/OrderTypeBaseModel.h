@@ -30,10 +30,9 @@ typedef NS_ENUM(NSInteger,RentOrderStatus)
 {
     RentOrderStatusNotPaid,
     RentOrderStatusNotSigned,
-    RentOrderStatusProcessing,
     RentOrderStatusNotReturned,
+    RentOrderStatusFinishing,
     RentOrderStatusFinished,
-    RentOrderStatusDeleted,
 };
 
 typedef NS_ENUM(NSInteger,TransportOrderType)
@@ -53,8 +52,17 @@ typedef NS_ENUM(NSInteger,CleanOrderType)
 {
     CleanOrderTypeAll,
     CleanOrderTypeNotPaid,
-//    CleanOrderTypeProceeding,
+    CleanOrderTypeProceeding,
     CleanOrderTypeFinished,
+    
+    CleanOrderTypeTotalCount,
+};
+
+typedef NS_ENUM(NSInteger,CleanOrderStatus)
+{
+    CleanOrderStatusNotPaid,
+    CleanOrderStatusProceeding,
+    CleanOrderStatusFinished,
 };
 
 typedef NS_ENUM(NSInteger,CustomOrderType)
@@ -69,6 +77,13 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
     CustomOrderTypeTotalCount,
 };
 
+typedef NS_ENUM(NSInteger,CustomOrderStatus)
+{
+    CustomOrderStatusCanceled=0,
+    CustomOrderStatusSubmited,
+    CustomOrderStatusCompleted,
+};
+
 /***
  
  base
@@ -81,14 +96,18 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 +(NSString*)controllerTitleForType:(NSInteger)type;
 +(NSString*)cellStateForType:(NSInteger)type;
 +(NSString*)cellButtonTitleForType:(NSInteger)type;
++(NSString*)detailHeaderTitleForType:(NSInteger)type;
++(NSString*)detailHeaderDescritionForType:(NSInteger)type;
 
 //property from json
 
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,strong) NSString* number;
+@property (nonatomic,strong) NSString* order_num;
 
 //@property (nonatomic,assign) NSInteger status;
 
+@property (nonatomic,assign) NSInteger pay_status;
 @property (nonatomic,assign) NSInteger order_status;
 
 @property (nonatomic,strong) NSString* amount;
@@ -98,7 +117,8 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 //times
 @property (nonatomic,strong) NSString* createtime;
 @property (nonatomic,strong) NSString* paytime;
-@property (nonatomic,strong) NSString* delivery_date;
+
+@property (nonatomic,strong) NSString* post_modified;
 
 @end
 
@@ -106,6 +126,12 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
  children
  **/
 @interface RentOrderModel : OrderTypeBaseModel
+
+@property (nonatomic,assign) NSInteger leaseperiod;
+
+@property (nonatomic,strong) NSString* delivery_date;
+@property (nonatomic,strong) NSString* return_date;
+@property (nonatomic,strong) NSString* recover_date;
 
 @property (nonatomic,strong) PayOrderModel* pay;
 @property (nonatomic,strong) AddressModel* address;
@@ -116,7 +142,7 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 @interface TransportOrderModel : OrderTypeBaseModel
 
 @property (nonatomic,strong) NSString* logistics_type;
-@property (nonatomic,strong) NSString* order_num;
+
 @property (nonatomic,strong) NSString* sender;
 @property (nonatomic,strong) NSString* collect;
 
@@ -125,13 +151,24 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 @property (nonatomic,strong) NSString* volume;
 @property (nonatomic,strong) NSString* professor;
 @property (nonatomic,strong) NSString* evaluate;
-@property (nonatomic,strong) NSString* post_modified;
 @property (nonatomic,strong) NSString* sender_addr;
 @property (nonatomic,strong) NSString* collect_addr;
 
 @end
 
 @interface CleanOrderModel : OrderTypeBaseModel
+
+@property (nonatomic,assign) CGFloat cost;
+@property (nonatomic,assign) CGFloat other_cost;
+@property (nonatomic,assign) CGFloat total_cost;
+
+@property (nonatomic,assign) CGFloat professor;
+@property (nonatomic,assign) CGFloat other;
+
+@property (nonatomic,strong) NSString* addressee;
+@property (nonatomic,strong) NSString* m_phone;
+@property (nonatomic,strong) NSString* date;
+@property (nonatomic,strong) NSString* addr;
 
 @end
 
@@ -141,5 +178,7 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 +(NSString*)cellOrderIdNameForType:(NSInteger)type;
 +(NSString*)cellOrderDateNameForType:(NSInteger)type;
 +(NSString*)cellOrderUnitNameForType:(NSInteger)type;
+
+//no property here, use "value for key:" :-(
 
 @end

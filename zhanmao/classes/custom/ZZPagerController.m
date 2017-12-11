@@ -38,6 +38,7 @@
     contentView.alwaysBounceVertical=NO;
     contentView.scrollsToTop=NO;
     contentView.delegate=self;
+    contentView.backgroundColor=[UIColor groupTableViewBackgroundColor];
     [self.view addSubview:contentView];
     
     menuView=[[ZZPagerMenu alloc]init];

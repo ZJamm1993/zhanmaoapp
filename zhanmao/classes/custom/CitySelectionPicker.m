@@ -8,7 +8,7 @@
 
 #import "CitySelectionPicker.h"
 
-static NSMutableArray* provincesStaticArray;
+//static NSMutableArray* provincesStaticArray;
 
 @implementation DistrictModel
 
@@ -18,7 +18,7 @@ static NSMutableArray* provincesStaticArray;
     if (self) {
         self.name=[dictionary valueForKey:@"name"];
         //NSLog(@"            3:%@",self.name);
-        self.zipcode=[dictionary valueForKey:@"zipcode"];
+//        self.zipcode=[dictionary valueForKey:@"zipcode"];
     }
     return self;
 }
@@ -33,7 +33,7 @@ static NSMutableArray* provincesStaticArray;
     if (self) {
         self.name=[dictionary valueForKey:@"name"];
         //NSLog(@"        2:%@",self.name);
-        NSArray* arr=[dictionary valueForKey:@"district"];
+        NSArray* arr=[dictionary valueForKey:@"regions"];
         NSMutableArray* rrm=[NSMutableArray array];
         if ([arr respondsToSelector:@selector(lastObject)]) {
             for (NSDictionary* dic in arr) {
@@ -62,7 +62,7 @@ static NSMutableArray* provincesStaticArray;
     if (self) {
         self.name=[dictionary valueForKey:@"name"];
         //NSLog(@"1:%@",self.name);
-        NSArray* arr=[dictionary valueForKey:@"city"];
+        NSArray* arr=[dictionary valueForKey:@"regions"];
         NSMutableArray* rrm=[NSMutableArray array];
         if ([arr respondsToSelector:@selector(lastObject)]) {
             for (NSDictionary* dic in arr) {
@@ -115,34 +115,41 @@ static NSMutableArray* provincesStaticArray;
 
 -(NSArray*)provinces
 {
-    if (provincesStaticArray==nil) {
-        provincesStaticArray=[NSMutableArray array];
-        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"cityJson.txt"];
+    if (_provinces==nil) {
+        _provinces=[NSMutableArray array];
+        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"cityJson2.txt"];
         NSError* err=nil;
         NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
         NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
         
-        NSDictionary* root=[result valueForKey:@"root"];
-        NSArray* pros=[root valueForKey:@"province"];
+        NSArray* root=[result valueForKey:@"regions"];
+        NSArray* pros=[root.firstObject valueForKey:@"regions"];
         for (NSDictionary* pm in pros) {
             ProvinceModel* p=[[ProvinceModel alloc]initWithDictionary:pm];
-            [provincesStaticArray addObject:p];
+            [_provinces addObject:p];
         }
     }
-    return provincesStaticArray;
+    return _provinces;
 }
 
 -(NSArray*)selectedCity
 {
+//    return nil;
     NSMutableArray* arr=[NSMutableArray array];
     for (NSInteger i=0; i<self.sections; i++) {
         NSInteger selectedRowInComponent=[self selectedRowInComponent:i];
-        NSString* title=[self pickerView:self titleForRow:selectedRowInComponent forComponent:i];
-        if (title.length>0) {
+        NSInteger rowForComponent=[self pickerView:self numberOfRowsInComponent:i];
+        if (selectedRowInComponent<rowForComponent) {
+            NSString* title=[self pickerView:self titleForRow:selectedRowInComponent forComponent:i];
+            if (title.length==0) {
+                title=@" ";
+            }
             [arr addObject:title];
         }
+       
     }
+//    return nil;
     return arr;
 }
 
@@ -196,6 +203,19 @@ static NSMutableArray* provincesStaticArray;
     }
     return 0;
 }
+
+//-(UIView*)viewForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    UILabel* label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 60, 30)];
+//    label.text=[self pickerView:self titleForRow:row forComponent:component];
+//    label.textColor=[UIColor redColor];
+//    return label;
+//}
+//
+//-(UIView*)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+//{
+//    return view;
+//}
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {

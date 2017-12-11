@@ -43,6 +43,11 @@
     
     [self reloadModel];
     // Do any additional setup after loading the view.
+    [self refresh];
+}
+
+-(void)refresh
+{
     
     [OrderTypeDataSource getMyTransportOrderDetailById:self.transportModel.idd token:[UserModel token] success:^(TransportOrderModel *model) {
         if (model.idd.length>0) {
@@ -75,18 +80,12 @@
     self.sendTime.text=mo.send_date;
     
     NSString* headerImage=@"greenFailure";
-    NSString* headerTitle=@"订单已取消";
-    NSString* headerDetail=@"您的订单已取消";
     
     if (mo.order_status==TransportOrderStatusSubmited) {
         headerImage=@"green3point";
-        headerTitle=@"订单已提交";
-        headerDetail=@"请等待快递员上门取件";
     }
     else if (mo.order_status==TransportOrderStatusCompleted) {
         headerImage=@"greenSuccess";
-        headerTitle=@"订单已完成";
-        headerDetail=@"您的订单已完成";
     }
     
     if (mo.order_status==TransportOrderStatusSubmited)
@@ -99,8 +98,8 @@
     }
     
     self.headerStatusCell.image.image=[UIImage imageNamed:headerImage];
-    self.headerStatusCell.title.text=headerTitle;
-    self.headerStatusCell.detail.text=headerDetail;
+    self.headerStatusCell.title.text=[TransportOrderModel detailHeaderTitleForType:mo.order_status];
+    self.headerStatusCell.detail.text=[TransportOrderModel detailHeaderDescritionForType:mo.order_status];
     
     [self.tableView reloadData];
     

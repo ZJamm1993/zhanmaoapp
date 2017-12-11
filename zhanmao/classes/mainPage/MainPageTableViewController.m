@@ -26,6 +26,8 @@
 #import "ProductWebDetailViewController.h"
 #import "ExhibitionDetailViewController.h"
 
+#import "MyLoginViewController.h"
+
 typedef NS_ENUM(NSInteger,MainPageSection)
 {
     MainPageSectionEights,
@@ -380,6 +382,14 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 {
     NSLog(@"%@",model.title);
     if (model.identifier.length>0) {
+//        if(model.type<=6)
+//        {
+//            if ([UserModel token].length==0) {
+//                [MBProgressHUD showErrorMessage:AskToLoginDescription];
+//                [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+//                return;
+//            }
+//        }
         Class cla=NSClassFromString(model.identifier);
         BaseFormTableViewController* form=[[cla alloc]init];
         if ([form isKindOfClass:[BaseFormTableViewController class]]) {

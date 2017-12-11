@@ -47,20 +47,15 @@
     
     self.stateTitle.text=[RentOrderModel cellStateForType:orderModel.type];
     
-    RentOrderStatus type=orderModel.status;
-    self.blueButton.hidden=(type==RentOrderStatusDeleted||type==RentOrderStatusFinished);
+    RentOrderStatus type=orderModel.order_status;
+    self.blueButton.hidden=!(type==RentOrderStatusNotPaid||type==RentOrderStatusNotSigned);
     self.grayButton.hidden=!self.blueButton.hidden;
     
-    NSString* buttonTitle=[RentOrderModel cellButtonTitleForType:orderModel.status];
+    NSString* buttonTitle=[RentOrderModel cellButtonTitleForType:orderModel.order_status];
     [self.blueButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self.grayButton setTitle:buttonTitle forState:UIControlStateNormal];
     
-    if (orderModel.goods.firstObject) {
-        RentCartModel* car=orderModel.goods.firstObject;
-        if ([car isKindOfClass:[RentCartModel class]]) {
-            self.days.text=[NSString stringWithFormat:@"%ld周期(%ld天)",(long)car.days,(long)car.days*4];
-        }
-    }
+    self.days.text=[NSString stringWithFormat:@"%ld周期(%ld天)",(long)orderModel.leaseperiod,(long)orderModel.leaseperiod*4];
     
     self.amount.text=[NSString stringWithFloat:orderModel.pay.amount headUnit:@"¥" tailUnit:nil];
 }

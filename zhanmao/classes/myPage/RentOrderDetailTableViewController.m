@@ -11,17 +11,44 @@
 #import "OrderDetailAddressCell.h"
 #import "OrderDetailStatusSimpleStyleCell.h"
 #import "OrderDetailSimpleLeftLabelCell.h"
+#import "TotalFeeView.h"
 
 @interface RentOrderDetailTableViewController ()
 
 @end
 
 @implementation RentOrderDetailTableViewController
+{
+    TotalFeeView* _totalFeeView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title=@"租赁订单详情";
+    
+    [self.bottomButton removeFromSuperview];
+    _totalFeeView=[[[UINib nibWithNibName:@"TotalFeeView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
+    CGRect fr=self.bottomToolBar.bounds;
+    fr.size.height=64;
+    _totalFeeView.frame=fr;
+    _totalFeeView.title.text=@"总计：";
+    [_totalFeeView.submitButton addTarget:self action:@selector(doAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomToolBar addSubview:_totalFeeView];
+    
     [self reloadWithOrder];
+    
+    [self refresh];
+}
+
+-(void)refresh
+{
+    [OrderTypeDataSource getMyRentOrderDetailById:self.rentModel.idd token:[UserModel token] success:^(RentOrderModel *model) {
+        if (model.idd.length>0) {
+            self.rentModel=model;
+            [self reloadWithOrder];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,14 +58,27 @@
 
 -(void)reloadWithOrder
 {
-    if (self.rentModel.status!=RentOrderStatusNotPaid) {
-        UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
+    if (self.rentModel.order_status==RentOrderStatusNotPaid) {
+        UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
         self.navigationItem.rightBarButtonItem=cancelItem;
+        _totalFeeView.title.text=@"需付款：";
     }
     else
     {
         self.navigationItem.rightBarButtonItem=nil;
+        _totalFeeView.title.text=@"总计：";
     }
+    
+    NSString* buttonString=[RentOrderModel cellButtonTitleForType:self.rentModel.order_status];
+    [_totalFeeView.submitButton setTitle:buttonString forState:UIControlStateNormal];
+    [_totalFeeView.grayButton setTitle:buttonString forState:UIControlStateNormal];
+    
+    _totalFeeView.submitButton.hidden=!(self.rentModel.order_status==RentOrderStatusNotPaid||self.rentModel.order_status==RentOrderStatusNotReturned);
+    _totalFeeView.grayButton.hidden=!_totalFeeView.submitButton.hidden;
+    
+    [self.tableView reloadData];
+    
+    
 }
 
 -(void)cancelOrder
@@ -68,7 +108,7 @@
     else if(section==1)
     {
         NSInteger row=self.rentModel.goods.count+2;
-        if (self.rentModel.status!=RentOrderStatusNotPaid)
+        if (self.rentModel.order_status!=RentOrderStatusNotPaid)
         {
             row=row+1; //showing pay method:
         }
@@ -87,8 +127,8 @@
             OrderDetailStatusSimpleStyleCell* statusCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailStatusSimpleStyleCell" forIndexPath:indexPath];
             statusCell.title.text=nil;
             statusCell.detail.text=nil;
-            statusCell.title.text=[RentOrderModel cellStateForType:self.rentModel.status];
-            statusCell.detail.text=@"?";
+            statusCell.title.text=[RentOrderModel detailHeaderTitleForType:self.rentModel.order_status];
+            statusCell.detail.text=[RentOrderModel detailHeaderDescritionForType:self.rentModel.order_status];
             return statusCell;
         }
         else if(row==1)
@@ -100,7 +140,7 @@
         else if(row==2)
         {
             OrderDetailSimpleLeftLabelCell* emergCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-            emergCell.label.text=@"紧急联系人 110 120 119";
+            emergCell.label.text=@"?";
             return emergCell;
         }
     }
@@ -108,16 +148,36 @@
     {
         NSInteger totalRowOfSection=[tableView numberOfRowsInSection:sec];
         
-        BOOL isPaid=self.rentModel.status!=RentOrderStatusNotPaid;
+        BOOL isPaid=self.rentModel.order_status!=RentOrderStatusNotPaid;
         
         if (row==totalRowOfSection-1) {
             OrderDetailSimpleLeftLabelCell* longDetailCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-            longDetailCell.label.text=@"订单编号：139819823712837\n下单时间：2011-12-32 12:12:23\n上单时间：2011-12-32 12:12:23";
+            
+            NSString* detailString=@"";
+            if (self.rentModel.number.length>0) {
+                detailString=[NSString stringWithFormat:@"%@%@%@",detailString,@"订单编号：",self.rentModel.number];
+            }
+            if (self.rentModel.createtime.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"下单时间：",self.rentModel.createtime];
+            }
+            if (self.rentModel.paytime.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"支付时间：",self.rentModel.paytime];
+            }
+            if (self.rentModel.delivery_date.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"配送时间：",self.rentModel.delivery_date];
+            }
+            if (self.rentModel.return_date.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"归还时间：",self.rentModel.return_date];
+            }
+            if (self.rentModel.recover_date.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"回收时间：",self.rentModel.recover_date];
+            }
+            longDetailCell.label.text=detailString;
             return longDetailCell;
         }
         else if ((isPaid&&row==totalRowOfSection-2)) {
             OrderDetailSimpleLeftLabelCell* payMethodCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-            payMethodCell.label.text=@"支付方式：paypal";
+            payMethodCell.label.text=@"?";
             return payMethodCell;
         }
         else if((isPaid&&row==totalRowOfSection-3)||(!isPaid&&row==totalRowOfSection-2))
@@ -138,6 +198,11 @@
         }
     }
     return [[UITableViewCell alloc]init];
+}
+
+-(void)doAction
+{
+    
 }
 
 @end

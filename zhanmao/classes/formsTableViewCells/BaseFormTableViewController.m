@@ -418,6 +418,7 @@
     NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
 //    [paras setValue:[NSNumber numberWithInteger:self.type] forKey:@"type"];
     NSLog(@"%@",paras);
+    [paras setValue:[UserModel token] forKey:@"access_token"];
     [FormHttpTool postCustomTableListByType:[self type] params:paras success:^(BOOL result, NSString *msg) {
         if(result)
         {

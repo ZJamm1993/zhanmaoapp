@@ -36,6 +36,7 @@
     BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]init];
     
     BaseFormStep* step=[[BaseFormStep alloc]init];
+    step.title=@"新增地址";
     steps.steps=[NSArray arrayWithObject:step];
     
     BaseFormSection* section=[[BaseFormSection alloc]init];
@@ -107,6 +108,8 @@
     
     self.formSteps=steps;
     [self.tableView reloadData];
+    
+    
 }
 
 -(void)submitToServer

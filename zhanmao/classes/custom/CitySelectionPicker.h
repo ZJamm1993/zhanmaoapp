@@ -33,7 +33,7 @@
 
 +(instancetype)defaultCityPickerWithSections:(NSInteger)sections;
 
-@property (nonatomic,strong,readonly) NSArray* provinces;
+@property (nonatomic,strong) NSMutableArray* provinces;
 @property (nonatomic,strong,readonly) NSArray* selectedCity;
 
 @end

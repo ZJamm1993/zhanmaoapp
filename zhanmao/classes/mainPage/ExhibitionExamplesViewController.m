@@ -14,6 +14,8 @@
 
 #import "MainPageHttpTool.h"
 
+#import "MyLoginViewController.h"
+
 @interface ExhibitionExamplesViewController ()
 
 @end
@@ -86,6 +88,11 @@
 
 -(void)bottomToolBarButtonClicked
 {
+//    if ([UserModel token].length==0) {
+//        [MBProgressHUD showErrorMessage:AskToLoginDescription];
+//        [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
+//        return;
+//    }
     ZhuchangFormTableViewController* zhu=[[ZhuchangFormTableViewController alloc]init];
     zhu.type=self.type;
     [self.navigationController pushViewController:zhu animated:YES];

@@ -11,6 +11,14 @@
 		3931CFFD1FD8D999006C5948 /* OrderDetailStatusSimpleStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3931CFFC1FD8D999006C5948 /* OrderDetailStatusSimpleStyleCell.m */; };
 		3931D0001FD8D9D9006C5948 /* OrderDetailAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3931CFFF1FD8D9D9006C5948 /* OrderDetailAddressCell.m */; };
 		3931D0031FD8DA15006C5948 /* OrderDetailSimpleLeftLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3931D0021FD8DA15006C5948 /* OrderDetailSimpleLeftLabelCell.m */; };
+		394A242B1FDE31B00041D185 /* cityJson2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 394A242A1FDE31B00041D185 /* cityJson2.txt */; };
+		394A242E1FDE67BF0041D185 /* CustomOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A242D1FDE67BF0041D185 /* CustomOrderDetailTableViewController.m */; };
+		394A24321FDE75290041D185 /* ZhuchangOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A24311FDE75290041D185 /* ZhuchangOrderDetailViewController.m */; };
+		394A24351FDE75440041D185 /* ZhantaiOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A24341FDE75440041D185 /* ZhantaiOrderDetailViewController.m */; };
+		394A24381FDE75500041D185 /* ZhantingOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A24371FDE75500041D185 /* ZhantingOrderDetailViewController.m */; };
+		394A243B1FDE75680041D185 /* WutaiOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A243A1FDE75680041D185 /* WutaiOrderDetailViewController.m */; };
+		394A243E1FDE75760041D185 /* YanyiOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A243D1FDE75760041D185 /* YanyiOrderDetailViewController.m */; };
+		394A24411FDE75860041D185 /* YaoyueOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A24401FDE75860041D185 /* YaoyueOrderDetailViewController.m */; };
 		3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */; };
 		3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */; };
 		3955BBCB1FD6791400239336 /* PayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBCA1FD6791400239336 /* PayOrderModel.m */; };
@@ -29,12 +37,10 @@
 		3985139B1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */; };
 		3985139E1FD139A80056FB7F /* MyHelpCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */; };
 		398513A41FD140FB0056FB7F /* MyFeedBackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */; };
-		39CDDEC21FDB87460079A49D /* cityJson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39CDDEC11FDB87460079A49D /* cityJson.plist */; };
 		39CDDEC41FDB8F390079A49D /* MyOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CDDEC31FDB8F390079A49D /* MyOrder.storyboard */; };
 		39CDDEC71FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */; };
 		39CDDECA1FDBB5E20079A49D /* TransportOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */; };
 		39CDDECD1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */; };
-		39CDDED01FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDECF1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m */; };
 		8E24D1AD1FC5204E00A437A0 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */; };
 		8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AF1FC5210300A437A0 /* UserModel.m */; };
 		8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.txt */; };
@@ -253,6 +259,21 @@
 		3931CFFF1FD8D9D9006C5948 /* OrderDetailAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailAddressCell.m; sourceTree = "<group>"; };
 		3931D0011FD8DA15006C5948 /* OrderDetailSimpleLeftLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailSimpleLeftLabelCell.h; sourceTree = "<group>"; };
 		3931D0021FD8DA15006C5948 /* OrderDetailSimpleLeftLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailSimpleLeftLabelCell.m; sourceTree = "<group>"; };
+		394A242A1FDE31B00041D185 /* cityJson2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cityJson2.txt; sourceTree = "<group>"; };
+		394A242C1FDE67BF0041D185 /* CustomOrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOrderDetailTableViewController.h; sourceTree = "<group>"; };
+		394A242D1FDE67BF0041D185 /* CustomOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOrderDetailTableViewController.m; sourceTree = "<group>"; };
+		394A24301FDE75290041D185 /* ZhuchangOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhuchangOrderDetailViewController.h; sourceTree = "<group>"; };
+		394A24311FDE75290041D185 /* ZhuchangOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhuchangOrderDetailViewController.m; sourceTree = "<group>"; };
+		394A24331FDE75440041D185 /* ZhantaiOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhantaiOrderDetailViewController.h; sourceTree = "<group>"; };
+		394A24341FDE75440041D185 /* ZhantaiOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhantaiOrderDetailViewController.m; sourceTree = "<group>"; };
+		394A24361FDE75500041D185 /* ZhantingOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhantingOrderDetailViewController.h; sourceTree = "<group>"; };
+		394A24371FDE75500041D185 /* ZhantingOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhantingOrderDetailViewController.m; sourceTree = "<group>"; };
+		394A24391FDE75680041D185 /* WutaiOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WutaiOrderDetailViewController.h; sourceTree = "<group>"; };
+		394A243A1FDE75680041D185 /* WutaiOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WutaiOrderDetailViewController.m; sourceTree = "<group>"; };
+		394A243C1FDE75760041D185 /* YanyiOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanyiOrderDetailViewController.h; sourceTree = "<group>"; };
+		394A243D1FDE75760041D185 /* YanyiOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanyiOrderDetailViewController.m; sourceTree = "<group>"; };
+		394A243F1FDE75860041D185 /* YaoyueOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YaoyueOrderDetailViewController.h; sourceTree = "<group>"; };
+		394A24401FDE75860041D185 /* YaoyueOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoyueOrderDetailViewController.m; sourceTree = "<group>"; };
 		3955BBC31FD5485200239336 /* MyPageHelpHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHelpHeaderCell.h; sourceTree = "<group>"; };
 		3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHelpHeaderCell.m; sourceTree = "<group>"; };
 		3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNewUserFixInfoViewController.h; sourceTree = "<group>"; };
@@ -287,7 +308,6 @@
 		3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpCenterTableViewController.m; sourceTree = "<group>"; };
 		398513A21FD140FB0056FB7F /* MyFeedBackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeedBackTableViewController.h; sourceTree = "<group>"; };
 		398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeedBackTableViewController.m; sourceTree = "<group>"; };
-		39CDDEC11FDB87460079A49D /* cityJson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityJson.plist; sourceTree = "<group>"; };
 		39CDDEC31FDB8F390079A49D /* MyOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyOrder.storyboard; sourceTree = "<group>"; };
 		39CDDEC51FDBB3AB0079A49D /* CleanOrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CleanOrderDetailTableViewController.h; sourceTree = "<group>"; };
 		39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CleanOrderDetailTableViewController.m; sourceTree = "<group>"; };
@@ -295,8 +315,6 @@
 		39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportOrderDetailTableViewController.m; sourceTree = "<group>"; };
 		39CDDECB1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailStatusComplexStyleCell.h; sourceTree = "<group>"; };
 		39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailStatusComplexStyleCell.m; sourceTree = "<group>"; };
-		39CDDECE1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOrderDetailZhuchangTableViewController.h; sourceTree = "<group>"; };
-		39CDDECF1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOrderDetailZhuchangTableViewController.m; sourceTree = "<group>"; };
 		8E24D1AB1FC5204E00A437A0 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		8E24D1AE1FC5210300A437A0 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -691,6 +709,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		394A242F1FDE67C90041D185 /* 6pack */ = {
+			isa = PBXGroup;
+			children = (
+				394A24301FDE75290041D185 /* ZhuchangOrderDetailViewController.h */,
+				394A24311FDE75290041D185 /* ZhuchangOrderDetailViewController.m */,
+				394A24331FDE75440041D185 /* ZhantaiOrderDetailViewController.h */,
+				394A24341FDE75440041D185 /* ZhantaiOrderDetailViewController.m */,
+				394A24361FDE75500041D185 /* ZhantingOrderDetailViewController.h */,
+				394A24371FDE75500041D185 /* ZhantingOrderDetailViewController.m */,
+				394A24391FDE75680041D185 /* WutaiOrderDetailViewController.h */,
+				394A243A1FDE75680041D185 /* WutaiOrderDetailViewController.m */,
+				394A243C1FDE75760041D185 /* YanyiOrderDetailViewController.h */,
+				394A243D1FDE75760041D185 /* YanyiOrderDetailViewController.m */,
+				394A243F1FDE75860041D185 /* YaoyueOrderDetailViewController.h */,
+				394A24401FDE75860041D185 /* YaoyueOrderDetailViewController.m */,
+			);
+			name = 6pack;
+			sourceTree = "<group>";
+		};
 		3985138D1FD0F3F90056FB7F /* mypersonal */ = {
 			isa = PBXGroup;
 			children = (
@@ -970,14 +1007,15 @@
 		8E72E9E11FB2ECAC001FCD31 /* CustomOrder */ = {
 			isa = PBXGroup;
 			children = (
+				394A242F1FDE67C90041D185 /* 6pack */,
 				8E72E9E21FB2ECDF001FCD31 /* CustomOrderPagerViewController.h */,
 				8E72E9E31FB2ECDF001FCD31 /* CustomOrderPagerViewController.m */,
 				8E72E9E51FB2ED02001FCD31 /* CustomOrderTableViewController.h */,
 				8E72E9E61FB2ED02001FCD31 /* CustomOrderTableViewController.m */,
 				8E72E9E81FB2ED24001FCD31 /* CustomOrderTableViewCell.h */,
 				8E72E9E91FB2ED24001FCD31 /* CustomOrderTableViewCell.m */,
-				39CDDECE1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.h */,
-				39CDDECF1FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m */,
+				394A242C1FDE67BF0041D185 /* CustomOrderDetailTableViewController.h */,
+				394A242D1FDE67BF0041D185 /* CustomOrderDetailTableViewController.m */,
 			);
 			name = CustomOrder;
 			sourceTree = "<group>";
@@ -1096,7 +1134,7 @@
 				8E69ECAA1FC1642400EEEC67 /* CitySelectionPicker.h */,
 				8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */,
 				8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */,
-				39CDDEC11FDB87460079A49D /* cityJson.plist */,
+				394A242A1FDE31B00041D185 /* cityJson2.txt */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -1522,6 +1560,7 @@
 				8EF7E6CB1FBE7B44003C6FB4 /* 4.txt in Resources */,
 				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
+				394A242B1FDE31B00041D185 /* cityJson2.txt in Resources */,
 				8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */,
 				8E31F49A1FC9011300373437 /* README.txt in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
@@ -1537,7 +1576,6 @@
 				8E31F4631FC7B4F100373437 /* LaunchScreen.storyboard in Resources */,
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
-				39CDDEC21FDB87460079A49D /* cityJson.plist in Resources */,
 				3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */,
 				8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
@@ -1571,13 +1609,13 @@
 				3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */,
 				8EFC80301FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m in Sources */,
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
-				39CDDED01FDBCDCA0079A49D /* CustomOrderDetailZhuchangTableViewController.m in Sources */,
 				8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */,
 				8E31F46C1FC7E67100373437 /* ExhibitionModel.m in Sources */,
 				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
 				8E99AAA11F9068920078C452 /* MBProgressHUD+ZZCustom.m in Sources */,
 				8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */,
 				3985139E1FD139A80056FB7F /* MyHelpCenterTableViewController.m in Sources */,
+				394A24351FDE75440041D185 /* ZhantaiOrderDetailViewController.m in Sources */,
 				8E99AAB31F9068920078C452 /* UIImageView+HighlightedWebCache.m in Sources */,
 				8EB674F11F99F85D008CC196 /* MyPageCellModel.m in Sources */,
 				8E36FEBB1FCD3C56003CAEC5 /* MyPageHttpTool.m in Sources */,
@@ -1601,6 +1639,7 @@
 				8E99AAC31F9069AC0078C452 /* NaviController.m in Sources */,
 				8E72E9E41FB2ECDF001FCD31 /* CustomOrderPagerViewController.m in Sources */,
 				8E99AACA1F906E660078C452 /* AdvertiseView.m in Sources */,
+				394A24411FDE75860041D185 /* YaoyueOrderDetailViewController.m in Sources */,
 				8E99A8CF1F90664D0078C452 /* main.m in Sources */,
 				8E721AEC1FB581A8001BD401 /* BaojieFormTableViewController.m in Sources */,
 				8E99AABD1F9068920078C452 /* ZZUrlTool.m in Sources */,
@@ -1629,6 +1668,7 @@
 				8E72E9E71FB2ED02001FCD31 /* CustomOrderTableViewController.m in Sources */,
 				8E2E40971F945A2E00B42477 /* NothingWarningView.m in Sources */,
 				8EA680721FB697CA00EF5FC8 /* RentHttpTool.m in Sources */,
+				394A243B1FDE75680041D185 /* WutaiOrderDetailViewController.m in Sources */,
 				8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */,
 				8E9B0CD51FAAC25C00770F8D /* CleanOrderPagerViewController.m in Sources */,
 				8E5533A71FCE59540006ADC3 /* TravellingQuestionsViewController.m in Sources */,
@@ -1665,6 +1705,7 @@
 				8E6C74AC1FA08572004B33D1 /* RentCartTableViewController.m in Sources */,
 				8EFC802C1FBC32F4001CF3BF /* MyLoginViewController.m in Sources */,
 				8E6C74A81FA071B4004B33D1 /* RentCartEditTableViewCell.m in Sources */,
+				394A24381FDE75500041D185 /* ZhantingOrderDetailViewController.m in Sources */,
 				8E2E408B1F9459ED00B42477 /* BaseModel.m in Sources */,
 				8EB674C21F973818008CC196 /* BaseLoadMoreFooterView.m in Sources */,
 				8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */,
@@ -1686,6 +1727,7 @@
 				8E99AAAB1F9068920078C452 /* SDWebImageDownloader.m in Sources */,
 				8E72E9EA1FB2ED24001FCD31 /* CustomOrderTableViewCell.m in Sources */,
 				8E9C9B581FC4088800AB31D4 /* RentOrderDetailTableViewController.m in Sources */,
+				394A242E1FDE67BF0041D185 /* CustomOrderDetailTableViewController.m in Sources */,
 				8EDCF5B81FA6D44100AA4359 /* MyInvoiceTableViewController.m in Sources */,
 				8E99AAB61F9068920078C452 /* UIView+WebCacheOperation.m in Sources */,
 				8E6C74181F9DD785004B33D1 /* ExhibitionListViewController.m in Sources */,
@@ -1702,10 +1744,12 @@
 				8E6C74021F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.m in Sources */,
 				8E99AAA31F9068920078C452 /* Reachability.m in Sources */,
 				8EDCF5C01FA6D76B00AA4359 /* InvoiceModel.m in Sources */,
+				394A24321FDE75290041D185 /* ZhuchangOrderDetailViewController.m in Sources */,
 				3931D0031FD8DA15006C5948 /* OrderDetailSimpleLeftLabelCell.m in Sources */,
 				8E99AA481F9068920078C452 /* NSString+ext.m in Sources */,
 				8E9B00271FB3FF6C00B29188 /* FormHttpTool.m in Sources */,
 				8E9B00211FB3FBAC00B29188 /* BaseFormStepsModel.m in Sources */,
+				394A243E1FDE75760041D185 /* YanyiOrderDetailViewController.m in Sources */,
 				8E9B0CE51FAAC40200770F8D /* OrderTypeTableViewController.m in Sources */,
 				8EDBF4E01FA1B44D0073F37D /* TransportOrderPagerViewController.m in Sources */,
 				8E721AEF1FB581C1001BD401 /* WuliuFormTableViewController.m in Sources */,
