@@ -49,9 +49,12 @@
 +(NSString*)token
 {
 //    #warning test user token
+#if DEBUG
     return @"123";
+#else
     NSString* to=[[NSUserDefaults standardUserDefaults]valueForKey:UserTokenKey];
     return to;
+#endif
 }
 
 +(void)saveToken:(NSString *)token

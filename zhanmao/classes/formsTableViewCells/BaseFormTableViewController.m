@@ -189,11 +189,15 @@
     
     [UIView animateWithDuration:animaD animations:^{
         CGRect fr=self.tableView.frame;
-        fr.size.height=frameY-64;
+        fr.size.height=frameY-64-64;
         self.tableView.frame=fr;
         if (!showing) {
             self.tableView.frame=CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64);
         }
+        
+        fr=self.bottomView.frame;
+        fr.origin.y=self.tableView.frame.size.height;
+        self.bottomView.frame=fr;
     }];
 }
 
@@ -336,7 +340,7 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    [scrollView endEditing:YES];
+//    [scrollView endEditing:YES];
 }
 
 -(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section

@@ -169,7 +169,7 @@
     
     if(vcid.length>0)
     {
-        CustomOrderDetailTableViewController* det=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:vcid];
+        CustomOrderDetailTableViewController* det=[[UIStoryboard storyboardWithName:@"MyCustomOrder" bundle:nil]instantiateViewControllerWithIdentifier:vcid];
         det.title=[NSString stringWithFormat:@"%@%@",[CustomOrderModel controllerTitleForType:self.type],@"定制订单详情"];
         if ([det isKindOfClass:[CustomOrderDetailTableViewController class]]) {
             det.customModel=mo;

@@ -14,4 +14,6 @@
 
 //@property (nonatomic,strong) OrderTypeBaseModel* model;
 
+-(void)countingDown;
+
 @end

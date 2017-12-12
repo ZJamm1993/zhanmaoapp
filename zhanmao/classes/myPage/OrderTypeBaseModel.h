@@ -110,7 +110,8 @@ typedef NS_ENUM(NSInteger,CustomOrderStatus)
 @property (nonatomic,assign) NSInteger pay_status;
 @property (nonatomic,assign) NSInteger order_status;
 
-@property (nonatomic,strong) NSString* amount;
+@property (nonatomic,assign) CGFloat amount;
+@property (nonatomic,assign) CGFloat expiration;
 
 @property (nonatomic,strong) NSString* pay_type;
 
@@ -132,6 +133,8 @@ typedef NS_ENUM(NSInteger,CustomOrderStatus)
 @property (nonatomic,strong) NSString* delivery_date;
 @property (nonatomic,strong) NSString* return_date;
 @property (nonatomic,strong) NSString* recover_date;
+
+@property (nonatomic,strong) NSString* emergency_phone;
 
 @property (nonatomic,strong) PayOrderModel* pay;
 @property (nonatomic,strong) AddressModel* address;

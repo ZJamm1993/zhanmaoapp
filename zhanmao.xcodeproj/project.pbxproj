@@ -19,6 +19,7 @@
 		394A243B1FDE75680041D185 /* WutaiOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A243A1FDE75680041D185 /* WutaiOrderDetailViewController.m */; };
 		394A243E1FDE75760041D185 /* YanyiOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A243D1FDE75760041D185 /* YanyiOrderDetailViewController.m */; };
 		394A24411FDE75860041D185 /* YaoyueOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A24401FDE75860041D185 /* YaoyueOrderDetailViewController.m */; };
+		394A24431FDF744B0041D185 /* MyCustomOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394A24421FDF744B0041D185 /* MyCustomOrder.storyboard */; };
 		3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */; };
 		3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */; };
 		3955BBCB1FD6791400239336 /* PayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBCA1FD6791400239336 /* PayOrderModel.m */; };
@@ -274,6 +275,7 @@
 		394A243D1FDE75760041D185 /* YanyiOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanyiOrderDetailViewController.m; sourceTree = "<group>"; };
 		394A243F1FDE75860041D185 /* YaoyueOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YaoyueOrderDetailViewController.h; sourceTree = "<group>"; };
 		394A24401FDE75860041D185 /* YaoyueOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoyueOrderDetailViewController.m; sourceTree = "<group>"; };
+		394A24421FDF744B0041D185 /* MyCustomOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyCustomOrder.storyboard; sourceTree = "<group>"; };
 		3955BBC31FD5485200239336 /* MyPageHelpHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHelpHeaderCell.h; sourceTree = "<group>"; };
 		3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHelpHeaderCell.m; sourceTree = "<group>"; };
 		3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNewUserFixInfoViewController.h; sourceTree = "<group>"; };
@@ -1007,6 +1009,7 @@
 		8E72E9E11FB2ECAC001FCD31 /* CustomOrder */ = {
 			isa = PBXGroup;
 			children = (
+				394A24421FDF744B0041D185 /* MyCustomOrder.storyboard */,
 				394A242F1FDE67C90041D185 /* 6pack */,
 				8E72E9E21FB2ECDF001FCD31 /* CustomOrderPagerViewController.h */,
 				8E72E9E31FB2ECDF001FCD31 /* CustomOrderPagerViewController.m */,
@@ -1579,6 +1582,7 @@
 				3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */,
 				8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */,
 				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
+				394A24431FDF744B0041D185 /* MyCustomOrder.storyboard in Resources */,
 				39CDDEC41FDB8F390079A49D /* MyOrder.storyboard in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
 				8E31F4A31FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib in Resources */,

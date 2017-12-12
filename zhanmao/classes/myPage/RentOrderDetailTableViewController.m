@@ -51,6 +51,11 @@
     }];
 }
 
+-(void)countingDown
+{
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -58,6 +63,8 @@
 
 -(void)reloadWithOrder
 {
+    
+    
     if (self.rentModel.order_status==RentOrderStatusNotPaid) {
         UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
         self.navigationItem.rightBarButtonItem=cancelItem;
@@ -76,9 +83,9 @@
     _totalFeeView.submitButton.hidden=!(self.rentModel.order_status==RentOrderStatusNotPaid||self.rentModel.order_status==RentOrderStatusNotReturned);
     _totalFeeView.grayButton.hidden=!_totalFeeView.submitButton.hidden;
     
+    _totalFeeView.feeLabe.text=[NSString stringWithFloat:self.rentModel.amount headUnit:@"¥" tailUnit:nil];
+    
     [self.tableView reloadData];
-    
-    
 }
 
 -(void)cancelOrder
@@ -88,7 +95,21 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //do cancel actioin
-        
+        [MBProgressHUD showProgressMessage:@"正在取消"];
+        [OrderTypeDataSource postMyRentOrderCancelById:self.rentModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
+            if (result) {
+                [MBProgressHUD showSuccessMessage:msg];
+                self.rentModel.order_status=-1;
+#warning 租赁订单哪种取消状态？
+                [self reloadWithOrder];
+                
+                [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.rentModel];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -128,19 +149,39 @@
             statusCell.title.text=nil;
             statusCell.detail.text=nil;
             statusCell.title.text=[RentOrderModel detailHeaderTitleForType:self.rentModel.order_status];
-            statusCell.detail.text=[RentOrderModel detailHeaderDescritionForType:self.rentModel.order_status];
+            NSString* detailString=[RentOrderModel detailHeaderDescritionForType:self.rentModel.order_status];
+            
+            if (self.rentModel.order_status==RentOrderStatusNotPaid) {
+                CGFloat expir=self.rentModel.expiration;
+                CGFloat current=[[NSDate date]timeIntervalSince1970];
+                CGFloat seconds=expir-current;
+                if (seconds<0) {
+                    seconds=0;
+                }
+                NSInteger mins=((int)seconds)/60;
+                NSInteger secs=((int)seconds)%60;
+                NSString* countDownTime=[NSString stringWithFormat:@"%ld分%ld秒",mins,secs];
+                
+                if ([detailString containsString:@"%@"]) {
+                    detailString=[NSString stringWithFormat:detailString,countDownTime];
+                }
+            }
+            
+            statusCell.detail.text=detailString;
             return statusCell;
         }
         else if(row==1)
         {
             OrderDetailAddressCell* addressCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailAddressCell" forIndexPath:indexPath];
-            
+            addressCell.name.text=self.rentModel.address.addressee;
+            addressCell.phone.text=self.rentModel.address.phone;
+            addressCell.address.text=[NSString stringWithFormat:@"%@%@%@",self.rentModel.address.province,self.rentModel.address.city,self.rentModel.address.district];
             return addressCell;
         }
         else if(row==2)
         {
             OrderDetailSimpleLeftLabelCell* emergCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-            emergCell.label.text=@"?";
+            emergCell.label.text=[NSString stringWithFormat:@"%@%@",@"紧急联系人：",self.rentModel.emergency_phone?:@""];;
             return emergCell;
         }
     }

@@ -45,7 +45,8 @@
 //        _status=[[dictionary valueForKey:@"status"]integerValue];
         _order_status=[[dictionary valueForKey:@"order_status"]integerValue];
         
-        _amount=[dictionary valueForKey:@"amount"];
+        _amount=[[dictionary valueForKey:@"amount"]floatValue];
+        _expiration=[[dictionary valueForKey:@"expiration"]floatValue];
         
         _pay_type=[dictionary valueForKey:@"pay_type"];
         
@@ -170,6 +171,7 @@
         self.delivery_date=[dictionary valueForKey:@"dilivery_date"];
         self.return_date=[dictionary valueForKey:@"return_date"];
         self.recover_date=[dictionary valueForKey:@"recover_date"];
+        self.emergency_phone=[dictionary valueForKey:@"emergency_phone"];
         
         //the "pay uses the same dictionary
         self.pay=[[PayOrderModel alloc]initWithDictionary:dictionary];

@@ -91,7 +91,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     
     [MyPageHttpTool getMyAddressesToken:[UserModel token] cache:NO success:^(NSArray *result) {
         for (AddressModel* add in result) {
-            if (add.class) {
+            if (add.classic) {
                 BaseFormModel* addModel=addressSectionArray.firstObject;
                 if (addModel.accessoryObject==nil) {
                     addModel.accessoryObject=add;
@@ -180,6 +180,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
         else if (i==5) {
             subModel.field=@"address";
         }
+        subModel.required=YES;
+        subModel.hint=@"请选择地址";
         [combination addObject:subModel];
     }
     form.combination_arr=combination;

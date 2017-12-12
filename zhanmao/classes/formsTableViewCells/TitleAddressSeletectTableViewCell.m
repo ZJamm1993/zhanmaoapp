@@ -82,6 +82,34 @@
                 adr=@"";
             }
             self.address.text=[NSString stringWithFormat:@"%@%@%@%@",pro,cit,dis,adr];
+            NSInteger count=self.model.combination_arr.count;
+            for (NSInteger i=0;i<count;i++) {
+                BaseFormModel* subModel=[self.model.combination_arr objectAtIndex:i];
+                if (i==0)
+                {
+                    subModel.value=add.addressee;
+                }
+                else if(i==1)
+                {
+                    subModel.value=add.phone;
+                }
+                else if(i==2)
+                {
+                    subModel.value=add.province;
+                }
+                else if(i==3)
+                {
+                    subModel.value=add.city;
+                }
+                else if(i==4)
+                {
+                    subModel.value=add.district;
+                }
+                else if(i==5)
+                {
+                    subModel.value=add.address;
+                }
+            }
         }
     }
     

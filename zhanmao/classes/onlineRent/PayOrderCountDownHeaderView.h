@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabal;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
+@property (nonatomic,assign) CGFloat expiration;
 @property (nonatomic,assign) CGFloat totalTime;
 @property (nonatomic,assign) CGFloat leftTime;
 

@@ -25,6 +25,18 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    for (RentOrderModel* mo in self.dataSource) {
+        if ([mo isMemberOfClass:[orderModel class]]) {
+            if ([mo.idd isEqualToString:orderModel.idd]) {
+                mo.order_status=orderModel.order_status;
+                [self.tableView reloadData];
+            }
+        }
+    }
+}
+
 -(void)refresh
 {
     [OrderTypeDataSource getMyRentOrderByType:self.type token:[UserModel token] page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {

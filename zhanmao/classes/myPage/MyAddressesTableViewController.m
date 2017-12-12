@@ -150,6 +150,10 @@
     NSLog(@"%@,%@",model.idd,model.address);
     if(action==AddressOptionActionDefault)
     {
+        if(model.classic)
+        {
+            return;
+        }
         [MBProgressHUD showProgressMessage:@"正在设定"];
         [MyPageHttpTool postDefaultAddressId:model.idd token:token success:^(BOOL result, NSString *msg) {
             if (result) {

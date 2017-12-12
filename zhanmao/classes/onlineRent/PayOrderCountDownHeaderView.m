@@ -13,6 +13,13 @@
     NSTimer* timer;
 }
 
+-(void)setExpiration:(CGFloat)expiration
+{
+    _expiration=expiration;
+    CGFloat currentTime=[[NSDate date]timeIntervalSince1970];
+    self.totalTime=expiration-currentTime;
+}
+
 -(void)setTotalTime:(CGFloat)totalTime
 {
     _totalTime=totalTime;

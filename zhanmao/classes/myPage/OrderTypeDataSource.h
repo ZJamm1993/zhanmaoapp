@@ -18,6 +18,7 @@
 +(void)getMyRentOrderByType:(NSInteger)type token:(NSString*)token page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 +(void)getMyRentOrderDetailById:(NSString*)idd token:(NSString*)token success:(void(^)(RentOrderModel* model))success;
++(void)postMyRentOrderCancelById:(NSString*)idd token:(NSString*)token success:(void(^)(BOOL result, NSString* msg))success;
 
 #pragma mark transport order
 

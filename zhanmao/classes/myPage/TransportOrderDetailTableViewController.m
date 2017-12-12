@@ -128,19 +128,28 @@
 
 -(void)cancelOrder
 {
-    [OrderTypeDataSource postMyTransportOrderCancelById:self.transportModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
-        if (result) {
-            [MBProgressHUD showSuccessMessage:msg];
-            self.transportModel.order_status=TransportOrderStatusCancel;
-            [self reloadModel];
-            
-            [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.transportModel];
-        }
-        else
-        {
-            [MBProgressHUD showErrorMessage:msg];
-        }
-    }];
+    NSLog(@"cancel order");
+    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要取消订单吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //do cancel actioin
+        [MBProgressHUD showProgressMessage:@"正在取消"];
+        [OrderTypeDataSource postMyTransportOrderCancelById:self.transportModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
+            if (result) {
+                [MBProgressHUD showSuccessMessage:msg];
+                self.transportModel.order_status=TransportOrderStatusCancel;
+                [self reloadModel];
+                
+                [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.transportModel];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
 
 @end

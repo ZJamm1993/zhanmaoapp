@@ -12,7 +12,11 @@
 
 +(NSString*)main
 {
+#if DEBUG
     return @"http://192.168.1.131:8092";
+#else
+    return @"http://zhanmao.bangju.com";
+#endif
 }
 
 +(NSString*)fullUrlWithTail:(NSString *)tail

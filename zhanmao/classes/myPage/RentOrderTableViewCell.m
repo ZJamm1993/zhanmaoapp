@@ -43,8 +43,8 @@
 {
     _orderModel=orderModel;
     
-    self.title.text=orderModel.title;
-    
+//    self.title.text=orderModel.title;
+    self.createTime.text=[orderModel.createtime dateString];
     self.stateTitle.text=[RentOrderModel cellStateForType:orderModel.type];
     
     RentOrderStatus type=orderModel.order_status;

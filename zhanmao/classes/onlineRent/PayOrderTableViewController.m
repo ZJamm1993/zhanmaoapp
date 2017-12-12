@@ -31,7 +31,7 @@
         headerView.frame=CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width, 44);
         headerView.backgroundColor=[UIColor whiteColor];
         
-        headerView.totalTime=self.orderModel.expiration;
+        headerView.expiration=self.orderModel.expiration;
         headerView.moneyLabel.text=[NSString stringWithFloat:self.orderModel.amount headUnit:@"¥" tailUnit:nil];
         
         UIView* headerBg=[[UIView alloc]initWithFrame:headerView.bounds];
@@ -43,10 +43,12 @@
     [self.bottomButton addTarget:self action:@selector(payOrder) forControlEvents:UIControlEventTouchUpInside];
     
     MyPageCellModel* m_alipay=[[MyPageCellModel alloc]init];
-    m_alipay.selected=NO;
+    m_alipay.selected=YES;
     m_alipay.image=@"alipay";
     m_alipay.title=@"支付宝支付";
     m_alipay.type=PayMethodTypeAlipay;
+    
+    selectedType=m_alipay.type;
     
     [self.dataSource addObject:m_alipay];
     [self.tableView reloadData];
@@ -124,8 +126,10 @@
 
 -(void)payWithType:(PayMethodType)type
 {
+    [MBProgressHUD showProgressMessage:@"正在准备支付"];
     [RentHttpTool getPayOrderStringWithToken:[UserModel token] payType:[NSString stringWithFormat:@"%d",(int)type] orderId:self.orderModel.idd success:^(NSDictionary *dictionary) {
         NSLog(@"%@",dictionary);
+        [MBProgressHUD hide];
         NSString* msg=[dictionary valueForKey:@"message"];
         BOOL code=dictionary.code==0;
         NSDictionary* data=[dictionary valueForKey:@"data"];
@@ -140,6 +144,7 @@
         }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        [MBProgressHUD showErrorMessage:BadNetworkDescription];
     }];
 }
 
