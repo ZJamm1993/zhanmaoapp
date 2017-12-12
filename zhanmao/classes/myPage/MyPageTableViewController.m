@@ -327,6 +327,10 @@
 
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
+    if ([UserModel token].length==0) {
+        [self askToLogin];
+        return;
+    }
     NSLog(@"%@",model.title);
 //    [self pushToViewControllerId:model.identifier];
     if (model.identifier.length>0) {

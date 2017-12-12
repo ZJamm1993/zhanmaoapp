@@ -95,6 +95,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
                 BaseFormModel* addModel=addressSectionArray.firstObject;
                 if (addModel.accessoryObject==nil) {
                     addModel.accessoryObject=add;
+                    addModel.value=add.idd;
                     [self.tableView reloadData];
                 }
                 break;
@@ -180,7 +181,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
         else if (i==5) {
             subModel.field=@"address";
         }
-        subModel.required=YES;
+//        if(!(i==5||i==4)
+//        subModel.required=YES;
         subModel.hint=@"请选择地址";
         [combination addObject:subModel];
     }
@@ -411,6 +413,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
             if (order.idd.length>0) {
                 PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
                 pay.orderModel=order;
+                pay.orderType=PayOrderTypeRent;
                 [self.navigationController pushViewController:pay animated:YES];
                 
                 NSMutableArray* vcs=[NSMutableArray arrayWithArray:self.navigationController.viewControllers];

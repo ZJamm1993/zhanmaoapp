@@ -89,6 +89,7 @@
     
     [MBProgressHUD showProgressMessage:@"正在登录"];
     [MyPageHttpTool loginUserWithMobile:self.mobileTextField.text code:self.codeTextField.text success:^(NSString *token,BOOL newUser,NSString* msg) {
+        [MBProgressHUD showSuccessMessage:msg];
         if (token.length>0) {
             [UserModel saveToken:token];
             [UserModel deleteUser];
@@ -100,7 +101,6 @@
             else
             {
                 [MyPageHttpTool getPersonalInfoToken:token success:^(UserModel *user,NSInteger code) {
-                    [MBProgressHUD showSuccessMessage:msg];
                     [UserModel saveUser:user];
                     [self.navigationController popViewControllerAnimated:YES];
                 }];

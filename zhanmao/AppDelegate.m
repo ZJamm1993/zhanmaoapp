@@ -88,7 +88,8 @@
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
-            [MBProgressHUD showErrorMessage:resultDic.description];
+//            [MBProgressHUD showErrorMessage:resultDic.description];
+            [ZZPayTool handleAlipayResult:resultDic];
         }];
     }
     else if([url.host isEqualToString:WXApiAppId])

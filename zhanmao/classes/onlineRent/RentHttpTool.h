@@ -47,6 +47,6 @@
 #pragma mark orders
 
 +(void)postRentOrderParams:(NSDictionary*)params success:(void(^)(BOOL result, NSString* msg, PayOrderModel* order))success;
-+(void)getPayOrderStringWithToken:(NSString*)token payType:(NSString*)payType orderId:(NSString*)orderId success:(void(^)(NSDictionary* dictionary))success failure:(void(^)(NSError* error))failure;
++(void)getPayOrderStringWithToken:(NSString*)token orderType:(NSString*)orderType payType:(NSString*)payType orderId:(NSString*)orderId success:(void(^)(NSDictionary* dictionary))success failure:(void(^)(NSError* error))failure;
 
 @end

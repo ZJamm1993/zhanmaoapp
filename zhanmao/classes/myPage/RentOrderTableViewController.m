@@ -9,6 +9,7 @@
 #import "RentOrderTableViewController.h"
 #import "RentOrderTableViewCell.h"
 #import "RentOrderDetailTableViewController.h"
+#import "PayOrderTableViewController.h"
 
 @interface RentOrderTableViewController ()<RentOrderTableViewCellDelegate>
 
@@ -121,7 +122,16 @@
 {
 //    RentOrderModel* rentOrder=cell.orderModel;
 //    RentOrderStatus sta=rentOrder.status;
-//    
+//
+    if(cell.orderModel.order_status==RentOrderStatusNotPaid)
+    {
+        if (cell.orderModel.pay_status==PayStatusNotYet) {
+            PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+            pay.orderModel=cell.orderModel.pay;
+            pay.orderType=PayOrderTypeRent;
+            [self.navigationController pushViewController:pay animated:YES];
+        }
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -55,8 +55,25 @@
     [[AlipaySDK defaultService]payOrder:string fromScheme:@"com.bangju.zhanmao" callback:^(NSDictionary *resultDic) {
         NSLog(@"%@",resultDic);
         
-        [MBProgressHUD showSuccessMessage:resultDic.description];
+//        [MBProgressHUD showSuccessMessage:resultDic.description];
+        [self handleAlipayResult:resultDic];
     }];
+}
+
++(void)handleAlipayResult:(NSDictionary *)result
+{
+    /*
+     9000 订单支付成功
+     8000 正在处理中
+     4000 订单支付失败
+     6001 用户中途取消
+     6002 网络连接出错*/
+    
+    NSInteger resultStatus=[[result valueForKey:@"resultStatus"]integerValue];
+
+    BOOL succ=resultStatus==9000;
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:ZZPayToolReceviedPayResultNotification object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:succ] forKey:@"result"]];
 }
 
 @end

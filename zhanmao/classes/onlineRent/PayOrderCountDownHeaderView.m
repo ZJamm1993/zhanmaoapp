@@ -25,6 +25,7 @@
     _totalTime=totalTime;
     self.leftTime=totalTime;
     [self setTimerIfNeed];
+    [self countingDown];
 }
 
 -(void)setTimerIfNeed
@@ -42,13 +43,17 @@
                
 -(void)countingDown
 {
-    if(self.leftTime>=0)
+    NSInteger totalSec=self.leftTime;
+    NSInteger min=totalSec/60;
+    NSInteger sec=totalSec%60;
+    self.timeLabal.text=[NSString stringWithFormat:@"%d:%02d",(int)min,(int)sec];
+    if(self.leftTime>0)
     {
-        NSInteger totalSec=self.leftTime;
-        NSInteger min=totalSec/60;
-        NSInteger sec=totalSec%60;
-        self.timeLabal.text=[NSString stringWithFormat:@"%d:%02d",(int)min,(int)sec];
         self.leftTime=self.leftTime-1;
+    }
+    else
+    {
+        self.leftTime=0;
     }
 }
 

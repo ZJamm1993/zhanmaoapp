@@ -120,16 +120,14 @@
     MyPageCellModel* mo=[arr objectAtIndex:indexPath.row];
     NSLog(@"%@",mo.identifier);
     
-    if (indexPath.section==1) {
-        [self logOut];
+    if ([mo.identifier isEqualToString:@"clean"]) {
+        [[SDImageCache sharedImageCache]clearMemory];
+        [[SDImageCache sharedImageCache]clearDiskOnCompletion:nil];
+        [self refreshData];
     }
-    else
+    else if([mo.identifier isEqualToString:@"logout"])
     {
-        if ([mo.identifier isEqualToString:@"clean"]) {
-            [[SDImageCache sharedImageCache]clearMemory];
-            [[SDImageCache sharedImageCache]clearDiskOnCompletion:nil];
-            [self refreshData];
-        }
+        [self logOut];
     }
 }
 

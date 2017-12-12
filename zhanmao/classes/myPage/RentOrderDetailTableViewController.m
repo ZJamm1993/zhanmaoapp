@@ -13,6 +13,8 @@
 #import "OrderDetailSimpleLeftLabelCell.h"
 #import "TotalFeeView.h"
 
+#import "PayOrderTableViewController.h"
+
 @interface RentOrderDetailTableViewController ()
 
 @end
@@ -100,7 +102,7 @@
             if (result) {
                 [MBProgressHUD showSuccessMessage:msg];
                 self.rentModel.order_status=-1;
-#warning 租赁订单哪种取消状态？
+//#warning 租赁订单哪种取消状态？
                 [self reloadWithOrder];
                 
                 [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.rentModel];
@@ -160,7 +162,7 @@
                 }
                 NSInteger mins=((int)seconds)/60;
                 NSInteger secs=((int)seconds)%60;
-                NSString* countDownTime=[NSString stringWithFormat:@"%ld分%ld秒",mins,secs];
+                NSString* countDownTime=[NSString stringWithFormat:@"%ld分%ld秒",(long)mins,(long)secs];
                 
                 if ([detailString containsString:@"%@"]) {
                     detailString=[NSString stringWithFormat:detailString,countDownTime];
@@ -243,7 +245,15 @@
 
 -(void)doAction
 {
-    
+    if(self.rentModel.order_status==RentOrderStatusNotPaid)
+    {
+        if (self.rentModel.pay_status==PayStatusNotYet) {
+            PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+            pay.orderModel=self.rentModel.pay;
+            pay.orderType=PayOrderTypeRent;
+            [self.navigationController pushViewController:pay animated:YES];
+        }
+    }
 }
 
 @end

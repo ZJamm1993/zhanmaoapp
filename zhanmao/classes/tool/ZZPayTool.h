@@ -10,9 +10,11 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 
-#define AlipayDidPaySuccessNotification @"AlipayDidPaySuccessNotification"
-#define WechatpayDidPaySuccessNotification @"WechatpayDidPaySuccessNotification"
-#define UnionpayDidPaySuccessNotification @"UnionpayDidPaySuccessNotification"
+//#define AlipayDidPaySuccessNotification @"AlipayDidPaySuccessNotification"
+//#define WechatpayDidPaySuccessNotification @"WechatpayDidPaySuccessNotification"
+//#define UnionpayDidPaySuccessNotification @"UnionpayDidPaySuccessNotification"
+
+#define ZZPayToolReceviedPayResultNotification @"ZZPayToolReceviedPayResultNotification"
 
 @interface ZZPayTool : NSObject
 
@@ -23,5 +25,6 @@
 +(void)testGotoUnionpay;
 
 +(void)payWithAlipayString:(NSString*)string;
++(void)handleAlipayResult:(NSDictionary*)result;
 
 @end

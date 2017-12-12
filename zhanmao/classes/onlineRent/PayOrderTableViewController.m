@@ -127,7 +127,7 @@
 -(void)payWithType:(PayMethodType)type
 {
     [MBProgressHUD showProgressMessage:@"正在准备支付"];
-    [RentHttpTool getPayOrderStringWithToken:[UserModel token] payType:[NSString stringWithFormat:@"%d",(int)type] orderId:self.orderModel.idd success:^(NSDictionary *dictionary) {
+    [RentHttpTool getPayOrderStringWithToken:[UserModel token] orderType:[NSString stringWithFormat:@"%ld",(long)self.orderType] payType:[NSString stringWithFormat:@"%d",(int)type] orderId:self.orderModel.idd success:^(NSDictionary *dictionary) {
         NSLog(@"%@",dictionary);
         [MBProgressHUD hide];
         NSString* msg=[dictionary valueForKey:@"message"];
@@ -146,6 +146,16 @@
         NSLog(@"%@",error);
         [MBProgressHUD showErrorMessage:BadNetworkDescription];
     }];
+}
+
+-(void)receivePayResultNotification:(NSNotification*)noti
+{
+    NSDictionary* userinfo=[noti userInfo];
+    BOOL succ=[[userinfo valueForKey:@"result"]boolValue];
+    
+    if (succ) {
+        
+    }
 }
 
 @end

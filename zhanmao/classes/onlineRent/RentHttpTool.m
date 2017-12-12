@@ -289,13 +289,14 @@
     }];
 }
 
-+(void)getPayOrderStringWithToken:(NSString *)token payType:(NSString *)payType orderId:(NSString *)orderId success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure
++(void)getPayOrderStringWithToken:(NSString *)token orderType:(NSString*)orderType payType:(NSString *)payType orderId:(NSString *)orderId success:(void (^)(NSDictionary *))success failure:(void (^)(NSError *))failure
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Pay/paypost"];
     NSMutableDictionary* dic=[NSMutableDictionary dictionary];
     [dic setValue:token forKey:@"access_token"];
     [dic setValue:payType forKey:@"pid"];
     [dic setValue:orderId forKey:@"oid"];
+    [dic setValue:orderType forKey:@"type"];
     [self post:str params:dic success:^(NSDictionary *responseObject) {
         if (success) {
             success(responseObject);
