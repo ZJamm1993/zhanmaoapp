@@ -28,6 +28,5 @@ typedef NS_ENUM(NSInteger, PayStatus)
 @property (nonatomic,strong) NSString* idd;
 @property (nonatomic,assign) CGFloat amount;
 @property (nonatomic,assign) CGFloat expiration;
-@property (nonatomic,assign) NSInteger payStatus;
 
 @end

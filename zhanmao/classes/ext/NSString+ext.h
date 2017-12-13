@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define UnitStringSquareMeter @"m²"
+
 @interface NSString (ext)
 
 -(NSURL*)urlWithMainUrl;
@@ -23,5 +25,7 @@
 
 
 +(NSString*)stringWithFloat:(CGFloat)floatValue headUnit:(NSString*)head tailUnit:(NSString*)tail;  //such as $100/day
+
+-(NSString*)stringAppendingUnit:(NSString*)unit;
 
 @end

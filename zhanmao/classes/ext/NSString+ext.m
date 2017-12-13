@@ -94,4 +94,13 @@
     return [NSString stringWithFormat:@"%@%.2f%@",head,floatValue,tail];
 }
 
+-(NSString*)stringAppendingUnit:(NSString *)unit
+{
+    if (unit.length==0) {
+        unit=@"";
+    }
+    NSString* str=[NSString stringWithFormat:@"%@%@",self,unit];
+    return str;
+}
+
 @end

@@ -27,15 +27,20 @@
     [super setSelected:selected animated:animated];
     
     if (selected) {
-        if (self.model.type==BaseFormTypeDatePicker||self.model.type==BaseFormTypeDateScopePicker||self.model.type==BaseFormTypeDateTimePicker) {
+        if (self.model.type==BaseFormTypeDatePicker||self.model.type==BaseFormTypeDateScopePicker||self.model.type==BaseFormTypeDateTimePicker||self.model.type==BaseFormTypeDateTime48Picker) {
+            
             UIDatePicker* datePicker=[[UIDatePicker alloc]init];
             datePicker.minimumDate=[NSDate date];
             datePicker.backgroundColor=[UIColor whiteColor];
             
             NSString* format=@"yyyy-MM-dd HH:mm";
             
-            if (self.model.type==BaseFormTypeDateTimePicker) {
+            if (self.model.type==BaseFormTypeDateTimePicker||self.model.type==BaseFormTypeDateTime48Picker) {
+                
                 datePicker.datePickerMode=UIDatePickerModeDateAndTime;
+                if (self.model.type==BaseFormTypeDateTime48Picker) {
+                    datePicker.minimumDate=[NSDate dateWithTimeIntervalSinceNow:172800];
+                }
             }
             else if(self.model.type==BaseFormTypeDatePicker||self.model.type==BaseFormTypeDateScopePicker)
             {

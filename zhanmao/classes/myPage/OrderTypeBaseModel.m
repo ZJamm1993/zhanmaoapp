@@ -82,85 +82,83 @@
     return @"";
 }
 
-//+(NSString*)cellStateForType:(NSInteger)type{
-//    if (type==RentOrderStatusNotPaid) {
-//        return @"待付款";
-//    }
-//    else if (type==RentOrderStatusNotSigned) {
-//        return @"待收货";
-//    }
-//    else if (type==RentOrderStatusNotReturned) {
++(NSString*)cellStateForType:(NSInteger)type{
+    if (type==RentOrderStatusNotSent) {
+        return @"待发货";
+    }
+    else
+        if (type==RentOrderStatusSent) {
+        return @"待收货";
+    }
+//    else if (type==RentOrderStatusReceived) {
 //        return @"待归还";
 //    }
-//    else if (type==RentOrderStatusFinishing) {
+//    else if (type==RentOrderStatusNotReturn) {
+//        return @"待归还";
+//    }
+//    else if (type==RentOrderStatusReturned) {
 //        return @"已归还";
 //    }
-//    else if (type==RentOrderStatusFinished) {
-//        return @"已归还";
-//    }
-//    return @"";
-//}
+    return @"";
+}
 //
-//+(NSString*)cellButtonTitleForType:(NSInteger)type
-//{
-//    NSString* buttonTitle=@"";
-//    if (type==RentOrderStatusNotPaid) {
-//        buttonTitle=@"立即付款";
++(NSString*)cellButtonTitleForType:(NSInteger)type
+{
+    NSString* buttonTitle=@"";
+    if (type==RentOrderStatusNotSent) {
+        buttonTitle=@"确认收货";
+    }
+    else if (type==RentOrderStatusSent) {
+        buttonTitle=@"确认收货";
+    }
+//    else if (type==RentOrderStatusReceived) {
+//        buttonTitle=@"归还";
 //    }
-//    else if (type==RentOrderStatusNotSigned) {
-//        buttonTitle=@"确认收货";
+//    else if (type==RentOrderStatusNotReturn) {
+//        buttonTitle=@"归还";
 //    }
-//    else if (type==RentOrderStatusNotReturned) {
-//        buttonTitle=@"归还中";
-//    }
-//    else if (type==RentOrderStatusFinishing) {
+//    else if (type==RentOrderStatusReturned) {
 //        buttonTitle=@"已完成";
 //    }
-//    else if (type==RentOrderStatusFinished) {
-//        buttonTitle=@"已完成";
-//    }
-//    return buttonTitle;
-//}
+    return buttonTitle;
+}
 
-//+(NSString*)detailHeaderTitleForType:(NSInteger)type
-//{
-//    if (type==RentOrderStatusNotPaid) {
-//        return @"等待付款";
-//    }
-//    else if (type==RentOrderStatusNotSigned) {
-//        return @"等待收货";
-//    }
-//    else if (type==RentOrderStatusNotReturned) {
++(NSString*)detailHeaderTitleForType:(NSInteger)type
+{
+    if (type==RentOrderStatusNotSent) {
+        return @"等待收货";
+    }
+    else if (type==RentOrderStatusSent) {
+        return @"等待收货";
+    }
+//    else if (type==RentOrderStatusReceived) {
 //        return @"商品等待归还中";
 //    }
-//    else if (type==RentOrderStatusFinishing) {
+//    else if (type==RentOrderStatusNotReturn) {
+//        return @"商品等待归还中";
+//    }
+//    else if (type==RentOrderStatusReturned) {
 //        return @"订单已完成";
 //    }
-//    else if (type==RentOrderStatusFinished) {
-//        return @"订单已完成";
-//    }
-//    return @"";
-//}
+    return @"";
+}
 //
-//+(NSString*)detailHeaderDescritionForType:(NSInteger)type
-//{
-//    if (type==RentOrderStatusNotPaid) {
-//        return @"%@后自动取消订单";
-//    }
-//    else if (type==RentOrderStatusNotSigned) {
-//        return @"订单已处理，请耐心等待";
-//    }
-//    else if (type==RentOrderStatusNotReturned) {
++(NSString*)detailHeaderDescritionForType:(NSInteger)type
+{
+    if (type==RentOrderStatusNotSent) {
+        return @"订单已处理，请耐心等待";
+    }
+    else if (type==RentOrderStatusSent) {
+        return @"订单已处理，请耐心等待";
+    }
+//    else if (type==RentOrderStatusNotReturn) {
 //        return @"我们将安排工作人员上门回收租赁商品";
 //    }
-//    else if (type==RentOrderStatusFinishing) {
-//        return @"押金会在一周内原路返回";
+//    else if (type==RentOrderStatusReturned) {
+//        return @"押金会在一周内原路返回，请注意查收";
 //    }
-//    else if (type==RentOrderStatusFinished) {
-//        return @"押金已原路返回，请注意查收";
-//    }
-//    return @"";
-//}
+    return @"";
+}
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
@@ -298,46 +296,6 @@
         return @"立即付款";
     }
     return @"查看详情";
-}
-
-+(NSString*)detailHeaderTitleForType:(NSInteger)type
-{
-    if (type==RentOrderStatusNotPaid) {
-        return @"等待付款";
-    }
-    else if (type==RentOrderStatusNotSigned) {
-        return @"等待收货";
-    }
-    else if (type==RentOrderStatusNotReturned) {
-        return @"商品等待归还中";
-    }
-    else if (type==RentOrderStatusFinishing) {
-        return @"订单已完成";
-    }
-    else if (type==RentOrderStatusFinished) {
-        return @"订单已完成";
-    }
-    return @"";
-}
-
-+(NSString*)detailHeaderDescritionForType:(NSInteger)type
-{
-    if (type==RentOrderStatusNotPaid) {
-        return @"%@后自动取消订单";
-    }
-    else if (type==RentOrderStatusNotSigned) {
-        return @"订单已处理，请耐心等待";
-    }
-    else if (type==RentOrderStatusNotReturned) {
-        return @"我们将安排工作人员上门回收租赁商品";
-    }
-    else if (type==RentOrderStatusFinishing) {
-        return @"押金会在一周内原路返回";
-    }
-    else if (type==RentOrderStatusFinished) {
-        return @"押金已原路返回，请注意查收";
-    }
-    return @"";
 }
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary

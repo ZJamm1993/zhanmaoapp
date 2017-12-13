@@ -461,7 +461,7 @@
     {
         nibName=NSStringFromClass([TitleTextViewTableViewCell class]);
     }
-    else if(type==BaseFormTypeDatePicker||type==BaseFormTypeDateTimePicker||type==BaseFormTypeDateScopePicker||type==BaseFormTypeSingleChoice||type==BaseFormTypeProviceCityDistrict)
+    else if(type==BaseFormTypeDatePicker||type==BaseFormTypeDateTimePicker||type==BaseFormTypeDateTime48Picker||type==BaseFormTypeDateScopePicker||type==BaseFormTypeSingleChoice||type==BaseFormTypeProviceCityDistrict)
     {
         nibName=NSStringFromClass([TitleSingleSelectionTableViewCell class]);
     }

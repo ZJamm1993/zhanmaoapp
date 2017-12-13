@@ -65,9 +65,7 @@
 
 -(void)reloadWithOrder
 {
-    
-    
-    if (self.rentModel.order_status==RentOrderStatusNotPaid) {
+    if (self.rentModel.pay_status==PayStatusNotYet) {
         UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
         self.navigationItem.rightBarButtonItem=cancelItem;
         _totalFeeView.title.text=@"需付款：";
@@ -79,10 +77,14 @@
     }
     
     NSString* buttonString=[RentOrderModel cellButtonTitleForType:self.rentModel.order_status];
+    if (self.rentModel.pay_status==PayStatusNotYet) {
+        buttonString=@"立即付款";
+    }
+    
     [_totalFeeView.submitButton setTitle:buttonString forState:UIControlStateNormal];
     [_totalFeeView.grayButton setTitle:buttonString forState:UIControlStateNormal];
     
-    _totalFeeView.submitButton.hidden=!(self.rentModel.order_status==RentOrderStatusNotPaid||self.rentModel.order_status==RentOrderStatusNotReturned);
+    _totalFeeView.submitButton.hidden=!(self.rentModel.order_status<=RentOrderStatusNotReturn);
     _totalFeeView.grayButton.hidden=!_totalFeeView.submitButton.hidden;
     
     _totalFeeView.feeLabe.text=[NSString stringWithFloat:self.rentModel.amount headUnit:@"¥" tailUnit:nil];
@@ -101,7 +103,7 @@
         [OrderTypeDataSource postMyRentOrderCancelById:self.rentModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
             if (result) {
                 [MBProgressHUD showSuccessMessage:msg];
-                self.rentModel.order_status=-1;
+                self.rentModel.order_status=RentOrderStatusDeleted;
 //#warning 租赁订单哪种取消状态？
                 [self reloadWithOrder];
                 
@@ -131,7 +133,7 @@
     else if(section==1)
     {
         NSInteger row=self.rentModel.goods.count+2;
-        if (self.rentModel.order_status!=RentOrderStatusNotPaid)
+        if (self.rentModel.pay_status!=PayStatusNotYet)
         {
             row=row+1; //showing pay method:
         }
@@ -148,12 +150,14 @@
     if (sec==0) {
         if (row==0) {
             OrderDetailStatusSimpleStyleCell* statusCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailStatusSimpleStyleCell" forIndexPath:indexPath];
-            statusCell.title.text=nil;
-            statusCell.detail.text=nil;
+            
             statusCell.title.text=[RentOrderModel detailHeaderTitleForType:self.rentModel.order_status];
             NSString* detailString=[RentOrderModel detailHeaderDescritionForType:self.rentModel.order_status];
             
-            if (self.rentModel.order_status==RentOrderStatusNotPaid) {
+            if (self.rentModel.pay_status==PayStatusNotYet) {
+                statusCell.title.text=@"等待付款";
+                
+                detailString=@"%@后自动取消订单";
                 CGFloat expir=self.rentModel.expiration;
                 CGFloat current=[[NSDate date]timeIntervalSince1970];
                 CGFloat seconds=expir-current;
@@ -191,7 +195,7 @@
     {
         NSInteger totalRowOfSection=[tableView numberOfRowsInSection:sec];
         
-        BOOL isPaid=self.rentModel.order_status!=RentOrderStatusNotPaid;
+        BOOL isPaid=self.rentModel.pay_status!=PayStatusNotYet;
         
         if (row==totalRowOfSection-1) {
             OrderDetailSimpleLeftLabelCell* longDetailCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
@@ -245,14 +249,11 @@
 
 -(void)doAction
 {
-    if(self.rentModel.order_status==RentOrderStatusNotPaid)
-    {
-        if (self.rentModel.pay_status==PayStatusNotYet) {
-            PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
-            pay.orderModel=self.rentModel.pay;
-            pay.orderType=PayOrderTypeRent;
-            [self.navigationController pushViewController:pay animated:YES];
-        }
+    if (self.rentModel.pay_status==PayStatusNotYet) {
+        PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+        pay.orderModel=self.rentModel.pay;
+        pay.orderType=PayOrderTypeRent;
+        [self.navigationController pushViewController:pay animated:YES];
     }
 }
 

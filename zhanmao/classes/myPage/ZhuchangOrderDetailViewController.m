@@ -24,14 +24,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)refreshCustomModel:(CustomOrderModel *)model
+{
+    NSDictionary* dic=model.dictionary;
+    
+    self.order_num.text=[dic valueForKey:@"order_num"];
+    self.exhibition_name.text=[dic valueForKey:@"exhibition_name"];
+    self.time.text=[[dic valueForKey:@"time"]dateString];
+    self.organizer.text=[dic valueForKey:@"organizer"];
+    self.hall_name.text=[dic valueForKey:@"hall_name"];
+    self.hall_child.text=[dic valueForKey:@"hall_child"];
+    self.numer.text=[dic valueForKey:@"numer"];
+    self.scale.text=[[dic valueForKey:@"scale"]stringAppendingUnit:UnitStringSquareMeter];
+    self.days.text=[[dic valueForKey:@"days"]stringAppendingUnit:@"天"];
+    self.booth_count.text=[dic valueForKey:@"booth_count"];
+    self.blanket_specification.text=[[dic valueForKey:@"blanket_specification"]stringAppendingUnit:@"米"];
+    
+    self.info_collect.text=[dic valueForKey:@"info_collect"];
+    self.claim.text=[dic valueForKey:@"claim"];
 }
-*/
 
 @end

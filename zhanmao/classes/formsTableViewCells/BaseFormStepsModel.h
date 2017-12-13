@@ -35,6 +35,7 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeDatePicker                      =9,
     BaseFormTypeDateTimePicker                  =91,
     BaseFormTypeDateScopePicker                 =92,
+    BaseFormTypeDateTime48Picker                =93,
 };
 
 @interface BaseFormModel : ZZModel

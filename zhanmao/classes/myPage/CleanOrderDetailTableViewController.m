@@ -38,7 +38,7 @@
 
 -(void)reloadWithOrder
 {
-    if (self.cleanModel.order_status!=RentOrderStatusNotPaid) {
+    if (self.cleanModel.pay_status==PayStatusNotYet) {
         UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
         self.navigationItem.rightBarButtonItem=cancelItem;
     }

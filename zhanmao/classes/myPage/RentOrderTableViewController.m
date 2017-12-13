@@ -123,14 +123,11 @@
 //    RentOrderModel* rentOrder=cell.orderModel;
 //    RentOrderStatus sta=rentOrder.status;
 //
-    if(cell.orderModel.order_status==RentOrderStatusNotPaid)
-    {
-        if (cell.orderModel.pay_status==PayStatusNotYet) {
-            PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
-            pay.orderModel=cell.orderModel.pay;
-            pay.orderType=PayOrderTypeRent;
-            [self.navigationController pushViewController:pay animated:YES];
-        }
+    if (cell.orderModel.pay_status==PayStatusNotYet) {
+        PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+        pay.orderModel=cell.orderModel.pay;
+        pay.orderType=PayOrderTypeRent;
+        [self.navigationController pushViewController:pay animated:YES];
     }
 }
 

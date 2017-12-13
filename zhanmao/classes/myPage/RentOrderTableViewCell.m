@@ -48,10 +48,16 @@
     self.stateTitle.text=[RentOrderModel cellStateForType:orderModel.type];
     
     RentOrderStatus type=orderModel.order_status;
-    self.blueButton.hidden=!(type==RentOrderStatusNotPaid||type==RentOrderStatusNotSigned);
+    self.blueButton.hidden=!(type<=RentOrderStatusNotReturn);
     self.grayButton.hidden=!self.blueButton.hidden;
     
     NSString* buttonTitle=[RentOrderModel cellButtonTitleForType:orderModel.order_status];
+    
+    if (orderModel.pay_status==PayStatusNotYet) {
+        buttonTitle=@"立即付款";
+        self.stateTitle.text=@"待付款";
+    }
+    
     [self.blueButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self.grayButton setTitle:buttonTitle forState:UIControlStateNormal];
     

@@ -1163,11 +1163,34 @@
                     <connections>
                         <outlet property="address" destination="Fkh-bQ-M9u" id="8WR-4M-5Qj"/>
                         <outlet property="addressee" destination="E9Z-Jk-6X5" id="xUS-LU-4j8"/>
+                        <outlet property="claim" destination="Cia-kZ-Tpd" id="2OU-Si-7Ca"/>
+                        <outlet property="date" destination="3ZK-9q-WBl" id="4xF-Ct-Lwt"/>
+                        <outlet property="days" destination="gnA-Kq-5VN" id="HyH-p0-9nG"/>
                         <outlet property="email" destination="7LB-HP-5oK" id="kLY-Na-Xkv"/>
+                        <outlet property="furniture" destination="f7P-R0-fma" id="Tmk-b7-6nM"/>
                         <outlet property="headerStatusCell" destination="uoz-Ct-pcJ" id="zjP-CZ-iqD"/>
+                        <outlet property="high" destination="vkl-xf-qfY" id="h65-FQ-8jE"/>
+                        <outlet property="lamps" destination="G5u-kM-Byh" id="EsP-at-3ro"/>
+                        <outlet property="led_screen" destination="nXf-6S-O8h" id="45s-Cy-3ep"/>
+                        <outlet property="long_label" destination="9T3-a8-DmQ" id="x4Q-F4-Ema"/>
                         <outlet property="m_phone" destination="Q1O-KA-7BI" id="byF-nB-9SE"/>
+                        <outlet property="meetings_count" destination="OAR-U8-5Ap" id="fxI-bw-Uzw"/>
+                        <outlet property="name" destination="NKV-Y0-9Ef" id="3I2-f6-UDq"/>
                         <outlet property="o_phone" destination="Jwr-5g-kdl" id="sFG-Kr-lPg"/>
+                        <outlet property="order_num" destination="Jfx-SN-hDJ" id="ptd-4B-10X"/>
+                        <outlet property="organizer" destination="vgW-ac-oYl" id="Ubl-8b-VFk"/>
+                        <outlet property="projector" destination="URO-kW-y9H" id="7HB-Eg-5m0"/>
                         <outlet property="province_city_district" destination="eRm-YD-iXs" id="H9h-DB-U11"/>
+                        <outlet property="region" destination="pw7-eZ-Zsb" id="GBk-ai-7QZ"/>
+                        <outlet property="sound" destination="xr0-A8-YiR" id="tif-s1-EaK"/>
+                        <outlet property="stage_address" destination="QJf-sC-4Mq" id="ZCv-Tt-UeE"/>
+                        <outlet property="stage_area" destination="K8Z-Pg-vUT" id="xYg-Z7-lFO"/>
+                        <outlet property="stage_height" destination="4XT-6h-KaD" id="eil-Ab-T2r"/>
+                        <outlet property="stage_province_city_district" destination="phi-Y2-YJ8" id="1aW-li-5XI"/>
+                        <outlet property="tv_count" destination="E2g-hP-Vuw" id="hWH-d9-KkG"/>
+                        <outlet property="wall" destination="nQX-C9-iWo" id="hdb-TK-bow"/>
+                        <outlet property="wall_type" destination="D14-bg-Mmx" id="e26-WA-l1T"/>
+                        <outlet property="width" destination="fHM-Fw-uiC" id="pVx-wC-JeC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZh-jK-m14" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4134,11 +4157,24 @@
                     <connections>
                         <outlet property="address" destination="f8H-3U-GMM" id="Fvb-Yc-6qe"/>
                         <outlet property="addressee" destination="xvD-Ai-VNc" id="uY2-eE-S5J"/>
+                        <outlet property="blanket_specification" destination="ca7-gS-oqu" id="kU1-jW-CCy"/>
+                        <outlet property="booth_count" destination="AWN-bs-tSe" id="AZZ-Sf-46l"/>
+                        <outlet property="claim" destination="asP-2o-yrB" id="FJZ-6o-347"/>
+                        <outlet property="days" destination="7dI-ae-IJA" id="8WC-jy-nhi"/>
                         <outlet property="email" destination="Day-AM-8u5" id="RY9-n5-OFj"/>
+                        <outlet property="exhibition_name" destination="4fc-gI-yr7" id="DAh-H8-MWz"/>
+                        <outlet property="hall_child" destination="dBE-Hb-bVc" id="o7v-x4-B4l"/>
+                        <outlet property="hall_name" destination="oYB-RI-F3a" id="h86-ji-OzV"/>
                         <outlet property="headerStatusCell" destination="Oei-Ef-Yp7" id="ukT-HV-j4O"/>
+                        <outlet property="info_collect" destination="ben-xs-7oV" id="znE-Jl-pyY"/>
                         <outlet property="m_phone" destination="ptQ-gf-aDy" id="ROB-y3-SRr"/>
+                        <outlet property="numer" destination="gqw-11-VkU" id="bTK-fm-Cgl"/>
                         <outlet property="o_phone" destination="G33-0V-vNK" id="rj9-we-GhJ"/>
+                        <outlet property="order_num" destination="Y2B-7Z-krY" id="Dau-Ji-tx2"/>
+                        <outlet property="organizer" destination="dt4-Qn-axf" id="qcb-yZ-lKr"/>
                         <outlet property="province_city_district" destination="oKq-7d-Le5" id="tqh-49-GlR"/>
+                        <outlet property="scale" destination="g6c-9c-UKb" id="XhV-ec-g9c"/>
+                        <outlet property="time" destination="N4A-wX-IdK" id="6vd-xJ-HhD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8q-sq-33j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5311,11 +5347,33 @@
                     <connections>
                         <outlet property="address" destination="QLe-eB-eQ4" id="OnS-Pj-IBV"/>
                         <outlet property="addressee" destination="sFu-fh-oRP" id="ngx-HL-nAL"/>
+                        <outlet property="art" destination="lpg-0k-6N8" id="dpJ-Io-08F"/>
+                        <outlet property="booth_number" destination="4cZ-dB-b8j" id="fOV-Mc-iZG"/>
+                        <outlet property="ceiling_area" destination="5jE-Cc-436" id="8K9-qI-Ves"/>
+                        <outlet property="claim" destination="uJa-wU-A9P" id="8zY-Yg-4l0"/>
                         <outlet property="email" destination="89W-vW-wKX" id="MFW-kt-JR8"/>
+                        <outlet property="exhibition_name" destination="LKe-EG-NgE" id="iR1-cS-gq5"/>
+                        <outlet property="furniture" destination="Y8f-Q7-SqQ" id="dTV-TO-0vy"/>
+                        <outlet property="ground" destination="buD-3F-8S8" id="i0C-HY-NIb"/>
+                        <outlet property="hall_area" destination="BIS-Va-pdU" id="9Y4-hT-t1s"/>
+                        <outlet property="hall_child" destination="qi4-ye-WnP" id="F6Z-57-8VY"/>
+                        <outlet property="hall_name" destination="StB-xk-YTW" id="zY0-Zj-5yz"/>
                         <outlet property="headerStatusCell" destination="GXj-sr-9kX" id="Puy-km-Ket"/>
+                        <outlet property="high" destination="aMN-AX-b0q" id="LGR-BL-gwH"/>
+                        <outlet property="lamps" destination="cUc-zw-Fhp" id="wrq-nB-5nt"/>
+                        <outlet property="layers" destination="Cwi-kT-846" id="ydL-ed-4iN"/>
+                        <outlet property="led_screen" destination="IDW-CJ-dcR" id="O8M-Rg-7K4"/>
+                        <outlet property="long_label" destination="bCe-MY-JSc" id="oua-QH-ebG"/>
                         <outlet property="m_phone" destination="Qk7-Hb-N6e" id="bAp-Vt-V2p"/>
                         <outlet property="o_phone" destination="Frx-9O-Vbl" id="DPf-AB-0kd"/>
+                        <outlet property="order_num" destination="xRe-ZP-A3f" id="IPW-vU-2Ue"/>
                         <outlet property="province_city_district" destination="Idr-vi-LQj" id="ejW-op-bxe"/>
+                        <outlet property="scalebooth_date" destination="w3X-dv-Hya" id="LGd-UC-0CU"/>
+                        <outlet property="style" destination="J0o-61-r0G" id="UAD-zk-9oh"/>
+                        <outlet property="tv_count" destination="Rlc-vJ-J5O" id="hMe-Rl-7rc"/>
+                        <outlet property="type_label" destination="g3C-Bb-kfU" id="gn2-A0-rux"/>
+                        <outlet property="wall" destination="iVc-GH-NgD" id="Lgy-BX-nbr"/>
+                        <outlet property="width" destination="rZg-P6-NMm" id="qvN-ek-cB3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ai-vr-61l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6443,11 +6501,33 @@
                     <connections>
                         <outlet property="address" destination="Wwe-fa-MtI" id="Pxu-cZ-9xN"/>
                         <outlet property="addressee" destination="bOI-Jo-KHI" id="wIL-YD-w7t"/>
+                        <outlet property="art" destination="He3-VK-bUX" id="kwt-SL-UW0"/>
+                        <outlet property="booth_number" destination="y2J-fW-OS2" id="GqH-5B-u4Q"/>
+                        <outlet property="claim" destination="CoG-tP-TiX" id="sN1-IF-rER"/>
+                        <outlet property="completion_date" destination="Guq-1g-3ae" id="O9z-Bu-EiF"/>
+                        <outlet property="design_unit" destination="lZZ-B4-y2Z" id="4nV-r6-tTb"/>
                         <outlet property="email" destination="j9X-C6-RgX" id="cEu-kK-331"/>
+                        <outlet property="furniture" destination="JzD-Zx-54O" id="wVl-M8-5oq"/>
+                        <outlet property="ground" destination="FrK-F9-bcs" id="ldz-zF-SN8"/>
+                        <outlet property="hall_area" destination="bnH-2s-8ao" id="qIz-4Z-2qT"/>
+                        <outlet property="hall_child" destination="hc2-aT-II9" id="Td2-vo-tvf"/>
+                        <outlet property="hall_name" destination="3nb-gq-eUt" id="2j5-DM-S4c"/>
                         <outlet property="headerStatusCell" destination="lAd-eu-mC9" id="FKc-Cf-fwn"/>
+                        <outlet property="high" destination="WaZ-9F-s1Q" id="iM7-1c-v5f"/>
+                        <outlet property="lamps" destination="50Z-Qi-R4R" id="Lda-zF-z92"/>
+                        <outlet property="layers" destination="hhm-yL-unF" id="rnk-Ly-Qx5"/>
+                        <outlet property="led_screen" destination="PHH-xD-AZj" id="G5W-n1-cg2"/>
+                        <outlet property="long_label" destination="nhp-HG-2kr" id="EzZ-jI-RmY"/>
                         <outlet property="m_phone" destination="ffs-2o-1jd" id="Hxm-aF-k13"/>
+                        <outlet property="name" destination="CaA-Vz-RYJ" id="gbt-rn-5MG"/>
                         <outlet property="o_phone" destination="8xR-i4-0NP" id="YVb-C6-3So"/>
+                        <outlet property="order_num" destination="LRd-X0-Wby" id="Pdf-WL-8Cz"/>
                         <outlet property="province_city_district" destination="XMt-cD-Hwb" id="jkh-zG-eJ4"/>
+                        <outlet property="region" destination="TMn-gW-nvE" id="TbT-7I-uJU"/>
+                        <outlet property="style" destination="hV0-bH-UDa" id="v5f-Lb-aAB"/>
+                        <outlet property="touch_screen" destination="Yt3-M6-oLo" id="JzE-xf-3F8"/>
+                        <outlet property="wall" destination="FYe-cD-Q2Y" id="JOz-R6-nWC"/>
+                        <outlet property="width" destination="mtg-RV-6bi" id="p72-kZ-F3D"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rws-oT-SsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
