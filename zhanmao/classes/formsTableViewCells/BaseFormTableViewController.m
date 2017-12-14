@@ -435,14 +435,16 @@
         
         [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomFormSubmitResultViewController"] animated:YES];
         
-        NSArray* vcs=[self.navigationController viewControllers];
-        NSMutableArray* neVcs=[NSMutableArray array];
-        for (UIViewController* vc in vcs) {
-            if (![vc isKindOfClass:[BaseFormTableViewController class]]) {
-                [neVcs addObject:vc];
-            }
-        }
-        self.navigationController.viewControllers=neVcs;
+//        NSArray* vcs=[self.navigationController viewControllers];
+//        NSMutableArray* neVcs=[NSMutableArray array];
+//        for (UIViewController* vc in vcs) {
+//            if (![vc isKindOfClass:[BaseFormTableViewController class]]) {
+//                [neVcs addObject:vc];
+//            }
+//        }
+//        self.navigationController.viewControllers=neVcs;
+        
+        [self.navigationController removeViewControllersKindOfClass:[BaseFormTableViewController class]];
     } failure:^(NSError *err) {
         NSLog(@"wangluo");
         [MBProgressHUD showErrorMessage:BadNetworkDescription];

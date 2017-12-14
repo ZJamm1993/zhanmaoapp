@@ -42,6 +42,9 @@
 		39CDDEC71FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */; };
 		39CDDECA1FDBB5E20079A49D /* TransportOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */; };
 		39CDDECD1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */; };
+		39FD68BD1FE2183F004996D4 /* UINavigationController+Children.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD68BC1FE2183F004996D4 /* UINavigationController+Children.m */; };
+		39FD68C01FE2239D004996D4 /* MyAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD68BF1FE2239D004996D4 /* MyAboutUsViewController.m */; };
+		39FD68C21FE22575004996D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FD68C11FE22575004996D4 /* Assets.xcassets */; };
 		8E24D1AD1FC5204E00A437A0 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */; };
 		8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E24D1AF1FC5210300A437A0 /* UserModel.m */; };
 		8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E24D1B11FC521E800A437A0 /* hhh.txt */; };
@@ -135,7 +138,6 @@
 		8E99A8CF1F90664D0078C452 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A8CE1F90664D0078C452 /* main.m */; };
 		8E99A8D21F90664D0078C452 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A8D11F90664D0078C452 /* AppDelegate.m */; };
 		8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E99A8D61F90664D0078C452 /* Main.storyboard */; };
-		8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E99A8D91F90664D0078C452 /* Assets.xcassets */; };
 		8E99AA441F9068920078C452 /* ZZPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A92B1F9068910078C452 /* ZZPagerController.m */; };
 		8E99AA451F9068920078C452 /* ZZSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A92D1F9068910078C452 /* ZZSearchBar.m */; };
 		8E99AA461F9068920078C452 /* NSDictionary+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E99A9301F9068910078C452 /* NSDictionary+ext.m */; };
@@ -317,6 +319,11 @@
 		39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportOrderDetailTableViewController.m; sourceTree = "<group>"; };
 		39CDDECB1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailStatusComplexStyleCell.h; sourceTree = "<group>"; };
 		39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailStatusComplexStyleCell.m; sourceTree = "<group>"; };
+		39FD68BB1FE2183F004996D4 /* UINavigationController+Children.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Children.h"; sourceTree = "<group>"; };
+		39FD68BC1FE2183F004996D4 /* UINavigationController+Children.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Children.m"; sourceTree = "<group>"; };
+		39FD68BE1FE2239D004996D4 /* MyAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAboutUsViewController.h; sourceTree = "<group>"; };
+		39FD68BF1FE2239D004996D4 /* MyAboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAboutUsViewController.m; sourceTree = "<group>"; };
+		39FD68C11FE22575004996D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E24D1AB1FC5204E00A437A0 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		8E24D1AE1FC5210300A437A0 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
@@ -476,7 +483,6 @@
 		8E99A8D01F90664D0078C452 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E99A8D11F90664D0078C452 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		8E99A8D71F90664D0078C452 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8E99A8D91F90664D0078C452 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E99A8DE1F90664D0078C452 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E99A92A1F9068910078C452 /* ZZPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPagerController.h; sourceTree = "<group>"; };
 		8E99A92B1F9068910078C452 /* ZZPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPagerController.m; sourceTree = "<group>"; };
@@ -743,6 +749,8 @@
 				3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */,
 				3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */,
 				3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */,
+				39FD68BE1FE2239D004996D4 /* MyAboutUsViewController.h */,
+				39FD68BF1FE2239D004996D4 /* MyAboutUsViewController.m */,
 			);
 			name = mypersonal;
 			sourceTree = "<group>";
@@ -1045,9 +1053,9 @@
 			children = (
 				8E31F4621FC7B4F100373437 /* LaunchScreen.storyboard */,
 				8E99AABE1F9069700078C452 /* PrefixHeader.pch */,
-				8E99A8D91F90664D0078C452 /* Assets.xcassets */,
 				8E99A8D61F90664D0078C452 /* Main.storyboard */,
 				8E99A8D01F90664D0078C452 /* AppDelegate.h */,
+				39FD68C11FE22575004996D4 /* Assets.xcassets */,
 				8E99A8D11F90664D0078C452 /* AppDelegate.m */,
 				8E99A8DE1F90664D0078C452 /* Info.plist */,
 				8E99A8E41F9068910078C452 /* classes */,
@@ -1157,6 +1165,8 @@
 				8E99A9381F9068910078C452 /* UIView+ext.m */,
 				8E9B0CC41FA9680200770F8D /* UITableView+Ext.h */,
 				8E9B0CC51FA9680200770F8D /* UITableView+Ext.m */,
+				39FD68BB1FE2183F004996D4 /* UINavigationController+Children.h */,
+				39FD68BC1FE2183F004996D4 /* UINavigationController+Children.m */,
 			);
 			path = ext;
 			sourceTree = "<group>";
@@ -1567,6 +1577,7 @@
 				8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */,
 				8E31F49A1FC9011300373437 /* README.txt in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
+				39FD68C21FE22575004996D4 /* Assets.xcassets in Resources */,
 				8EF7E6C71FBE7B15003C6FB4 /* 2.txt in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				398513951FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib in Resources */,
@@ -1581,7 +1592,6 @@
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
 				3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */,
 				8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */,
-				8E99A8DA1F90664D0078C452 /* Assets.xcassets in Resources */,
 				394A24431FDF744B0041D185 /* MyCustomOrder.storyboard in Resources */,
 				39CDDEC41FDB8F390079A49D /* MyOrder.storyboard in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
@@ -1658,6 +1668,7 @@
 				8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */,
 				8EDBF4E41FA1B47C0073F37D /* TransportOrderTableViewCell.m in Sources */,
 				8E99AAB11F9068920078C452 /* UIImage+MultiFormat.m in Sources */,
+				39FD68BD1FE2183F004996D4 /* UINavigationController+Children.m in Sources */,
 				8E6C741D1F9DF0E2004B33D1 /* OnlineRentTableViewController.m in Sources */,
 				8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */,
 				3973B1611FD8EBF700106C05 /* ExhibitionDetailViewController.m in Sources */,
@@ -1715,6 +1726,7 @@
 				8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */,
 				8E99AAA51F9068920078C452 /* NSData+ImageContentType.m in Sources */,
 				8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */,
+				39FD68C01FE2239D004996D4 /* MyAboutUsViewController.m in Sources */,
 				8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */,
 				8E9B0CB91FA9614800770F8D /* MyAddressesTableViewController.m in Sources */,
 				8E99AAAE1F9068920078C452 /* SDWebImagePrefetcher.m in Sources */,

@@ -71,9 +71,16 @@
     
     NSInteger resultStatus=[[result valueForKey:@"resultStatus"]integerValue];
 
-    BOOL succ=resultStatus==9000;
+    NSInteger resul=PayResultTypeFailure;
+    if (resultStatus==9000) {
+        resul=PayResultTypeSuccess;
+    }
+    else if(resultStatus==8000)
+    {
+        resul=PayResultTypeUnknown;
+    }
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:ZZPayToolReceviedPayResultNotification object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:succ] forKey:@"result"]];
+    [[NSNotificationCenter defaultCenter]postNotificationName:ZZPayToolReceviedPayResultNotification object:nil userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:resul] forKey:@"result"]];
 }
 
 @end

@@ -289,4 +289,20 @@
     }];
 }
 
++(void)getStandardConfigCache:(BOOL)cache success:(void (^)(NSDictionary *))success
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Portal/Index/getconfig"];
+    
+    [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
+        NSDictionary* data=[dict valueForKey:@"data"];
+        if (success) {
+            success(data);
+        }
+    } failure:^(NSError *err) {
+        if (success) {
+            success(nil);
+        }
+    }];
+}
+
 @end

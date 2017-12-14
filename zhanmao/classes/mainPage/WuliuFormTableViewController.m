@@ -79,15 +79,15 @@
     for (BaseFormModel* model in allModels) {
         if([model.field isEqualToString:@"professor"])
         {
-            professor=model.value.floatValue;
+            professor=model.value.floatValue*300;
         }
         else if([model.field isEqualToString:@"volume"])
         {
-            volume=model.value.floatValue;
+            volume=model.value.floatValue*350;
         }
     }
     
-    _totalFeeView.feeLabe.text=[NSString stringWithFloat:professor+volume headUnit:@"¥" tailUnit:nil];
+    _totalFeeView.feeLabe.text=[NSString stringWithFloat:professor>volume?professor:volume headUnit:@"¥" tailUnit:nil];
 }
 
 -(void)orderSubmit

@@ -24,6 +24,7 @@
 #import "NSString+ext.h"
 #import "UIImage+ext.h"
 #import "UITableView+Ext.h"
+#import "UINavigationController+Children.h"
 
 #import "NaviController.h"
 

@@ -13,6 +13,10 @@
 #import "MyPageHelpHeaderCell.h"
 
 @interface MyHelpCenterTableViewController ()
+{
+    NSString* consumer_phone;
+    NSString* consumer_qq;
+}
 
 @end
 
@@ -39,6 +43,14 @@
         }
     } failure:^(NSError *error) {
         
+    }];
+    
+    [MyPageHttpTool getStandardConfigCache:NO success:^(NSDictionary *config) {
+        if (config) {
+            consumer_phone=[config valueForKey:@"consumer_phone"];
+            consumer_qq=[config valueForKey:@"consumer_qq"];
+            [self.tableView reloadData];
+        }
     }];
 }
 
@@ -88,8 +100,8 @@
         
         //test
         
-        cell.detailLeft.text=@"13640662115";
-        cell.detailRight.text=@"978032855";
+        cell.detailLeft.text=consumer_phone;
+        cell.detailRight.text=consumer_qq;
         
         [cell.buttonLeft setTitle:cell.detailLeft.text forState:UIControlStateSelected];
         [cell.buttonRight setTitle:cell.detailRight.text forState:UIControlStateSelected];

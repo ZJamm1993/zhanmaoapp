@@ -11,6 +11,10 @@
 #import "MyPageCellModel.h"
 #import "PayOrderTableViewCell.h"
 #import "ZZPayTool.h"
+#import "OrderTypeDataSource.h"
+#import "PayResultViewController.h"
+#import "RentOrderDetailTableViewController.h"
+#import "CleanOrderDetailTableViewController.h"
 
 @interface PayOrderTableViewController ()
 {
@@ -52,6 +56,8 @@
     
     [self.dataSource addObject:m_alipay];
     [self.tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receivePayResultNotification:) name:ZZPayToolReceviedPayResultNotification object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -150,11 +156,62 @@
 
 -(void)receivePayResultNotification:(NSNotification*)noti
 {
+    [MBProgressHUD showProgressMessage:@"正在确认支付结果"];
     NSDictionary* userinfo=[noti userInfo];
-    BOOL succ=[[userinfo valueForKey:@"result"]boolValue];
+    PayResultType payResul=[[userinfo valueForKey:@"result"]integerValue];
     
-    if (succ) {
+    if (payResul==PayResultTypeSuccess) {
+        if(self.orderType==PayOrderTypeRent)
+        {
+            [OrderTypeDataSource getMyRentOrderDetailById:self.orderModel.idd token:[UserModel token] success:^(RentOrderModel *model) {
+                [self handleOrderModel:model];
+            }];
+        }
+        else if(self.orderType==PayOrderTypeClean)
+        {
+            [OrderTypeDataSource getMyCleanOrderDetailById:self.orderModel.idd token:[UserModel token] success:^(CleanOrderModel *model) {
+                [self handleOrderModel:model];
+            }];
+        }
+    }
+    else if(payResul==PayResultTypeFailure)
+    {
+        [MBProgressHUD showErrorMessage:@"支付失败"];
+    }
+    else
+    {
+        [MBProgressHUD showErrorMessage:@"支付处理中，请稍后从我的订单查看结果"];
+    }
+}
+
+-(void)handleOrderModel:(OrderTypeBaseModel*)model
+{
+    [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:model];
+    
+    if(model.pay_status==PayStatusSuccess)
+    {
+        [MBProgressHUD showSuccessMessage:@"支付成功"];
         
+        PayResultViewController* resController=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayResultViewController"];
+        resController.payResultType=PayResultTypeSuccess;
+        
+        if (self.type==PayOrderTypeRent) {
+            RentOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderDetailTableViewController"];
+            rentDetail.rentModel=(RentOrderModel*)model;
+            resController.orderDetailController=rentDetail;
+        }
+        else if(self.type==PayOrderTypeClean)
+        {
+            CleanOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"CleanOrderDetailTableViewController"];
+            rentDetail.cleanModel=(CleanOrderModel*)model;
+            resController.orderDetailController=rentDetail;
+        }
+        [self.navigationController pushViewController:resController animated:YES];
+        [self.navigationController removeViewController:self];
+    }
+    else
+    {
+        [MBProgressHUD showErrorMessage:@"支付结果未知，请稍后从我的订单查看"];
     }
 }
 

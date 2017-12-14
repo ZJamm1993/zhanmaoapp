@@ -103,7 +103,7 @@
         [OrderTypeDataSource postMyRentOrderCancelById:self.rentModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
             if (result) {
                 [MBProgressHUD showSuccessMessage:msg];
-                self.rentModel.order_status=RentOrderStatusDeleted;
+                self.rentModel.order_status=-1;
 //#warning 租赁订单哪种取消状态？
                 [self reloadWithOrder];
                 

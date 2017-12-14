@@ -87,18 +87,18 @@
         return @"待发货";
     }
     else
-        if (type==RentOrderStatusSent) {
+        if (type==RentOrderStatusNotReceived) {
         return @"待收货";
     }
-//    else if (type==RentOrderStatusReceived) {
-//        return @"待归还";
-//    }
-//    else if (type==RentOrderStatusNotReturn) {
-//        return @"待归还";
-//    }
-//    else if (type==RentOrderStatusReturned) {
-//        return @"已归还";
-//    }
+    else if (type==RentOrderStatusNotReturn) {
+        return @"待归还";
+    }
+    else if (type==RentOrderStatusReturning) {
+        return @"已回收";
+    }
+    else if (type==RentOrderStatusFinishing||type==RentOrderStatusFinished) {
+        return @"已完成";
+    }
     return @"";
 }
 //
@@ -108,18 +108,18 @@
     if (type==RentOrderStatusNotSent) {
         buttonTitle=@"确认收货";
     }
-    else if (type==RentOrderStatusSent) {
+    else if (type==RentOrderStatusNotReceived) {
         buttonTitle=@"确认收货";
     }
-//    else if (type==RentOrderStatusReceived) {
-//        buttonTitle=@"归还";
-//    }
-//    else if (type==RentOrderStatusNotReturn) {
-//        buttonTitle=@"归还";
-//    }
-//    else if (type==RentOrderStatusReturned) {
-//        buttonTitle=@"已完成";
-//    }
+    else if (type==RentOrderStatusNotReturn) {
+        buttonTitle=@"待归还";
+    }
+    else if (type==RentOrderStatusReturning) {
+        buttonTitle=@"归还中";
+    }
+    else if (type==RentOrderStatusFinishing||type==RentOrderStatusFinished) {
+        buttonTitle=@"已完成";
+    }
     return buttonTitle;
 }
 
@@ -128,18 +128,18 @@
     if (type==RentOrderStatusNotSent) {
         return @"等待收货";
     }
-    else if (type==RentOrderStatusSent) {
+    else if (type==RentOrderStatusNotReceived) {
         return @"等待收货";
     }
-//    else if (type==RentOrderStatusReceived) {
-//        return @"商品等待归还中";
-//    }
-//    else if (type==RentOrderStatusNotReturn) {
-//        return @"商品等待归还中";
-//    }
-//    else if (type==RentOrderStatusReturned) {
-//        return @"订单已完成";
-//    }
+    else if (type==RentOrderStatusNotReturn) {
+        return @"商品等待归还";
+    }
+    else if (type==RentOrderStatusReturning) {
+        return @"商品归还中";
+    }
+    else if (type==RentOrderStatusFinishing||type==RentOrderStatusFinished) {
+        return @"订单已完成";
+    }
     return @"";
 }
 //
@@ -148,15 +148,19 @@
     if (type==RentOrderStatusNotSent) {
         return @"订单已处理，请耐心等待";
     }
-    else if (type==RentOrderStatusSent) {
+    else if (type==RentOrderStatusNotReceived) {
         return @"订单已处理，请耐心等待";
     }
-//    else if (type==RentOrderStatusNotReturn) {
-//        return @"我们将安排工作人员上门回收租赁商品";
-//    }
-//    else if (type==RentOrderStatusReturned) {
-//        return @"押金会在一周内原路返回，请注意查收";
-//    }
+    else if (type==RentOrderStatusNotReturn||type==RentOrderStatusReturning) {
+        return @"我们将安排工作人员上门回收租赁商品";
+    }
+    else if (type==RentOrderStatusFinishing) {
+        return @"押金会在一周内原路返回，请注意查收";
+    }
+    else if(type==RentOrderStatusFinished)
+    {
+        return @"押金已原路退回，请注意查收";
+    }
     return @"";
 }
 

@@ -36,6 +36,8 @@
     
     UserModel* myUser;
     BOOL askedToPerfectInfo;
+    
+    NSString* consumer_phone;
 }
 @end
 
@@ -54,24 +56,29 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MyPageSimpleTableViewCell" bundle:nil] forCellReuseIdentifier:@"MyPageSimpleTableViewCell"];
     
-    cellModelsArray=[NSArray arrayWithObjects:
-            [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@""], nil],
-            [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"地址管理" image:@"myAddress" detail:@"" identifier:@"MyAddressesTableViewController"],
-             [MyPageCellModel modelWithTitle:@"个人资料" image:@"myInfo" detail:@"" identifier:@"MyPersonalInfoViewController"], nil],
-//            [NSArray arrayWithObjects:
-//             [MyPageCellModel modelWithTitle:@"申请发票" image:@"myInvoice" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
-            [NSArray arrayWithObjects:
-             [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@"MyHelpCenterTableViewController"],
-             [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@"MyFeedBackTableViewController"],
-             [MyPageCellModel modelWithTitle:@"租赁协议" image:@"myProtocal" detail:@"" identifier:@"pro"],
-             [MyPageCellModel modelWithTitle:@"客服电话" image:@"myService" detail:@"136-4066-2115" identifier:@"tel"], nil],
-            nil];
-    
+    [self refreshCellsModel];
+    [self refresh];
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(userInfoDidUpdateNotification:) name:UserInfoDidUpdateNotification object:nil];
 //    [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top)];
     // Do any additional setup after loading the view.
+}
+
+-(void)refreshCellsModel
+{
+    cellModelsArray=[NSArray arrayWithObjects:
+                     [NSArray arrayWithObjects:
+                      [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@""], nil],
+                     [NSArray arrayWithObjects:
+                      [MyPageCellModel modelWithTitle:@"地址管理" image:@"myAddress" detail:@"" identifier:@"MyAddressesTableViewController"],
+                      [MyPageCellModel modelWithTitle:@"个人资料" image:@"myInfo" detail:@"" identifier:@"MyPersonalInfoViewController"], nil],
+                     //            [NSArray arrayWithObjects:
+                     //             [MyPageCellModel modelWithTitle:@"申请发票" image:@"myInvoice" detail:@"" identifier:@"MyInvoicePagerViewController"],nil],
+                     [NSArray arrayWithObjects:
+                      [MyPageCellModel modelWithTitle:@"帮助中心" image:@"myHelp" detail:@"" identifier:@"MyHelpCenterTableViewController"],
+                      [MyPageCellModel modelWithTitle:@"意见反馈" image:@"myAdvice" detail:@"" identifier:@"MyFeedBackTableViewController"],
+                      [MyPageCellModel modelWithTitle:@"租赁协议" image:@"myProtocal" detail:@"" identifier:@"pro"],
+                      [MyPageCellModel modelWithTitle:@"客服电话" image:@"myService" detail:consumer_phone identifier:@"tel"], nil],
+                     nil];
 }
 
 -(void)updateUserInfo
@@ -116,6 +123,14 @@
     {
         [self.refreshControl endRefreshing];
     }
+    
+    [MyPageHttpTool getStandardConfigCache:NO success:^(NSDictionary *config) {
+        if (config) {
+            consumer_phone=[config valueForKey:@"consumer_phone"];
+            [self refreshCellsModel];
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle

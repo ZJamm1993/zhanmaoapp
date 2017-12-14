@@ -43,4 +43,6 @@
 
 +(void)getHelpCenterListPage:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
++(void)getStandardConfigCache:(BOOL)cache success:(void(^)(NSDictionary* config))success;
+
 @end

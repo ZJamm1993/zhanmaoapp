@@ -49,7 +49,7 @@
                       [MyPageCellModel modelWithTitle:@"清空缓存" image:@"set_clean" detail:cacheStr identifier:@"clean"],nil],
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"去评价" image:@"set_gojudge" detail:@"" identifier:@""],
-                      [MyPageCellModel modelWithTitle:@"关于" image:@"set_about" detail:@"" identifier:@""],nil],
+                      [MyPageCellModel modelWithTitle:@"关于" image:@"set_about" detail:@"" identifier:@"MyAboutUsViewController"],nil],
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@"logout"],nil],
                      nil];
@@ -128,6 +128,12 @@
     else if([mo.identifier isEqualToString:@"logout"])
     {
         [self logOut];
+    }
+    else
+    {
+        if (mo.identifier.length>0) {
+            [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:mo.identifier] animated:YES];
+        }
     }
 }
 

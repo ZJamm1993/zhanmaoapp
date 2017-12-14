@@ -53,6 +53,9 @@
 }
 
 - (IBAction)checkOrder:(id)sender {
+    if (self.orderDetailController) {
+        [self.navigationController pushViewController:self.orderDetailController animated:YES];
+    }
 }
 
 @end

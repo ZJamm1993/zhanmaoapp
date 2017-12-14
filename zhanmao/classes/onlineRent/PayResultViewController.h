@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "ZZPayTool.h"
 
 @interface PayResultViewController : BaseViewController
+
+@property (nonatomic,assign) NSInteger payResultType;
+@property (nonatomic,strong) UIViewController* orderDetailController;
 
 @end

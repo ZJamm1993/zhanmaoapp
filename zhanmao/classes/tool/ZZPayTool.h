@@ -10,6 +10,13 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 
+typedef NS_ENUM(NSInteger,PayResultType)
+{
+    PayResultTypeUnknown,
+    PayResultTypeSuccess,
+    PayResultTypeFailure,
+};
+
 //#define AlipayDidPaySuccessNotification @"AlipayDidPaySuccessNotification"
 //#define WechatpayDidPaySuccessNotification @"WechatpayDidPaySuccessNotification"
 //#define UnionpayDidPaySuccessNotification @"UnionpayDidPaySuccessNotification"
