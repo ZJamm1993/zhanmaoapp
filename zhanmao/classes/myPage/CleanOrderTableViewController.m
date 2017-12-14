@@ -22,6 +22,27 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    for (CleanOrderModel* mo in self.dataSource) {
+        if ([mo isMemberOfClass:[orderModel class]]) {
+            if ([mo.idd isEqualToString:orderModel.idd]) {
+                
+                NSInteger row=[self.dataSource indexOfObject:mo];
+                [self.dataSource removeObject:mo];
+                [self.dataSource insertObject:orderModel atIndex:row];
+                
+                if (orderModel.order_status==CleanOrderStatusCanceled) {
+                    [self.dataSource removeObjectAtIndex:row];
+                    [self.tableView reloadData];
+                    return;
+                }
+                [self.tableView reloadData];
+            }
+        }
+    }
+}
+
 -(void)refresh
 {
     [OrderTypeDataSource getMyCleanOrderByType:self.type token:[UserModel token] page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
@@ -68,12 +89,16 @@
     cell.title.text=mo.addr;
     cell.baseFee.text=[NSString stringWithFloat:mo.cost headUnit:@"¥" tailUnit:nil];
     cell.otherFee.text=[NSString stringWithFloat:mo.other_cost headUnit:@"¥" tailUnit:nil];
-    cell.totalFee.text=[NSString stringWithFloat:mo.total_cost headUnit:@"¥" tailUnit:nil];
+    cell.totalFee.text=[NSString stringWithFloat:mo.amount headUnit:@"¥" tailUnit:nil];
     
-    cell.blueButton.hidden=(mo.order_status!=CleanOrderStatusNotPaid);
+    cell.blueButton.hidden=(mo.pay_status!=PayStatusNotYet);
     cell.grayButton.hidden=!cell.blueButton.hidden;
     
     NSString* buttonTitle=[CleanOrderModel cellButtonTitleForType:mo.order_status];
+    if (mo.pay_status==PayStatusNotYet) {
+        buttonTitle=@"立即付款";
+        cell.stateTitle.text=@"待付款";
+    }
     [cell.blueButton setTitle:buttonTitle forState:UIControlStateNormal];
     [cell.grayButton setTitle:buttonTitle forState:UIControlStateNormal];
     
@@ -97,7 +122,7 @@
 {
     NSInteger tag=btn.tag;
     CleanOrderModel* mo=[self.dataSource objectAtIndex:tag];
-    if (mo.pay_status==PayStatusNotYet&&mo.order_status==CleanOrderStatusNotPaid) {
+    if (mo.pay_status==PayStatusNotYet) {
         NSLog(@"pay clean: %@",mo);
     }
 }

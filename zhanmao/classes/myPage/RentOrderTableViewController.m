@@ -31,10 +31,13 @@
     for (RentOrderModel* mo in self.dataSource) {
         if ([mo isMemberOfClass:[orderModel class]]) {
             if ([mo.idd isEqualToString:orderModel.idd]) {
-                mo.order_status=orderModel.order_status;
-                mo.pay_status=orderModel.pay_status;
+                
+                NSInteger row=[self.dataSource indexOfObject:mo];
+                [self.dataSource removeObject:mo];
+                [self.dataSource insertObject:orderModel atIndex:row];
+                
                 if (orderModel.order_status==RentOrderStatusUnknown) {
-                    [self.dataSource removeObject:mo];
+                    [self.dataSource removeObjectAtIndex:row];
                     [self.tableView reloadData];
                     return;
                 }

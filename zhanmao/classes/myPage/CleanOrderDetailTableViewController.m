@@ -13,14 +13,27 @@
 #import "OrderDetailSimpleLeftLabelCell.h"
 #import "CleanOrderTableViewCell.h"
 
-@interface CleanOrderDetailTableViewController ()
+#import "TotalFeeView.h"
 
+@interface CleanOrderDetailTableViewController ()
+{
+    TotalFeeView* _totalFeeView;
+}
 @end
 
 @implementation CleanOrderDetailTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.bottomButton removeFromSuperview];
+    _totalFeeView=[[[UINib nibWithNibName:@"TotalFeeView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
+    CGRect fr=self.bottomToolBar.bounds;
+    fr.size.height=64;
+    _totalFeeView.frame=fr;
+    _totalFeeView.title.text=@"总计：";
+    [_totalFeeView.submitButton addTarget:self action:@selector(doAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.bottomToolBar addSubview:_totalFeeView];
     
     [self refresh];
     // Do any additional setup after loading the view.
@@ -41,12 +54,31 @@
     if (self.cleanModel.pay_status==PayStatusNotYet) {
         UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
         self.navigationItem.rightBarButtonItem=cancelItem;
+        _totalFeeView.title.text=@"需付款：";
     }
     else
     {
         self.navigationItem.rightBarButtonItem=nil;
+        _totalFeeView.title.text=@"总计：";
     }
-    [self.tableView reloadData];
+    
+    NSString* buttonString=[RentOrderModel cellButtonTitleForType:self.cleanModel.order_status];
+    if (self.cleanModel.pay_status==PayStatusNotYet) {
+        buttonString=@"立即付款";
+    }
+    else
+    {
+        self.bottomToolBar.hidden=YES;
+    }
+    
+    [_totalFeeView.submitButton setTitle:buttonString forState:UIControlStateNormal];
+    [_totalFeeView.grayButton setTitle:buttonString forState:UIControlStateNormal];
+    
+//    _totalFeeView.submitButton.hidden=!(self.cleanModel.order_status<=CleanOrderStatusNotClean);
+//    _totalFeeView.grayButton.hidden=!_totalFeeView.submitButton.hidden;
+    
+    _totalFeeView.feeLabe.text=[NSString stringWithFloat:self.cleanModel.amount headUnit:@"¥" tailUnit:nil];
+    
     // do get method
 }
 
@@ -97,6 +129,29 @@
             
             statusCell.title.text=[CleanOrderModel detailHeaderTitleForType:self.cleanModel.order_status];
             statusCell.detail.text=[CleanOrderModel detailHeaderDescritionForType:self.cleanModel.order_status];
+            
+            
+            if (self.cleanModel.pay_status==PayStatusNotYet) {
+                
+                statusCell.title.text=@"等待付款";
+                
+                NSString* detailString=@"%@后自动取消订单";
+                CGFloat expir=self.cleanModel.expiration;
+                CGFloat current=[[NSDate date]timeIntervalSince1970];
+                CGFloat seconds=expir-current;
+                if (seconds<0) {
+                    seconds=0;
+                }
+                NSInteger mins=((int)seconds)/60;
+                NSInteger secs=((int)seconds)%60;
+                NSString* countDownTime=[NSString stringWithFormat:@"%ld分%ld秒",(long)mins,(long)secs];
+                
+                if ([detailString containsString:@"%@"]) {
+                    detailString=[NSString stringWithFormat:detailString,countDownTime];
+                }
+                statusCell.detail.text=detailString;
+            }
+            
             return statusCell;
         }
         else if(row==1)
@@ -116,24 +171,40 @@
         
         if (row==totalRowOfSection-1) {
             OrderDetailSimpleLeftLabelCell* longDetailCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-            longDetailCell.label.text=@"?";
+            NSString* detailString=@"";
+            detailString=[NSString stringWithFormat:@"%@%@%@",detailString,@"套餐面积：",[NSString stringWithFloat:self.cleanModel.professor headUnit:nil tailUnit:UnitStringSquareMeter]];
+            detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"额外套餐面积：",[NSString stringWithFloat:self.cleanModel.other headUnit:nil tailUnit:UnitStringSquareMeter]];
+            if (self.cleanModel.number.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"订单编号：",self.cleanModel.number];
+            }
+            if (self.cleanModel.post_modified.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"下单时间：",self.cleanModel.post_modified];
+            }
+            
+            if (self.cleanModel.date.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"服务时间：",self.cleanModel.date];
+            }
+            longDetailCell.label.text=detailString;
             return longDetailCell;
         }
-//        else if ((isPaid&&row==totalRowOfSection-2)) {
-//            OrderDetailSimpleLeftLabelCell* payMethodCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-//            payMethodCell.label.text=@"支付方式：paypal";
-//            return payMethodCell;
-//        }
         else
         {
             CleanOrderTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"CleanOrderTableViewCell" forIndexPath:indexPath];
-            cell.title.text=@"?";
+            cell.title.text=self.cleanModel.addr;
+            cell.baseFee.text=[NSString stringWithFloat:self.cleanModel.cost headUnit:@"¥" tailUnit:nil];
+            cell.otherFee.text=[NSString stringWithFloat:self.cleanModel.other headUnit:@"¥" tailUnit:nil];
+            cell.totalFee.text=[NSString stringWithFloat:self.cleanModel.amount headUnit:@"¥" tailUnit:nil];
             return cell;
         }
     }
     return [[UITableViewCell alloc]init];
     
 #warning not finish clean order detail
+}
+
+-(void)doAction
+{
+    
 }
 
 @end

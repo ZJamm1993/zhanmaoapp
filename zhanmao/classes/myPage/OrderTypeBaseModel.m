@@ -155,7 +155,7 @@
         return @"我们将安排工作人员上门回收租赁商品";
     }
     else if (type==RentOrderStatusFinishing) {
-        return @"押金会在一周内原路返回，请注意查收";
+        return @"押金已原路退回，请注意查收";//押金会在一周内原路返回，请注意查收";
     }
     else if(type==RentOrderStatusFinished)
     {
@@ -278,11 +278,11 @@
 
 +(NSString*)cellStateForType:(NSInteger)type
 {
-    if(type==CleanOrderStatusNotPaid)
+    if(type==CleanOrderStatusNotClean)
     {
-        return @"待付款";
+        return @"已付款";
     }
-    else if(type==CleanOrderStatusProceeding)
+    else if(type==CleanOrderStatusCleaned)
     {
         return @"已付款";
     }
@@ -295,11 +295,35 @@
 
 +(NSString*)cellButtonTitleForType:(NSInteger)type
 {
-    if(type==CleanOrderStatusNotPaid)
-    {
-        return @"立即付款";
-    }
+//    if(type==CleanOrderStatusNotPaid)
+//    {
+//        return @"立即付款";
+//    }
     return @"查看详情";
+}
+
++(NSString*)detailHeaderTitleForType:(NSInteger)type
+{
+    if (type==CleanOrderStatusNotClean) {
+        return @"订单已付款";
+    }
+    else if(type==CleanOrderStatusCleaned||type==CleanOrderStatusFinished)
+    {
+        return @"订单已完成";
+    }
+    return @"";
+}
+
++(NSString*)detailHeaderDescritionForType:(NSInteger)type
+{
+    if (type==CleanOrderStatusNotClean) {
+        return @"您的订单付款成功";
+    }
+    else if(type==CleanOrderStatusCleaned||type==CleanOrderStatusFinished)
+    {
+        return @"您的订单已经完成";
+    }
+    return @"";
 }
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
@@ -311,12 +335,17 @@
         
         _cost=[[dictionary valueForKey:@"cost"]floatValue];
         _other_cost=[[dictionary valueForKey:@"other_cost"]floatValue];
-        _total_cost=[[dictionary valueForKey:@"total_cost"]floatValue];
+        
+        self.order_status=[[dictionary valueForKey:@"status"]integerValue];
         
         _addressee=[dictionary valueForKey:@"addressee"];
         _m_phone=[dictionary valueForKey:@"m_phone"];
         _date=[dictionary valueForKey:@"date"];
         _addr=[dictionary valueForKey:@"addr"];
+        
+        //the "pay uses the same dictionary
+        self.pay=[[PayOrderModel alloc]initWithDictionary:dictionary];
+    
     }
     return self;
 }

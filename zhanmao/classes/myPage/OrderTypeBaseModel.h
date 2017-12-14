@@ -62,9 +62,10 @@ typedef NS_ENUM(NSInteger,CleanOrderType)
 
 typedef NS_ENUM(NSInteger,CleanOrderStatus)
 {
-    CleanOrderStatusNotPaid,
-    CleanOrderStatusProceeding,
-    CleanOrderStatusFinished,
+    CleanOrderStatusNotClean=0,
+    CleanOrderStatusCleaned=1,
+    CleanOrderStatusCanceled=5,
+    CleanOrderStatusFinished=6,
 };
 
 typedef NS_ENUM(NSInteger,CustomOrderType)
@@ -110,7 +111,7 @@ typedef NS_ENUM(NSInteger,CustomOrderStatus)
 //@property (nonatomic,assign) NSInteger status;
 
 @property (nonatomic,assign) NSInteger pay_status;
-@property (nonatomic,assign) NSInteger order_status;
+@property (nonatomic,assign) NSInteger order_status; //some key is "status"
 
 @property (nonatomic,assign) CGFloat amount;
 @property (nonatomic,assign) CGFloat expiration;
@@ -165,7 +166,6 @@ typedef NS_ENUM(NSInteger,CustomOrderStatus)
 
 @property (nonatomic,assign) CGFloat cost;
 @property (nonatomic,assign) CGFloat other_cost;
-@property (nonatomic,assign) CGFloat total_cost;
 
 @property (nonatomic,assign) CGFloat professor;
 @property (nonatomic,assign) CGFloat other;
@@ -174,6 +174,9 @@ typedef NS_ENUM(NSInteger,CustomOrderStatus)
 @property (nonatomic,strong) NSString* m_phone;
 @property (nonatomic,strong) NSString* date;
 @property (nonatomic,strong) NSString* addr;
+
+@property (nonatomic,strong) PayOrderModel* pay;
+
 
 @end
 
