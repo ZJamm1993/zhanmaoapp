@@ -56,6 +56,8 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.refreshControl.tintColor=[UIColor whiteColor];
     self.navigationItem.title=@"展贸在线";
     self.tabBarItem.title=@"主页";
     

@@ -211,7 +211,7 @@
     }
     else
     {
-        [MBProgressHUD showErrorMessage:@"支付结果未知，请稍后从我的订单查看"];
+        [MBProgressHUD showErrorMessage:@"支付失败，请稍后再试"];
     }
 }
 

@@ -122,7 +122,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
                     CGFloat thisDepo=car.product.deposit;
                     
                     CGFloat thisTotalRent=thisRent*car.count*cycles;
-                    CGFloat thisTotalDepo=thisDepo*car.count;
+                    CGFloat thisTotalDepo=thisDepo*car.count; //未知押金算法
+#warning unknow deposit calculation;
                     
                     allRents=allRents+thisTotalRent;
                     allDepos=allDepos+thisTotalDepo;

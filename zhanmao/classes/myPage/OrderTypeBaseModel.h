@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger,RentOrderType)
 
 typedef NS_ENUM(NSInteger,RentOrderStatus)
 {
+    RentOrderStatusUnknown=-1,
     RentOrderStatusNotSent=0,
     RentOrderStatusNotReceived=1,
     RentOrderStatusNotReturn=3,

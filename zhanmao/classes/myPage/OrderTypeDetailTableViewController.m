@@ -20,6 +20,8 @@
     [super viewDidLoad];
     timer=[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(countingDown) userInfo:nil repeats:YES];
     [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(orderTypeChangedNotification:) name:OrderTypeStatusChangedNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +37,18 @@
 -(void)countingDown
 {
     
+}
+
+-(void)orderTypeChangedNotification:(NSNotification*)noti
+{
+    NSDictionary* us=noti.userInfo;
+    OrderTypeBaseModel* model=[us valueForKey:@"order"];
+    [self orderStatusChanged:model];
+}
+
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    NSLog(@"order status changed: %@",orderModel);
 }
 
 @end

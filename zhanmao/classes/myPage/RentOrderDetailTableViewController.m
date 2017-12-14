@@ -84,7 +84,7 @@
     [_totalFeeView.submitButton setTitle:buttonString forState:UIControlStateNormal];
     [_totalFeeView.grayButton setTitle:buttonString forState:UIControlStateNormal];
     
-    _totalFeeView.submitButton.hidden=!(self.rentModel.order_status<=RentOrderStatusNotReturn);
+    _totalFeeView.submitButton.hidden=!(self.rentModel.order_status<=RentOrderStatusNotReceived);
     _totalFeeView.grayButton.hidden=!_totalFeeView.submitButton.hidden;
     
     _totalFeeView.feeLabe.text=[NSString stringWithFloat:self.rentModel.amount headUnit:@"¥" tailUnit:nil];
@@ -97,17 +97,19 @@
     NSLog(@"cancel order");
     UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要取消订单吗？" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         //do cancel actioin
         [MBProgressHUD showProgressMessage:@"正在取消"];
         [OrderTypeDataSource postMyRentOrderCancelById:self.rentModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
             if (result) {
                 [MBProgressHUD showSuccessMessage:msg];
-                self.rentModel.order_status=-1;
+                self.rentModel.order_status=RentOrderStatusUnknown;
 //#warning 租赁订单哪种取消状态？
                 [self reloadWithOrder];
                 
                 [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.rentModel];
+                
+                [self.navigationController popViewControllerAnimated:YES];
             }
             else
             {
@@ -187,7 +189,7 @@
         else if(row==2)
         {
             OrderDetailSimpleLeftLabelCell* emergCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-            emergCell.label.text=[NSString stringWithFormat:@"%@%@",@"紧急联系人：",self.rentModel.emergency_phone?:@""];;
+            emergCell.label.text=[NSString stringWithFormat:@"%@%@",@"紧急联系人：",self.rentModel.emergency_phone?:@"无"];;
             return emergCell;
         }
     }
@@ -254,6 +256,10 @@
         pay.orderModel=self.rentModel.pay;
         pay.orderType=PayOrderTypeRent;
         [self.navigationController pushViewController:pay animated:YES];
+    }
+    else if(self.rentModel.order_status==RentOrderStatusNotReceived)
+    {
+#warning do receive rent order
     }
 }
 

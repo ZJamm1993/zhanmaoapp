@@ -32,6 +32,12 @@
         if ([mo isMemberOfClass:[orderModel class]]) {
             if ([mo.idd isEqualToString:orderModel.idd]) {
                 mo.order_status=orderModel.order_status;
+                mo.pay_status=orderModel.pay_status;
+                if (orderModel.order_status==RentOrderStatusUnknown) {
+                    [self.dataSource removeObject:mo];
+                    [self.tableView reloadData];
+                    return;
+                }
                 [self.tableView reloadData];
             }
         }

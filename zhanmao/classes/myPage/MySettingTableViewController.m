@@ -11,6 +11,8 @@
 #import "MyPageSimpleTableViewCell.h"
 #import "MyPageButtonTableViewCell.h"
 
+const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632";
+
 @interface MySettingTableViewController ()
 {
     NSArray* cellModelsArray;
@@ -44,11 +46,11 @@
     NSString* cacheStr=[NSString stringWithFormat:@"%ldMB",(long)mb];
     cellModelsArray=[NSArray arrayWithObjects:
                      [NSArray arrayWithObjects:
-                      [MyPageCellModel modelWithTitle:@"分享给好友" image:@"set_share" detail:@"" identifier:@""],
+                      [MyPageCellModel modelWithTitle:@"分享给好友" image:@"set_share" detail:@"" identifier:@"share"],
                       [MyPageCellModel modelWithTitle:@"当前版本" image:@"set_version" detail:version identifier:@""],
                       [MyPageCellModel modelWithTitle:@"清空缓存" image:@"set_clean" detail:cacheStr identifier:@"clean"],nil],
                      [NSArray arrayWithObjects:
-                      [MyPageCellModel modelWithTitle:@"去评价" image:@"set_gojudge" detail:@"" identifier:@""],
+                      [MyPageCellModel modelWithTitle:@"去评价" image:@"set_gojudge" detail:@"" identifier:@"judge"],
                       [MyPageCellModel modelWithTitle:@"关于" image:@"set_about" detail:@"" identifier:@"MyAboutUsViewController"],nil],
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"" image:@"" detail:@"" identifier:@"logout"],nil],
@@ -128,6 +130,33 @@
     else if([mo.identifier isEqualToString:@"logout"])
     {
         [self logOut];
+    }
+    else if([mo.identifier isEqualToString:@"share"])
+    {
+//#warning unknow our app url
+        NSString* titleToShare=@"展贸在线";
+        UIImage* imageToShare=[UIImage imageNamed:@"icon_share"];
+        NSURL* urlToShare=[NSURL URLWithString:MyAppStoreUrlString.description];
+        
+        NSMutableArray* items=[NSMutableArray array];
+        if (titleToShare.length>0) {
+            [items addObject:titleToShare];
+        }
+        if (imageToShare) {
+            [items addObject:imageToShare];
+        }
+        if (urlToShare) {
+            [items addObject:urlToShare];
+        }
+        UIActivityViewController* ac=[[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
+        [self presentViewController:ac animated:YES completion:nil];
+    }
+    else if([mo.identifier isEqualToString:@"judge"])
+    {
+//#warning unknow our app url
+        NSURL* urlToJudge=[NSURL URLWithString:MyAppStoreUrlString.description];
+        
+        [[UIApplication sharedApplication]openURL:urlToJudge];
     }
     else
     {

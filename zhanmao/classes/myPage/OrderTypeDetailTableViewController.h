@@ -16,4 +16,6 @@
 
 -(void)countingDown;
 
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel;
+
 @end

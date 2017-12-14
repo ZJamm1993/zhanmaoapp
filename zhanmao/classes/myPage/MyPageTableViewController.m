@@ -47,7 +47,7 @@
     [super viewDidLoad];
     
     self.tabBarItem.title=@"我的";
-    
+    self.refreshControl.tintColor=[UIColor whiteColor];
 //    [self.refreshControl removeFromSuperview];
     
     cachesControllers=[NSMutableDictionary dictionary];

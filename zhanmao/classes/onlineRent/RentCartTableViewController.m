@@ -11,6 +11,7 @@
 #import "RentCartEditToolBar.h"
 
 #import "ProductCreateOrderTableViewController.h"
+#import "ProductWebDetailViewController.h"
 
 @interface RentCartTableViewController ()<RentCartEditTableViewCellDelegate>
 
@@ -94,6 +95,16 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (!self.editing) {
+        ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+        prod.goodModel=[[self.dataSource objectAtIndex:indexPath.row]product];
+        [self.navigationController pushViewController:prod animated:YES];
+    }
+}
+
 -(BOOL)isEditing
 {
     return custom_editing;
@@ -113,7 +124,7 @@
 {
     UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除商品吗？删除后无法恢复" preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         if ([self.dataSource containsObject:cartModel]) {
             NSInteger ind=[self.dataSource indexOfObject:cartModel];
             [self.dataSource removeObject:cartModel];
@@ -155,7 +166,7 @@
     if (self.editing) {
         UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除商品吗？删除后无法恢复" preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [alert addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
             [self.dataSource removeObjectsInArray:arrToDel];
             [RentHttpTool removeRentCarts:arrToDel success:nil failure:nil];
             [self.tableView deleteRowsAtIndexPaths:indToDel withRowAnimation:UITableViewRowAnimationAutomatic];

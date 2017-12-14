@@ -48,7 +48,7 @@
     self.stateTitle.text=[RentOrderModel cellStateForType:orderModel.type];
     
     RentOrderStatus type=orderModel.order_status;
-    self.blueButton.hidden=!(type<=RentOrderStatusNotReturn);
+    self.blueButton.hidden=!(type<=RentOrderStatusNotReceived);
     self.grayButton.hidden=!self.blueButton.hidden;
     
     NSString* buttonTitle=[RentOrderModel cellButtonTitleForType:orderModel.order_status];

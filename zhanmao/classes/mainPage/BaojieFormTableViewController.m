@@ -93,8 +93,41 @@
         }
     }
     
-    professor=professor*10;
-    scholar=scholar*5;
+//    professor=professor*10;
+    if (professor==0)
+    {
+        professor=0;
+    }
+    else if (professor<=36)
+    {
+        professor=388;
+    }
+    else if(professor<=54)
+    {
+        professor=588;
+    }
+    else if(professor<=81)
+    {
+        professor=788;
+    }
+    else if(professor<=108)
+    {
+        professor=888;
+    }
+    else if(professor<=200)
+    {
+        professor=professor*15;
+    }
+    else if(professor<=500)
+    {
+        professor=professor*13;
+    }
+    else
+    {
+        professor=professor*10;
+    }
+    
+    scholar=scholar*10;
     _smallFeeView.packageFee.text=[NSString stringWithFloat:professor headUnit:@"¥" tailUnit:nil];
     _smallFeeView.otherFee.text=[NSString stringWithFloat:scholar headUnit:@"¥" tailUnit:nil];
     
