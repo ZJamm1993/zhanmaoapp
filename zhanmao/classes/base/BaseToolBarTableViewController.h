@@ -13,7 +13,7 @@
 @property (nonatomic,strong) UIView* bottomToolBar;
 @property (nonatomic,strong) UIButton* bottomButton;
 
-@property (nonatomic,assign) NSInteger type;
+//@property (nonatomic,assign) NSInteger type;
 
 @property (nonatomic,readonly,assign) CGRect bottomViewFrame;
 

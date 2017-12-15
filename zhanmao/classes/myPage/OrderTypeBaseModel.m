@@ -44,6 +44,7 @@
         _order_num=[dictionary valueForKey:@"order_num"];
 //        _status=[[dictionary valueForKey:@"status"]integerValue];
         _order_status=[[dictionary valueForKey:@"order_status"]integerValue];
+        _pay_status=[[dictionary valueForKey:@"pay_status"]integerValue];
         
         _amount=[[dictionary valueForKey:@"amount"]floatValue];
         _expiration=[[dictionary valueForKey:@"expiration"]floatValue];
@@ -169,12 +170,11 @@
     self=[super initWithDictionary:dictionary];
     if (self) {
         self.leaseperiod=[[dictionary valueForKey:@"leaseperiod"]integerValue];
-        self.order_status=[[dictionary valueForKey:@"order_status"]integerValue];
+        self.order_status=[[dictionary valueForKey:@"status"]integerValue];
         self.delivery_date=[dictionary valueForKey:@"delivery_date"];
         self.return_date=[dictionary valueForKey:@"return_date"];
         self.recover_date=[dictionary valueForKey:@"recover_date"];
         self.emergency_phone=[dictionary valueForKey:@"emergency_phone"];
-        self.pay_status=[[dictionary valueForKey:@"pay_status"]integerValue];
         
         //the "pay uses the same dictionary
         self.pay=[[PayOrderModel alloc]initWithDictionary:dictionary];

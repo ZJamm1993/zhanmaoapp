@@ -12,5 +12,6 @@
 @interface ExhibitionExamplesViewController : BaseToolBarTableViewController
 
 @property (nonatomic,strong) NSString* cid;
+@property (nonatomic,assign) NSInteger type;
 
 @end

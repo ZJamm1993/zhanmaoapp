@@ -148,6 +148,7 @@
         pay.orderModel=payOrder;
         pay.orderType=PayOrderTypeClean;
         [self.navigationController pushViewController:pay animated:YES];
+        [self.navigationController removeViewController:self];
         return YES;
     }
     return NO;

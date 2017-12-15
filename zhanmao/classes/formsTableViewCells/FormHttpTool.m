@@ -12,12 +12,7 @@
 
 +(void)getCustomTableListByType:(NSInteger)type success:(void (^)(BaseFormStepsModel* ste))success failure:(void (^)(NSError *err))failure
 {
-    if ([UserModel token].length==0) {
-        if (success) {
-            success(nil);
-        }
-        return;
-    }
+    
     BOOL test=NO;
     if (test) {
         //test

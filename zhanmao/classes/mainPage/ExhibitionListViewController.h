@@ -11,4 +11,6 @@
 
 @interface ExhibitionListViewController : BaseToolBarTableViewController
 
+@property (nonatomic,assign) NSInteger type;
+
 @end

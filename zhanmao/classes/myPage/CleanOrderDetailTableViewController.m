@@ -12,7 +12,7 @@
 #import "OrderDetailStatusSimpleStyleCell.h"
 #import "OrderDetailSimpleLeftLabelCell.h"
 #import "CleanOrderTableViewCell.h"
-
+#import "PayOrderTableViewController.h"
 #import "TotalFeeView.h"
 
 @interface CleanOrderDetailTableViewController ()
@@ -84,6 +84,15 @@
     [self.tableView reloadData];
 }
 
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    if ([self.cleanModel isKindOfClass:[orderModel class]]) {
+        if ([self.cleanModel.idd isEqualToString:orderModel.idd]) {
+            [self refresh];
+        }
+    }
+}
+
 -(void)cancelOrder
 {
     NSLog(@"cancel order");
@@ -91,7 +100,18 @@
     [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         //do cancel actioin
-        #warning not finish clean order detail cancel action
+//        #warning not finish clean order detail cancel action
+        [MBProgressHUD showProgressMessage:@"正在取消"];
+        [OrderTypeDataSource postMyCleanOrderCancelById:self.cleanModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
+            if (result) {
+                [MBProgressHUD showSuccessMessage:msg];
+                [self refresh];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -201,12 +221,17 @@
     }
     return [[UITableViewCell alloc]init];
     
-#warning not finish clean order detail
 }
 
 -(void)doAction
 {
-    
+    if(self.cleanModel.pay_status==PayStatusNotYet)
+    {
+        PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+        pay.orderModel=self.cleanModel.pay;
+        pay.orderType=PayOrderTypeClean;
+        [self.navigationController pushViewController:pay animated:YES];
+    }
 }
 
 @end

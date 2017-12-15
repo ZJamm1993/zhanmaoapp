@@ -43,6 +43,15 @@
     [self refresh];
 }
 
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    if ([orderModel isKindOfClass:[self.rentModel class]]) {
+        if ([orderModel.idd isEqualToString:self.rentModel.idd]) {
+            [self refresh];
+        }
+    }
+}
+
 -(void)refresh
 {
     [OrderTypeDataSource getMyRentOrderDetailById:self.rentModel.idd token:[UserModel token] success:^(RentOrderModel *model) {
@@ -86,7 +95,7 @@
     [_totalFeeView.submitButton setTitle:buttonString forState:UIControlStateNormal];
     [_totalFeeView.grayButton setTitle:buttonString forState:UIControlStateNormal];
     
-    _totalFeeView.submitButton.hidden=!(self.rentModel.order_status<=RentOrderStatusNotReceived);
+    _totalFeeView.submitButton.hidden=!(self.rentModel.order_status<=RentOrderStatusNotReceived||self.rentModel.pay_status==PayStatusNotYet);
     _totalFeeView.grayButton.hidden=!_totalFeeView.submitButton.hidden;
     
     _totalFeeView.feeLabe.text=[NSString stringWithFloat:self.rentModel.amount headUnit:@"¥" tailUnit:nil];
@@ -228,7 +237,11 @@
         }
         else if ((isPaid&&row==totalRowOfSection-2)) {
             OrderDetailSimpleLeftLabelCell* payMethodCell=[tableView dequeueReusableCellWithIdentifier:@"OrderDetailSimpleLeftLabelCell" forIndexPath:indexPath];
-            payMethodCell.label.text=@"?";
+            NSString* pay=@"";
+            if ([self.rentModel.pay_type isEqualToString:@"alipay"]) {
+                pay=@"支付宝";
+            }
+            payMethodCell.label.text=[NSString stringWithFormat:@"%@%@",@"支付方式：",pay];
             return payMethodCell;
         }
         else if((isPaid&&row==totalRowOfSection-3)||(!isPaid&&row==totalRowOfSection-2))
@@ -259,9 +272,20 @@
         pay.orderType=PayOrderTypeRent;
         [self.navigationController pushViewController:pay animated:YES];
     }
-    else if(self.rentModel.order_status==RentOrderStatusNotReceived)
+    else if(self.rentModel.order_status==RentOrderStatusNotSent||self.rentModel.order_status==RentOrderStatusNotReceived)
     {
-#warning do receive rent order
+        [MBProgressHUD showProgressMessage:@"正在确认收货"];
+        [OrderTypeDataSource postMyRentOrderReceiveById:self.rentModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
+            if (result)
+            {
+                [self refresh];
+                [MBProgressHUD showSuccessMessage:msg];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
     }
 }
 

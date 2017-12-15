@@ -19,6 +19,7 @@
 
 +(void)getMyRentOrderDetailById:(NSString*)idd token:(NSString*)token success:(void(^)(RentOrderModel* model))success;
 +(void)postMyRentOrderCancelById:(NSString*)idd token:(NSString*)token success:(void(^)(BOOL result, NSString* msg))success;
++(void)postMyRentOrderReceiveById:(NSString *)idd token:(NSString *)token success:(void (^)(BOOL result, NSString * msg))success;
 
 #pragma mark transport order
 
@@ -33,6 +34,7 @@
 +(void)getMyCleanOrderByType:(NSInteger)type token:(NSString*)token page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
 
 +(void)getMyCleanOrderDetailById:(NSString*)idd token:(NSString*)token success:(void(^)(CleanOrderModel* model))success;
++(void)postMyCleanOrderCancelById:(NSString*)idd token:(NSString*)token success:(void(^)(BOOL result, NSString* msg))success;
 
 #pragma mark customOrder 
 

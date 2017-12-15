@@ -42,6 +42,7 @@
                     return;
                 }
                 [self.tableView reloadData];
+                return;
             }
         }
     }
@@ -137,6 +138,22 @@
         pay.orderModel=cell.orderModel.pay;
         pay.orderType=PayOrderTypeRent;
         [self.navigationController pushViewController:pay animated:YES];
+    }
+    else if(cell.orderModel.order_status==RentOrderStatusNotSent||cell.orderModel.order_status==RentOrderStatusNotReceived)
+    {
+        [MBProgressHUD showProgressMessage:@"正在确认收货"];
+        [OrderTypeDataSource postMyRentOrderReceiveById:cell.orderModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
+            if (result)
+            {
+                cell.orderModel.order_status=RentOrderStatusNotReturn;
+                [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:cell.orderModel];
+                [MBProgressHUD showSuccessMessage:msg];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
     }
 }
 

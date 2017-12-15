@@ -159,7 +159,9 @@
     [MBProgressHUD showProgressMessage:@"正在确认支付结果"];
     NSDictionary* userinfo=[noti userInfo];
     PayResultType payResul=[[userinfo valueForKey:@"result"]integerValue];
-    
+#if DEBUG
+    payResul=PayResultTypeSuccess;
+#endif
     if (payResul==PayResultTypeSuccess) {
         if(self.orderType==PayOrderTypeRent)
         {
@@ -187,7 +189,9 @@
 -(void)handleOrderModel:(OrderTypeBaseModel*)model
 {
     [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:model];
-    
+#if DEBUG
+    model.pay_status=PayStatusSuccess;
+#endif
     if(model.pay_status==PayStatusSuccess)
     {
         [MBProgressHUD showSuccessMessage:@"支付成功"];
@@ -195,12 +199,12 @@
         PayResultViewController* resController=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayResultViewController"];
         resController.payResultType=PayResultTypeSuccess;
         
-        if (self.type==PayOrderTypeRent) {
+        if (self.orderType==PayOrderTypeRent) {
             RentOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderDetailTableViewController"];
             rentDetail.rentModel=(RentOrderModel*)model;
             resController.orderDetailController=rentDetail;
         }
-        else if(self.type==PayOrderTypeClean)
+        else if(self.orderType==PayOrderTypeClean)
         {
             CleanOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"CleanOrderDetailTableViewController"];
             rentDetail.cleanModel=(CleanOrderModel*)model;
@@ -208,6 +212,8 @@
         }
         [self.navigationController pushViewController:resController animated:YES];
         [self.navigationController removeViewController:self];
+        
+        [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:model];
     }
     else
     {

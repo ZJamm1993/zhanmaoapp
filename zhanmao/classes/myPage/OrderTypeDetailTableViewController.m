@@ -29,7 +29,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)dealloc
+-(void)viewWillDisappear:(BOOL)animated
 {
     [timer invalidate];
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17B1003" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="17C88" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -793,7 +793,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="返回首页"/>
                                 <connections>
-                                    <action selector="goHome:" destination="fFf-vb-QfU" eventType="touchUpInside" id="PYB-sG-W6W"/>
+                                    <action selector="goHome:" destination="fFf-vb-QfU" eventType="touchUpInside" id="Huw-aI-TKF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvH-HC-XJs">
@@ -801,7 +801,7 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="查看订单"/>
                                 <connections>
-                                    <action selector="checkOrder:" destination="fFf-vb-QfU" eventType="touchUpInside" id="GUR-bB-F6q"/>
+                                    <action selector="checkOrder:" destination="fFf-vb-QfU" eventType="touchUpInside" id="1dX-nX-brl"/>
                                 </connections>
                             </button>
                         </subviews>

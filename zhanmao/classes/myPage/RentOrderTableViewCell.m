@@ -48,7 +48,7 @@
     self.stateTitle.text=[RentOrderModel cellStateForType:orderModel.type];
     
     RentOrderStatus type=orderModel.order_status;
-    self.blueButton.hidden=!(type<=RentOrderStatusNotReceived);
+    self.blueButton.hidden=!(type<=RentOrderStatusNotReceived||orderModel.pay_status==PayStatusNotYet);
     self.grayButton.hidden=!self.blueButton.hidden;
     
     NSString* buttonTitle=[RentOrderModel cellButtonTitleForType:orderModel.order_status];
@@ -57,6 +57,8 @@
         buttonTitle=@"立即付款";
         self.stateTitle.text=@"待付款";
     }
+    
+    NSLog(@"pay:%d status%d",orderModel.pay_status,type);
     
     [self.blueButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self.grayButton setTitle:buttonTitle forState:UIControlStateNormal];

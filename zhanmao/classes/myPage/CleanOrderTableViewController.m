@@ -9,6 +9,7 @@
 #import "CleanOrderTableViewController.h"
 #import "CleanOrderTableViewCell.h"
 #import "CleanOrderDetailTableViewController.h"
+#import "PayOrderTableViewController.h"
 
 @interface CleanOrderTableViewController ()
 
@@ -38,6 +39,7 @@
                     return;
                 }
                 [self.tableView reloadData];
+                return;
             }
         }
     }
@@ -123,7 +125,10 @@
     NSInteger tag=btn.tag;
     CleanOrderModel* mo=[self.dataSource objectAtIndex:tag];
     if (mo.pay_status==PayStatusNotYet) {
-        NSLog(@"pay clean: %@",mo);
+        PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+        pay.orderModel=mo.pay;
+        pay.orderType=PayOrderTypeClean;
+        [self.navigationController pushViewController:pay animated:YES];
     }
 }
 

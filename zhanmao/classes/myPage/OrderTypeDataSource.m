@@ -97,6 +97,33 @@
     }];
 }
 
++(void)postMyRentOrderReceiveById:(NSString *)idd token:(NSString *)token success:(void (^)(BOOL, NSString *))success
+{
+    if (token.length==0) {
+        if (success) {
+            success(NO,nil);
+        }
+        return;
+    }
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Order/comfirm"];
+    
+    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+    [dic setValue:idd forKey:@"id"];
+    [dic setValue:token forKey:@"access_token"];
+    
+    [self post:str params:dic success:^(NSDictionary *responseObject) {
+        BOOL code=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(code,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,BadNetworkDescription);
+        }
+    }];
+}
+
 +(void)getMyTransportOrderByType:(NSInteger)type token:(NSString *)token page:(NSInteger)page pagesize:(NSInteger)pagesize cache:(BOOL)cache success:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
 {
     if (token.length==0) {
@@ -238,6 +265,33 @@
     } failure:^(NSError *err) {
         if (success) {
             success(nil);
+        }
+    }];
+}
+
++(void)postMyCleanOrderCancelById:(NSString *)idd token:(NSString *)token success:(void (^)(BOOL, NSString *))success
+{
+    if (token.length==0) {
+        if (success) {
+            success(NO,nil);
+        }
+        return;
+    }
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/CleaningOrder/del"];
+    
+    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+    [dic setValue:idd forKey:@"id"];
+    [dic setValue:token forKey:@"access_token"];
+    
+    [self post:str params:dic success:^(NSDictionary *responseObject) {
+        BOOL code=responseObject.code==0;
+        NSString* msg=[responseObject valueForKey:@"message"];
+        if (success) {
+            success(code,msg);
+        }
+    } failure:^(NSError *error) {
+        if (success) {
+            success(NO,BadNetworkDescription);
         }
     }];
 }

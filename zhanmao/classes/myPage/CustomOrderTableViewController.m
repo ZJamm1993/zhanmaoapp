@@ -30,6 +30,7 @@
                 if (mo.type==orderModel.type) {
                     mo.order_status=orderModel.order_status;
                     [self.tableView reloadData];
+                    return;
                 }
             }
         }

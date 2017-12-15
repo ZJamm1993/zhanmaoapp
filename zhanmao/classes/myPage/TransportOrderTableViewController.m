@@ -30,6 +30,7 @@
             if ([mo.idd isEqualToString:orderModel.idd]) {
                 mo.order_status=orderModel.order_status;
                 [self.tableView reloadData];
+                return;
             }
         }
     }
