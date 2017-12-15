@@ -10,6 +10,8 @@
 #import "CalculateFeesView.h"
 #import "TotalFeeView.h"
 
+#import "PayOrderTableViewController.h"
+
 @interface BaojieFormTableViewController ()
 {
     CalculateFeesView* _smallFeeView;
@@ -137,6 +139,18 @@
 -(void)orderSubmit
 {
     [self checkAndAction];
+}
+
+-(BOOL)shouldHandlePayOrder:(PayOrderModel *)payOrder
+{
+    if (payOrder.idd.length>0) {
+        PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
+        pay.orderModel=payOrder;
+        pay.orderType=PayOrderTypeClean;
+        [self.navigationController pushViewController:pay animated:YES];
+        return YES;
+    }
+    return NO;
 }
 
 @end

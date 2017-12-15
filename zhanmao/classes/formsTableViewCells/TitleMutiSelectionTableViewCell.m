@@ -55,6 +55,9 @@ const NSInteger mutiSelectionButtonRowCount=3;
 
 +(CGFloat)heightForItemCount:(NSInteger)count
 {
+    if (count==0) {
+        return 44;
+    }
     NSInteger rows=count/mutiSelectionButtonRowCount;
     if (count%mutiSelectionButtonRowCount>0) {
         rows=rows+1;
@@ -125,11 +128,27 @@ const NSInteger mutiSelectionButtonRowCount=3;
         if (![self.selectedTitles containsObject:title]) {
             [self.selectedTitles addObject:title];
         }
+        
+        if (self.selectedTitles.count==self.titles.count-1&&[self.titles containsObject:@"全部"]) {
+            [self.selectedTitles removeAllObjects];
+            [self.selectedTitles addObjectsFromArray:self.titles];
+        }
     }
     else
     {
         if ([self.selectedTitles containsObject:title]) {
             [self.selectedTitles removeObject:title];
+        }
+        
+        if ([self.selectedTitles containsObject:@"全部"]) {
+            [self.selectedTitles removeObject:@"全部"];
+        }
+    }
+    
+    if ([title isEqualToString:@"全部"]) {
+        [self.selectedTitles removeAllObjects];
+        if (btn.selected) {
+            [self.selectedTitles addObjectsFromArray:self.titles];
         }
     }
     NSLog(@"%@",self.selectedTitles);

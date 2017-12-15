@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title=@"保洁订单详情";
     
     [self.bottomButton removeFromSuperview];
     _totalFeeView=[[[UINib nibWithNibName:@"TotalFeeView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
@@ -80,6 +81,7 @@
     _totalFeeView.feeLabe.text=[NSString stringWithFloat:self.cleanModel.amount headUnit:@"¥" tailUnit:nil];
     
     // do get method
+    [self.tableView reloadData];
 }
 
 -(void)cancelOrder

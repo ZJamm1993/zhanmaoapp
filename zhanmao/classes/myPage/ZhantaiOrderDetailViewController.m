@@ -30,7 +30,8 @@
     
     self.order_num.text=[dic valueForKey:@"order_num"];
     //
-#warning no org
+//#warning no or
+    self.exhibitors.text=[dic valueForKey:@"exhibitors"];
     self.exhibition_name.text=[dic valueForKey:@"exhibition_name"];
     self.booth_number.text=[dic valueForKey:@"booth_number"];
     self.hall_name.text=[dic valueForKey:@"hall_name"];

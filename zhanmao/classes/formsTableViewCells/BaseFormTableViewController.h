@@ -44,6 +44,8 @@
 
 -(void)submitToServer; //can be overwrite
 
+-(BOOL)shouldHandlePayOrder:(PayOrderModel*)payOrder;
+
 +(NSString*)cellNibNameForFormType:(BaseFormType)type;
 
 @end

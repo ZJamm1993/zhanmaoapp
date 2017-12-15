@@ -77,11 +77,12 @@
     
     if (self.customModel.order_status==CustomOrderStatusSubmited)
     {
-        self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+//        self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
     }
     else
     {
-        self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 0, 0);
+//        self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 0, 0);
+        self.bottomToolBar.hidden=YES;
     }
     [self.tableView reloadData];
     [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];

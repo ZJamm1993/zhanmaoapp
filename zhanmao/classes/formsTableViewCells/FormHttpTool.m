@@ -63,7 +63,7 @@
     return steps;
 }
 
-+(void)postCustomTableListByType:(NSInteger)type params:(NSDictionary *)params success:(void (^)(BOOL, NSString *))success failure:(void (^)(NSError *))failure
++(void)postCustomTableListByType:(NSInteger)type params:(NSDictionary *)params success:(void (^)(BOOL, NSString *,PayOrderModel*))success failure:(void (^)(NSError *))failure
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Table/made"];
     NSMutableDictionary* dic=[NSMutableDictionary dictionaryWithDictionary:params];
@@ -72,8 +72,9 @@
     [self post:str params:dic success:^(NSDictionary *responseObject) {
         NSString* msg=[responseObject valueForKey:@"message"];
         BOOL ok=responseObject.code==0;
+        PayOrderModel* mo=[[PayOrderModel alloc]initWithDictionary:[responseObject valueForKey:@"data"]];
         if (success) {
-            success(ok,msg);
+            success(ok,msg,mo);
         }
     } failure:^(NSError *error) {
         if (failure) {

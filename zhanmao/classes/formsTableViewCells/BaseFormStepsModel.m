@@ -176,7 +176,8 @@
     NSArray* alls=[self allModels];
     for (BaseFormModel* mo in alls) {
         if (mo.field.length>0&&mo.value.length>0) {
-            [dic setValue:mo.value forKey:mo.field];
+            NSString* key=[NSString stringWithFormat:@"data[%@]",mo.field];
+            [dic setValue:mo.value forKey:key];
         }
     }
     return dic;

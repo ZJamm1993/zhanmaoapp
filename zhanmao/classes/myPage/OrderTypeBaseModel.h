@@ -46,8 +46,8 @@ typedef NS_ENUM(NSInteger,TransportOrderType)
 typedef NS_ENUM(NSInteger,TransportOrderStatus)
 {
     TransportOrderStatusCancel=0,
-    TransportOrderStatusSubmited=1,
-    TransportOrderStatusCompleted=2,
+    TransportOrderStatusCompleted=1,
+    TransportOrderStatusSubmited=2,
 };
 
 typedef NS_ENUM(NSInteger,CleanOrderType)

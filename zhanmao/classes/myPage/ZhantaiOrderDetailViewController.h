@@ -11,6 +11,7 @@
 @interface ZhantaiOrderDetailViewController : CustomOrderDetailTableViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *order_num;
+@property (weak, nonatomic) IBOutlet UILabel *exhibitors;
 @property (weak, nonatomic) IBOutlet UILabel *exhibition_name;
 @property (weak, nonatomic) IBOutlet UILabel *hall_name;
 @property (weak, nonatomic) IBOutlet UILabel *hall_child;

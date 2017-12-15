@@ -65,11 +65,11 @@
         NSMutableArray* keysAndValues=[NSMutableArray array];
         for (NSString* key in keys) {
             NSString* value=[params valueForKey:key];
-            if([value isKindOfClass:[NSString class]])
-            {
-//                value=[self encodeURL:value];
-                value=[value stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet URLFragmentAllowedCharacterSet]invertedSet]];
-            }
+//            if([value isKindOfClass:[NSString class]])
+//            {
+////                value=[self encodeURL:value];
+//                value=[value stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet URLFragmentAllowedCharacterSet]invertedSet]];
+//            }
             NSString* kv=[NSString stringWithFormat:@"%@=%@",key,value];
             [keysAndValues addObject:kv];
         }
@@ -122,13 +122,24 @@
 //            NSLog(@"resp:\n%@",response);
 //            NSLog(@"erro:\n%@",error);
             
-            NSLog(@"%@",url);
+            NSLog(@"%@",response);
             NSDictionary* result=[ZZHttpTool dictionaryWithResponseData:data];
             [session finishTasksAndInvalidate];
             
-            
-            
             dispatch_async(dispatch_get_main_queue(), ^{
+                if([response isKindOfClass:[NSHTTPURLResponse class]])
+                {
+                    NSHTTPURLResponse* httpRs=(NSHTTPURLResponse*)response;
+                    if (httpRs.statusCode!=200) {
+                        if (failure) {
+                            failure(error);
+                            
+                        }
+                        
+                        //                    [dataTast cancel];
+                        return;
+                    }
+                }
                 if (data) {
                     if (success) {
                         success(result);
@@ -256,13 +267,14 @@
 
 +(NSDictionary*)dictionaryWithResponseData:(NSData*)data
 {
+    NSDictionary* nilDictionary=[NSDictionary dictionary];
     if (!data) {
-        return nil;
+        return nilDictionary;
     }
     NSString *receiveStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     if (receiveStr.length==0) {
         NSLog(@"get null data");
-        return nil;
+        return nilDictionary;
     }
 //    receiveStr=[receiveStr stringByReplacingOccurrencesOfString:@"null" withString:@"nil"];//／／{\"zzz\":\"nillllll!\"}"];
     NSData * data2 = [receiveStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -272,6 +284,7 @@
     if(result==nil)
     {
         NSLog(@"get null dictionary");//why nil??
+        result=nilDictionary;
     }
     
     //remove useless "data"

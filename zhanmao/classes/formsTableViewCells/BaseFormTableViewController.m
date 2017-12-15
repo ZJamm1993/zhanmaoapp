@@ -423,13 +423,21 @@
 //    [paras setValue:[NSNumber numberWithInteger:self.type] forKey:@"type"];
     NSLog(@"%@",paras);
     [paras setValue:[UserModel token] forKey:@"access_token"];
-    [FormHttpTool postCustomTableListByType:[self type] params:paras success:^(BOOL result, NSString *msg) {
+    [FormHttpTool postCustomTableListByType:[self type] params:paras success:^(BOOL result, NSString *msg,PayOrderModel* pay) {
+        [MBProgressHUD hide];
         if(result)
         {
 //            [MBProgressHUD showSuccessMessage:msg];
-            [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomFormSubmitResultViewController"] animated:YES];
-            
-            [self.navigationController removeViewControllersKindOfClass:[BaseFormTableViewController class]];
+            BOOL shouldPay=[self shouldHandlePayOrder:pay];
+            if (!shouldPay) {
+                [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"CustomFormSubmitResultViewController"] animated:YES];
+                
+                [self.navigationController removeViewControllersKindOfClass:[BaseFormTableViewController class]];
+            }
+            else
+            {
+                [MBProgressHUD showSuccessMessage:msg];
+            }
         }
         else
         {
@@ -438,9 +446,15 @@
         
     } failure:^(NSError *err) {
         NSLog(@"wangluo");
-        [MBProgressHUD showErrorMessage:BadNetworkDescription];
+        [MBProgressHUD showErrorMessage:@"服务器出错"];
     }];
 
+}
+
+-(BOOL)shouldHandlePayOrder:(PayOrderModel *)payOrder
+{
+    NSLog(@"over write shouldHandlePayOrder: and return YES to handle pay");
+    return NO;
 }
 
 +(NSString*)cellNibNameForFormType:(BaseFormType)type
