@@ -55,7 +55,9 @@
 
 -(void)countingDown
 {
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+    if (self.rentModel.pay_status==PayStatusNotYet) {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

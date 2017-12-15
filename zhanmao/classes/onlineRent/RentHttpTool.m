@@ -185,8 +185,12 @@
 +(void)getRentCartsCountSuccess:(void (^)(NSInteger))success failure:(void (^)(NSError *))failure
 {
     NSArray* ids=[self localRentCartIds];
+    NSInteger count=ids.count;
+    if (count==1&&[ids.firstObject length]==0) {
+        count=0;
+    }
     if (success) {
-        success(ids.count);
+        success(count);
     }
 }
 

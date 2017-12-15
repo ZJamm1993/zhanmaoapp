@@ -7,6 +7,7 @@
 //
 
 #import "TravellingHttpTool.h"
+#import "FormHttpTool.h"
 
 @implementation TravellingHttpTool
 
@@ -61,12 +62,22 @@
 
 +(void)getTravelQuestionnaire:(void (^)(BaseFormStepsModel *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure
 {
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/get_questionnaire"];
-    [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
-        NSDictionary* data=[dict valueForKey:@"data"];
-        BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
+//    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Travel/get_questionnaire"];
+//    [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
+//        NSDictionary* data=[dict valueForKey:@"data"];
+//        BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
+//        if (success) {
+//            success(steps);
+//        }
+//    } failure:^(NSError *err) {
+//        if (failure) {
+//            failure(err);
+//        }
+//    }];
+    
+    [FormHttpTool getCustomTableListByType:9 success:^(BaseFormStepsModel *step) {
         if (success) {
-            success(steps);
+            success(step);
         }
     } failure:^(NSError *err) {
         if (failure) {

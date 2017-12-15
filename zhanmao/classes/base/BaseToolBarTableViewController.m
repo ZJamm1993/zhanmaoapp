@@ -10,7 +10,7 @@
 
 @interface BaseToolBarTableViewController ()
 {
-    
+    BOOL showingKeyboard;
     CGFloat bottomSafe;
 }
 @end
@@ -66,12 +66,30 @@
     
     self.bottomButton=submitButton;
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardShows:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHides:) name:UIKeyboardDidHideNotification object:nil];
+    
+    
     [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)keyboardShows:(NSNotification*)noti
 {
-    [super viewDidAppear:animated];
+    //    NSLog(@"%@",noti);
+    
+    //UIKeyboardFrameEndUserInfoKey;
+    //UIKeyboardAnimationDurationUserInfoKey;
+    //UIKeyboardAnimationCurveUserInfoKey;
+    
+    showingKeyboard=YES;
+}
+
+-(void)keyboardHides:(NSNotification*)noti
+{
+    //    NSLog(@"%@",noti);
+    
+    showingKeyboard=NO;
+    [self scrollViewDidScroll:self.tableView];
 }
 
 -(void)goToCustom
@@ -91,12 +109,16 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if (showingKeyboard) {
+        return;
+    }
     CGFloat offy=scrollView.contentOffset.y;
     CGFloat h=scrollView.frame.size.height;
     CGFloat b=scrollView.contentInset.bottom;
+    
     CGRect appf=self.bottomToolBar.frame;
     appf.origin.y=offy+h-b-bottomSafe;
-    appf.size.height=b+bottomSafe;
+//    appf.size.height=b+bottomSafe;
     self.bottomToolBar.frame=appf;
     
     [self.bottomToolBar removeFromSuperview];

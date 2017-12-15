@@ -52,6 +52,8 @@
     
     self.furniture.text=[dic valueForKey:@"furniture"];
     
+    self.meetings_count.text=[dic valueForKey:@"meetings_count"];
+    
     self.sound.on=[[dic valueForKey:@"sound"]boolValue];
     self.projector.on=[[dic valueForKey:@"projector"]boolValue];
     

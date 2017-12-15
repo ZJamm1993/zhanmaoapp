@@ -118,7 +118,8 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
     {
         ExhiDetailDescriptionTableViewCell* desCell=[tableView dequeueReusableCellWithIdentifier:@"ExhiDetailDescriptionTableViewCell" forIndexPath:indexPath];
         desCell.title.text=@"展会说明";
-        desCell.detail.text=self.exhi.exhibition_description;
+        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[self.exhi.exhibition_description dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        desCell.detail.attributedText=attrStr;
         return desCell;
     }
     else

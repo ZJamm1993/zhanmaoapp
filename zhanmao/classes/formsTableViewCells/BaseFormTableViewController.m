@@ -189,7 +189,7 @@
     
     [UIView animateWithDuration:animaD animations:^{
         CGRect fr=self.tableView.frame;
-        fr.size.height=frameY-64-64;
+        fr.size.height=frameY-64;//-64; //-64to show bottombar while editing
         self.tableView.frame=fr;
         if (!showing) {
             self.tableView.frame=CGRectMake(0, 0, self.view.frame.size.width,[UIScreen mainScreen].bounds.size.height-64-64);

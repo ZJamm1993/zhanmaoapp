@@ -80,7 +80,7 @@
 -(void)valueChanged
 {
     CGFloat professor=0;
-    CGFloat scholar=0;
+    CGFloat other=0;
     NSArray* allModels=[self.formSteps allModels];
     for (BaseFormModel* model in allModels) {
         if([model.field isEqualToString:@"professor"])
@@ -88,9 +88,9 @@
             professor=model.value.floatValue;
 //            model.value=[NSString stringWithFloat:professor headUnit:nil tailUnit:nil];
         }
-        else if([model.field isEqualToString:@"scholar"])
+        else if([model.field isEqualToString:@"other"])
         {
-            scholar=model.value.floatValue;
+            other=model.value.floatValue;
 //            model.value=[NSString stringWithFloat:scholar headUnit:nil tailUnit:nil];
         }
     }
@@ -129,11 +129,11 @@
         professor=professor*10;
     }
     
-    scholar=scholar*10;
+    other=other*10;
     _smallFeeView.packageFee.text=[NSString stringWithFloat:professor headUnit:@"¥" tailUnit:nil];
-    _smallFeeView.otherFee.text=[NSString stringWithFloat:scholar headUnit:@"¥" tailUnit:nil];
+    _smallFeeView.otherFee.text=[NSString stringWithFloat:other headUnit:@"¥" tailUnit:nil];
     
-    _totalFeeView.feeLabe.text=[NSString stringWithFloat:professor+scholar headUnit:@"¥" tailUnit:nil];
+    _totalFeeView.feeLabe.text=[NSString stringWithFloat:professor+other headUnit:@"¥" tailUnit:nil];
 }
 
 -(void)orderSubmit

@@ -83,8 +83,8 @@ typedef NS_ENUM(NSInteger,CustomOrderType)
 typedef NS_ENUM(NSInteger,CustomOrderStatus)
 {
     CustomOrderStatusCanceled=0,
-    CustomOrderStatusSubmited,
-    CustomOrderStatusCompleted,
+    CustomOrderStatusCompleted=1,
+    CustomOrderStatusSubmited=2,
 };
 
 /***
