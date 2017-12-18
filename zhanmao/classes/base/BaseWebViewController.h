@@ -12,7 +12,7 @@
 #define HTML_BugProtocol @"/Content/Page/bugprotocol"
 #define HTML_HelpDetail @"/Content/Help/show"
 #define HTML_NewsDetail @"/themes/simplebootx/Content/news.html"
-#define HTML_ExhiDetail @"/Content/Exhibition/detail"
+#define HTML_ExhiDetail @"/themes/simplebootx/Content/exhibition_detail.html"
 
 @interface BaseWebViewController : BaseViewController
 
@@ -25,7 +25,7 @@
 @property (nonatomic,strong) NSString* html;
 @property (nonatomic,strong) UIView* webUIView;
 
-@property (nonatomic,strong) UIView* bottomView;
+@property (nonatomic,weak) UIView* bottomView;
 @property (nonatomic,assign) CGRect bottomBgBounds;
 
 @property (nonatomic,strong) NSMutableDictionary* params;

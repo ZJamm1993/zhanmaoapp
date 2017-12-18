@@ -172,11 +172,19 @@
 
 -(NSDictionary*)parameters
 {
+    return [self parametersWithModifiedKey:nil];
+}
+
+-(NSDictionary*)parametersWithModifiedKey:(NSString *)modify
+{
     NSMutableDictionary* dic=[NSMutableDictionary dictionary];
     NSArray* alls=[self allModels];
     for (BaseFormModel* mo in alls) {
         if (mo.field.length>0&&mo.value.length>0) {
-            NSString* key=[NSString stringWithFormat:@"data[%@]",mo.field];
+            NSString* key=mo.field;
+            if (modify.length>0) {
+                key=[NSString stringWithFormat:@"%@[%@]",modify,mo.field];
+            }
             [dic setValue:mo.value forKey:key];
         }
     }

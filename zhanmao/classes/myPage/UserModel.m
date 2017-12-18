@@ -113,6 +113,13 @@
     NSDictionary* d=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     UserModel* user=[[UserModel alloc]initWithDictionary:d];
     NSLog(@"%@",d);
+    
+#if DEBUG
+    if (user.mobile.length==0) {
+        user.mobile=@"911";
+    }
+    
+#endif
     return user;
 }
 

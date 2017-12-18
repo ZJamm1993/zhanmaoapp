@@ -419,7 +419,7 @@
 {
     //        [MBProgressHUD showSuccessMessage:@"最后一页了"];
     [MBProgressHUD showProgressMessage:@"正在提交..."];
-    NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
+    NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parametersWithModifiedKey:@"data"]];
 //    [paras setValue:[NSNumber numberWithInteger:self.type] forKey:@"type"];
     NSLog(@"%@",paras);
     [paras setValue:[UserModel token] forKey:@"access_token"];

@@ -8,7 +8,8 @@
 
 #import "RentHttpTool.h"
 
-#define RentCartsIdsKey @"0ire23rnt09iCari090"
+#define RentCartsPhoneKey @"i09i23rj2o3jeoi23jeo"
+//#define RentCartsIdsKey @"0ire23rnt09iCari090"
 #define RentCartsDaysKey @"992r3dayu8900i90901"
 #define RentCartsCountKey @"09i23Cou90nt9823e2e"
 
@@ -109,9 +110,9 @@
 
 #pragma mark rent carts operation
 
-+(void)addRentCarts:(NSArray *)carts success:(void (^)(BOOL))success failure:(void (^)(NSError *))failure
++(void)addRentCarts:(NSArray *)carts phone:(NSString*)phone success:(void (^)(BOOL))success failure:(void (^)(NSError *))failure
 {
-    NSMutableArray* ids=[NSMutableArray arrayWithArray:[self localRentCartIds]];
+    NSMutableArray* ids=[NSMutableArray arrayWithArray:[self localRentCartIdsPhone:phone]];
     for (RentCartModel* car in carts) {
         NSString* str=car.product.idd;
         if ([ids containsObject:str]) {
@@ -122,20 +123,21 @@
         {
             [ids insertObject:str atIndex:0];
         }
-        car.count=car.count+[[[NSUserDefaults standardUserDefaults]valueForKey:[self mixedRentCartCountIdKey:car]]integerValue];
+        car.count=car.count+[[[NSUserDefaults standardUserDefaults]valueForKey:[self mixedRentCartCountIdKey:car phone:phone]]integerValue];
 //        car.days=car.days+[[[NSUserDefaults standardUserDefaults]valueForKey:[self mixedRentCartDayIdKey:car]]integerValue];
-        [self changeRentCart:car];
+        
+        [self changeRentCart:car phone:phone];
     }
-    [self saveRentCartIds:ids];
+    [self saveRentCartIds:ids phone:phone];
     if(success)
     {
         success(YES);
     }
 }
 
-+(void)removeRentCarts:(NSArray *)carts success:(void (^)(BOOL))success failure:(void (^)(NSError *))failure
++(void)removeRentCarts:(NSArray *)carts phone:(NSString*)phone success:(void (^)(BOOL))success failure:(void (^)(NSError *))failure
 {
-    NSMutableArray* ids=[NSMutableArray arrayWithArray:[self localRentCartIds]];
+    NSMutableArray* ids=[NSMutableArray arrayWithArray:[self localRentCartIdsPhone:phone]];
     for (RentCartModel* car in carts) {
         NSString* str=car.product.idd;
         if ([ids containsObject:str]) {
@@ -143,18 +145,20 @@
         }
         car.count=0;
 //        car.days=0;
-        [self changeRentCart:car];
+        [self changeRentCart:car phone:phone];
+        
+        [[NSUserDefaults standardUserDefaults]removeObjectForKey:[self mixedRentCartCountIdKey:car phone:phone]];
     }
-    [self saveRentCartIds:ids];
+    [self saveRentCartIds:ids phone:phone];
     if(success)
     {
         success(YES);
     }
 }
 
-+(void)getRentCartsSuccess:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
++(void)getRentCartsSuccess:(void (^)(NSArray *))success phone:(NSString*)phone failure:(void (^)(NSError *))failure
 {
-    NSString* ids=[[self localRentCartIds]componentsJoinedByString:@","];
+    NSString* ids=[[self localRentCartIdsPhone:phone]componentsJoinedByString:@","];
     if (ids.length==0) {
         return;
     }
@@ -168,8 +172,10 @@
             RentProductModel* pro=[[RentProductModel alloc]initWithDictionary:pr];
             RentCartModel* cart=[[RentCartModel alloc]init];
             cart.product=pro;
+            
 //            cart.days=[[[NSUserDefaults standardUserDefaults]valueForKey:[self mixedRentCartDayIdKey:cart]]integerValue];
-            cart.count=[[[NSUserDefaults standardUserDefaults]valueForKey:[self mixedRentCartCountIdKey:cart]]integerValue];
+            
+            cart.count=[[[NSUserDefaults standardUserDefaults]valueForKey:[self mixedRentCartCountIdKey:cart phone:phone]]integerValue];
             [resu addObject:cart];
         }
         if (success) {
@@ -182,9 +188,9 @@
     }];
 }
 
-+(void)getRentCartsCountSuccess:(void (^)(NSInteger))success failure:(void (^)(NSError *))failure
++(void)getRentCartsCountSuccess:(void (^)(NSInteger))success phone:(NSString*)phone failure:(void (^)(NSError *))failure
 {
-    NSArray* ids=[self localRentCartIds];
+    NSArray* ids=[self localRentCartIdsPhone:phone];
     NSInteger count=ids.count;
     if (count==1&&[ids.firstObject length]==0) {
         count=0;
@@ -194,36 +200,43 @@
     }
 }
 
-+(NSArray*)localRentCartIds
++(NSArray*)localRentCartIdsPhone:(NSString*)phone
 {
-    NSString* str=[[NSUserDefaults standardUserDefaults]valueForKey:RentCartsIdsKey];
+    NSString* str=[[NSUserDefaults standardUserDefaults]valueForKey:[self mixedRentCartPhoneKey:phone]];
     return [str componentsSeparatedByString:@","];
 }
 
-+(void)saveRentCartIds:(NSArray*)ids
++(void)saveRentCartIds:(NSArray*)ids phone:(NSString*)phone
 {
     NSString* str=[ids componentsJoinedByString:@","];
-    [[NSUserDefaults standardUserDefaults]setValue:str forKey:RentCartsIdsKey];
+    [[NSUserDefaults standardUserDefaults]setValue:str forKey:[self mixedRentCartPhoneKey:phone]];
 }
 
-+(void)changeRentCart:(RentCartModel*)cart
++(void)changeRentCart:(RentCartModel*)cart phone:(NSString *)phone
 {
 //    NSNumber* dayNumber=[NSNumber numberWithInteger:cart.days];
     NSNumber* couNumber=[NSNumber numberWithInteger:cart.count];
     
 //    [[NSUserDefaults standardUserDefaults]setValue:dayNumber forKey:[self mixedRentCartDayIdKey:cart]];
-    [[NSUserDefaults standardUserDefaults]setValue:couNumber forKey:[self mixedRentCartCountIdKey:cart]];
+    [[NSUserDefaults standardUserDefaults]setValue:couNumber forKey:[self mixedRentCartCountIdKey:cart phone:phone]];
 }
 
-//+(NSString*)mixedRentCartDayIdKey:(RentCartModel*)cart
-//{
-//    return [NSString stringWithFormat:@"%@%@",RentCartsDaysKey,cart.product.idd];
-//}
-
-+(NSString*)mixedRentCartCountIdKey:(RentCartModel*)cart
++(NSString*)mixedRentCartPhoneKey:(NSString*)phone
 {
-    return [NSString stringWithFormat:@"%@%@",RentCartsCountKey,cart.product.idd];
+    NSString* st=[NSString stringWithFormat:@"%@%@",RentCartsPhoneKey,phone];
+    NSLog(@"%@",st);
+    return st;
 }
+
++(NSString*)mixedRentCartCountIdKey:(RentCartModel*)cart phone:(NSString*)phone
+{
+    NSString* st=[NSString stringWithFormat:@"%@%@%@",cart.product.idd,RentCartsCountKey,phone];
+    NSLog(@"%@",st);
+    return st;
+}
+
+////////////////////////
+
 
 +(NSArray*)searchedStrings
 {

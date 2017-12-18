@@ -356,7 +356,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     }
     if (sec==MainPageSectionExhibitions) {
         ExhibitionModel* mo=[exhibitionArray objectAtIndex:row];
-        ExhibitionDetailViewController* exh=[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"ExhibitionDetailViewController"];
+        ExhibitionDetailViewController* exh=[[ExhibitionDetailViewController alloc]init];
         exh.exhi=mo;
         [self.navigationController pushViewController:exh animated:YES];
     }

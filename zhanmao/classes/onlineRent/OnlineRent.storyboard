@@ -577,8 +577,11 @@ The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-aX-IAG" userLabel="editingBg">
                                             <rect key="frame" x="166" y="-0.5" width="144" height="95.5"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-BI-CWx">
-                                                    <rect key="frame" x="131" y="0.0" width="13" height="96"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jd6-BI-CWx">
+                                                    <rect key="frame" x="124" y="0.0" width="20" height="96"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="hXd-1k-Hbj"/>
+                                                    </constraints>
                                                     <state key="normal" image="trash"/>
                                                     <connections>
                                                         <action selector="deleteButtonClick:" destination="h3W-pq-Shx" eventType="touchUpInside" id="EnD-uO-TeT"/>

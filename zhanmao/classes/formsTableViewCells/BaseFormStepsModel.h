@@ -82,6 +82,8 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
 
 -(NSDictionary*)parameters;
 
+-(NSDictionary*)parametersWithModifiedKey:(NSString*)modify;
+
 -(NSArray*)allModels;
 
 @end

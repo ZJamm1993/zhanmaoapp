@@ -49,7 +49,10 @@
     [sub addTarget:self action:@selector(addToCart:) forControlEvents:UIControlEventTouchUpInside];
     [sub.layer setCornerRadius:4];
     [sub.layer setMasksToBounds:YES];
-    self.bottomView=sub;
+    
+    UIView* subBg=[[UIView alloc]initWithFrame:self.bottomBgBounds];
+    [subBg addSubview:sub];
+    self.bottomView=subBg;
     
     self.title=@"产品详情";
 }
@@ -61,7 +64,7 @@
     [RentHttpTool getRentCartsCountSuccess:^(NSInteger count) {
         ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:count target:self selector:@selector(cartItemClicked)];
         self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, nil];
-    } failure:nil];
+    } phone:[UserModel getUser].mobile failure:nil];
     
 }
 
@@ -105,7 +108,7 @@
         return;
     }
     if (cartModel) {
-        [RentHttpTool addRentCarts:[NSArray arrayWithObject:cartModel] success:^(BOOL result) {
+        [RentHttpTool addRentCarts:[NSArray arrayWithObject:cartModel] phone:[UserModel getUser].mobile success:^(BOOL result) {
             if(result)
             {
                 RentCartTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];

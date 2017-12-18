@@ -61,16 +61,19 @@
 {
     _bottomView=bottomView;
     if (bottomView!=nil) {
-        [bottomView removeAllSubviews];
-        if (bottomBg==nil) {
-            bottomBg=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-64-bottomSafe, self.view.frame.size.width, 200)];
+        [bottomView removeFromSuperview];
+//        if (bottomBg==nil) {
+        [bottomBg removeFromSuperview];
+            bottomBg=[[UIView alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-bottomView.frame.size.height-bottomSafe, self.view.frame.size.width, 200)];
             bottomBg.backgroundColor=[UIColor whiteColor];
             [self.view addSubview:bottomBg];
             
             UIView* line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, bottomBg.frame.size.width, 1/[[UIScreen mainScreen]scale])];
             line.backgroundColor=gray_8;
             [bottomBg addSubview:line];
-        }
+//        }
+        bottomBg.frame=CGRectMake(0, self.view.frame.size.height-bottomView.frame.size.height-bottomSafe, self.view.frame.size.width, 200);
+//        [bottomBg removeAllSubviews];
         [bottomBg insertSubview:bottomView atIndex:0];
 //        bottomView.frame=bottomBg.bounds;
         [self performSelector:@selector(relayoutViews) withObject:nil afterDelay:0.01];
@@ -124,8 +127,8 @@
 -(void)relayoutViews
 {
     if (self.bottomView) {
-        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-64-bottomSafe);
-        bottomBg.frame=CGRectMake(0, self.view.frame.size.height-64-bottomSafe, self.view.frame.size.width, 200);
+        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-self.bottomView.frame.size.height-bottomSafe);
+        bottomBg.frame=CGRectMake(0, self.view.frame.size.height-self.bottomView.frame.size.height-bottomSafe, self.view.frame.size.width, 200);
     }
     else
     {

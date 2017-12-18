@@ -33,11 +33,11 @@
                 [self.dataSource removeObject:mo];
                 [self.dataSource insertObject:orderModel atIndex:row];
                 
-                if (orderModel.order_status==CleanOrderStatusCanceled) {
-                    [self.dataSource removeObjectAtIndex:row];
-                    [self.tableView reloadData];
-                    return;
-                }
+//                if (orderModel.order_status==CleanOrderStatusCanceled) {
+//                    [self.dataSource removeObjectAtIndex:row];
+//                    [self.tableView reloadData];
+//                    return;
+//                }
                 [self.tableView reloadData];
                 return;
             }
@@ -93,11 +93,13 @@
     cell.otherFee.text=[NSString stringWithFloat:mo.other_cost headUnit:@"¥" tailUnit:nil];
     cell.totalFee.text=[NSString stringWithFloat:mo.amount headUnit:@"¥" tailUnit:nil];
     
-    cell.blueButton.hidden=(mo.pay_status!=PayStatusNotYet);
+    BOOL shouldPay=mo.pay_status==PayStatusNotYet&&mo.order_status==CleanOrderStatusNotClean;
+    
+    cell.blueButton.hidden=!shouldPay;
     cell.grayButton.hidden=!cell.blueButton.hidden;
     
     NSString* buttonTitle=[CleanOrderModel cellButtonTitleForType:mo.order_status];
-    if (mo.pay_status==PayStatusNotYet) {
+    if (shouldPay) {
         buttonTitle=@"立即付款";
         cell.stateTitle.text=@"待付款";
     }

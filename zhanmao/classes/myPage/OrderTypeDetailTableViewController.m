@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    timer=[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(countingDown) userInfo:nil repeats:YES];
+    timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countingDown) userInfo:nil repeats:YES];
     [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(orderTypeChangedNotification:) name:OrderTypeStatusChangedNotification object:nil];
@@ -31,7 +31,14 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [timer invalidate];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:1]];
 }
 
 -(void)countingDown

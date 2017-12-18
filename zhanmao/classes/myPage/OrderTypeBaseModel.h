@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger,RentOrderStatus)
     RentOrderStatusNotReceived=1,
     RentOrderStatusNotReturn=3,
     RentOrderStatusReturning=4,
+    RentOrderStatusCanceled=5,
     RentOrderStatusFinishing=6,
     RentOrderStatusFinished=7,
 };

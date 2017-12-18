@@ -26,15 +26,15 @@
 
 #pragma mark carts
 
-+(void)addRentCarts:(NSArray*)carts success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
++(void)addRentCarts:(NSArray*)carts phone:(NSString*)phone success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 
-+(void)getRentCartsSuccess:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
++(void)getRentCartsSuccess:(void(^)(NSArray* result))success phone:(NSString*)phone failure:(void(^)(NSError* error))failure;
 
-+(void)getRentCartsCountSuccess:(void(^)(NSInteger count))success failure:(void(^)(NSError* error))failure;
++(void)getRentCartsCountSuccess:(void(^)(NSInteger count))success phone:(NSString*)phone failure:(void(^)(NSError* error))failure;
 
-+(void)removeRentCarts:(NSArray*)carts success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
++(void)removeRentCarts:(NSArray*)carts phone:(NSString*)phone success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 
-+(void)changeRentCart:(RentCartModel*)cart;
++(void)changeRentCart:(RentCartModel*)cart phone:(NSString*)phone;
 
 #pragma mark search
 

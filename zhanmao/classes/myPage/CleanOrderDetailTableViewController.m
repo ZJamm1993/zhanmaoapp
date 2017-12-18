@@ -18,6 +18,8 @@
 @interface CleanOrderDetailTableViewController ()
 {
     TotalFeeView* _totalFeeView;
+    
+    BOOL shouldPay;
 }
 @end
 
@@ -40,6 +42,14 @@
     // Do any additional setup after loading the view.
 }
 
+-(void)countingDown
+{
+    if (shouldPay) {
+        [self.tableView reloadData];
+    }
+}
+
+
 -(void)refresh
 {
     [OrderTypeDataSource getMyCleanOrderDetailById:self.cleanModel.idd token:[UserModel token] success:^(CleanOrderModel *model) {
@@ -52,7 +62,9 @@
 
 -(void)reloadWithOrder
 {
-    if (self.cleanModel.pay_status==PayStatusNotYet) {
+    shouldPay=self.cleanModel.pay_status==PayStatusNotYet&&self.cleanModel.order_status==CleanOrderStatusNotClean;
+    
+    if (shouldPay) {
         UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
         self.navigationItem.rightBarButtonItem=cancelItem;
         _totalFeeView.title.text=@"需付款：";
@@ -64,7 +76,7 @@
     }
     
     NSString* buttonString=[RentOrderModel cellButtonTitleForType:self.cleanModel.order_status];
-    if (self.cleanModel.pay_status==PayStatusNotYet) {
+    if (shouldPay) {
         buttonString=@"立即付款";
     }
     else
@@ -152,8 +164,7 @@
             statusCell.title.text=[CleanOrderModel detailHeaderTitleForType:self.cleanModel.order_status];
             statusCell.detail.text=[CleanOrderModel detailHeaderDescritionForType:self.cleanModel.order_status];
             
-            
-            if (self.cleanModel.pay_status==PayStatusNotYet) {
+            if (shouldPay) {
                 
                 statusCell.title.text=@"等待付款";
                 

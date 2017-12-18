@@ -6,10 +6,10 @@
 //  Copyright © 2017年 bangju. All rights reserved.
 //
 
-#import "BaseToolBarTableViewController.h"
+#import "BaseWebViewController.h"
 #import "ExhibitionModel.h"
 
-@interface ExhibitionDetailViewController : BaseToolBarTableViewController
+@interface ExhibitionDetailViewController : BaseWebViewController
 
 @property (nonatomic,strong) ExhibitionModel* exhi;
 

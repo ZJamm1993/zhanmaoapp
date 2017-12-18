@@ -22,6 +22,8 @@
 @implementation RentOrderDetailTableViewController
 {
     TotalFeeView* _totalFeeView;
+    
+    BOOL shouldDo;
 }
 
 - (void)viewDidLoad {
@@ -76,7 +78,9 @@
 
 -(void)reloadWithOrder
 {
-    if (self.rentModel.pay_status==PayStatusNotYet) {
+    shouldDo=self.rentModel.pay_status==PayStatusNotYet&&self.rentModel.order_status<=RentOrderStatusNotReceived;
+    
+    if (self.rentModel.pay_status==PayStatusNotYet&&shouldDo) {
         UIBarButtonItem* cancelItem=[[UIBarButtonItem alloc]initWithTitle:@"取消订单" style:UIBarButtonItemStylePlain target:self action:@selector(cancelOrder)];
         self.navigationItem.rightBarButtonItem=cancelItem;
         _totalFeeView.title.text=@"需付款：";
@@ -88,7 +92,7 @@
     }
     
     NSString* buttonString=[RentOrderModel cellButtonTitleForType:self.rentModel.order_status];
-    if (self.rentModel.pay_status==PayStatusNotYet) {
+    if (self.rentModel.pay_status==PayStatusNotYet&&shouldDo) {
         buttonString=@"立即付款";
     }
     
@@ -121,6 +125,8 @@
                 [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.rentModel];
                 
                 [self.navigationController popViewControllerAnimated:YES];
+                
+//                [self refresh];
             }
             else
             {

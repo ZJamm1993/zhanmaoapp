@@ -36,13 +36,12 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
 @implementation ExhibitionDetailViewController
 
 - (void)viewDidLoad {
+    self.url=[HTML_ExhiDetail urlWithMainUrl];
+    self.idd=self.exhi.idd.integerValue;
     [super viewDidLoad];
     
     self.title=@"最新展会";
     
-    [self.bottomButton removeFromSuperview];
-    
-    [self setAdvertiseHeaderViewWithPicturesUrls:[NSArray arrayWithObject:@"image_loading"]];
     [self refresh];
     // Do any additional setup after loading the view.
 }
@@ -56,16 +55,6 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
 {
     [MainPageHttpTool getExhibitionDetailById:self.exhi.idd success:^(ExhibitionModel *exhi) {
         self.exhi=exhi;
-        NSMutableArray* picUrls=[NSMutableArray array];
-        for (NSString* u in exhi.smeta) {
-            if (u.length>0) {
-                NSString* url=[ZZUrlTool fullUrlWithTail:u];
-                [picUrls addObject:url];
-            }
-        }
-        [self setAdvertiseHeaderViewWithPicturesUrls:picUrls];
-        
-        [self.bottomToolBar removeAllSubviews];
         NSArray* bottomTypes=exhi.types;
         NSArray* buttomButtnModels=[SimpleButtonModel exampleButtonModelsWithTypes:bottomTypes];
         for (SimpleButtonModel* mo in buttomButtnModels) {
@@ -76,96 +65,18 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
         }
         CGFloat h=[SimpleButtonsTableViewCell heightWithButtonsCount:buttomButtnModels.count];
         
-        SimpleButtonsTableViewCell* buttonsCell=[[SimpleButtonsTableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, h)];
+        SimpleButtonsTableViewCell* buttonsCell=[[SimpleButtonsTableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, h)];
         buttonsCell.buttons=buttomButtnModels;
         buttonsCell.delegate=self;
         buttonsCell.backgroundColor=rgb(38, 104, 209);
-        [self.bottomToolBar addSubview:buttonsCell];
+        self.bottomView=buttonsCell;
         
-        self.tableView.contentInset=UIEdgeInsetsMake(0, 0, h, 0);
-        
-        [self.tableView reloadData];
-        [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
     } cache:NO failure:^(NSError *error) {
         
     }];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    if (section!=1) {
-        return 1;
-    }
-    return ExhibitionDetailRowTotal;
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSInteger row=indexPath.row;
-    NSInteger sec=indexPath.section;
-    
-    if (sec==0) {
-        ExhiDetailTitleTableViewCell* titleCell=[tableView dequeueReusableCellWithIdentifier:@"ExhiDetailTitleTableViewCell" forIndexPath:indexPath];
-        titleCell.title.text=self.exhi.exhibition_name;
-        return titleCell;
-    }
-    else if(sec==2)
-    {
-        ExhiDetailDescriptionTableViewCell* desCell=[tableView dequeueReusableCellWithIdentifier:@"ExhiDetailDescriptionTableViewCell" forIndexPath:indexPath];
-        desCell.title.text=@"展会说明";
-        NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[self.exhi.exhibition_description dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-        desCell.detail.attributedText=attrStr;
-        return desCell;
-    }
-    else
-    {
-        ExhiDetailInfoTableViewCell* infoCell=[tableView dequeueReusableCellWithIdentifier:@"ExhiDetailInfoTableViewCell" forIndexPath:indexPath];
-        NSString* t=@"";
-        NSString* d=@"";
-        
-        if (row==ExhibitionDetailRowDate) {
-            t=@"展会日期";
-            NSString* star=[[self.exhi.start_date componentsSeparatedByString:@" "]firstObject];
-            NSString* endt=[[self.exhi.end_date componentsSeparatedByString:@" "]firstObject];
-            d=[NSString stringWithFormat:@"%@ 至 %@",star.length>0?star:@"",endt.length>0?endt:@""] ;
-        }
-        else if(row==ExhibitionDetailRowCity)
-        {
-            t=@"展出城市";
-            d=self.exhi.city;
-        }
-        else if(row==ExhibitionDetailRowAddress)
-        {
-            t=@"展出地址";
-            d=self.exhi.address;
-        }
-        else if(row==ExhibitionDetailRowHallName)
-        {
-            t=@"展馆名称";
-            d=self.exhi.hall_name;
-        }
-        else if(row==ExhibitionDetailRowSponser)
-        {
-            t=@"主办单位";
-            d=self.exhi.sponsor;
-        }
-        else if(row==ExhibitionDetailRowOrganizer)
-        {
-            t=@"承办单位";
-            d=self.exhi.organizer;
-        }
-        
-        infoCell.title.text=t;
-        infoCell.detail.text=d;
-        
-        return infoCell;
-    }
-}
 
 #pragma mark SimpleButtonsTableViewCellDelegate
 

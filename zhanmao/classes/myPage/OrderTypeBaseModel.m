@@ -80,6 +80,7 @@
     else if (type==RentOrderTypeFinished) {
         return @"已完成";
     }
+
     return @"";
 }
 
@@ -99,6 +100,10 @@
     }
     else if (type==RentOrderStatusFinishing||type==RentOrderStatusFinished) {
         return @"已完成";
+    }
+    else if(type==RentOrderStatusCanceled)
+    {
+        return @"已取消";
     }
     return @"";
 }
@@ -120,6 +125,9 @@
     }
     else if (type==RentOrderStatusFinishing||type==RentOrderStatusFinished) {
         buttonTitle=@"已完成";
+    }else if(type==RentOrderStatusCanceled)
+    {
+        return @"已取消";
     }
     return buttonTitle;
 }
@@ -140,6 +148,9 @@
     }
     else if (type==RentOrderStatusFinishing||type==RentOrderStatusFinished) {
         return @"订单已完成";
+    }else if(type==RentOrderStatusCanceled)
+    {
+        return @"已取消";
     }
     return @"";
 }
@@ -161,6 +172,9 @@
     else if(type==RentOrderStatusFinished)
     {
         return @"押金已原路退回，请注意查收";
+    }else if(type==RentOrderStatusCanceled)
+    {
+        return @"已取消";
     }
     return @"";
 }
@@ -312,7 +326,7 @@
     {
         return @"订单已完成";
     }
-    return @"";
+    return @"订单已取消";
 }
 
 +(NSString*)detailHeaderDescritionForType:(NSInteger)type

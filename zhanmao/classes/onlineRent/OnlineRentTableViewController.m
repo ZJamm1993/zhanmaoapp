@@ -122,7 +122,7 @@ const CGFloat categoriesHeaderHeight=50;
     [RentHttpTool getRentCartsCountSuccess:^(NSInteger count) {
         ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:count target:self selector:@selector(cartItemClicked)];
         self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, nil];
-    } failure:nil];
+    } phone:[UserModel getUser].mobile failure:nil];
     
 }
 
