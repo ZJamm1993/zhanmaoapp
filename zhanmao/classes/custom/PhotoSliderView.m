@@ -7,7 +7,7 @@
 //
 
 #import "PhotoSliderView.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 
 const NSInteger ScrollViewBgTag=10;
 const NSInteger ScrollViewImgTag=20;
@@ -107,13 +107,20 @@ const NSInteger PageLabelTag=40;
         }
         if (img==nil) {
             __weak typeof(self) weself=self;
-            [imgeVi sd_setImageWithURL:[NSURL URLWithString:[obj description]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            __weak typeof(imgeVi) weimgv=imgeVi;
+            [imgeVi setImageUrl:obj.description placeHolder:nil completed:^(UIImage *image, NSError *error, NSString *imageUrl) {
                 if (image==nil) {
                     return;
                 }
-                imgeVi.image=image;
-                [weself resizeImageView:imgeVi withImage:image andSize:siz];
+                [weself resizeImageView:weimgv withImage:image andSize:siz];
             }];
+//            [imgeVi sd_setImageWithURL:[NSURL URLWithString:[obj description]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+//                if (image==nil) {
+//                    return;
+//                }
+//                imgeVi.image=image;
+//                [weself resizeImageView:imgeVi withImage:image andSize:siz];
+//            }];
         }
         else
         {

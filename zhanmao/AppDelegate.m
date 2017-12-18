@@ -51,7 +51,8 @@
 
 -(void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
-    [[SDImageCache sharedImageCache]clearMemory];
+//    [[SDImageCache sharedImageCache]clearMemory];
+//    [[NSURLCache sharedURLCache]removeAllCachedResponses];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -42,8 +42,10 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
 -(void)refreshData
 {
     NSString* version=[NSString stringWithFormat:@"v%@",[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleShortVersionString"]];
-    NSInteger mb=[[SDImageCache sharedImageCache]getSize]/1024/1024;
-    NSString* cacheStr=[NSString stringWithFormat:@"%ldMB",(long)mb];
+//    NSInteger mb=[[SDImageCache sharedImageCache]getSize]/1024/1024;
+    
+    NSInteger byte=[[NSURLCache sharedURLCache]currentDiskUsage];
+    NSString* cacheStr=[NSString stringWithFormat:@"%.2fMB",(CGFloat)byte/1024/1024];
     cellModelsArray=[NSArray arrayWithObjects:
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"分享给好友" image:@"set_share" detail:@"" identifier:@"share"],
@@ -123,8 +125,7 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
     NSLog(@"%@",mo.identifier);
     
     if ([mo.identifier isEqualToString:@"clean"]) {
-        [[SDImageCache sharedImageCache]clearMemory];
-        [[SDImageCache sharedImageCache]clearDiskOnCompletion:nil];
+        [[NSURLCache sharedURLCache]removeAllCachedResponses];
         [self refreshData];
     }
     else if([mo.identifier isEqualToString:@"logout"])

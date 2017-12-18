@@ -7,7 +7,7 @@
 //
 
 #import "ZZHttpTool.h"
-#import "Reachability.h"
+//#import "Reachability.h"
 
 @implementation ZZHttpTool
 

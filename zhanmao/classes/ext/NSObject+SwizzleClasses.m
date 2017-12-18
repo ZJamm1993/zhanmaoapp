@@ -8,7 +8,7 @@
 
 #import "NSObject+SwizzleClasses.h"
 
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 
 @implementation NSObject (SwizzleClasses)
 

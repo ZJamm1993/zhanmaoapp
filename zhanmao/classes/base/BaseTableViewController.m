@@ -8,7 +8,6 @@
 
 #import "BaseTableViewController.h"
 #import <SystemConfiguration/SystemConfiguration.h>
-#import "Reachability.h"
 #import "BaseModel.h"
 #import "NothingWarningView.h"
 #import "BaseLoadMoreFooterView.h"
@@ -77,7 +76,7 @@
         self.tableView.backgroundColor=gray_9;
     }
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(networkStateChange:) name:kReachabilityChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scheduleRefresh) name:ScheduleRefreshNetWorkNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reloadDataNotification:) name:UITableViewReloadDataNotification object:nil];
 
@@ -106,22 +105,22 @@
     return _pageSize;
 }
 
--(void)networkStateChange:(NSNotification*)noti
-{
-    Reachability* reach=[noti object];
-    if (reach.currentReachabilityStatus!=NotReachable) {
-        if (hasNetwork==NO) {
-            if (self.currentPage<=0) {
-                [self refresh];
-            }
-        }
-        hasNetwork=YES;
-    }
-    else
-    {
-        hasNetwork=NO;
-    }
-}
+//-(void)networkStateChange:(NSNotification*)noti
+//{
+//    Reachability* reach=[noti object];
+//    if (reach.currentReachabilityStatus!=NotReachable) {
+//        if (hasNetwork==NO) {
+//            if (self.currentPage<=0) {
+//                [self refresh];
+//            }
+//        }
+//        hasNetwork=YES;
+//    }
+//    else
+//    {
+//        hasNetwork=NO;
+//    }
+//}
 
 -(void)scheduleRefresh
 {

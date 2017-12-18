@@ -56,12 +56,15 @@
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Exhibition/new_exhibition"];
     [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
-        NSDictionary* data=[dict valueForKey:@"data"];
-        ExhibitionModel* exh=[[ExhibitionModel alloc]initWithDictionary:data];
-        NSArray* arr=[NSArray arrayWithObject:exh];
-        if(success)
-        {
-            success(arr);
+        NSArray* data=[dict valueForKey:@"data"];
+        
+        NSMutableArray* res=[NSMutableArray array];
+        for (NSDictionary* di in data) {
+            ExhibitionModel* exh=[[ExhibitionModel alloc]initWithDictionary:di];
+            [res addObject:exh];
+        }
+        if (success) {
+            success(res);
         }
     } failure:^(NSError *err) {
         if (failure) {

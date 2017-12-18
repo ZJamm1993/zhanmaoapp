@@ -16,7 +16,7 @@
 
 #import "ZZNotificationName.h"
 
-#import "UIImageView+WebCache.h"
+#import "UIImageView+ZZWebImage.h"
 #import "UIView+ext.h"
 #import "NSDictionary+ext.h"
 #import "MBProgressHUD.h"
