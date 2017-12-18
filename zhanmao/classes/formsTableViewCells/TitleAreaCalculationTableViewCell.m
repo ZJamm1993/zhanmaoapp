@@ -137,8 +137,8 @@
     BaseFormModel* last=[self.model.combination_arr lastObject];
     NSNumberFormatter* forma=[[NSNumberFormatter alloc]init];
     forma.numberStyle=NSNumberFormatterDecimalStyle;
-    last.value=[NSString stringWithFormat:@"%f",totalArea];
-    self.result.text=[forma stringFromNumber:[NSNumber numberWithFloat:last.value.floatValue]];
+    last.value=[NSString stringWithFormat:@"%.2f",totalArea];
+    self.result.text=last.value;//[forma stringFromNumber:[NSNumber numberWithFloat:last.value.floatValue]];
     
 
 }

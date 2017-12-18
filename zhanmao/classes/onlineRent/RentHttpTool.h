@@ -26,15 +26,15 @@
 
 #pragma mark carts
 
-+(void)addRentCarts:(NSArray*)carts phone:(NSString*)phone success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
++(void)addRentCarts:(NSArray*)carts userid:(NSString*)userid success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 
-+(void)getRentCartsSuccess:(void(^)(NSArray* result))success phone:(NSString*)phone failure:(void(^)(NSError* error))failure;
++(void)getRentCartsSuccess:(void(^)(NSArray* result))success userid:(NSString*)userid failure:(void(^)(NSError* error))failure;
 
-+(void)getRentCartsCountSuccess:(void(^)(NSInteger count))success phone:(NSString*)phone failure:(void(^)(NSError* error))failure;
++(void)getRentCartsCountSuccess:(void(^)(NSInteger count))success userid:(NSString*)userid failure:(void(^)(NSError* error))failure;
 
-+(void)removeRentCarts:(NSArray*)carts phone:(NSString*)phone success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
++(void)removeRentCarts:(NSArray*)carts userid:(NSString*)userid success:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 
-+(void)changeRentCart:(RentCartModel*)cart phone:(NSString*)phone;
++(void)changeRentCart:(RentCartModel*)cart userid:(NSString*)userid;
 
 #pragma mark search
 

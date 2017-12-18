@@ -88,8 +88,7 @@
     if (type==RentOrderStatusNotSent) {
         return @"待发货";
     }
-    else
-        if (type==RentOrderStatusNotReceived) {
+    else if (type==RentOrderStatusNotReceived) {
         return @"待收货";
     }
     else if (type==RentOrderStatusNotReturn) {

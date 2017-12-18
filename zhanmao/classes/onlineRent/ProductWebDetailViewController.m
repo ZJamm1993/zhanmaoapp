@@ -64,7 +64,7 @@
     [RentHttpTool getRentCartsCountSuccess:^(NSInteger count) {
         ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"cart" count:count target:self selector:@selector(cartItemClicked)];
         self.navigationItem.rightBarButtonItems=[NSArray arrayWithObjects:cartItem, nil];
-    } phone:[UserModel getUser].mobile failure:nil];
+    } userid:[UserModel getUser].cartId failure:nil];
     
 }
 
@@ -108,7 +108,7 @@
         return;
     }
     if (cartModel) {
-        [RentHttpTool addRentCarts:[NSArray arrayWithObject:cartModel] phone:[UserModel getUser].mobile success:^(BOOL result) {
+        [RentHttpTool addRentCarts:[NSArray arrayWithObject:cartModel] userid:[UserModel getUser].cartId success:^(BOOL result) {
             if(result)
             {
                 RentCartTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];

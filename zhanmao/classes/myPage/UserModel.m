@@ -26,6 +26,7 @@
         _mobile=[dictionary valueForKey:@"mobile"];
         _user_email=[dictionary valueForKey:@"user_email"];
         _position=[dictionary valueForKey:@"position"];
+        _userid=[dictionary valueForKey:@"userid"];
     }
     
 //    if (_access_token.length==0) {
@@ -51,10 +52,9 @@
 //    #warning test user token
 #if DEBUG
     return @"123";
-#else
+#endif
     NSString* to=[[NSUserDefaults standardUserDefaults]valueForKey:UserTokenKey];
     return to;
-#endif
 }
 
 +(void)saveToken:(NSString *)token
@@ -86,6 +86,7 @@
     [d setValue:user.mobile forKey:@"mobile"];
     [d setValue:user.user_email forKey:@"user_email"];
     [d setValue:user.position forKey:@"position"];
+    [d setValue:user.userid forKey:@"userid"];
     
     NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
     
@@ -113,14 +114,13 @@
     NSDictionary* d=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     UserModel* user=[[UserModel alloc]initWithDictionary:d];
     NSLog(@"%@",d);
-    
-#if DEBUG
-    if (user.mobile.length==0) {
-        user.mobile=@"911";
-    }
-    
-#endif
+
     return user;
+}
+
+-(NSString*)cartId
+{
+    return self.userid;
 }
 
 +(void)deleteUser

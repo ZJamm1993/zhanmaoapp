@@ -83,7 +83,7 @@
         }
         else if([model.field isEqualToString:@"volume"])
         {
-            volume=model.value.floatValue*350;
+            volume=model.value.floatValue*350/1000;
         }
     }
     
