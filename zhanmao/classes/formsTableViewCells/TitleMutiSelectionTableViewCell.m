@@ -124,6 +124,10 @@ const NSInteger mutiSelectionButtonRowCount=3;
     NSInteger tag=btn.tag;
     NSString* title=[self.titles objectAtIndex:tag];
 //    NSString* title=[btn titleForState:UIControlStateNormal];
+    if ([self.selectedTitles containsObject:@""]) {
+        [self.selectedTitles removeObject:@""];
+    }
+    
     if (btn.selected) {
         if (![self.selectedTitles containsObject:title]) {
             [self.selectedTitles addObject:title];
