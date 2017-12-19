@@ -41,7 +41,7 @@
 {
     //        [MBProgressHUD showSuccessMessage:@"最后一页了"];
     [MBProgressHUD showProgressMessage:@"正在提交..."];
-    NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parameters]];
+    NSMutableDictionary* paras=[NSMutableDictionary dictionaryWithDictionary:[self.formSteps parametersWithModifiedKey:@"data"]];
     NSLog(@"%@",paras);
     [TravellingHttpTool postTravelQuestionnaireParams:paras success:^(BOOL result, NSString *msg) {
         if (result) {

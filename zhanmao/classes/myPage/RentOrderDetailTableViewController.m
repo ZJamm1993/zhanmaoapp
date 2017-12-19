@@ -285,6 +285,8 @@
             if (result)
             {
                 [self refresh];
+                self.rentModel.order_status=RentOrderStatusNotReturn;
+                [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.rentModel];
                 [MBProgressHUD showSuccessMessage:msg];
             }
             else

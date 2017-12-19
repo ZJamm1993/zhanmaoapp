@@ -104,12 +104,12 @@
     {
         return @"已取消";
     }
-    return @"";
+    return @"未知";
 }
 //
 +(NSString*)cellButtonTitleForType:(NSInteger)type
 {
-    NSString* buttonTitle=@"";
+    NSString* buttonTitle=@"未知";
     if (type==RentOrderStatusNotSent) {
         buttonTitle=@"确认收货";
     }
@@ -124,7 +124,8 @@
     }
     else if (type==RentOrderStatusFinishing||type==RentOrderStatusFinished) {
         buttonTitle=@"已完成";
-    }else if(type==RentOrderStatusCanceled)
+    }
+    else if(type==RentOrderStatusCanceled)
     {
         return @"已取消";
     }
@@ -151,7 +152,7 @@
     {
         return @"已取消";
     }
-    return @"";
+    return @"未知状态";
 }
 //
 +(NSString*)detailHeaderDescritionForType:(NSInteger)type
