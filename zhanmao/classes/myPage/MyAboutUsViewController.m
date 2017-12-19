@@ -37,7 +37,8 @@
     [MyPageHttpTool getStandardConfigCache:YES success:^(NSDictionary *config) {
         if (config) {
             _emailLabel.text=[config valueForKey:@"site_admin_email"];
-#warning  wechat ?
+//#warning  wechat ?
+            _wechatLabel.text=[config valueForKey:@"gongzhonghao"];
             _websiteLabel.text=[config valueForKey:@"website"];
             [self.tableView reloadData];
         }
@@ -72,7 +73,29 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
+    if (indexPath.section==1) {
+        if (indexPath.row==0) {
+            if (_emailLabel.text.length>0) {
+                [[UIPasteboard generalPasteboard]setString:_emailLabel.text];
+                [MBProgressHUD showSuccessMessage:@"已复制邮箱"];
+            }
+        }
+        else if(indexPath.row==1)
+        {
+            if (_wechatLabel.text.length>0) {
+                [[UIPasteboard generalPasteboard]setString:_wechatLabel.text];
+                [MBProgressHUD showSuccessMessage:@"已复制微信公众号"];
+            }
+        }
+    }
+    if (indexPath.section==2) {
+        if (indexPath.row==0) {
+            if (_websiteLabel.text.length>0) {
+                [[UIPasteboard generalPasteboard]setString:_websiteLabel.text];
+                [MBProgressHUD showSuccessMessage:@"已复制官网"];
+            }
+        }
+    }
 }
 
 @end

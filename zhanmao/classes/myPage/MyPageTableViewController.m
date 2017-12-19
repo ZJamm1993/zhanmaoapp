@@ -384,7 +384,8 @@
 
 -(void)myPageHeaderTableViewCellSettingButtonClicked:(MyPageHeaderTableViewCell *)cell
 {
-    [self pushToViewControllerId:@"MySettingTableViewController"];
+//    [self pushToViewControllerId:@"MySettingTableViewController"];
+    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:@"MySettingTableViewController"] animated:YES];
 }
 
 -(void)myPageHeaderTableViewCellPersonalButtonClicked:(MyPageHeaderTableViewCell *)cell
