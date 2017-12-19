@@ -35,14 +35,14 @@
 
 +(void)testGotoWechatpay
 {
-    PayReq *request = [[PayReq alloc] init];
-    request.partnerId = @"1";
-    request.prepayId= @"1";
-    request.package = @"Sign=WXPay";
-    request.nonceStr= @"123";
-    request.timeStamp= [[NSDate date]timeIntervalSince1970];
-    request.sign= @"582282D72DD2B03AD892830965F428CB16E7A256";
-    [WXApi sendReq:request];
+//    PayReq *request = [[PayReq alloc] init];
+//    request.partnerId = @"1";
+//    request.prepayId= @"1";
+//    request.package = @"Sign=WXPay";
+//    request.nonceStr= @"123";
+//    request.timeStamp= [[NSDate date]timeIntervalSince1970];
+//    request.sign= @"582282D72DD2B03AD892830965F428CB16E7A256";
+//    [WXApi sendReq:request];
 }
 
 +(void)testGotoUnionpay

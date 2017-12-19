@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AlipaySDK/AlipaySDK.h>
-#import "WXApi.h"
+//#import "WXApi.h"
 
 typedef NS_ENUM(NSInteger,PayResultType)
 {

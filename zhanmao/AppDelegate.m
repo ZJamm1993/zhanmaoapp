@@ -14,9 +14,9 @@
 
 #import "MyPageHttpTool.h"
 
-#define WXApiAppId @"wxdc1288a5c294339a"
+//#define WXApiAppId @"wxdc1288a5c294339a"
 
-@interface AppDelegate ()<WXApiDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -30,7 +30,7 @@
     BaseWebViewController* preloadWeb=[[BaseWebViewController alloc]initWithUrl:nil];
     preloadWeb.view.backgroundColor=[UIColor whiteColor];
     
-    [WXApi registerApp:WXApiAppId enableMTA:NO];
+//    [WXApi registerApp:WXApiAppId enableMTA:NO];
     
     [MyPageHttpTool getPersonalInfoToken:[UserModel token] success:^(UserModel *user,NSInteger code) {
         if (code==ZZHttpCodeTokenInvalid) {
@@ -93,26 +93,26 @@
             [ZZPayTool handleAlipayResult:resultDic];
         }];
     }
-    else if([url.host isEqualToString:WXApiAppId])
-    {
-        [WXApi handleOpenURL:url delegate:self];
-    }
+//    else if([url.host isEqualToString:WXApiAppId])
+//    {
+////        [WXApi handleOpenURL:url delegate:self];
+//    }
     return YES;
 }
 
--(void)onResp:(BaseResp*)resp{
-    if ([resp isKindOfClass:[PayResp class]]){
-        PayResp*response=(PayResp*)resp;
-        switch(response.errCode){
-            case WXSuccess:
-                //服务器端查询支付通知或查询API返回的结果再提示成功
-                NSLog(@"支付成功");
-                break;
-            default:
-                NSLog(@"支付失败，retcode=%d",resp.errCode);
-                break;
-        }
-    }
-}
+//-(void)onResp:(BaseResp*)resp{
+//    if ([resp isKindOfClass:[PayResp class]]){
+//        PayResp*response=(PayResp*)resp;
+//        switch(response.errCode){
+//            case WXSuccess:
+//                //服务器端查询支付通知或查询API返回的结果再提示成功
+//                NSLog(@"支付成功");
+//                break;
+//            default:
+//                NSLog(@"支付失败，retcode=%d",resp.errCode);
+//                break;
+//        }
+//    }
+//}
 
 @end
