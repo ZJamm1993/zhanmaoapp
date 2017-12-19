@@ -152,12 +152,10 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 -(void)refresh
 {
     [MainPageHttpTool getNewExhibitions:^(NSArray *exhs) {
-        if (exhs.count>0) {
-            exhibitionArray=[NSMutableArray arrayWithArray:exhs];
-            [self.tableView reloadData];
-        }
+        exhibitionArray=[NSMutableArray arrayWithArray:exhs];
+        [self.tableView reloadData];
     } cache:NO failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
     
     [MainPageHttpTool getNewMessagesPage:1 pageSize:self.pageSize cached:NO success:^(NSArray *result) {
@@ -167,7 +165,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
             self.currentPage=1;
         }
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
 }
 
@@ -183,7 +181,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
             self.currentPage=self.currentPage+1;
         }
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
 }
 

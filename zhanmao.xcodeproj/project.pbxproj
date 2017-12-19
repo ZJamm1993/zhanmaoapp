@@ -122,7 +122,6 @@
 		8E6C74931FA03E69004B33D1 /* ProductDetailInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74911FA03E69004B33D1 /* ProductDetailInfoTableViewCell.m */; };
 		8E6C74981FA03E9B004B33D1 /* ProductParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74961FA03E9B004B33D1 /* ProductParameterTableViewCell.m */; };
 		8E6C749C1FA041C0004B33D1 /* ZZStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C749B1FA041C0004B33D1 /* ZZStepper.m */; };
-		8E6C749F1FA0669D004B33D1 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C749E1FA0669D004B33D1 /* ProductDetailViewController.m */; };
 		8E6C74A11FA06B45004B33D1 /* OnlineRent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E6C74A01FA06B45004B33D1 /* OnlineRent.storyboard */; };
 		8E6C74A41FA06C05004B33D1 /* BaseToolBarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74A31FA06C05004B33D1 /* BaseToolBarTableViewController.m */; };
 		8E6C74A81FA071B4004B33D1 /* RentCartEditTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74A61FA071B4004B33D1 /* RentCartEditTableViewCell.m */; };
@@ -133,7 +132,6 @@
 		8E721AF31FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E721AF11FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.m */; };
 		8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E721AF21FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib */; };
 		8E72E9DD1FB2D744001FCD31 /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9DC1FB2D744001FCD31 /* AddressModel.m */; };
-		8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9DF1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m */; };
 		8E72E9E41FB2ECDF001FCD31 /* CustomOrderPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9E31FB2ECDF001FCD31 /* CustomOrderPagerViewController.m */; };
 		8E72E9E71FB2ED02001FCD31 /* CustomOrderTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9E61FB2ED02001FCD31 /* CustomOrderTableViewController.m */; };
 		8E72E9EA1FB2ED24001FCD31 /* CustomOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E72E9E91FB2ED24001FCD31 /* CustomOrderTableViewCell.m */; };
@@ -436,8 +434,6 @@
 		8E6C74961FA03E9B004B33D1 /* ProductParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductParameterTableViewCell.m; sourceTree = "<group>"; };
 		8E6C749A1FA041C0004B33D1 /* ZZStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZStepper.h; sourceTree = "<group>"; };
 		8E6C749B1FA041C0004B33D1 /* ZZStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZStepper.m; sourceTree = "<group>"; };
-		8E6C749D1FA0669D004B33D1 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
-		8E6C749E1FA0669D004B33D1 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		8E6C74A01FA06B45004B33D1 /* OnlineRent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OnlineRent.storyboard; sourceTree = "<group>"; };
 		8E6C74A21FA06C05004B33D1 /* BaseToolBarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseToolBarTableViewController.h; sourceTree = "<group>"; };
 		8E6C74A31FA06C05004B33D1 /* BaseToolBarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseToolBarTableViewController.m; sourceTree = "<group>"; };
@@ -456,8 +452,6 @@
 		8E721AF21FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleMutiSelectionTableViewCell.xib; sourceTree = "<group>"; };
 		8E72E9DB1FB2D744001FCD31 /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
 		8E72E9DC1FB2D744001FCD31 /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
-		8E72E9DE1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComfirmOrderTableViewController.h; sourceTree = "<group>"; };
-		8E72E9DF1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComfirmOrderTableViewController.m; sourceTree = "<group>"; };
 		8E72E9E21FB2ECDF001FCD31 /* CustomOrderPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOrderPagerViewController.h; sourceTree = "<group>"; };
 		8E72E9E31FB2ECDF001FCD31 /* CustomOrderPagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOrderPagerViewController.m; sourceTree = "<group>"; };
 		8E72E9E51FB2ED02001FCD31 /* CustomOrderTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOrderTableViewController.h; sourceTree = "<group>"; };
@@ -867,10 +861,6 @@
 				8EA680711FB697CA00EF5FC8 /* RentHttpTool.m */,
 				8E6C741B1F9DF0E2004B33D1 /* OnlineRentTableViewController.h */,
 				8E6C741C1F9DF0E2004B33D1 /* OnlineRentTableViewController.m */,
-				8E72E9DE1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.h */,
-				8E72E9DF1FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m */,
-				8E6C749D1FA0669D004B33D1 /* ProductDetailViewController.h */,
-				8E6C749E1FA0669D004B33D1 /* ProductDetailViewController.m */,
 				8E6C74AA1FA08572004B33D1 /* RentCartTableViewController.h */,
 				8E6C74AB1FA08572004B33D1 /* RentCartTableViewController.m */,
 				8EDBF4F21FA1E5660073F37D /* ProductSearchTableViewController.h */,
@@ -1525,7 +1515,6 @@
 				8E99AAA21F9068920078C452 /* MBProgressHUD.m in Sources */,
 				8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */,
 				8E31F46C1FC7E67100373437 /* ExhibitionModel.m in Sources */,
-				8E72E9E01FB2E3F0001FCD31 /* ComfirmOrderTableViewController.m in Sources */,
 				8E99AAA11F9068920078C452 /* MBProgressHUD+ZZCustom.m in Sources */,
 				8EDBF4F11FA1C7CF0073F37D /* ImageBadgeBarButtonItem.m in Sources */,
 				3985139E1FD139A80056FB7F /* MyHelpCenterTableViewController.m in Sources */,
@@ -1568,7 +1557,6 @@
 				8E721AE91FB58195001BD401 /* HuiyiFormTableViewController.m in Sources */,
 				8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */,
 				398513901FD0F42A0056FB7F /* MyPersonalInfoViewController.m in Sources */,
-				8E6C749F1FA0669D004B33D1 /* ProductDetailViewController.m in Sources */,
 				398513A41FD140FB0056FB7F /* MyFeedBackTableViewController.m in Sources */,
 				8EDBF4E81FA1B4D20073F37D /* TransportOrderTableViewController.m in Sources */,
 				8E6C74931FA03E69004B33D1 /* ProductDetailInfoTableViewCell.m in Sources */,

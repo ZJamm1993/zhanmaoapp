@@ -10,7 +10,7 @@
 
 #import "RentHttpTool.h"
 
-#import "ProductDetailViewController.h"
+//#import "ProductDetailViewController.h"
 #import "ProductWebDetailViewController.h"
 #import "RentCartTableViewController.h"
 #import "NaviController.h"

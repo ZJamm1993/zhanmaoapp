@@ -26,7 +26,7 @@
         _mobile=[dictionary valueForKey:@"mobile"];
         _user_email=[dictionary valueForKey:@"user_email"];
         _position=[dictionary valueForKey:@"position"];
-        _userid=[dictionary valueForKey:@"userid"];
+        _idd=[dictionary valueForKey:@"id"];
     }
     
 //    if (_access_token.length==0) {
@@ -86,7 +86,7 @@
     [d setValue:user.mobile forKey:@"mobile"];
     [d setValue:user.user_email forKey:@"user_email"];
     [d setValue:user.position forKey:@"position"];
-    [d setValue:user.userid forKey:@"userid"];
+    [d setValue:user.idd forKey:@"id"];
     
     NSData* data=[NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
     
@@ -120,7 +120,7 @@
 
 -(NSString*)cartId
 {
-    return self.userid;
+    return self.idd;
 }
 
 +(void)deleteUser

@@ -51,7 +51,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
             [self setAdvertiseHeaderViewWithPicturesUrls:pics];
         }
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
     
     [TravellingHttpTool getServiceProviderType:@"1" page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
@@ -66,7 +66,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
         arrayWithSimpleButtons=models;
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
     
     [TravellingHttpTool getServiceProviderType:@"2" page:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
             self.currentPage=1;
         }
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
 }
 
@@ -90,7 +90,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
             self.currentPage=self.currentPage+1;
         }
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
 }
 

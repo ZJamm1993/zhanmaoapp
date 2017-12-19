@@ -25,11 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self refresh];
+}
+
+-(void)refresh
+{
     [MainPageHttpTool getCustomShowingCaseListByCid:self.cid cache:YES success:^(NSArray *result) {
         self.dataSource=[NSMutableArray arrayWithArray:result];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
 }
 

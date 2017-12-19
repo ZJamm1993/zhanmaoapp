@@ -30,7 +30,7 @@
 @property (nonatomic,strong) NSString* user_email;
 @property (nonatomic,strong) NSString* position;
 @property (nonatomic,strong) NSString* avatar;
-@property (nonatomic,strong) NSString* userid;
+@property (nonatomic,strong) NSString* idd;
 
 @property (nonatomic,readonly) NSString* cartId;
 

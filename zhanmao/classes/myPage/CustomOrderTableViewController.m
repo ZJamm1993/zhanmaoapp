@@ -48,6 +48,7 @@
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        [self.tableView reloadData];
     }];
 }
 
@@ -61,6 +62,7 @@
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
+        [self.tableView reloadData];
     }];
 }
 

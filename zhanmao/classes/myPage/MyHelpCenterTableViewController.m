@@ -42,7 +42,7 @@
             self.currentPage=1;
         }
     } failure:^(NSError *error) {
-        
+        [self.tableView reloadData];
     }];
     
     [MyPageHttpTool getStandardConfigCache:NO success:^(NSDictionary *config) {

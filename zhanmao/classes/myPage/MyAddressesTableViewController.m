@@ -46,7 +46,7 @@
             [self.dataSource addObjectsFromArray:result];
             [self.tableView reloadData];
         } failure:^(NSError *error) {
-            
+            [self.tableView reloadData];
         }];
     }
     else
