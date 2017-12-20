@@ -26,6 +26,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark datas
+
 -(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
 {
     for (RentOrderModel* mo in self.dataSource) {
@@ -77,10 +79,7 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark tableviews
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -130,11 +129,23 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    RentOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderDetailTableViewController"];
+    RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
+    rentDetail.rentModel=mo;
+    [self.navigationController pushViewController:rentDetail animated:YES];
+}
+
+#pragma mark rentordertableviewcelldelegate
+
 -(void)rentOrderTableViewCellActionButtonClick:(RentOrderTableViewCell *)cell
 {
-//    RentOrderModel* rentOrder=cell.orderModel;
-//    RentOrderStatus sta=rentOrder.status;
-//
+    //    RentOrderModel* rentOrder=cell.orderModel;
+    //    RentOrderStatus sta=rentOrder.status;
+    //
     if (cell.orderModel.pay_status==PayStatusNotYet) {
         PayOrderTableViewController* pay=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"PayOrderTableViewController"];
         pay.orderModel=cell.orderModel.pay;
@@ -157,16 +168,6 @@
             }
         }];
     }
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    RentOrderDetailTableViewController* rentDetail=[[UIStoryboard storyboardWithName:@"MyOrder" bundle:nil]instantiateViewControllerWithIdentifier:@"RentOrderDetailTableViewController"];
-    RentOrderModel* mo=[self.dataSource objectAtIndex:indexPath.section];
-    rentDetail.rentModel=mo;
-    [self.navigationController pushViewController:rentDetail animated:YES];
 }
 
 @end

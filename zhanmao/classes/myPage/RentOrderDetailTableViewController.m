@@ -45,15 +45,6 @@
     [self refresh];
 }
 
--(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
-{
-    if ([orderModel isKindOfClass:[self.rentModel class]]) {
-        if ([orderModel.idd isEqualToString:self.rentModel.idd]) {
-            [self refresh];
-        }
-    }
-}
-
 -(void)refresh
 {
     [OrderTypeDataSource getMyRentOrderDetailById:self.rentModel.idd token:[UserModel token] success:^(RentOrderModel *model) {
@@ -64,16 +55,15 @@
     }];
 }
 
--(void)countingDown
-{
-    if (self.rentModel.pay_status==PayStatusNotYet) {
-        [self.tableView reloadData];
-    }
-}
+#pragma mark reloads
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
+{
+    if ([orderModel isKindOfClass:[self.rentModel class]]) {
+        if ([orderModel.idd isEqualToString:self.rentModel.idd]) {
+            [self refresh];
+        }
+    }
 }
 
 -(void)reloadWithOrder
@@ -107,35 +97,13 @@
     [self.tableView reloadData];
 }
 
--(void)cancelOrder
+-(void)countingDown
 {
-    NSLog(@"cancel order");
-    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要取消订单吗？" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        //do cancel actioin
-        [MBProgressHUD showProgressMessage:@"正在取消"];
-        [OrderTypeDataSource postMyRentOrderCancelById:self.rentModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
-            if (result) {
-                [MBProgressHUD showSuccessMessage:msg];
-                self.rentModel.order_status=RentOrderStatusUnknown;
-//#warning 租赁订单哪种取消状态？
-                [self reloadWithOrder];
-                
-                [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.rentModel];
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                
-//                [self refresh];
-            }
-            else
-            {
-                [MBProgressHUD showErrorMessage:msg];
-            }
-        }];
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
+    if (self.rentModel.pay_status==PayStatusNotYet) {
+        [self.tableView reloadData];
+    }
 }
+
 
 #pragma mark - Table view data source
 
@@ -270,6 +238,8 @@
     return [[UITableViewCell alloc]init];
 }
 
+#pragma mark actions
+
 -(void)doAction
 {
     if (self.rentModel.pay_status==PayStatusNotYet) {
@@ -296,5 +266,36 @@
         }];
     }
 }
+
+-(void)cancelOrder
+{
+    NSLog(@"cancel order");
+    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要取消订单吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //do cancel actioin
+        [MBProgressHUD showProgressMessage:@"正在取消"];
+        [OrderTypeDataSource postMyRentOrderCancelById:self.rentModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
+            if (result) {
+                [MBProgressHUD showSuccessMessage:msg];
+                self.rentModel.order_status=RentOrderStatusUnknown;
+                //#warning 租赁订单哪种取消状态？
+                [self reloadWithOrder];
+                
+                [OrderTypeDataSource postOrderStatusChangedNotificationWithOrder:self.rentModel];
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+                //                [self refresh];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 @end

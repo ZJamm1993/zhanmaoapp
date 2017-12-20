@@ -30,16 +30,6 @@
     self.idd=self.goodModel.idd.integerValue;
     [super viewDidLoad];
     
-//    UIButton* submitButton=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomBgBounds.size.width-20, self.bottomBgBounds.size.height-20)];
-//    submitButton.backgroundColor=_mainColor;
-//    [submitButton setTitle:@"加入租赁车" forState:UIControlStateNormal];
-//    [submitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [submitButton.titleLabel setFont:[UIFont systemFontOfSize:17]];
-//    [submitButton setImage:[UIImage imageNamed:@"cartSmall"] forState:UIControlStateNormal];
-//    [submitButton setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
-//    [submitButton addTarget:self action:@selector(addToCart) forControlEvents:UIControlEventTouchUpInside];
-//    [submitButton.layer setCornerRadius:4];
-//    [submitButton.layer setMasksToBounds:YES];
     UIButton* sub=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomBgBounds.size.width-20, self.bottomBgBounds.size.height-20)];
     [sub setTitle:@"加入租赁车" forState:UIControlStateNormal];
     sub.backgroundColor=_mainColor;
@@ -73,6 +63,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark actions
+
 -(void)cartItemClicked
 {
     //    ImageBadgeBarButtonItem* cartItem=[ImageBadgeBarButtonItem itemWithImageName:@"a" count:arc4random()%120 target:self selector:@selector(cartItemClicked)];
@@ -99,6 +91,8 @@
     }];
     [self performSelector:@selector(reEnableButton:) withObject:button afterDelay:1];
 }
+
+#pragma mark rentactioneditviewdelegate
 
 -(void)rentActionEditViewAddToRentCart:(RentCartModel *)cartModel
 {

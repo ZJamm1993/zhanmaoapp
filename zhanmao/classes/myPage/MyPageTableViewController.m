@@ -63,6 +63,33 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark navbar and statusbar
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self performSelector:@selector(updateUserInfo) withObject:nil afterDelay:0.1];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark datas
+
 -(void)refreshCellsModel
 {
     cellModelsArray=[NSArray arrayWithObjects:
@@ -131,29 +158,6 @@
             [self.tableView reloadData];
         }
     }];
-}
-
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [self performSelector:@selector(updateUserInfo) withObject:nil afterDelay:0.1];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(NSArray*)arrayWithSimpleButtons
@@ -357,29 +361,6 @@
     }
 }
 
--(void)pushToViewControllerId:(NSString*)identifier
-{
-    //normals
-    if ([UserModel token].length==0) {
-        [self askToLogin];
-        return;
-    }
-    if (identifier.length>0) {
-//        UIViewController* viewController;//=[cachesControllers valueForKey:identifier];
-//        if (viewController==nil) {
-        UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MyPage" bundle:nil];
-        NSLog(@"%@",sb);
-        UIViewController* viewController=[sb instantiateViewControllerWithIdentifier:identifier];
-//            [cachesControllers setValue:viewController forKey:identifier];
-//        }
-        
-        [self.navigationController pushViewController:viewController animated:YES];
-//        if ([identifier isEqualToString:@"MyPersonalInfoViewController"]) {
-//            askedToPerfectInfo=YES;
-//        }
-    }
-}
-
 #pragma headerCellDelegate
 
 -(void)myPageHeaderTableViewCellSettingButtonClicked:(MyPageHeaderTableViewCell *)cell
@@ -392,6 +373,31 @@
 {
     if ([UserModel token].length==0) {
         [self goToLogin];
+    }
+}
+
+#pragma mark actions
+
+-(void)pushToViewControllerId:(NSString*)identifier
+{
+    //normals
+    if ([UserModel token].length==0) {
+        [self askToLogin];
+        return;
+    }
+    if (identifier.length>0) {
+        //        UIViewController* viewController;//=[cachesControllers valueForKey:identifier];
+        //        if (viewController==nil) {
+        UIStoryboard* sb=[UIStoryboard storyboardWithName:@"MyPage" bundle:nil];
+        NSLog(@"%@",sb);
+        UIViewController* viewController=[sb instantiateViewControllerWithIdentifier:identifier];
+        //            [cachesControllers setValue:viewController forKey:identifier];
+        //        }
+        
+        [self.navigationController pushViewController:viewController animated:YES];
+        //        if ([identifier isEqualToString:@"MyPersonalInfoViewController"]) {
+        //            askedToPerfectInfo=YES;
+        //        }
     }
 }
 

@@ -25,6 +25,8 @@
 
 @implementation BaseTableViewController
 
+#pragma mark getters
+
 -(NSMutableArray*)dataSource
 {
     if (_dataSource==nil) {
@@ -52,9 +54,20 @@
     return UIStatusBarStyleLightContent;
 }
 
+-(NSInteger)pageSize
+{
+    if (_pageSize<=0) {
+        NSDictionary* d=[ZZHttpTool pageParams];
+        
+        _pageSize=[[d valueForKey:@"pagesize"]integerValue];
+    }
+    return _pageSize;
+}
+
+#pragma mark viewcontrollers
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     hasNetwork=NO;
     
@@ -95,32 +108,11 @@
 //    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleDefault];
 }
 
--(NSInteger)pageSize
+-(void)dealloc
 {
-    if (_pageSize<=0) {
-        NSDictionary* d=[ZZHttpTool pageParams];
-        
-        _pageSize=[[d valueForKey:@"pagesize"]integerValue];
-    }
-    return _pageSize;
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    NSLog(@"%@ deal",NSStringFromClass([self class]));
 }
-
-//-(void)networkStateChange:(NSNotification*)noti
-//{
-//    Reachability* reach=[noti object];
-//    if (reach.currentReachabilityStatus!=NotReachable) {
-//        if (hasNetwork==NO) {
-//            if (self.currentPage<=0) {
-//                [self refresh];
-//            }
-//        }
-//        hasNetwork=YES;
-//    }
-//    else
-//    {
-//        hasNetwork=NO;
-//    }
-//}
 
 -(void)scheduleRefresh
 {
@@ -152,18 +144,9 @@
     }
 }
 
--(void)dealloc
-{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-    NSLog(@"%@ deal",NSStringFromClass([self class]));
-}
+
 
 #pragma mark - Refresh And Load More
-
--(void)setUrlString:(NSString *)urlString
-{
-    _urlString=urlString;
-}
 
 -(void)firstLoad
 {
@@ -198,26 +181,26 @@
 #pragma mark - Table view data source
 
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UIView* bg=[[UIView alloc]initWithFrame:cell.bounds];
-    bg.backgroundColor=[UIColor groupTableViewBackgroundColor];
-    cell.selectedBackgroundView=bg;
-//    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-//    if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1)) {
-//        self.shouldLoadMore=_dataSource.count!=lastCount;
-//        lastCount=_dataSource.count;
-////        NSString* loadmoreText=@"正在加载...";
-//        if (self.shouldLoadMore) {
-//            [self loadMore];
-//        }
-////        else
-////        {
-////            loadmoreText=@"";
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    UIView* bg=[[UIView alloc]initWithFrame:cell.bounds];
+//    bg.backgroundColor=[UIColor groupTableViewBackgroundColor];
+//    cell.selectedBackgroundView=bg;
+////    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+////    if ((indexPath.section==[tableView numberOfSections]-1)&&(indexPath.row==[tableView numberOfRowsInSection:indexPath.section]-1)) {
+////        self.shouldLoadMore=_dataSource.count!=lastCount;
+////        lastCount=_dataSource.count;
+//////        NSString* loadmoreText=@"正在加载...";
+////        if (self.shouldLoadMore) {
+////            [self loadMore];
 ////        }
-////        [self setNothingFooterViewWithText:loadmoreText];
-//    }
-}
+//////        else
+//////        {
+//////            loadmoreText=@"";
+//////        }
+//////        [self setNothingFooterViewWithText:loadmoreText];
+////    }
+//}
 
 #pragma mark - table view delegate
 
@@ -239,7 +222,14 @@
     return 0.0001;
 }
 
-#pragma mark - Advertiseview header
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (scrollView==self.tableView) {
+        [self.tableView endEditing:YES];
+    }
+}
+
+#pragma mark - Advertiseview header & delegate
 
 -(void)setAdvertiseHeaderViewWithPicturesUrls:(NSArray *)picturesUrls
 {
@@ -265,6 +255,8 @@
 //    }
 }
 
+#pragma mark nothing footer
+
 -(void)setNothingFooterViewWithText:(NSString*)text
 {
     NothingFooterCell* ff=[NothingFooterCell defaultFooterCell];
@@ -273,12 +265,6 @@
     
 }
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    if (scrollView==self.tableView) {
-        [self.tableView endEditing:YES];
-    }
-}
 
 #pragma mark - nothing label
 

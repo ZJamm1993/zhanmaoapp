@@ -56,6 +56,8 @@
     [self.view endEditing:YES];
 }
 
+#pragma mark counting down
+
 -(void)startCountDownSeconds:(NSInteger)second
 {
     if(timer==nil)

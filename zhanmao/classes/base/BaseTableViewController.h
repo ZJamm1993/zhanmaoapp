@@ -15,7 +15,7 @@
 
 @property (nonatomic,strong) NSMutableArray* dataSource;
 @property (nonatomic,strong) NSMutableArray* advsArray;
-@property (nonatomic,strong) NSString* urlString;
+//@property (nonatomic,strong) NSString* urlString;
 
 @property (nonatomic,assign) NSInteger currentPage;
 @property (nonatomic,assign) NSInteger pageSize;

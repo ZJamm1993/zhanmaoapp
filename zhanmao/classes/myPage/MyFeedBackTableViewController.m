@@ -42,15 +42,19 @@
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
-}
+#pragma mark tableviews
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return UITableViewAutomaticDimension;
+}
+
+#pragma mark textfield and textview delegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -63,10 +67,14 @@
     return YES;
 }
 
+#pragma mark textview placeholder
+
 -(void)hidePlaceHolderIfNeed
 {
     self.textViewPlaceHolder.hidden=self.adviceTextView.text.length>0;
 }
+
+#pragma mark actions
 
 - (IBAction)submit:(id)sender {
     NSString* advice=self.adviceTextView.text;

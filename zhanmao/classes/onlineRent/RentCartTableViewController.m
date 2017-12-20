@@ -67,11 +67,7 @@
     }];
 }
 
--(void)editingToggle
-{
-    self.editing=!self.editing;
-    editButtonItem.title=self.editing?@"完成":@"编辑";
-}
+#pragma mark tableviews
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -105,6 +101,15 @@
     }
 }
 
+
+#pragma mark actions
+
+-(void)editingToggle
+{
+    self.editing=!self.editing;
+    editButtonItem.title=self.editing?@"完成":@"编辑";
+}
+
 -(BOOL)isEditing
 {
     return custom_editing;
@@ -118,36 +123,6 @@
     
     [self.tableView reloadData];
     editToolBar.editing=editing;
-}
-
--(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell deleteCartModel:(RentCartModel *)cartModel
-{
-    UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除商品吗？删除后无法恢复" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        if ([self.dataSource containsObject:cartModel]) {
-            NSInteger ind=[self.dataSource indexOfObject:cartModel];
-            [self.dataSource removeObject:cartModel];
-            [RentHttpTool removeRentCarts:[NSArray arrayWithObject:cartModel] userid:[UserModel getUser].cartId success:nil failure:nil];
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:ind inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-    }]];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
-
--(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell didChangeModel:(RentCartModel *)cartModel
-{
-    BOOL isSelectedAll=YES;
-    for (RentCartModel* mo in self.dataSource) {
-        if(mo.selected==NO)
-        {
-            isSelectedAll=NO;
-        }
-        [RentHttpTool changeRentCart:mo userid:[UserModel getUser].cartId];
-    }
-    [self.tableView reloadData];
-    editToolBar.seletedAll=isSelectedAll;
 }
 
 -(void)editToolBarAction
@@ -204,5 +179,38 @@
     
     editToolBar.seletedAll=shouldSelectedAll;
 }
+
+#pragma mark rentcartedittableviewcelldelegate
+
+-(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell deleteCartModel:(RentCartModel *)cartModel
+{
+    UIAlertController * alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除商品吗？删除后无法恢复" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        if ([self.dataSource containsObject:cartModel]) {
+            NSInteger ind=[self.dataSource indexOfObject:cartModel];
+            [self.dataSource removeObject:cartModel];
+            [RentHttpTool removeRentCarts:[NSArray arrayWithObject:cartModel] userid:[UserModel getUser].cartId success:nil failure:nil];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:ind inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)rentCartEditTableViewCell:(RentCartEditTableViewCell *)cell didChangeModel:(RentCartModel *)cartModel
+{
+    BOOL isSelectedAll=YES;
+    for (RentCartModel* mo in self.dataSource) {
+        if(mo.selected==NO)
+        {
+            isSelectedAll=NO;
+        }
+        [RentHttpTool changeRentCart:mo userid:[UserModel getUser].cartId];
+    }
+    [self.tableView reloadData];
+    editToolBar.seletedAll=isSelectedAll;
+}
+
 
 @end

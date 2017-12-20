@@ -37,6 +37,8 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     [self refresh];
 }
 
+#pragma mark refresh and loadmore
+
 -(void)refresh
 {
     [TravellingHttpTool getAdvertisementsByCid:@"1" cache:NO success:^(NSArray *result) {
@@ -169,16 +171,22 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     }
 }
 
+#pragma mark advertiseview delegate
+
 -(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
 {
     TravellingModel* mo=[self.advsArray objectAtIndex:index];
     [self gotoUrl:mo.url];
 }
 
+#pragma mark simplebuttonstableviewcell delegate
+
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
     [self gotoUrl:model.identifier];
 }
+
+#pragma mark actions
 
 -(void)gotoUrl:(NSString*)url
 {

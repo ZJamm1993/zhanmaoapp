@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark datas
+
 -(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
 {
     for (CustomOrderModel* mo in self.dataSource) {
@@ -65,6 +67,8 @@
         [self.tableView reloadData];
     }];
 }
+
+#pragma mark tableviews
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

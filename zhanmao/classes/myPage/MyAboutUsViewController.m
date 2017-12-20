@@ -29,6 +29,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark refresh
+
 -(void)refresh
 {
     NSString* version=[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleShortVersionString"];
@@ -37,7 +39,7 @@
     [MyPageHttpTool getStandardConfigCache:YES success:^(NSDictionary *config) {
         if (config) {
             _emailLabel.text=[config valueForKey:@"site_admin_email"];
-//#warning  wechat ?
+            //#warning  wechat ?
             _wechatLabel.text=[config valueForKey:@"gongzhonghao"];
             _websiteLabel.text=[config valueForKey:@"website"];
             [self.tableView reloadData];
@@ -46,10 +48,7 @@
     [self.tableView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark tableviews
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

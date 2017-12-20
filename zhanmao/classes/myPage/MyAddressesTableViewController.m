@@ -56,6 +56,8 @@
     }
 }
 
+#pragma mark notifications
+
 -(void)addressDidAddNewNotification:(NSNotification*)notification
 {
     NSDictionary* usr=notification.userInfo;
@@ -75,6 +77,8 @@
     
     [self.tableView reloadData];
 }
+
+#pragma mark tableviews
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -137,10 +141,7 @@
     }
 }
 
--(void)bottomToolBarButtonClicked
-{
-    [self.navigationController pushViewController:[[AddressAddNewFormTableViewController alloc]init] animated:YES];
-}
+#pragma mark addressotiontableviewcell delegate& actions
 
 -(void)addressOtionTableViewCell:(AddressOptionTableViewCell *)cell doAction:(AddressOptionAction)action
 {
@@ -202,6 +203,13 @@
         add.editAddress=model;
         [self.navigationController pushViewController:add animated:YES];
     }
+}
+
+#pragma actions
+
+-(void)bottomToolBarButtonClicked
+{
+    [self.navigationController pushViewController:[[AddressAddNewFormTableViewController alloc]init] animated:YES];
 }
 
 @end

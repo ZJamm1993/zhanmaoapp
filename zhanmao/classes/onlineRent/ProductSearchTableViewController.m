@@ -88,20 +88,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark tipsView delegate
--(void)searchTipsView:(SearchTipsView *)tipsview selectedString:(NSString *)string
-{
-    NSLog(@"%@",string);
-    searchBar.text=string;
-    [self goSearchString:string];
-    [searchBar resignFirstResponder];
-}
 
--(void)searchTipsViewDeleteAllSearchedStrings:(SearchTipsView *)tipsview
-{
-    [RentHttpTool removeSearchedStrings:nil failure:nil];
-    [self addTipsViewIfNeed];
-}
 
 #pragma mark search texting
 
@@ -228,6 +215,22 @@
     }
     
     //do somethings
+}
+
+#pragma mark tipsView delegate
+
+-(void)searchTipsView:(SearchTipsView *)tipsview selectedString:(NSString *)string
+{
+    NSLog(@"%@",string);
+    searchBar.text=string;
+    [self goSearchString:string];
+    [searchBar resignFirstResponder];
+}
+
+-(void)searchTipsViewDeleteAllSearchedStrings:(SearchTipsView *)tipsview
+{
+    [RentHttpTool removeSearchedStrings:nil failure:nil];
+    [self addTipsViewIfNeed];
 }
 
 

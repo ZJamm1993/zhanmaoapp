@@ -23,6 +23,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma datas
+
 -(void)orderStatusChanged:(OrderTypeBaseModel *)orderModel
 {
     for (CleanOrderModel* mo in self.dataSource) {
@@ -74,6 +76,8 @@
     }];
 }
 
+#pragma mark tableviews
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.dataSource.count;
@@ -123,6 +127,8 @@
     cleanDetail.cleanModel=mo;
     [self.navigationController pushViewController:cleanDetail animated:YES];
 }
+
+#pragma mark actions
 
 -(void)payOrder:(UIButton*)btn
 {

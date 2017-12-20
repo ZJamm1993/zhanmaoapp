@@ -42,6 +42,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark textfield delegate
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -62,6 +64,8 @@
     }
     return YES;
 }
+
+#pragma mark imagepickercontroller delegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
@@ -90,6 +94,8 @@
     }];
     //    [picker dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark actions
 
 - (IBAction)submitClick:(id)sender {
     NSString* user_nicename=self.nicknameTextField.text;

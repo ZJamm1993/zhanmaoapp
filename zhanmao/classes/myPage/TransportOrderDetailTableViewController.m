@@ -46,9 +46,10 @@
     [self refresh];
 }
 
+#pragma mark datas
+
 -(void)refresh
 {
-    
     [OrderTypeDataSource getMyTransportOrderDetailById:self.transportModel.idd token:[UserModel token] success:^(TransportOrderModel *model) {
         if (model.idd.length>0) {
             self.transportModel=model;
@@ -106,10 +107,7 @@
     [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark tableviews
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -125,6 +123,8 @@
 {
     return 10;
 }
+
+#pragma mark actions
 
 -(void)cancelOrder
 {

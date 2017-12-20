@@ -42,6 +42,8 @@
     // Do any additional setup after loading the view.
 }
 
+#pragma mark reloads data
+
 -(void)countingDown
 {
     if (shouldPay) {
@@ -103,29 +105,6 @@
             [self refresh];
         }
     }
-}
-
--(void)cancelOrder
-{
-    NSLog(@"cancel order");
-    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要取消订单吗？" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        //do cancel actioin
-//        #warning not finish clean order detail cancel action
-        [MBProgressHUD showProgressMessage:@"正在取消"];
-        [OrderTypeDataSource postMyCleanOrderCancelById:self.cleanModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
-            if (result) {
-                [MBProgressHUD showSuccessMessage:msg];
-                [self refresh];
-            }
-            else
-            {
-                [MBProgressHUD showErrorMessage:msg];
-            }
-        }];
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
@@ -234,6 +213,8 @@
     
 }
 
+#pragma mark actions
+
 -(void)doAction
 {
     if(self.cleanModel.pay_status==PayStatusNotYet)
@@ -243,6 +224,29 @@
         pay.orderType=PayOrderTypeClean;
         [self.navigationController pushViewController:pay animated:YES];
     }
+}
+
+-(void)cancelOrder
+{
+    NSLog(@"cancel order");
+    UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"提示" message:@"确定要取消订单吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"再想想" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        //do cancel actioin
+        //        #warning not finish clean order detail cancel action
+        [MBProgressHUD showProgressMessage:@"正在取消"];
+        [OrderTypeDataSource postMyCleanOrderCancelById:self.cleanModel.idd token:[UserModel token] success:^(BOOL result, NSString *msg) {
+            if (result) {
+                [MBProgressHUD showSuccessMessage:msg];
+                [self refresh];
+            }
+            else
+            {
+                [MBProgressHUD showErrorMessage:msg];
+            }
+        }];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

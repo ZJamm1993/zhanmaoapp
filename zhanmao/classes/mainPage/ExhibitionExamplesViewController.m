@@ -91,6 +91,8 @@
     [self.navigationController pushViewController:ep animated:YES];
 }
 
+#pragma mark actions
+
 -(void)bottomToolBarButtonClicked
 {
 //    if ([UserModel token].length==0) {

@@ -27,25 +27,14 @@
     // Do any additional setup after loading the view.
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 12;
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self check];
-    return YES;
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self.textingField becomeFirstResponder];
     
-//    if (self.textingField.text.length>0) {
-//        [self.textingField selectAll:self.textingField];
-//    }
+    //    if (self.textingField.text.length>0) {
+    //        [self.textingField selectAll:self.textingField];
+    //    }
     [self.textingField performSelector:@selector(selectAll:) withObject:nil afterDelay:0.01];
 }
 
@@ -54,6 +43,23 @@
     [super viewWillDisappear:animated];
     [self.textingField resignFirstResponder];
 }
+
+#pragma mark tableviews
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 12;
+}
+
+#pragma mark textfield
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self check];
+    return YES;
+}
+
+#pragma mark actions
 
 -(void)check
 {

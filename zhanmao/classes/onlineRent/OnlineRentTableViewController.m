@@ -164,6 +164,8 @@ const CGFloat categoriesHeaderHeight=50;
     [self loadmore];
 }
 
+#pragma mark actions
+
 -(void)setLocation:(NSString*)location
 {
     ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"downArrowSmall" leftImage:NO title:location target:self selector:@selector(selectLocation)];
@@ -174,17 +176,6 @@ const CGFloat categoriesHeaderHeight=50;
 {
     NSLog(@"select location");
     [self setLocation:@"广州"];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    [self goSearch];
-    return NO;
 }
 
 -(void)goSearch
@@ -201,6 +192,14 @@ const CGFloat categoriesHeaderHeight=50;
     
     RentCartTableViewController* rent=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"RentCartTableViewController"];
     [self.navigationController pushViewController:rent animated:YES];
+}
+
+#pragma mark textfielddelegate
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [self goSearch];
+    return NO;
 }
 
 #pragma mark tableviews

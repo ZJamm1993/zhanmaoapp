@@ -73,6 +73,8 @@
     [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
 }
 
+#pragma mark keyboards
+
 -(void)keyboardShows:(NSNotification*)noti
 {
     //    NSLog(@"%@",noti);
@@ -92,6 +94,8 @@
     [self scrollViewDidScroll:self.tableView];
 }
 
+#pragma mark actions
+
 -(void)goToCustom
 {
     [self bottomToolBarButtonClicked];
@@ -100,11 +104,6 @@
 -(void)bottomToolBarButtonClicked
 {
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView

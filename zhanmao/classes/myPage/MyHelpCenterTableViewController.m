@@ -32,6 +32,8 @@
     [self refresh];
 }
 
+#pragma mark datas
+
 -(void)refresh
 {
     [MyPageHttpTool getHelpCenterListPage:1 pagesize:self.pageSize cache:NO success:^(NSArray *result) {
@@ -66,6 +68,8 @@
         
     }];
 }
+
+#pragma mark tableviews
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -129,6 +133,8 @@
         [self.navigationController pushViewController:web animated:YES];
     }
 }
+
+#pragma mark actions
 
 -(void)phoneCallClick:(UIButton*)btn
 {

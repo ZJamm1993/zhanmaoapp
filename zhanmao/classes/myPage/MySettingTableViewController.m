@@ -39,6 +39,8 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
     [self refreshData];
 }
 
+#pragma mark reload actions
+
 -(void)refreshData
 {
     NSString* version=[NSString stringWithFormat:@"v%@",[[[NSBundle mainBundle]infoDictionary]valueForKey:@"CFBundleShortVersionString"]];
@@ -64,11 +66,6 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
 {
     [self refreshData];
     //[self.refreshControl endRefreshing];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark tableView delegate & datasource
@@ -125,8 +122,7 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
     NSLog(@"%@",mo.identifier);
     
     if ([mo.identifier isEqualToString:@"clean"]) {
-        [[NSURLCache sharedURLCache]removeAllCachedResponses];
-        [self refreshData];
+        [self clearCache];
     }
     else if([mo.identifier isEqualToString:@"logout"])
     {
@@ -134,30 +130,11 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
     }
     else if([mo.identifier isEqualToString:@"share"])
     {
-//#warning unknow our app url
-        NSString* titleToShare=@"展贸在线";
-        UIImage* imageToShare=[UIImage imageNamed:@"icon_share"];
-        NSURL* urlToShare=[NSURL URLWithString:MyAppStoreUrlString.description];
-        
-        NSMutableArray* items=[NSMutableArray array];
-        if (titleToShare.length>0) {
-            [items addObject:titleToShare];
-        }
-        if (imageToShare) {
-            [items addObject:imageToShare];
-        }
-        if (urlToShare) {
-            [items addObject:urlToShare];
-        }
-        UIActivityViewController* ac=[[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
-        [self presentViewController:ac animated:YES completion:nil];
+        [self share];
     }
     else if([mo.identifier isEqualToString:@"judge"])
     {
-//#warning unknow our app url
-        NSURL* urlToJudge=[NSURL URLWithString:MyAppStoreUrlString.description];
-        
-        [[UIApplication sharedApplication]openURL:urlToJudge];
+        [self judge];
     }
     else
     {
@@ -165,6 +142,42 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
             [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MyPage" bundle:nil]instantiateViewControllerWithIdentifier:mo.identifier] animated:YES];
         }
     }
+}
+
+#pragma actions
+
+-(void)clearCache
+{
+    [[NSURLCache sharedURLCache]removeAllCachedResponses];
+    [self refreshData];
+}
+
+-(void)share
+{
+    //#warning unknow our app url
+    NSString* titleToShare=@"展贸在线";
+    UIImage* imageToShare=[UIImage imageNamed:@"icon_share"];
+    NSURL* urlToShare=[NSURL URLWithString:MyAppStoreUrlString.description];
+    
+    NSMutableArray* items=[NSMutableArray array];
+    if (titleToShare.length>0) {
+        [items addObject:titleToShare];
+    }
+    if (imageToShare) {
+        [items addObject:imageToShare];
+    }
+    if (urlToShare) {
+        [items addObject:urlToShare];
+    }
+    UIActivityViewController* ac=[[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
+    [self presentViewController:ac animated:YES completion:nil];
+}
+
+-(void)judge
+{
+    NSURL* urlToJudge=[NSURL URLWithString:MyAppStoreUrlString.description];
+    
+    [[UIApplication sharedApplication]openURL:urlToJudge];
 }
 
 -(void)logOut

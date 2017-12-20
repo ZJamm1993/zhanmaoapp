@@ -37,6 +37,8 @@
 //    }
 //}
 
+#pragma mark viewcontrollers
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -141,25 +143,6 @@
     self.bottomView.frame=CGRectMake(0, self.tableView.frame.size.height, self.tableView.frame.size.width, 200);
 }
 
--(void)loadFormJson
-{
-    NSLog(@"%@ valueChanged, please overwrite",self);
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(NSMutableArray*)dataSource
-{
-    if (_dataSource==nil) {
-        _dataSource=[NSMutableArray array];
-    }
-    //    lastCount=_dataSource.count;
-    return _dataSource;
-}
-
 #pragma mark keyboards
 
 -(void)keyboardShows:(NSNotification*)noti
@@ -201,7 +184,21 @@
     }];
 }
 
-#pragma mark tableViews
+#pragma mark datas
+
+-(void)loadFormJson
+{
+    NSLog(@"%@ valueChanged, please overwrite",self);
+}
+
+-(NSMutableArray*)dataSource
+{
+    if (_dataSource==nil) {
+        _dataSource=[NSMutableArray array];
+    }
+    //    lastCount=_dataSource.count;
+    return _dataSource;
+}
 
 -(void)setFormSteps:(BaseFormStepsModel *)formSteps
 {
@@ -265,26 +262,7 @@
     self.prefixValues=nil;
 }
 
-//#warning test prefix value
-//
-//-(NSDictionary*)prefixValues
-//{
-//    return [NSDictionary dictionaryWithObject:@"abcdefg" forKey:@"name"];
-//}
-
-//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-//{
-//    return UITableViewAutomaticDimension;
-//}
-//
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-////    if(section==0)
-////    {
-////        return 0.001;
-////    }
-//    return 10;
-//}
+#pragma mark tableviews
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -340,7 +318,7 @@
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-//    [scrollView endEditing:YES];
+
 }
 
 -(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
@@ -349,7 +327,7 @@
     return sec.d3scription;
 }
 
-#pragma mark editing
+#pragma mark formbasetableviewcelldelegate
 
 -(void)formBaseTableViewCellWillBeginEditing:(FormBaseTableViewCell *)cell
 {
@@ -367,6 +345,8 @@
 {
     [self.navigationController pushViewController:viewController animated:YES];
 }
+
+#pragma mark editing
 
 -(void)valueChanged
 {
@@ -456,6 +436,8 @@
     NSLog(@"over write shouldHandlePayOrder: and return YES to handle pay");
     return NO;
 }
+
+#pragma mark cells selector
 
 +(NSString*)cellNibNameForFormType:(BaseFormType)type
 {

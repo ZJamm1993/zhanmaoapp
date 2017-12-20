@@ -47,6 +47,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark actions
+
 - (IBAction)getCode:(id)sender {
     if ([self.mobileTextField.text isMobileNumber]) {
         self.getCodeButton.enabled=NO;
@@ -112,6 +114,8 @@
         }
     }];
 }
+
+#pragma mark countingdown
 
 -(void)countingDownSeconds:(NSInteger)second
 {

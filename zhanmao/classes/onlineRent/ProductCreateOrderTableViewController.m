@@ -104,6 +104,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     } failure:nil];
 }
 
+#pragma mark calculate
+
 -(void)calculatePrices
 {
     
@@ -146,12 +148,11 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
                     }
                 }
             }
-            
         }
     }
-    
-    
 }
+
+#pragma mark datas
 
 -(NSArray*)addressSectionArray;
 {
@@ -242,6 +243,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     return [NSArray arrayWithObject:[NSNumber numberWithInt:0]];
 }
 
+#pragma mark tableviews
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return ProductCreateOrderSectionTotalCount;
@@ -331,6 +334,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     
     return [[UITableViewCell alloc]init];
 }
+
+#pragma mark formbasetableviewcelldelegate
 
 -(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell *)cell
 {

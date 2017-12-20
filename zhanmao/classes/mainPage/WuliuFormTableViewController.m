@@ -66,6 +66,8 @@
     return 8;
 }
 
+#pragma mark calculate
+
 -(void)valueChanged
 {
     //    BaseFormModel* requiredModel=[self.formSteps requiredModelWithStep:self.stepInteger];

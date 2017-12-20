@@ -57,6 +57,8 @@
     return self;
 }
 
+#pragma mark bottom views
+
 -(void)setBottomView:(UIView *)bottomView
 {
     _bottomView=bottomView;
@@ -85,11 +87,20 @@
     return CGRectMake(0, 0, self.view.frame.size.width, 64);
 }
 
--(void)dealloc
+#pragma mark getters
+
+-(NSMutableDictionary*)params
 {
-    self.ios8WebView.delegate=nil;
-    
-    NSLog(@"%@ deal",NSStringFromClass([self class]));
+    if(_params.count==0)
+    {
+        _params=[NSMutableDictionary dictionary];
+    }
+    return _params;
+}
+
+-(UIView*)webUIView
+{
+    return self.ios8WebView;
 }
 
 -(UIWebView*)ios8WebView
@@ -105,17 +116,23 @@
         _ios8WebView.scrollView.showsHorizontalScrollIndicator=NO;
         
         //wkwebview's
-//        _ios8WebView.navigationDelegate=self;
-//        _ios8WebView.UIDelegate=self;
+        //        _ios8WebView.navigationDelegate=self;
+        //        _ios8WebView.UIDelegate=self;
         [self.view addSubview:_ios8WebView];
     }
     NSLog(@"uiwebview");
     return _ios8WebView;
 }
 
--(UIView*)webUIView
+
+#pragma mark views
+
+
+-(void)dealloc
 {
-    return self.ios8WebView;
+    self.ios8WebView.delegate=nil;
+    
+    NSLog(@"%@ deal",NSStringFromClass([self class]));
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -134,15 +151,6 @@
     {
         self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-bottomSafe);
     }
-}
-
--(NSMutableDictionary*)params
-{
-    if(_params.count==0)
-    {
-        _params=[NSMutableDictionary dictionary];
-    }
-    return _params;
 }
 
 - (void)viewDidLoad {
@@ -215,25 +223,9 @@
         [loadingIndicator startAnimating];
         
     }
-    
-//    UIBarButtonItem* x=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"x"] style:UIBarButtonItemStylePlain target:self action:@selector(closeWebView)];
-//    UIBarButtonItem* ba=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(popOrBack)];
-//    self.navigationItem.leftBarButtonItems=[NSArray arrayWithObjects:ba,x, nil];
 }
 
-//-(void)closeWebView
-//{
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
-//
-//-(void)popOrBack
-//{
-//    if ([self.ios8WebView canGoBack]) {
-//        [self.ios8WebView goBack];
-//        return;
-//    }
-//    [self.navigationController popViewControllerAnimated:YES];
-//}
+#pragma mark action
 
 -(void)loadHtml:(NSString*)htmlString
 {
@@ -241,54 +233,8 @@
 
 }
 
-//- (void)didReceiveMemoryWarning {
-//    [super didReceiveMemoryWarning];
-//    // Dispose of any resources that can be recreated.
-//}
-//
-//-(void)viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-////    self.webUIView.frame=self.view.bounds;
-//}
-
 #pragma mark --old uiwebview delegate
 
-//-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-//{
-//    NSLog(@"%@",request);
-//    NSString* url=request.URL.absoluteString;
-//    if ([url isEqualToString:@"action://scancode"]) {
-//        WebScanCodeViewController* we=[[WebScanCodeViewController alloc]init];
-//        we.delegate=self;
-//        [self.navigationController pushViewController:we animated:YES];
-////        [self codeScanerOnResult:@"aaaa"];
-//        return NO;
-//    }
-//    if ([url isEqualToString:@"action://asktologin"])
-//    {
-//        if ([[[UserModel getUser]access_token]length]>0)
-//        {
-//            return NO;
-//        }
-//        UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"需要登录" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-//
-//        [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//
-//        }]];
-//        [alert addAction:[UIAlertAction actionWithTitle:@"去登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            PersonalLoginViewController* lo=[[UIStoryboard storyboardWithName:@"Personal" bundle:nil]instantiateViewControllerWithIdentifier:@"PersonalLoginViewController"];
-//            lo.delegate=self;
-//            [self.navigationController pushViewController:lo animated:YES];
-//        }]];
-//
-//        [self presentViewController:alert animated:YES completion:nil];
-//
-//        return NO;
-//    }
-//    return YES;
-//}
-//
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
     [loadingIndicator startAnimating];
@@ -306,27 +252,5 @@
 
     NSLog(@"%@",[self.ios8WebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.innerHTML"]);
 }
-//
-////-(BOOL)navigationShouldPopOnBackButton
-////{
-////    if (self.ios8WebView.canGoBack) {
-////        [self.ios8WebView goBack];
-////        return NO;
-////    }
-////    return YES;
-////}
-//
-//-(void)codeScanerOnResult:(NSString *)result
-//{
-//    NSString* js=[NSString stringWithFormat:@"onmarked('%@');",result];
-//    [self.ios8WebView performSelector:@selector(stringByEvaluatingJavaScriptFromString:) withObject:js afterDelay:0.1];
-//}
-//
-//-(void)personalLoginViewControllerDidLoginToken:(NSString *)token
-//{
-//    //我想要你在giftlist那里判断没有token的时候，发出action://asktologin，然后由我来弹出对话框去登录，登录之后我在执行你的didlogin(token)函数。
-//    NSString* js=[NSString stringWithFormat:@"didlogin('%@');",token];
-//    [self.ios8WebView performSelector:@selector(stringByEvaluatingJavaScriptFromString:) withObject:js afterDelay:0.1];
-//}
 
 @end

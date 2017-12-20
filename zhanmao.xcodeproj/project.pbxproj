@@ -217,14 +217,6 @@
 		8EEF091D1FB96E3D004ED5F0 /* StepsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF091C1FB96E3D004ED5F0 /* StepsHeaderView.m */; };
 		8EEF09201FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */; };
 		8EEF09231FB98168004ED5F0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EEF09221FB98168004ED5F0 /* CoreLocation.framework */; };
-		8EF7E6C51FBE7AFD003C6FB4 /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6C41FBE7AFD003C6FB4 /* 1.txt */; };
-		8EF7E6C71FBE7B15003C6FB4 /* 2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6C61FBE7B15003C6FB4 /* 2.txt */; };
-		8EF7E6C91FBE7B29003C6FB4 /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6C81FBE7B29003C6FB4 /* 3.txt */; };
-		8EF7E6CB1FBE7B44003C6FB4 /* 4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6CA1FBE7B44003C6FB4 /* 4.txt */; };
-		8EF7E6CD1FBE7B61003C6FB4 /* 5.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6CC1FBE7B61003C6FB4 /* 5.txt */; };
-		8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6CE1FBE7B76003C6FB4 /* 6.txt */; };
-		8EF7E6D11FBE7B96003C6FB4 /* 7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6D01FBE7B96003C6FB4 /* 7.txt */; };
-		8EF7E6D31FBE7BB9003C6FB4 /* 8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8EF7E6D21FBE7BB9003C6FB4 /* 8.txt */; };
 		8EF7E6D61FBE9476003C6FB4 /* FourButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF7E6D51FBE9476003C6FB4 /* FourButtonsTableViewCell.m */; };
 		8EFC802C1FBC32F4001CF3BF /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC802B1FBC32F4001CF3BF /* MyLoginViewController.m */; };
 		8EFC80301FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC802E1FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.m */; };
@@ -605,14 +597,6 @@
 		8EEF091E1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFormSubmitResultViewController.h; sourceTree = "<group>"; };
 		8EEF091F1FB97DDA004ED5F0 /* CustomFormSubmitResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFormSubmitResultViewController.m; sourceTree = "<group>"; };
 		8EEF09221FB98168004ED5F0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		8EF7E6C41FBE7AFD003C6FB4 /* 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
-		8EF7E6C61FBE7B15003C6FB4 /* 2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.txt; sourceTree = "<group>"; };
-		8EF7E6C81FBE7B29003C6FB4 /* 3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.txt; sourceTree = "<group>"; };
-		8EF7E6CA1FBE7B44003C6FB4 /* 4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 4.txt; sourceTree = "<group>"; };
-		8EF7E6CC1FBE7B61003C6FB4 /* 5.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5.txt; sourceTree = "<group>"; };
-		8EF7E6CE1FBE7B76003C6FB4 /* 6.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 6.txt; sourceTree = "<group>"; };
-		8EF7E6D01FBE7B96003C6FB4 /* 7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 7.txt; sourceTree = "<group>"; };
-		8EF7E6D21FBE7BB9003C6FB4 /* 8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 8.txt; sourceTree = "<group>"; };
 		8EF7E6D41FBE9476003C6FB4 /* FourButtonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourButtonsTableViewCell.h; sourceTree = "<group>"; };
 		8EF7E6D51FBE9476003C6FB4 /* FourButtonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourButtonsTableViewCell.m; sourceTree = "<group>"; };
 		8EFC802A1FBC32F4001CF3BF /* MyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLoginViewController.h; sourceTree = "<group>"; };
@@ -1001,7 +985,6 @@
 		8E99A8E41F9068910078C452 /* classes */ = {
 			isa = PBXGroup;
 			children = (
-				8EF7E6C31FBE7ADE003C6FB4 /* testJsons */,
 				8E6C73F61F9D9983004B33D1 /* form */,
 				8E2E40821F94597B00B42477 /* mainPage */,
 				8E6C74191F9DEFE8004B33D1 /* onlineRent */,
@@ -1356,21 +1339,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8EF7E6C31FBE7ADE003C6FB4 /* testJsons */ = {
-			isa = PBXGroup;
-			children = (
-				8EF7E6C41FBE7AFD003C6FB4 /* 1.txt */,
-				8EF7E6C61FBE7B15003C6FB4 /* 2.txt */,
-				8EF7E6C81FBE7B29003C6FB4 /* 3.txt */,
-				8EF7E6CA1FBE7B44003C6FB4 /* 4.txt */,
-				8EF7E6CC1FBE7B61003C6FB4 /* 5.txt */,
-				8EF7E6CE1FBE7B76003C6FB4 /* 6.txt */,
-				8EF7E6D01FBE7B96003C6FB4 /* 7.txt */,
-				8EF7E6D21FBE7BB9003C6FB4 /* 8.txt */,
-			);
-			name = testJsons;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1430,23 +1398,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8EF7E6CD1FBE7B61003C6FB4 /* 5.txt in Resources */,
 				8E3779D21FA7195B00A3BBEB /* MyPageButtonTableViewCell.xib in Resources */,
 				8EA6807F1FB6DA9A00EF5FC8 /* TitleAreaCalculationTableViewCell.xib in Resources */,
-				8EF7E6D31FBE7BB9003C6FB4 /* 8.txt in Resources */,
-				8EF7E6C91FBE7B29003C6FB4 /* 3.txt in Resources */,
 				8EEF09181FB93984004ED5F0 /* TitleSwitchTableViewCell.xib in Resources */,
 				8E69ECAE1FC16A9600EEEC67 /* cityJson.txt in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
 				8EFC80311FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib in Resources */,
-				8EF7E6CB1FBE7B44003C6FB4 /* 4.txt in Resources */,
 				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				394A242B1FDE31B00041D185 /* cityJson2.txt in Resources */,
 				8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */,
 				8E9B0CCB1FA97D2B00770F8D /* RentCartEditToolBar.xib in Resources */,
 				39FD68C21FE22575004996D4 /* Assets.xcassets in Resources */,
-				8EF7E6C71FBE7B15003C6FB4 /* 2.txt in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				398513951FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
@@ -1459,19 +1422,16 @@
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
 				3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */,
-				8EF7E6CF1FBE7B76003C6FB4 /* 6.txt in Resources */,
 				394A24431FDF744B0041D185 /* MyCustomOrder.storyboard in Resources */,
 				39CDDEC41FDB8F390079A49D /* MyOrder.storyboard in Resources */,
 				8E99A8D81F90664D0078C452 /* Main.storyboard in Resources */,
 				8E31F4A31FC91D4B00373437 /* TitleDoubleSelectionTableViewCell.xib in Resources */,
 				8E6C74031F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.xib in Resources */,
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
-				8EF7E6C51FBE7AFD003C6FB4 /* 1.txt in Resources */,
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
 				8E31F4681FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib in Resources */,
-				8EF7E6D11FBE7B96003C6FB4 /* 7.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,10 +40,7 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark tableviews
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -86,13 +83,10 @@
     return 1;
 }
 
+#pragma mark actions
+
 -(void)bottomToolBarButtonClicked
 {
-//    if ([UserModel token].length==0) {
-//        [MBProgressHUD showErrorMessage:AskToLoginDescription];
-//        [self.navigationController pushViewController:[MyLoginViewController loginViewController] animated:YES];
-//        return;
-//    }
     ZhuchangFormTableViewController* zhu=[[ZhuchangFormTableViewController alloc]init];
     zhu.type=self.type;
     [self.navigationController pushViewController:zhu animated:YES];

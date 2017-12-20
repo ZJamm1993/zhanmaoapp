@@ -48,6 +48,8 @@
 }
 */
 
+#pragma mark actions
+
 - (IBAction)goHome:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

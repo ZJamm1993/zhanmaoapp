@@ -77,6 +77,8 @@
     return 7;
 }
 
+#pragma mark calculate
+
 -(void)valueChanged
 {
     CGFloat professor=0;
@@ -135,6 +137,8 @@
     
     _totalFeeView.feeLabe.text=[NSString stringWithFloat:professor+other headUnit:@"¥" tailUnit:nil];
 }
+
+#pragma mark submit handler
 
 -(void)orderSubmit
 {

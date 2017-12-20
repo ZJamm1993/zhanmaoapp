@@ -60,6 +60,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark tableviews
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 12;
@@ -125,6 +127,8 @@
     }
 }
 
+#pragma mark mypageOneTextfieldtableviewcontroller delegate
+
 -(void)myPageOneTextFieldTableViewController:(MyPageOneTextFieldTableViewController *)viewController didFinishTexting:(NSString *)text
 {
     //do commit then pop it;
@@ -173,6 +177,8 @@
     }];
 }
 
+#pragma mark uiimagepickercontrollerdelegate
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
     UIImage* pic=[info valueForKey:UIImagePickerControllerEditedImage];
@@ -213,7 +219,6 @@
                 }
                 
             }];
-            
         }
         else
         {

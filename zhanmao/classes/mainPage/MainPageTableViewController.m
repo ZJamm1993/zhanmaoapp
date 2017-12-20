@@ -101,8 +101,21 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         currentCity = [[NSString alloc] init];
         [locationManager startUpdatingLocation];
     }
-    
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [((NaviController*)self.navigationController) setNavigationColorShowImage:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [((NaviController*)self.navigationController) setNavigationColorShowImage:YES];
+}
+
+#pragma mark cllocationdelegate
 
 //定位成功
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
@@ -137,17 +150,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     }];
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [((NaviController*)self.navigationController) setNavigationColorShowImage:NO];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [((NaviController*)self.navigationController) setNavigationColorShowImage:YES];
-}
+#pragma mark datas
 
 -(void)refresh
 {
@@ -185,20 +188,6 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     }];
 }
 
--(void)setLocation:(NSString*)location
-{
-    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" leftImage:YES title:location target:self selector:@selector(selectLocation)];
-    self.navigationItem.leftBarButtonItem=it;
-}
-
--(void)goSearch
-{
-//    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"] animated:YES];
-    UIViewController* sear=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"];
-    UINavigationController* nav=[[NaviController alloc]initWithRootViewController:sear];
-    [self presentViewController:nav animated:YES completion:nil];
-}
-
 -(NSArray*)arrayWithSimpleButtons
 {
     if (arrayWithSimpleButtons.count==0) {
@@ -213,9 +202,20 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     return arrayWithSimpleButtons;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark actions
+
+-(void)setLocation:(NSString*)location
+{
+    ImageTitleBarButtonItem* it=[ImageTitleBarButtonItem itemWithImageName:@"locationWhite" leftImage:YES title:location target:self selector:@selector(selectLocation)];
+    self.navigationItem.leftBarButtonItem=it;
+}
+
+-(void)goSearch
+{
+//    [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"] animated:YES];
+    UIViewController* sear=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductSearchTableViewController"];
+    UINavigationController* nav=[[NaviController alloc]initWithRootViewController:sear];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 -(void)selectLocation

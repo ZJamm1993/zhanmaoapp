@@ -30,6 +30,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark datas
+
 -(void)refresh
 {
     [OrderTypeDataSource getMyCustomOrderDetailById:self.customModel.idd type:self.type token:[UserModel token] success:^(CustomOrderModel *model) {
@@ -88,6 +90,8 @@
     [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
 }
 
+#pragma mark tableviews
+
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return nil;
@@ -102,6 +106,8 @@
 {
     return UITableViewAutomaticDimension;
 }
+
+#pragma mark actions
 
 -(void)refreshCustomModel:(CustomOrderModel *)model
 {

@@ -66,6 +66,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark tableviews
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 44;
@@ -107,6 +109,8 @@
     selectedType=mo.type;
     [self.tableView reloadData];
 }
+
+#pragma mark pay
 
 -(void)payOrder
 {
@@ -153,6 +157,8 @@
         [MBProgressHUD showErrorMessage:BadNetworkDescription];
     }];
 }
+
+#pragma mark payresult
 
 -(void)receivePayResultNotification:(NSNotification*)noti
 {

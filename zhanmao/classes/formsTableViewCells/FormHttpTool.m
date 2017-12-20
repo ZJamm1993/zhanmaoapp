@@ -13,50 +13,48 @@
 +(void)getCustomTableListByType:(NSInteger)type success:(void (^)(BaseFormStepsModel* ste))success failure:(void (^)(NSError *err))failure
 {
     
-    BOOL test=NO;
-    if (test) {
-        //test
-        BaseFormStepsModel* st=[self stepsFromFileName:[NSString stringWithFormat:@"%d.txt",(int)type]];
+//    BOOL test=NO;
+//    if (test) {
+//        //test
+//        BaseFormStepsModel* st=[self stepsFromFileName:[NSString stringWithFormat:@"%d.txt",(int)type]];
+//        if (success) {
+//            success(st);
+//        }
+//        return;
+//        //test
+//    }
+    
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Table/gettable"];
+    NSMutableDictionary* pa=[NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInteger:type] forKey:@"type"];
+    [pa setValue:[UserModel token] forKey:@"access_token"];
+    [self get:str params:pa usingCache:NO success:^(NSDictionary *dict) {
+        NSLog(@"%@",dict);
+        NSDictionary* data=[dict valueForKey:@"data"];
+        
+        BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
         if (success) {
-            success(st);
+            success(steps);
         }
-        return;
-        //test
-    }
-    else
-    {
-        NSString* str=[ZZUrlTool fullUrlWithTail:@"/Custom/Table/gettable"];
-        NSMutableDictionary* pa=[NSMutableDictionary dictionaryWithObject:[NSNumber numberWithInteger:type] forKey:@"type"];
-        [pa setValue:[UserModel token] forKey:@"access_token"];
-        [self get:str params:pa usingCache:NO success:^(NSDictionary *dict) {
-            NSLog(@"%@",dict);
-            NSDictionary* data=[dict valueForKey:@"data"];
-            
-            BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
-            if (success) {
-                success(steps);
-            }
-            
-        } failure:^(NSError *err) {
-            if (failure) {
-                failure(err);
-            }
-        }];
-    }
+        
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
 }
 
-+(BaseFormStepsModel*)stepsFromFileName:(NSString *)fileName
-{
-    //test
-    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
-    NSError* err=nil;
-    NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
-    NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
-    NSDictionary* data=[result valueForKey:@"data"];
-    BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
-    return steps;
-}
+//+(BaseFormStepsModel*)stepsFromFileName:(NSString *)fileName
+//{
+//    //test
+//    NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:fileName];
+//    NSError* err=nil;
+//    NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
+//    NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
+//    NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
+//    NSDictionary* data=[result valueForKey:@"data"];
+//    BaseFormStepsModel* steps=[[BaseFormStepsModel alloc]initWithDictionary:data];
+//    return steps;
+//}
 
 +(void)postCustomTableListByType:(NSInteger)type params:(NSDictionary *)params success:(void (^)(BOOL, NSString *,PayOrderModel*))success failure:(void (^)(NSError *))failure
 {
