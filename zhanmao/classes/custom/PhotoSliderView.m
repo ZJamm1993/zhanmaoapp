@@ -112,6 +112,7 @@ const NSInteger PageLabelTag=40;
                 if (image==nil) {
                     return;
                 }
+                weimgv.image=image;
                 [weself resizeImageView:weimgv withImage:image andSize:siz];
             }];
 //            [imgeVi sd_setImageWithURL:[NSURL URLWithString:[obj description]] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
