@@ -342,7 +342,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         if (msg.model_type==MainMsgModelTypeProduct) {
             RentProductModel* pro=[[RentProductModel alloc]init];
             pro.idd=msg.idd;
-            ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+            ProductWebDetailViewController* prod=[[ProductWebDetailViewController alloc]init];
             prod.goodModel=pro;
             [self.navigationController pushViewController:prod animated:YES];
         }

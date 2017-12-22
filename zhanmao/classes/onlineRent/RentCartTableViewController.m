@@ -95,7 +95,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (!self.editing) {
-        ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+        ProductWebDetailViewController* prod=[[ProductWebDetailViewController alloc]init];
         prod.goodModel=[[self.dataSource objectAtIndex:indexPath.row]product];
         [self.navigationController pushViewController:prod animated:YES];
     }

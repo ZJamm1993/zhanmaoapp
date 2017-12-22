@@ -11,24 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Product Web Detail View Controller-->
-        <scene sceneID="qpc-Xa-AVU">
-            <objects>
-                <viewController storyboardIdentifier="ProductWebDetailViewController" id="vJ0-1v-6fW" customClass="ProductWebDetailViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="a4q-No-kMW"/>
-                        <viewControllerLayoutGuide type="bottom" id="yrR-uY-5Z7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vBH-Cp-M24">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h5O-cD-2c7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-705" y="24"/>
-        </scene>
         <!--Pay Order Table View Controller-->
         <scene sceneID="4SX-iL-SqI">
             <objects>
@@ -564,7 +546,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWj-ed-MEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="25"/>
+            <point key="canvasLocation" x="-705" y="-41"/>
         </scene>
         <!--Product Search Table View Controller-->
         <scene sceneID="9zQ-0D-bQ7">
@@ -638,7 +620,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfd-BC-g3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1299" y="25"/>
+            <point key="canvasLocation" x="-60" y="-41"/>
         </scene>
         <!--Pay Result View Controller-->
         <scene sceneID="GhG-y4-f4w">

@@ -252,7 +252,7 @@ const CGFloat categoriesHeaderHeight=50;
     else if(tableView==self.goodsTableView)
     {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+        ProductWebDetailViewController* prod=[[ProductWebDetailViewController alloc]init];
         prod.goodModel=[goodsArray objectAtIndex:indexPath.row];
         [self.navigationController pushViewController:prod animated:YES];
     }

@@ -179,7 +179,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ProductWebDetailViewController* prod=[[UIStoryboard storyboardWithName:@"OnlineRent" bundle:nil]instantiateViewControllerWithIdentifier:@"ProductWebDetailViewController"];
+    ProductWebDetailViewController* prod=[[ProductWebDetailViewController alloc]init];
     prod.goodModel=[self.dataSource objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:prod animated:YES];
 }
