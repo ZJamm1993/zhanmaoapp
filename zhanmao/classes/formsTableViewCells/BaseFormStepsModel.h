@@ -38,9 +38,17 @@ typedef NS_ENUM(NSUInteger,BaseFormType)
     BaseFormTypeDateTime48Picker                =93,
 };
 
+typedef NS_ENUM(NSUInteger,BaseFormTextType)
+{
+    BaseFormTextTypeDefault,
+    BaseFormTextTypePhone,
+};
+
 @interface BaseFormModel : ZZModel
 
 @property (nonatomic,assign) BaseFormType type;
+
+@property (nonatomic,assign) BaseFormTextType textType;
 
 @property (nonatomic,assign) BOOL required; //allowed null or not
 @property (nonatomic,strong) NSString* name; //title for cell

@@ -59,6 +59,10 @@
     if (self.required&&self.value.length==0) {
         r=self;
     }
+    else if(self.textType==BaseFormTextTypePhone&&![self.value isMobileNumber])
+    {
+        r=self;
+    }
     else
     {
         for (BaseFormModel* chi in self.combination_arr) {

@@ -54,8 +54,9 @@
     BaseFormModel* phone=[[BaseFormModel alloc]init];
     phone.name=@"联系电话";
     phone.field=@"phone";
-    phone.hint=@"请填写电话";
+    phone.hint=@"请填写正确的电话";
     phone.type=BaseFormTypeNormal;
+    phone.textType=BaseFormTextTypePhone;
     phone.required=YES;
     
     BaseFormModel* address=[[BaseFormModel alloc]init];
