@@ -13,7 +13,7 @@
 +(NSString*)main
 {
 #if DEBUG
-//    return @"http://zhanmao.bangju.com";
+    return @"http://zhanmao.bangju.com";
     return @"http://192.168.1.131:8092";
 #else
     return @"http://zhanmao.bangju.com";

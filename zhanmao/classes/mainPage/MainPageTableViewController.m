@@ -349,6 +349,7 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         else
         {
             BaseWebViewController* web=[[BaseWebViewController alloc]initWithUrl:[HTML_NewsDetail urlWithMainUrl]];
+            web.idd=msg.idd.integerValue;
             [self.navigationController pushViewController:web animated:YES];
         }
     }
