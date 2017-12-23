@@ -188,7 +188,7 @@
     
     if (scrollView==contentView) {
 //        NSInteger index=[self pageIndexForScrollView:scrollView];
-//        NSLog(@"didScroll:%d",index);
+//        NSLog(@"didScroll:%ld",index);
         for (UIViewController* vc in controllers) {
             vc.view.hidden=NO;
         }
@@ -382,7 +382,7 @@
 //    _currentPage=currentPage;
 //    NSLog(@"%f",currentPage);
 //    
-//    NSLog(@"int %d",(int)-1.2);
+//    NSLog(@"int %ld",(long)-1.2);
     
     if (!shouldManualAnimation) {
         return;

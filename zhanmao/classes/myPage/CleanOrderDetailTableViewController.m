@@ -154,8 +154,8 @@
                 if (seconds<0) {
                     seconds=0;
                 }
-                NSInteger mins=((int)seconds)/60;
-                NSInteger secs=((int)seconds)%60;
+                NSInteger mins=((long)seconds)/60;
+                NSInteger secs=((long)seconds)%60;
                 NSString* countDownTime=[NSString stringWithFormat:@"%ld分%ld秒",(long)mins,(long)secs];
                 
                 if ([detailString containsString:@"%@"]) {

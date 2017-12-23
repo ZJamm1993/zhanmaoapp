@@ -18,9 +18,9 @@
     self=[super initWithDictionary:dictionary];
     if (self) {
         self.goods_id=[dictionary valueForKey:@"goods_id"];
-        self.rent=[[dictionary valueForKey:@"rent"]floatValue];
-        self.deposit=[[dictionary valueForKey:@"deposit"]floatValue];
-        self.rent_o=[[dictionary valueForKey:@"rent_o"]floatValue];
+        self.rent=[[dictionary valueForKey:@"rent"]doubleValue];
+        self.deposit=[[dictionary valueForKey:@"deposit"]doubleValue];
+        self.rent_o=[[dictionary valueForKey:@"rent_o"]doubleValue];
     }
     return self;
 }

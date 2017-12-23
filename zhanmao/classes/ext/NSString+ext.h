@@ -24,7 +24,7 @@
 @property (nonatomic,assign) BOOL passwordLength;
 
 
-+(NSString*)stringWithFloat:(CGFloat)floatValue headUnit:(NSString*)head tailUnit:(NSString*)tail;  //such as $100/day
++(NSString*)stringWithFloat:(CGFloat)doubleValue headUnit:(NSString*)head tailUnit:(NSString*)tail;  //such as $100/day
 
 -(NSString*)stringAppendingUnit:(NSString*)unit;
 

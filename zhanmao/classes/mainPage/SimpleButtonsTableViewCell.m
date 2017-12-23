@@ -61,7 +61,7 @@ const NSInteger simpleButtonRowCount=4;
     for (NSInteger i=0; i<counts; i++) {
         NSInteger row=i/simpleButtonRowCount;
         SimpleButtonModel* mo=[buttons objectAtIndex:i];
-//        NSLog(@"%d,%d",col,row);
+//        NSLog(@"%ld,%ld",col,row);
         
         UIView* bbg=[[UIView alloc]initWithFrame:CGRectMake(0, row*(heightPerEach+simpleButtonMarginY)+simpleButtonMarginY, widthPerEach, heightPerEach)];
 //        bbg.backgroundColor=_randomColor;

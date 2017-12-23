@@ -87,12 +87,12 @@
     for (BaseFormModel* model in allModels) {
         if([model.field isEqualToString:@"professor"])
         {
-            professor=model.value.floatValue;
+            professor=model.value.doubleValue;
 //            model.value=[NSString stringWithFloat:professor headUnit:nil tailUnit:nil];
         }
         else if([model.field isEqualToString:@"other"])
         {
-            other=model.value.floatValue;
+            other=model.value.doubleValue;
 //            model.value=[NSString stringWithFloat:scholar headUnit:nil tailUnit:nil];
         }
     }

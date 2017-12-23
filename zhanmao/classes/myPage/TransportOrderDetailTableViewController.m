@@ -72,7 +72,7 @@
     self.objectWeight.text=[NSString stringWithFormat:@"%@%@",mo.professor,@"kg"];
     self.objectVolume.text=[NSString stringWithFormat:@"%@%@",mo.volume,@"m³"];
     
-    self.fee.text=[NSString stringWithFloat:mo.evaluate.floatValue headUnit:@"¥" tailUnit:nil];
+    self.fee.text=[NSString stringWithFloat:mo.evaluate.doubleValue headUnit:@"¥" tailUnit:nil];
     
     self.payMethod.text=mo.pay_type;
     

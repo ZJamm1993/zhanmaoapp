@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title=[NSString stringWithFormat:@"%dxx案例",(int)self.type];;
+//    self.title=[NSString stringWithFormat:@"%ldxx案例",(long)self.type];;
     // Do any additional setup after loading the view.
     [self refresh];
 }
@@ -32,7 +32,7 @@
 -(void)refresh
 {
     
-    [MainPageHttpTool getCustomShowingListByType:[NSString stringWithFormat:@"%d",(int)self.type] cache:NO success:^(NSArray *result) {
+    [MainPageHttpTool getCustomShowingListByType:[NSString stringWithFormat:@"%ld",(long)self.type] cache:NO success:^(NSArray *result) {
         self.dataSource=[NSMutableArray arrayWithArray:result];
         [self.tableView reloadData];
     } failure:^(NSError *error) {

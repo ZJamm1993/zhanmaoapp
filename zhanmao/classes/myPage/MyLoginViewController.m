@@ -119,7 +119,7 @@
 
 -(void)countingDownSeconds:(NSInteger)second
 {
-    [self.getCodeButton setTitle:[NSString stringWithFormat:@"%d秒后重新发送",(int)second] forState:UIControlStateDisabled];
+    [self.getCodeButton setTitle:[NSString stringWithFormat:@"%ld秒后重新发送",(long)second] forState:UIControlStateDisabled];
 }
 
 -(void)endingCountDown

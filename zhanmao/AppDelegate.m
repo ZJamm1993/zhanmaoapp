@@ -109,7 +109,7 @@
 //                NSLog(@"支付成功");
 //                break;
 //            default:
-//                NSLog(@"支付失败，retcode=%d",resp.errCode);
+//                NSLog(@"支付失败，retcode=%ld",resp.errCode);
 //                break;
 //        }
 //    }

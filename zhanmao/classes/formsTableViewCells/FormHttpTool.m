@@ -16,7 +16,7 @@
 //    BOOL test=NO;
 //    if (test) {
 //        //test
-//        BaseFormStepsModel* st=[self stepsFromFileName:[NSString stringWithFormat:@"%d.txt",(int)type]];
+//        BaseFormStepsModel* st=[self stepsFromFileName:[NSString stringWithFormat:@"%ld.txt",(long)type]];
 //        if (success) {
 //            success(st);
 //        }

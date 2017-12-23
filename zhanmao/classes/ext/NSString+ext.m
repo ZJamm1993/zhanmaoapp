@@ -83,7 +83,7 @@
     return str;
 }
 
-+(NSString*)stringWithFloat:(CGFloat)floatValue headUnit:(NSString *)head tailUnit:(NSString *)tail
++(NSString*)stringWithFloat:(CGFloat)doubleValue headUnit:(NSString *)head tailUnit:(NSString *)tail
 {
     if (head.length==0) {
         head=@"";
@@ -91,7 +91,7 @@
     if (tail.length==0) {
         tail=@"";
     }
-    return [NSString stringWithFormat:@"%@%.2f%@",head,floatValue,tail];
+    return [NSString stringWithFormat:@"%@%.2f%@",head,doubleValue,tail];
 }
 
 -(NSString*)stringAppendingUnit:(NSString *)unit

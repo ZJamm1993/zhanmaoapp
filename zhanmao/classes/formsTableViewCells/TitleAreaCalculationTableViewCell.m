@@ -111,7 +111,7 @@
 {
     if ([self.fields containsObject:textField]) {
         NSInteger ind=[self.fields indexOfObject:textField];
-//        NSLog(@"%d,%@",ind,textField);
+//        NSLog(@"%ld,%@",ind,textField);
         if (self.model.combination_arr.count>ind) {
             BaseFormModel* mo=[self.model.combination_arr objectAtIndex:ind];
             mo.value=textField.text;
@@ -131,14 +131,14 @@
     }
     for (NSInteger i=0; i<mutaCount; i++) {
         BaseFormModel* m=[self.model.combination_arr objectAtIndex:i];
-        CGFloat va=[m.value floatValue];
+        CGFloat va=[m.value doubleValue];
         totalArea=totalArea*va;
     }
     BaseFormModel* last=[self.model.combination_arr lastObject];
     NSNumberFormatter* forma=[[NSNumberFormatter alloc]init];
     forma.numberStyle=NSNumberFormatterDecimalStyle;
     last.value=[NSString stringWithFormat:@"%.2f",totalArea];
-    self.result.text=last.value;//[forma stringFromNumber:[NSNumber numberWithFloat:last.value.floatValue]];
+    self.result.text=last.value;//[forma stringFromNumber:[NSNumber numberWithFloat:last.value.doubleValue]];
     
 
 }

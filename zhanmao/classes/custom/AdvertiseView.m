@@ -112,7 +112,7 @@ const CGFloat advertiseViewAutoScrollTime=3.0;
 
 -(void)scrollToPage:(NSInteger)page
 {
-//    NSLog(@"to %d",page);
+//    NSLog(@"to %ld",page);
     if (page>=_picturesUrls.count) {
         page=0;
     }

@@ -245,7 +245,7 @@
 
 -(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
 {
-//    NSLog(@"advertise:%@ did selected index:%d",advHeader,(int)index);
+//    NSLog(@"advertise:%@ did selected index:%ld",advHeader,(long)index);
 //    if (index<self.advsArray.count) {
 //        NSObject* ob=[self.advsArray objectAtIndex:index];
 //        if ([ob isKindOfClass:[BaseModel class]]) {

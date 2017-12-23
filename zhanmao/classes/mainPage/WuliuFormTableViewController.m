@@ -79,13 +79,13 @@
     CGFloat volume=0;
     NSArray* allModels=[self.formSteps allModels];
     for (BaseFormModel* model in allModels) {
-        if([model.field isEqualToString:@"professor"])
+        if([model.field isEqualToString:@"professor"]) //kg
         {
-            professor=model.value.floatValue*300;
+            professor=model.value.doubleValue*350/1000;
         }
-        else if([model.field isEqualToString:@"volume"])
+        else if([model.field isEqualToString:@"volume"]) //m3
         {
-            volume=model.value.floatValue*350/1000;
+            volume=model.value.doubleValue*300;
         }
     }
     

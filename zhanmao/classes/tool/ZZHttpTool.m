@@ -178,7 +178,7 @@
     // Dictionary that holds post parameters. You can set your post parameters that your server accepts or programmed to accept.
     NSMutableDictionary* _params = [NSMutableDictionary dictionaryWithDictionary:params];
     // the boundary string : a random string, that will not repeat in post data, to separate post data fields.
-    NSString *BoundaryConstant = [NSString stringWithFormat:@"----------V2ymH3ehbqg%dZCaKO6jy",(int)arc4random()%100];
+    NSString *BoundaryConstant = [NSString stringWithFormat:@"----------V2ymH3ehbqg%ldZCaKO6jy",(long)arc4random()%100];
     
     // string constant for the post parameter 'file'. My server uses this name: `file`. Your's may differ
     NSString* FileParamConstant = @"img";
@@ -231,7 +231,7 @@
     [request setHTTPBody:body];
     
     // set the content-length
-    NSString *postLength = [NSString stringWithFormat:@"%d",(int) [body length]];
+    NSString *postLength = [NSString stringWithFormat:@"%ld",(long) [body length]];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
     // set URL

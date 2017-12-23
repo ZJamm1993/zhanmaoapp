@@ -71,7 +71,7 @@ const NSInteger PageLabelTag=40;
     UILabel* pageLabel=[[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(titleLabel.frame), 0, bottonView.frame.size.width-CGRectGetMaxX(titleLabel.frame)-20, bottomHeight)];
     pageLabel.tag=PageLabelTag;
     pageLabel.textColor=[UIColor whiteColor];
-    pageLabel.text=[NSString stringWithFormat:@"1/%d",(int)count];
+    pageLabel.text=[NSString stringWithFormat:@"1/%ld",(long)count];
     pageLabel.textAlignment=NSTextAlignmentRight;
     [bottonView addSubview:pageLabel];
 
@@ -207,7 +207,7 @@ const NSInteger PageLabelTag=40;
             NSInteger page=contentOffset.x/boundsSize.width+1;
             UILabel* pageLabel=[self viewWithTag:PageLabelTag];
             if ([pageLabel isKindOfClass:[UILabel class]]) {
-                [pageLabel setText:[NSString stringWithFormat:@"%d/%d",(int)page,(int)self.images.count]];
+                [pageLabel setText:[NSString stringWithFormat:@"%ld/%ld",(long)page,(long)self.images.count]];
             }
         }
         

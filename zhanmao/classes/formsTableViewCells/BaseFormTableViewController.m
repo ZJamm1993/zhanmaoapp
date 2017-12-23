@@ -168,7 +168,7 @@
     NSDictionary* userinfo=noti.userInfo;
     
     CGFloat frameY=[[userinfo valueForKey:UIKeyboardFrameEndUserInfoKey]CGRectValue].origin.y;
-    CGFloat animaD=[[userinfo valueForKey:UIKeyboardAnimationDurationUserInfoKey]floatValue];
+    CGFloat animaD=[[userinfo valueForKey:UIKeyboardAnimationDurationUserInfoKey]doubleValue];
     
     [UIView animateWithDuration:animaD animations:^{
         CGRect fr=self.tableView.frame;

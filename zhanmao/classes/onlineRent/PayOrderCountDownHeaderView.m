@@ -46,7 +46,7 @@
     NSInteger totalSec=self.leftTime;
     NSInteger min=totalSec/60;
     NSInteger sec=totalSec%60;
-    self.timeLabal.text=[NSString stringWithFormat:@"%d:%02d",(int)min,(int)sec];
+    self.timeLabal.text=[NSString stringWithFormat:@"%ld:%02ld",(long)min,(long)sec];
     if(self.leftTime>0)
     {
         self.leftTime=self.leftTime-1;

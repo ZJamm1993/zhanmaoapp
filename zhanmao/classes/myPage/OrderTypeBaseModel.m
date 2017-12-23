@@ -46,8 +46,8 @@
         _order_status=[[dictionary valueForKey:@"order_status"]integerValue];
         _pay_status=[[dictionary valueForKey:@"pay_status"]integerValue];
         
-        _amount=[[dictionary valueForKey:@"amount"]floatValue];
-        _expiration=[[dictionary valueForKey:@"expiration"]floatValue];
+        _amount=[[dictionary valueForKey:@"amount"]doubleValue];
+        _expiration=[[dictionary valueForKey:@"expiration"]doubleValue];
         
         _pay_type=[dictionary valueForKey:@"pay_type"];
         
@@ -345,11 +345,11 @@
 {
     self=[super initWithDictionary:dictionary];
     if (self) {
-        _other=[[dictionary valueForKey:@"other"]floatValue];
-        _professor=[[dictionary valueForKey:@"professor"]floatValue];
+        _other=[[dictionary valueForKey:@"other"]doubleValue];
+        _professor=[[dictionary valueForKey:@"professor"]doubleValue];
         
-        _cost=[[dictionary valueForKey:@"cost"]floatValue];
-        _other_cost=[[dictionary valueForKey:@"other_cost"]floatValue];
+        _cost=[[dictionary valueForKey:@"cost"]doubleValue];
+        _other_cost=[[dictionary valueForKey:@"other_cost"]doubleValue];
         
         self.order_status=[[dictionary valueForKey:@"status"]integerValue];
         

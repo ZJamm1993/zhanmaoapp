@@ -35,7 +35,7 @@
     [self.navigationBar setBackIndicatorImage:[UIImage imageNamed:@"back"]];
     [self.navigationBar setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back"]];
     
-    if([[[UIDevice currentDevice]systemVersion]floatValue]>=11){
+    if([[[UIDevice currentDevice]systemVersion]doubleValue]>=11){
         [[UIBarButtonItem appearance] setTitlePositionAdjustment:UIOffsetMake(5, 0) forBarMetrics:UIBarMetricsDefault];
     }
 }

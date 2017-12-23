@@ -61,7 +61,7 @@
         self.stateTitle.text=@"待付款";
     }
     
-//    NSLog(@"pay:%d status%d",orderModel.pay_status,type);
+//    NSLog(@"pay:%ld status%ld",orderModel.pay_status,type);
     
     [self.blueButton setTitle:buttonTitle forState:UIControlStateNormal];
     [self.grayButton setTitle:buttonTitle forState:UIControlStateNormal];
