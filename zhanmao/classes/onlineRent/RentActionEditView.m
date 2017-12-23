@@ -21,7 +21,7 @@
     [super awakeFromNib];
     
     self.cartBg.backgroundColor=[UIColor whiteColor];
-    self.cartBg.layer.cornerRadius=4;
+    self.cartBg.layer.cornerRadius=8;
     
     self.darkBg.backgroundColor=[UIColor colorWithWhite:0 alpha:0.4];
     
@@ -39,6 +39,11 @@
 
 -(void)show
 {
+    [self showWithBottomInset:0];
+}
+
+-(void)showWithBottomInset:(CGFloat)bottomInset
+{
     [self removeFromSuperview];
     
     [[[UIApplication sharedApplication]keyWindow]addSubview:self];
@@ -46,6 +51,8 @@
     CGRect windRect=[[UIScreen mainScreen]bounds];
     CGRect orgRe=windRect;
     orgRe.origin.y=orgRe.size.height;
+    
+    windRect.origin.y=-bottomInset;
     
     self.frame=orgRe;
     self.darkBg.alpha=0;

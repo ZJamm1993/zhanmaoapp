@@ -40,6 +40,9 @@
 //#define NSLog(...)
 //#endif
 
+//Xcode Version
+#define XcodeSDK11 (__IPHONE_OS_VERSION_MAX_ALLOWED>=110000)
+
 //Strings
 
 #define BadNetworkDescription @"网络不通畅"

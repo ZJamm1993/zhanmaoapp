@@ -27,6 +27,7 @@
 
 @property (nonatomic,weak) UIView* bottomView;
 @property (nonatomic,assign) CGRect bottomBgBounds;
+@property (nonatomic,assign,readonly) CGFloat bottomSafeInset;
 
 @property (nonatomic,strong) NSMutableDictionary* params;
 

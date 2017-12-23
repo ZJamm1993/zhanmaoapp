@@ -21,21 +21,23 @@
 
 @implementation BaseFormTableViewController
 
-//-(void)viewSafeAreaInsetsDidChange
-//{
-//    [super viewSafeAreaInsetsDidChange];
-//    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
-//        if (@available(iOS 11.0, *)) {
-//            UIEdgeInsets est=[self.view safeAreaInsets];
-//            bottomSafe=est.bottom;
-//            [self relayoutViews];
-//            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
-////            [self scrollViewDidScroll:self.tableView];
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//    }
-//}
+#if XcodeSDK11
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            [self relayoutViews];
+            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+//            [self scrollViewDidScroll:self.tableView];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+#endif
 
 #pragma mark viewcontrollers
 

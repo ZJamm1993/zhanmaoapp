@@ -41,6 +41,8 @@
 -(void)show;
 -(void)hide;
 
+-(void)showWithBottomInset:(CGFloat)bottomInset;
+
 @property (nonatomic,weak) id<RentActionEditViewDelegate> delegate;
 
 @end

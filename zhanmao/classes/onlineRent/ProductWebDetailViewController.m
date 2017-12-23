@@ -87,7 +87,7 @@
         car.count=1;
 //        car.days=1;
         action.cartModel=car;
-        [action show];
+        [action showWithBottomInset:self.bottomSafeInset];
     }];
     [self performSelector:@selector(reEnableButton:) withObject:button afterDelay:1];
 }

@@ -17,21 +17,23 @@
 
 @implementation BaseToolBarTableViewController
 
-//-(void)viewSafeAreaInsetsDidChange
-//{
-//    [super viewSafeAreaInsetsDidChange];
-//    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
-//        if (@available(iOS 11.0, *)) {
-//            UIEdgeInsets est=[self.view safeAreaInsets];
-//            bottomSafe=est.bottom;
-//            
-////            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
-//            [self scrollViewDidScroll:self.tableView];
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//    }
-//}
+#if XcodeSDK11
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            
+//            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+            [self scrollViewDidScroll:self.tableView];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+#endif
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -117,7 +119,7 @@
     
     CGRect appf=self.bottomToolBar.frame;
     appf.origin.y=offy+h-b-bottomSafe;
-//    appf.size.height=b+bottomSafe;
+    appf.size.height=b+bottomSafe;
     self.bottomToolBar.frame=appf;
     
     [self.bottomToolBar removeFromSuperview];

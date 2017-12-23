@@ -27,21 +27,28 @@
     UIActivityIndicatorView* loadingIndicator;
 }
 
-//-(void)viewSafeAreaInsetsDidChange
-//{
-//    [super viewSafeAreaInsetsDidChange];
-//    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
-//        if (@available(iOS 11.0, *)) {
-//            UIEdgeInsets est=[self.view safeAreaInsets];
-//            bottomSafe=est.bottom;
-//            [self relayoutViews];
-//            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
-//            //            [self scrollViewDidScroll:self.tableView];
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//    }
-//}
+-(CGFloat)bottomSafeInset
+{
+    return bottomSafe;
+}
+
+#if XcodeSDK11
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            
+            //            self.tableView.contentInset=UIEdgeInsetsMake(0, 0, 64, 0);
+            [self relayoutViews];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+#endif
 
 -(instancetype)initWithUrl:(NSURL *)url
 {

@@ -213,6 +213,16 @@
     
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([super respondsToSelector:@selector(scrollViewDidScroll:)]) {
+        [super scrollViewDidScroll:scrollView];
+    }
+    CGRect fr=_totalFeeView.frame;
+    fr.size.height=64;
+    _totalFeeView.frame=fr;
+}
+
 #pragma mark actions
 
 -(void)doAction
@@ -248,5 +258,7 @@
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+
 
 @end

@@ -101,6 +101,15 @@
     }
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([super respondsToSelector:@selector(scrollViewDidScroll:)]) {
+        [super scrollViewDidScroll:scrollView];
+    }
+    CGRect fr=editToolBar.frame;
+    fr.size.height=64;
+    editToolBar.frame=fr;
+}
 
 #pragma mark actions
 
