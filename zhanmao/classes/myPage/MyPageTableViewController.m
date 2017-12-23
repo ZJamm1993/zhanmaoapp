@@ -374,6 +374,10 @@
     if ([UserModel token].length==0) {
         [self goToLogin];
     }
+    else
+    {
+        [self pushToViewControllerId:@"MyPersonalInfoViewController"];
+    }
 }
 
 #pragma mark actions

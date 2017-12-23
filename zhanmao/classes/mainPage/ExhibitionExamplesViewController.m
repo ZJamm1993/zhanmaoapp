@@ -30,7 +30,7 @@
 
 -(void)refresh
 {
-    [MainPageHttpTool getCustomShowingCaseListByCid:self.cid cache:YES success:^(NSArray *result) {
+    [MainPageHttpTool getCustomShowingCaseListByCid:self.cid cache:NO success:^(NSArray *result) {
         self.dataSource=[NSMutableArray arrayWithArray:result];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
@@ -68,9 +68,9 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ExhibitionLargeRectTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeRectTableViewCell" forIndexPath:indexPath];
-    BaseModel* mo=[self.dataSource objectAtIndex:indexPath.row];
+    BaseModel* mo=[self.dataSource objectAtIndex:indexPath.section];
     cell.title.text=mo.post_title;
-    [cell.image sd_setImageWithURL:[mo.smeta.firstObject urlWithMainUrl]];
+    [cell.image sd_setImageWithURL:[mo.thumb urlWithMainUrl]];
     cell.detailTitle.text=[NSString stringWithFormat:@"图(%ld张)",(long)mo.smeta.count];
     return cell;
 }
@@ -79,7 +79,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ExhibitionPictureViewController* ep=[[ExhibitionPictureViewController alloc]init];
-    BaseModel* mo=[self.dataSource objectAtIndex:indexPath.row];
+    BaseModel* mo=[self.dataSource objectAtIndex:indexPath.section];
     ep.type=self.type;
     NSMutableArray* images=[NSMutableArray array];
     for (NSString* strin in mo.smeta) {
