@@ -10,13 +10,15 @@
 
 @interface BaseToolBarTableViewController : BaseTableViewController
 
-@property (nonatomic,strong) UIView* bottomToolBar;
 @property (nonatomic,strong) UIButton* bottomButton;
 
 //@property (nonatomic,assign) NSInteger type;
 
-@property (nonatomic,readonly,assign) CGRect bottomViewFrame;
+@property (nonatomic,readonly,assign) CGRect bottomFrame;
 
 -(void)bottomToolBarButtonClicked;
+
+-(void)setBottomSubView:(UIView*)view;
+-(void)setBottomBarHidden:(BOOL)hidden;
 
 @end

@@ -33,12 +33,12 @@
     
     [self.bottomButton removeFromSuperview];
     _totalFeeView=[[[UINib nibWithNibName:@"TotalFeeView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
-    CGRect fr=self.bottomToolBar.bounds;
+    CGRect fr=self.bottomFrame;
     fr.size.height=64;
     _totalFeeView.frame=fr;
     _totalFeeView.title.text=@"总计：";
     [_totalFeeView.submitButton addTarget:self action:@selector(doAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.bottomToolBar addSubview:_totalFeeView];
+    [self setBottomSubView:_totalFeeView];
     
     [self reloadWithOrder];
     

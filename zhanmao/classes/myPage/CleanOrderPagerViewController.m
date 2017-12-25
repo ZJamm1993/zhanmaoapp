@@ -53,7 +53,7 @@
 {
     CGRect menuR=[self pagerController:pager frameForMenuView:nil];
     CGFloat menuMy=CGRectGetMaxY(menuR);
-    return CGRectMake(0, menuMy, self.view.frame.size.width, self.view.frame.size.height-menuMy-64);
+    return CGRectMake(0, menuMy, self.view.frame.size.width, self.view.frame.size.height-menuMy-ZZPagerDefaultStatusBarHeight-ZZPagerDefaultNavigationBarHeight);
 }
 
 @end

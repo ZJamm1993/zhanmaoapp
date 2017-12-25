@@ -47,7 +47,7 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
 //    NSInteger mb=[[SDImageCache sharedImageCache]getSize]/1024/1024;
     
     NSInteger byte=[[NSURLCache sharedURLCache]currentDiskUsage];
-    NSString* cacheStr=[NSString stringWithFormat:@"%.2fMB",(CGFloat)byte/1024/1024];
+    NSString* cacheStr=[NSString stringWithFormat:@"%.1fMB",(CGFloat)byte/1024/1024];
     cellModelsArray=[NSArray arrayWithObjects:
                      [NSArray arrayWithObjects:
                       [MyPageCellModel modelWithTitle:@"分享给好友" image:@"set_share" detail:@"" identifier:@"share"],

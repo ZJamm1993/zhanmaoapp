@@ -69,7 +69,18 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
         buttonsCell.buttons=buttomButtnModels;
         buttonsCell.delegate=self;
         buttonsCell.backgroundColor=rgb(38, 104, 209);
-        self.bottomView=buttonsCell;
+//        self.bottomView=buttonsCell;
+        
+        CGRect bgFr=buttonsCell.bounds;
+        UIView* bg=[[UIView alloc]initWithFrame:bgFr];
+        
+        bgFr.size.height=bgFr.size.height+self.bottomSafeInset;
+        buttonsCell.frame=bgFr;
+        
+        bg.backgroundColor=[UIColor whiteColor];
+        bg.clipsToBounds=NO;
+        [bg addSubview:buttonsCell];
+        self.bottomView=bg;
         
     } cache:NO failure:^(NSError *error) {
         

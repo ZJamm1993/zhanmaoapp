@@ -55,12 +55,12 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     
     [self.bottomButton removeFromSuperview];
     _totalFeeView=[[[UINib nibWithNibName:@"TotalFeeView" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
-    CGRect fr=self.bottomToolBar.bounds;
+    CGRect fr=self.bottomFrame;
     fr.size.height=64;
     _totalFeeView.frame=fr;
     [_totalFeeView.submitButton addTarget:self action:@selector(orderSubmit) forControlEvents:UIControlEventTouchUpInside];
 //    _totalFeeView.submitButton.enabled=NO;
-    [self.bottomToolBar addSubview:_totalFeeView];
+    [self setBottomSubView:_totalFeeView];
     
     _totalFeeView.feeLabe.text=[NSString stringWithFloat:total headUnit:@"¥" tailUnit:nil];
     

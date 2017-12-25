@@ -11,24 +11,43 @@
 
 @interface ExhibitionPictureViewController ()
 {
+    PhotoSliderView* php;
     
+    CGFloat bottomSafe;
 }
 @end
 
 @implementation ExhibitionPictureViewController
 
+#if XcodeSDK11
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            
+            CGRect re=self.view.bounds;
+            re.size.height=re.size.height-bottomSafe;
+            php.frame=re;
+            php.title=self.pictureTitle;
+            php.images=self.images;
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+#endif
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=self.pictureTitle;
-    CGRect re=self.view.bounds;
-    re.origin.y=-64;
-    PhotoSliderView* php=[[PhotoSliderView alloc]initWithFrame:re];
-//    php.images=[NSArray arrayWithObjects:
-//                @"ht tps://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508838600421&di=657bb23fe8427c3b0bd101fe297214d2&imgtype=0&src=http%3A%2F%2Fwww.im4s.cn%2Ftrade%2Fuploads%2Fallimg%2F160606%2F456-160606114A6326.jpg",
-//                @"ht tps://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1889566272,4112726323&fm=27&gp=0.jpg",
-//                @"0.jpg",@"1.jpg",@"2.jpg",@"3.jpg",@"4.jpg", nil];
-//    php.title=@"公路最速e理论";
+    self.view.backgroundColor=[UIColor blackColor];
     
+    CGRect re=self.view.bounds;
+    re.size.height=re.size.height-bottomSafe;
+    php=[[PhotoSliderView alloc]initWithFrame:re];
     php.title=self.pictureTitle;
     php.images=self.images;
     

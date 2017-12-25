@@ -33,10 +33,10 @@
     self.navigationItem.rightBarButtonItem=editButtonItem;
     
     editToolBar=[[[UINib nibWithNibName:@"RentCartEditToolBar" bundle:nil]instantiateWithOwner:nil options:nil]firstObject];
-    CGRect fr=self.bottomToolBar.bounds;
+    CGRect fr=self.bottomFrame;
     fr.size.height=64;
     editToolBar.frame=fr;
-    [self.bottomToolBar insertSubview:editToolBar atIndex:0];
+    [self setBottomSubView:editToolBar];
     
     editToolBar.editing=self.editing;
     [editToolBar.actionButton addTarget:self action:@selector(editToolBarAction) forControlEvents:UIControlEventTouchUpInside];
@@ -101,15 +101,15 @@
     }
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if ([super respondsToSelector:@selector(scrollViewDidScroll:)]) {
-        [super scrollViewDidScroll:scrollView];
-    }
-    CGRect fr=editToolBar.frame;
-    fr.size.height=64;
-    editToolBar.frame=fr;
-}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    if ([super respondsToSelector:@selector(scrollViewDidScroll:)]) {
+//        [super scrollViewDidScroll:scrollView];
+//    }
+//    CGRect fr=editToolBar.frame;
+//    fr.size.height=64;
+//    editToolBar.frame=fr;
+//}
 
 #pragma mark actions
 

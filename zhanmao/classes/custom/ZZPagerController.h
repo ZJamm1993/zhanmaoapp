@@ -10,6 +10,9 @@
 @class ZZPagerController;
 @class ZZPagerMenu;
 
+#define ZZPagerDefaultNavigationBarHeight (44)
+#define ZZPagerDefaultStatusBarHeight ([UIApplication sharedApplication].statusBarFrame.size.height)
+
 @protocol ZZPagerControllerDataSource<NSObject>
 
 @required

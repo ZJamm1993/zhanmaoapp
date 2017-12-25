@@ -13,6 +13,9 @@
     BOOL showingKeyboard;
     CGFloat bottomSafe;
 }
+
+@property (nonatomic,strong) UIView* bottomToolBar;
+
 @end
 
 @implementation BaseToolBarTableViewController
@@ -49,8 +52,8 @@
     
     self.bottomToolBar=[[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, self.tableView.contentInset.bottom+bottomSafe)];
     self.bottomToolBar.backgroundColor=[UIColor whiteColor];
+    self.bottomToolBar.autoresizesSubviews=NO;
     [self.tableView addSubview:self.bottomToolBar];
-    
     
     UIView* line=[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bottomToolBar.frame.size.width, 1/[[UIScreen mainScreen]scale])];
     line.backgroundColor=[UIColor groupTableViewBackgroundColor];
@@ -70,7 +73,6 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardShows:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHides:) name:UIKeyboardDidHideNotification object:nil];
-    
     
     [self performSelector:@selector(scrollViewDidScroll:) withObject:self.tableView afterDelay:0.01];
 }
@@ -98,6 +100,13 @@
 
 #pragma mark actions
 
+-(void)setBottomSubView:(UIView *)view
+{
+    [self.bottomToolBar removeAllSubviews];
+    [view removeFromSuperview];
+    [self.bottomToolBar insertSubview:view atIndex:0];
+}
+
 -(void)goToCustom
 {
     [self bottomToolBarButtonClicked];
@@ -106,6 +115,11 @@
 -(void)bottomToolBarButtonClicked
 {
     
+}
+
+-(void)setBottomBarHidden:(BOOL)hidden
+{
+    self.bottomToolBar.hidden=hidden;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -126,9 +140,11 @@
     [self.tableView addSubview:self.bottomToolBar];
 }
 
--(CGRect)bottomViewFrame
+-(CGRect)bottomFrame
 {
-    return CGRectMake(10, 10, self.bottomToolBar.frame.size.width, self.tableView.contentInset.bottom-20);
+    CGRect fr=self.bottomToolBar.bounds;
+    fr.size.height=fr.size.height-bottomSafe;
+    return fr;
 }
 
 @end
