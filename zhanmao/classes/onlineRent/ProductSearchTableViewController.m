@@ -28,28 +28,50 @@
     NSArray* searchedStrings;
     NSArray* trendStrings;
     
+    CGFloat bottomSafe;
+    
+    CGRect tipsFrame;
 }
 @end
 
 @implementation ProductSearchTableViewController
 
+#if XcodeSDK11
+-(void)viewSafeAreaInsetsDidChange
+{
+    [super viewSafeAreaInsetsDidChange];
+    if ([self.view respondsToSelector:@selector(safeAreaInsets)]) {
+        if (@available(iOS 11.0, *)) {
+            UIEdgeInsets est=[self.view safeAreaInsets];
+            bottomSafe=est.bottom;
+            
+            CGFloat maxY=0;
+            for (UIView* sv in tip.subviews) {
+                CGFloat my=CGRectGetMaxY(sv.frame);
+                if (my>maxY) {
+                    maxY=my;
+                }
+            }
+            [tip setContentSize:CGSizeMake(tip.frame.size.width, maxY+bottomSafe)];
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+}
+#endif
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [self addTipsViewIfNeed];
-    
-//    tip=[SearchTipsView searchTipsViewWithRecentlyStrings:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"] trendyString:@[@"1-",@"2-",@"3-",@"4-",@"5-",@"6-"] delegate:self];
-//    [self.tableView addSubview:tip];
     
     searchBar=[ZZSearchBar defaultBar];
     searchBar.delegate=self;
     CGRect fr=searchBar.frame;
-//    fr.size.width=self.view.frame.size.width-64;
+
     searchBar.frame=fr;
     searchBar.tintColor=_mainColor;
     self.navigationItem.titleView=searchBar;
     searchBar.placeholder=@"请输入您想要的商品";
-    [searchBar becomeFirstResponder];
+    
     
     UIBarButtonItem* searchBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     
@@ -62,22 +84,43 @@
     [self.tableView registerClass:[MenuHeaderTableViewCell class] forHeaderFooterViewReuseIdentifier:@"MenuHeaderTableViewCell"];
     
     [self showLoadMoreView];
+    
+    tipsFrame=self.view.bounds;
+    
+    [self addTipsViewIfNeed];
+    
+    [RentHttpTool getHotestSearchedStrings:^(NSArray *res) {
+        trendStrings=res;
+        [self addTipsViewIfNeed];
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardShows:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHides:) name:UIKeyboardWillHideNotification object:nil];
+
+    [searchBar becomeFirstResponder];
 }
-
-
 
 -(void)addTipsViewIfNeed
 {
-    if (tip) {
-        [tip removeFromSuperview];
-    }
-    [RentHttpTool getSearchedStrings:^(NSArray *result) {
-        if (result.count>0) {
-            searchedStrings=result;
-            
-            tip=[SearchTipsView searchTipsViewWithRecentlyStrings:searchedStrings trendyString:nil delegate:self];
-            [self.tableView performSelector:@selector(addSubview:) withObject:tip afterDelay:0];
+    NSArray* tableSubviews=self.tableView.subviews;
+    for (UIView* sv in tableSubviews) {
+        if ([sv isKindOfClass:[SearchTipsView class]]) {
+            [sv removeFromSuperview];
         }
+    }
+    
+    [RentHttpTool getSearchedStrings:^(NSArray *result) {
+
+        searchedStrings=result;
+            
+        tip=[[SearchTipsView alloc]initWithFrame:tipsFrame];
+        tip.delegate=self;
+        [tip setRecentlyStrings:searchedStrings trendyString:trendStrings delegate:self];
+        [self.tableView addSubview:tip];
+        
+        self.tableView.scrollEnabled=NO;
     } failure:^(NSError *error) {
         
     }];
@@ -88,7 +131,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark keyboards
 
+-(void)keyboardShows:(NSNotification*)noti
+{
+    [self keyboardAnimationWithNotification:noti showing:YES];
+}
+
+-(void)keyboardHides:(NSNotification*)noti
+{
+    [self keyboardAnimationWithNotification:noti showing:NO];
+}
+
+-(void)keyboardAnimationWithNotification:(NSNotification*)noti showing:(BOOL)showing
+{
+    NSDictionary* userinfo=noti.userInfo;
+    
+    CGFloat frameY=[[userinfo valueForKey:UIKeyboardFrameEndUserInfoKey]CGRectValue].origin.y;
+    CGFloat animaD=[[userinfo valueForKey:UIKeyboardAnimationDurationUserInfoKey]doubleValue];
+    
+    [UIView animateWithDuration:animaD animations:^{
+        CGFloat tipsHeight=frameY-44-[[UIApplication sharedApplication]statusBarFrame].size.height;
+        tipsFrame.size.height=tipsHeight;
+        if (!showing) {
+            tipsFrame=self.view.bounds;
+        }
+        [tip setFrame:tipsFrame];
+    }];
+}
 
 #pragma mark search texting
 
@@ -121,14 +191,14 @@
     searchingString=str;
     [RentHttpTool addSearchedString:str success:nil failure:nil];
     [tip removeFromSuperview];
+    self.tableView.scrollEnabled=YES;
     [self refresh];
 }
 
 #pragma refresh and loadmore
 
 -(void)refresh{
-//    [self.dataSource removeAllObjects];
-//    [self.tableView reloadData];
+
     [RentHttpTool getGoodListSearchByKeyword:searchingString sort:sortString page:1 pageSize:[RentHttpTool pagesize] cached:NO success:^(NSArray *result) {
         [self.dataSource removeAllObjects];
         [self.dataSource addObjectsFromArray:result];
@@ -195,6 +265,13 @@
     header.buttonModelArray=menuHeaderButtonModels;
     header.delegate=self;
     return header;
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (scrollView==tip) {
+        [searchBar resignFirstResponder];
+    }
 }
 
 #pragma mark menuHeaderDelegate

@@ -18,12 +18,12 @@
 
 @end
 
-@interface SearchTipsView : UIView
+@interface SearchTipsView : UIScrollView
 
-@property (nonatomic,weak) id<SearchTipsViewDelegate>delegate;
-@property (nonatomic,strong) NSArray* recentlyStrings;
+@property (nonatomic,weak) id<SearchTipsViewDelegate> tipsDelegate;
+//@property (nonatomic,strong) NSArray* recentlyStrings;
 @property (nonatomic,strong) NSArray* trendyStrings;
 
-+(instancetype)searchTipsViewWithRecentlyStrings:(NSArray<NSString*>*)recently trendyString:(NSArray<NSString*>*)trendy delegate:(id<SearchTipsViewDelegate>)delegate;
+-(void)setRecentlyStrings:(NSArray<NSString*>*)recently trendyString:(NSArray<NSString*>*)trendy delegate:(id<SearchTipsViewDelegate>)delegate;
 
 @end

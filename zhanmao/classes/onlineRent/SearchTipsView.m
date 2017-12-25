@@ -10,12 +10,14 @@
 
 @implementation SearchTipsView
 
-+(instancetype)searchTipsViewWithRecentlyStrings:(NSArray<NSString *> *)recently trendyString:(NSArray<NSString *> *)trendy delegate:(id<SearchTipsViewDelegate>)delegate
+-(void)setRecentlyStrings:(NSArray<NSString *> *)recently trendyString:(NSArray<NSString *> *)trendy delegate:(id<SearchTipsViewDelegate>)delegate
 {
-    SearchTipsView* view=[[SearchTipsView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    view.delegate=delegate;
-    view.backgroundColor=[UIColor whiteColor];
+    SearchTipsView* view=self;
     
+    view.showsVerticalScrollIndicator=NO;
+    
+    view.tipsDelegate=delegate;
+    view.backgroundColor=[UIColor whiteColor];
     
     CGFloat m=10;
     
@@ -26,17 +28,20 @@
         currentY=[view addSectionsViewWithTitle:@"最近搜索" imageName:@"searchGraySmall" canBeDeleted:YES strings:recently currentX:currentX currentY:currentY margin:m];
     }
     if (trendy.count>0) {
-        [view addSectionsViewWithTitle:@"热门搜索" imageName:@"searchHot" canBeDeleted:NO strings:trendy currentX:currentX currentY:currentY margin:m];
+        currentY=[view addSectionsViewWithTitle:@"热门搜索" imageName:@"searchHot" canBeDeleted:NO strings:trendy currentX:currentX currentY:currentY margin:m];
     }
     
-    return view;
+    view.bounces=YES;
+    view.alwaysBounceVertical=YES;
+    
+    view.contentSize=CGSizeMake(view.frame.size.width, currentY);
 }
 
 -(CGFloat)addSectionsViewWithTitle:(NSString*)title imageName:(NSString*)imgName canBeDeleted:(BOOL)canbedeleted strings:(NSArray*)strs currentX:(CGFloat)currentX currentY:(CGFloat)currentY margin:(CGFloat)m
 {
     
     CGFloat rowHeight=28;
-    CGFloat colWidth=(self.frame.size.width-5*m)/4;
+    CGFloat maxBtnWidth=self.frame.size.width-m-m-m;
     UIView* titleView=[self titleViewWithImageName:imgName title:title showDelete:canbedeleted];
     CGRect fr=titleView.frame;
     fr.origin.x=currentX;
@@ -47,21 +52,47 @@
     [self addSubview:titleView];
     
     for (NSString* string in strs) {
+        
         UIButton* btn=[self buttonWithString:string];
+        
         CGRect gr=btn.frame;
         gr.origin.x=currentX;
         gr.origin.y=currentY;
-        gr.size.width=colWidth;
+        gr.size.width=maxBtnWidth;
         gr.size.height=rowHeight;
         btn.frame=gr;
+        
+        [btn sizeToFit];
+        gr.size.height=rowHeight;
+        gr.size.width=btn.frame.size.width+m;
+        btn.frame=gr;
+        
         [self addSubview:btn];
         
-        currentX=currentX+m+colWidth;
+        // if current btn is out of bounds
+        
+        CGFloat testCurX=CGRectGetMaxX(gr);
+        if (testCurX+m>self.frame.size.width) {
+            if (gr.origin.x==m) {
+                
+            }
+            else
+            {
+                gr.origin=CGPointMake(m, CGRectGetMaxY(gr)+m);
+                btn.frame=gr;
+                currentY=gr.origin.y;
+            }
+            
+        }
+
+        // if next btn.x is out of bounds
+        
+        currentX=CGRectGetMaxX(gr)+m;
         if (currentX+m>=self.frame.size.width) {
             currentX=m;
             currentY=CGRectGetMaxY(gr)+m;
         }
-        
+
     }
     
     if (currentX==m) {
@@ -102,7 +133,7 @@
 -(UIButton*)buttonWithString:(NSString*)string
 {
     UIButton* bt=[[UIButton alloc]initWithFrame:CGRectZero];
-    bt.layer.cornerRadius=2;
+    bt.layer.cornerRadius=4;
     bt.layer.borderColor=gray_4.CGColor;
     bt.layer.borderWidth=1/[[UIScreen mainScreen]scale];
     [bt setTitle:string forState:UIControlStateNormal];
@@ -116,16 +147,16 @@
 {
     NSString* str=[btn titleForState:UIControlStateNormal];
     if (str.length>0) {
-        if ([self.delegate respondsToSelector:@selector(searchTipsView:selectedString:)]) {
-            [self.delegate searchTipsView:self selectedString:str];
+        if ([self.tipsDelegate respondsToSelector:@selector(searchTipsView:selectedString:)]) {
+            [self.tipsDelegate searchTipsView:self selectedString:str];
         }
     }
 }
 
 -(void)deleteButtonClick:(UIButton*)btn
 {
-    if ([self.delegate respondsToSelector:@selector(searchTipsViewDeleteAllSearchedStrings:)]) {
-        [self.delegate searchTipsViewDeleteAllSearchedStrings:self];
+    if ([self.tipsDelegate respondsToSelector:@selector(searchTipsViewDeleteAllSearchedStrings:)]) {
+        [self.tipsDelegate searchTipsViewDeleteAllSearchedStrings:self];
     }
 }
 

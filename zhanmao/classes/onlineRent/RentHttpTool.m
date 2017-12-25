@@ -288,6 +288,28 @@
     }
 }
 
++(void)getHotestSearchedStrings:(void (^)(NSArray *))success failure:(void (^)(NSError *))failure
+{
+    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Mall/Goods/search_hot"];
+    [self get:str params:nil usingCache:NO success:^(NSDictionary *dict) {
+        NSArray* data=[dict valueForKey:@"data"];
+        NSMutableArray* res=[NSMutableArray array];
+        for (NSDictionary* jso in data) {
+            NSString* post_title=[jso valueForKey:@"post_title"];
+            if (post_title.length>0) {
+                [res addObject:post_title];
+            }
+        }
+        if (success) {
+            success(res);
+        }
+    } failure:^(NSError *err) {
+        if (failure) {
+            failure(err);
+        }
+    }];
+}
+
 +(void)postRentOrderParams:(NSDictionary *)params success:(void (^)(BOOL,NSString*, PayOrderModel *))success
 {
     NSString* str=[ZZUrlTool fullUrlWithTail:@"/User/Order/add"];

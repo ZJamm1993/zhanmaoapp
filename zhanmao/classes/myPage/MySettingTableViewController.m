@@ -33,9 +33,9 @@ const NSString* MyAppStoreUrlString=@"https://itunes.apple.com/app/id1325487632"
     // Do any additional setup after loading the view.
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     [self refreshData];
 }
 

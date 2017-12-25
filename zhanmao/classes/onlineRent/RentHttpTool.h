@@ -44,6 +44,8 @@
 
 +(void)removeSearchedStrings:(void(^)(BOOL result))success failure:(void(^)(NSError* error))failure;
 
++(void)getHotestSearchedStrings:(void(^)(NSArray* result))success failure:(void(^)(NSError* error))failure;
+
 #pragma mark orders
 
 +(void)postRentOrderParams:(NSDictionary*)params success:(void(^)(BOOL result, NSString* msg, PayOrderModel* order))success;
