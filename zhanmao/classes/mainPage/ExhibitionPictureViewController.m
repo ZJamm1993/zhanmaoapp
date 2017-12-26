@@ -28,8 +28,8 @@
             UIEdgeInsets est=[self.view safeAreaInsets];
             bottomSafe=est.bottom;
             
-            CGRect re=self.view.bounds;
-            re.size.height=re.size.height-bottomSafe;
+            CGRect re=[[UIScreen mainScreen]bounds];
+            re.size.height=re.size.height-44-[[UIApplication sharedApplication]statusBarFrame].size.height-bottomSafe;
             php.frame=re;
             php.title=self.pictureTitle;
             php.images=self.images;
@@ -45,8 +45,8 @@
     self.title=self.pictureTitle;
     self.view.backgroundColor=[UIColor blackColor];
     
-    CGRect re=self.view.bounds;
-    re.size.height=re.size.height-bottomSafe;
+    CGRect re=[[UIScreen mainScreen]bounds];
+    re.size.height=re.size.height-44-[[UIApplication sharedApplication]statusBarFrame].size.height-bottomSafe;
     php=[[PhotoSliderView alloc]initWithFrame:re];
     php.title=self.pictureTitle;
     php.images=self.images;

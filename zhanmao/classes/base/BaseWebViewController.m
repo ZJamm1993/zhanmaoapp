@@ -150,13 +150,17 @@
 
 -(void)relayoutViews
 {
+    self.ios8WebView.frame=self.view.bounds;
     if (self.bottomView) {
-        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-self.bottomView.frame.size.height-bottomSafe);
-        bottomBg.frame=CGRectMake(0, self.view.frame.size.height-self.bottomView.frame.size.height-bottomSafe, self.view.frame.size.width, 200);
+//        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-self.bottomView.frame.size.height-bottomSafe);
+        
+        bottomBg.frame=CGRectMake(0, self.view.frame.size.height-self.bottomView.frame.size.height-bottomSafe, self.view.frame.size.width, self.bottomView.frame.size.height+bottomSafe);
+        self.ios8WebView.scrollView.contentInset=UIEdgeInsetsMake(0, 0, bottomBg.frame.size.height-bottomSafe, 0);
     }
     else
     {
-        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-bottomSafe);
+//        self.ios8WebView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-bottomSafe);
+        self.ios8WebView.scrollView.contentInset=UIEdgeInsetsMake(0, 0, 0, 0);
     }
 }
 
