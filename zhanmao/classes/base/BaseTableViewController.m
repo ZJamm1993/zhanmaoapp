@@ -139,7 +139,7 @@
         if (lastCount==self.dataSource.count&&!self.refreshControl.refreshing) {
             loadmoreText=@"没有更多了";
         }
-        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:loadmoreText afterDelay:1];
+        [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:loadmoreText afterDelay:0.01];
         lastCount=self.dataSource.count;
     }
 }
@@ -155,7 +155,7 @@
 
 -(void)refresh
 {
-    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:1];
+    [self.refreshControl performSelector:@selector(endRefreshing) withObject:nil afterDelay:0.1];
 }
 
 -(void)stopRefreshAfterSeconds
@@ -165,7 +165,7 @@
 
 -(void)loadMore
 {
-    [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"" afterDelay:1];
+    [loadMoreFooter performSelector:@selector(endLoadingWithText:) withObject:@"" afterDelay:0.1];
 }
 
 -(void)reloadWithDictionary:(NSDictionary*)dict
