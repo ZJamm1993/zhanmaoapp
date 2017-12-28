@@ -262,14 +262,6 @@
     NSArray* arr=[cellModelsArray objectAtIndex:indexPath.section];
     MyPageCellModel* mo=[arr objectAtIndex:indexPath.row];
     NSLog(@"%@",mo.identifier);
-//    if (indexPath.section>0&&indexPath.section<=2) {
-        //requires loging
-//        return;
-        if ([UserModel token].length==0) {
-            [self askToLogin];
-            return;
-        }
-//    }
     
     //specials
     //specials
@@ -305,7 +297,8 @@
     //normals
     else
     {
-        [self pushToViewControllerId:mo.identifier];
+        BOOL shouldCheckToken=(indexPath.section!=([tableView numberOfSections]-1));
+        [self pushToViewControllerId:mo.identifier checkToken:shouldCheckToken];
     }
 }
 
@@ -376,16 +369,16 @@
     }
     else
     {
-        [self pushToViewControllerId:@"MyPersonalInfoViewController"];
+        [self pushToViewControllerId:@"MyPersonalInfoViewController" checkToken:NO];
     }
 }
 
 #pragma mark actions
 
--(void)pushToViewControllerId:(NSString*)identifier
+-(void)pushToViewControllerId:(NSString*)identifier checkToken:(BOOL)checkToken
 {
     //normals
-    if ([UserModel token].length==0) {
+    if ([UserModel token].length==0&&checkToken) {
         [self askToLogin];
         return;
     }
