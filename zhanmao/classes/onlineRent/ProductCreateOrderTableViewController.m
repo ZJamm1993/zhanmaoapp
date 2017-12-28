@@ -335,6 +335,22 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     return [[UITableViewCell alloc]init];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section==tableView.numberOfSections-1) {
+        return UITableViewAutomaticDimension;
+    }
+    return 10;
+}
+
+-(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    if (section==tableView.numberOfSections-1) {
+        return @"押金会在交易完成后的72小时后原路返回";
+    }
+    return nil;
+}
+
 #pragma mark formbasetableviewcelldelegate
 
 -(void)formBaseTableViewCellValueChanged:(FormBaseTableViewCell *)cell

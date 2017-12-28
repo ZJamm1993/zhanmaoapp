@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
         for (SimpleButtonModel* mo in buttomButtnModels) {
             mo.circleColor=[UIColor whiteColor];
             mo.circledImage=YES;
-            mo.titleColor=[UIColor whiteColor];
+            mo.titleColor=gray_6;
             mo.title=[NSString stringWithFormat:@"%@%@",mo.title,mo.type>=5?@"服务":@"定制"];
         }
         CGFloat h=[SimpleButtonsTableViewCell heightWithButtonsCount:buttomButtnModels.count];
@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, ExhibitionDetailRow)
         SimpleButtonsTableViewCell* buttonsCell=[[SimpleButtonsTableViewCell alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, h)];
         buttonsCell.buttons=buttomButtnModels;
         buttonsCell.delegate=self;
-        buttonsCell.backgroundColor=rgb(38, 104, 209);
+        buttonsCell.backgroundColor=gray_9;
 //        self.bottomView=buttonsCell;
         
         CGRect bgFr=buttonsCell.bounds;
