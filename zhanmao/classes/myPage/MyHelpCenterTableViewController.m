@@ -143,17 +143,7 @@
         NSString* str=[NSString stringWithFormat:@"tel://%@",pho];
         NSURL* phone=[NSURL URLWithString:str];
         if ([[UIApplication sharedApplication]canOpenURL:phone] ) {
-            UIAlertController* alert=[UIAlertController alertControllerWithTitle:@"是否拨打客服电话" message:pho preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
-            }]];
-            [alert addAction:[UIAlertAction actionWithTitle:@"拨打" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                
-                [[UIApplication sharedApplication]openURL:phone];
-            }]];
-            [self presentViewController:alert animated:YES completion:^{
-                
-            }];
+            [[UIApplication sharedApplication]openURL:phone];
         }
         else{
             [MBProgressHUD showErrorMessage:@"设备不支持拨打电话"];
