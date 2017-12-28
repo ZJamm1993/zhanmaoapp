@@ -346,7 +346,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
 -(NSString*)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 {
     if (section==tableView.numberOfSections-1) {
-        return @"押金会在交易完成后的72小时后原路返回";
+        return @"押金会在交易完成后的72小时内原路返回";
     }
     return nil;
 }
