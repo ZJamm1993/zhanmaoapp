@@ -119,6 +119,8 @@
     NSMutableDictionary* dic=[NSMutableDictionary dictionary];
     [dic setValue:@(page) forKey:@"page"];
     [dic setValue:self.keyword forKey:@"keyword"];
+    [dic setValue:self.date forKey:@"date"];
+    [dic setValue:self.exhibition_city forKey:@"exhibition_city"];
     return dic;
 }
 
