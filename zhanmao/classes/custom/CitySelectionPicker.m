@@ -32,6 +32,7 @@
     self=[super initWithDictionary:dictionary];
     if (self) {
         self.name=[dictionary valueForKey:@"name"];
+        self.id=[dictionary valueForKey:@"id"];
         //NSLog(@"        2:%@",self.name);
         NSArray* arr=[dictionary valueForKey:@"regions"];
         NSMutableArray* rrm=[NSMutableArray array];
@@ -150,6 +151,35 @@
        
     }
 //    return nil;
+    return arr;
+}
+
+-(NSArray*)selectedCityModels
+{
+    //    return nil;
+    NSMutableArray* arr=[NSMutableArray array];
+    for (NSInteger i=0; i<self.sections; i++) {
+        NSInteger selectedRowInComponent=[self selectedRowInComponent:i];
+        if(i==0)
+        {
+            [arr addObject:[self.provinces objectAtIndex:selectedRowInComponent]];
+        }
+        else if(i==1)
+        {
+            NSInteger se=[self selectedRowInComponent:0];
+            ProvinceModel* pro=[self.provinces objectAtIndex:se];
+            [arr addObject:[pro.citys objectAtIndex:selectedRowInComponent]];
+        }
+        else if(i==2)
+        {
+            NSInteger se=[self selectedRowInComponent:0];
+            ProvinceModel* pro=[self.provinces objectAtIndex:se];
+            se=[self selectedRowInComponent:1];
+            CityModel* cit=[pro.citys objectAtIndex:se];
+            [arr addObject:[cit.districts objectAtIndex:selectedRowInComponent]];
+        }
+    }
+    //    return nil;
     return arr;
 }
 

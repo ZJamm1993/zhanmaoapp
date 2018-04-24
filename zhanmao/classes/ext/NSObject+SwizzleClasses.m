@@ -46,6 +46,8 @@
     NSLog(@"swizzle reloadsections");
     [[self class]jr_swizzleMethod:@selector(reloadSections:) withMethod:@selector(myReloadSections:) error:nil];
     
+    [[self class]jr_swizzleMethod:@selector(reloadData) withMethod:@selector(myReloadData) error:nil];
+
 }
 
 -(void)myReloadSections:(NSIndexSet*)sections
@@ -54,6 +56,19 @@
     [[NSNotificationCenter defaultCenter]postNotificationName:UICollectionViewReloadSectionsNotification object:nil userInfo:dic];
     [self myReloadSections:sections];
     self.backgroundColor=gray_9;
+}
+
+-(void)myReloadData
+{
+    NSDictionary* dic=[NSDictionary dictionaryWithObject:self forKey:@"collectionView"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:UICollectionViewReloadSectionsNotification object:nil userInfo:dic];
+    
+    //dispatch making crash while chinese keyboard shows
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    
+    [self myReloadData];
+    
+    //    });
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ExhibitionLargeCardTableViewCell.h"
+#import "ExhibitionCollectionViewCell.h"
 
 @implementation ExhibitionLargeCardTableViewCell
 
@@ -14,11 +15,15 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.bgView.layer.cornerRadius=4;
-    self.bgView.layer.borderColor=gray_8.CGColor;
-    self.bgView.layer.borderWidth=0.5;
-    self.bgView.clipsToBounds=YES;
-    self.bgView.layer.masksToBounds=YES;
+//    self.bgView.layer.cornerRadius=4;
+//    self.bgView.layer.borderColor=gray_8.CGColor;
+//    self.bgView.layer.borderWidth=0.5;
+//    self.bgView.clipsToBounds=YES;
+//    self.bgView.layer.masksToBounds=YES;
+    
+    if (self.collectionView) {
+        [self.collectionView registerNib:[UINib nibWithNibName:@"ExhibitionCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -52,10 +57,53 @@
     
 }
 
--(void)layoutSubviews
+//-(void)layoutSubviews
+//{
+////    [super layoutSubviews];
+////    [self setCornerRadius];
+//}
+
+-(void)setExhibitionModels:(NSArray *)exhibitionModels
 {
-//    [super layoutSubviews];
-//    [self setCornerRadius];
+    _exhibitionModels=exhibitionModels;
+    [self.collectionView reloadData];
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+//    return 3;
+    return self.exhibitionModels.count;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ExhibitionCollectionViewCell* cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    ExhibitionModel* mo=[self.exhibitionModels objectAtIndex:indexPath.row];
+    [cell.image setImageUrl:[ZZUrlTool fullUrlWithTail:mo.thumb]];
+    cell.title.text=mo.exhibition_name;
+    cell.subtitle.text=[NSString stringWithFormat:@"%@-%@",[[mo.start_date componentsSeparatedByString:@" "]firstObject],[[mo.end_date componentsSeparatedByString:@" "]firstObject]];
+    return cell;
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CGFloat w=(collectionView.frame.size.width-collectionViewLayout.minimumInteritemSpacing)/2;
+    CGFloat h=w/343*209+60;
+    return CGSizeMake(w, h);
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ExhibitionModel* mo=[self.exhibitionModels objectAtIndex:indexPath.row];
+    if (self.collectionViewDidSelectBlock) {
+        self.collectionViewDidSelectBlock(mo);
+    }
 }
 
 @end

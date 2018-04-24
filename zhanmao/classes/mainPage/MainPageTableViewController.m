@@ -154,11 +154,21 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 
 -(void)refresh
 {
-    [MainPageHttpTool getNewExhibitions:^(NSArray *exhs) {
-        exhibitionArray=[NSMutableArray arrayWithArray:exhs];
-        [self.tableView reloadData];
-    } cache:NO failure:^(NSError *error) {
-        [self.tableView reloadData];
+//    [MainPageHttpTool getNewExhibitions:^(NSArray *exhs) {
+//        exhibitionArray=[NSMutableArray arrayWithArray:exhs];
+//        [self.tableView reloadData];
+//    } cache:NO failure:^(NSError *error) {
+//        [self.tableView reloadData];
+//    }];
+    
+    [ZZHttpTool get:[ZZUrlTool fullUrlWithTail:@"/Content/Exhibition/new_exhibition"] params:@{@"page":@"1"} usingCache:NO success:^(NSDictionary *dict) {
+        NSArray* list=[dict valueForKeyPath:@"data.list"];
+        exhibitionArray=[NSArray modelsWithDictionaries:list modelCreate:^id(NSInteger index, NSDictionary *dict) {
+            return [[ExhibitionModel alloc]initWithDictionary:dict];
+        }];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:MainPageSectionExhibitions] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } failure:^(NSError *err) {
+        
     }];
     
     [MainPageHttpTool getNewMessagesPage:1 pageSize:self.pageSize cached:NO success:^(NSArray *result) {
@@ -255,7 +265,8 @@ typedef NS_ENUM(NSInteger,MainPageSection)
     }
     else if(section==MainPageSectionExhibitions)
     {
-        return exhibitionArray.count;
+        return 1;
+//        return exhibitionArray.count>0?1:0;
     }
     else if(section==MainPageSectionGoodsPushes)
     {
@@ -274,6 +285,12 @@ typedef NS_ENUM(NSInteger,MainPageSection)
 //    if (sec==MainPageSectionEights) {
 //        return [SimpleButtonsTableViewCell heightWithButtonsCount:[self arrayWithSimpleButtons].count];
 //    }
+    if (indexPath.section==MainPageSectionExhibitions) {
+        CGFloat w=(tableView.frame.size.width-30)/2;
+        CGFloat h=w/343*209+60;
+        h=h+50+20;
+        return h;
+    }
     return UITableViewAutomaticDimension;
 }
 
@@ -294,9 +311,14 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         if(sec==MainPageSectionExhibitions)
         {
             ExhibitionLargeCardTableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"ExhibitionLargeCardTableViewCell" forIndexPath:indexPath];
-            ExhibitionModel* mo=[exhibitionArray objectAtIndex:row];
-            cell.label.text=mo.exhibition_name;
-            [cell.image sd_setImageWithURL:[mo.thumb urlWithMainUrl]];
+            cell.exhibitionModels=exhibitionArray;
+            __weak typeof(self) wef=self;
+            cell.collectionViewDidSelectBlock = ^(ExhibitionModel *model) {
+                ExhibitionModel* mo=model;
+                ExhibitionDetailViewController* exh=[[ExhibitionDetailViewController alloc]init];
+                exh.exhi=mo;
+                [wef.navigationController pushViewController:exh animated:YES];
+            };
             return cell;
         }
         else if(sec==MainPageSectionGoodsPushes)
@@ -354,10 +376,12 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         }
     }
     if (sec==MainPageSectionExhibitions) {
-        ExhibitionModel* mo=[exhibitionArray objectAtIndex:row];
-        ExhibitionDetailViewController* exh=[[ExhibitionDetailViewController alloc]init];
-        exh.exhi=mo;
-        [self.navigationController pushViewController:exh animated:YES];
+//        ExhibitionModel* mo=[exhibitionArray objectAtIndex:row];
+//        ExhibitionDetailViewController* exh=[[ExhibitionDetailViewController alloc]init];
+//        exh.exhi=mo;
+//        [self.navigationController pushViewController:exh animated:YES];
+        
+        [self.navigationController pushViewController:[[UIStoryboard storyboardWithName:@"MainPage" bundle:nil]instantiateViewControllerWithIdentifier:@"MoreExhibitionsCollectionViewController"] animated:YES];
     }
 }
 

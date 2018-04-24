@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "ZZUrlTool.h"
 #import "BaseModel.h"
+#import "NSArray+dictionaryModel.h"
 
 typedef NS_ENUM(NSInteger,ZZHttpCode)
 {

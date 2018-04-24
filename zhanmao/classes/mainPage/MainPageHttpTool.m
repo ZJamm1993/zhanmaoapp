@@ -54,23 +54,23 @@
 
 +(void)getNewExhibitions:(void (^)(NSArray *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure
 {
-    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Exhibition/new_exhibition"];
-    [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
-        NSArray* data=[dict valueForKey:@"data"];
-        
-        NSMutableArray* res=[NSMutableArray array];
-        for (NSDictionary* di in data) {
-            ExhibitionModel* exh=[[ExhibitionModel alloc]initWithDictionary:di];
-            [res addObject:exh];
-        }
-        if (success) {
-            success(res);
-        }
-    } failure:^(NSError *err) {
-        if (failure) {
-            failure(err);
-        }
-    }];
+//    NSString* str=[ZZUrlTool fullUrlWithTail:@"/Content/Exhibition/new_exhibition"];
+//    [self get:str params:nil usingCache:cache success:^(NSDictionary *dict) {
+//        NSArray* data=[dict valueForKey:@"data"];
+//        
+//        NSMutableArray* res=[NSMutableArray array];
+//        for (NSDictionary* di in data) {
+//            ExhibitionModel* exh=[[ExhibitionModel alloc]initWithDictionary:di];
+//            [res addObject:exh];
+//        }
+//        if (success) {
+//            success(res);
+//        }
+//    } failure:^(NSError *err) {
+//        if (failure) {
+//            failure(err);
+//        }
+//    }];
 }
 
 +(void)getExhibitionDetailById:(NSString *)idd success:(void (^)(ExhibitionModel *))success cache:(BOOL)cache failure:(void (^)(NSError *))failure

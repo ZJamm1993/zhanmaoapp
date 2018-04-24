@@ -17,6 +17,7 @@
 
 @interface CityModel : ZZModel
 
+@property (nonatomic,strong) NSString* id;
 @property (nonatomic,strong) NSString* name;
 @property (nonatomic,strong) NSArray* districts;
 
@@ -35,5 +36,6 @@
 
 @property (nonatomic,strong) NSMutableArray* provinces;
 @property (nonatomic,strong,readonly) NSArray* selectedCity;
+@property (nonatomic,strong,readonly) NSArray* selectedCityModels;
 
 @end

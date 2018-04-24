@@ -52,6 +52,13 @@
 		39CDDEC71FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */; };
 		39CDDECA1FDBB5E20079A49D /* TransportOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */; };
 		39CDDECD1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */; };
+		39E84C0E208EEADF00FA6318 /* ExhibitionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E84C0C208EEADF00FA6318 /* ExhibitionCollectionViewCell.m */; };
+		39E84C0F208EEADF00FA6318 /* ExhibitionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E84C0D208EEADF00FA6318 /* ExhibitionCollectionViewCell.xib */; };
+		39E84C12208EEEA400FA6318 /* NSArray+dictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E84C11208EEEA300FA6318 /* NSArray+dictionaryModel.m */; };
+		39E84C15208F022000FA6318 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E84C13208F022000FA6318 /* BaseCollectionViewController.m */; };
+		39E84C18208F038100FA6318 /* MoreExhibitionsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E84C17208F038100FA6318 /* MoreExhibitionsCollectionViewController.m */; };
+		39E84C1B208F1B8100FA6318 /* MoreExhiHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E84C1A208F1B8100FA6318 /* MoreExhiHeaderView.m */; };
+		39E84C1D208F1BB100FA6318 /* MoreExhiHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E84C1C208F1BB100FA6318 /* MoreExhiHeaderView.xib */; };
 		39FD68BD1FE2183F004996D4 /* UINavigationController+Children.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD68BC1FE2183F004996D4 /* UINavigationController+Children.m */; };
 		39FD68C01FE2239D004996D4 /* MyAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD68BF1FE2239D004996D4 /* MyAboutUsViewController.m */; };
 		39FD68C21FE22575004996D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FD68C11FE22575004996D4 /* Assets.xcassets */; };
@@ -309,6 +316,18 @@
 		39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransportOrderDetailTableViewController.m; sourceTree = "<group>"; };
 		39CDDECB1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailStatusComplexStyleCell.h; sourceTree = "<group>"; };
 		39CDDECC1FDBB7620079A49D /* OrderDetailStatusComplexStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailStatusComplexStyleCell.m; sourceTree = "<group>"; };
+		39E84C0B208EEADF00FA6318 /* ExhibitionCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExhibitionCollectionViewCell.h; sourceTree = "<group>"; };
+		39E84C0C208EEADF00FA6318 /* ExhibitionCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExhibitionCollectionViewCell.m; sourceTree = "<group>"; };
+		39E84C0D208EEADF00FA6318 /* ExhibitionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExhibitionCollectionViewCell.xib; sourceTree = "<group>"; };
+		39E84C10208EEEA300FA6318 /* NSArray+dictionaryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+dictionaryModel.h"; sourceTree = "<group>"; };
+		39E84C11208EEEA300FA6318 /* NSArray+dictionaryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+dictionaryModel.m"; sourceTree = "<group>"; };
+		39E84C13208F022000FA6318 /* BaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewController.m; sourceTree = "<group>"; };
+		39E84C14208F022000FA6318 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
+		39E84C16208F038100FA6318 /* MoreExhibitionsCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreExhibitionsCollectionViewController.h; sourceTree = "<group>"; };
+		39E84C17208F038100FA6318 /* MoreExhibitionsCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreExhibitionsCollectionViewController.m; sourceTree = "<group>"; };
+		39E84C19208F1B8000FA6318 /* MoreExhiHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreExhiHeaderView.h; sourceTree = "<group>"; };
+		39E84C1A208F1B8100FA6318 /* MoreExhiHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreExhiHeaderView.m; sourceTree = "<group>"; };
+		39E84C1C208F1BB100FA6318 /* MoreExhiHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreExhiHeaderView.xib; sourceTree = "<group>"; };
 		39FD68BB1FE2183F004996D4 /* UINavigationController+Children.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Children.h"; sourceTree = "<group>"; };
 		39FD68BC1FE2183F004996D4 /* UINavigationController+Children.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Children.m"; sourceTree = "<group>"; };
 		39FD68BE1FE2239D004996D4 /* MyAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAboutUsViewController.h; sourceTree = "<group>"; };
@@ -743,6 +762,8 @@
 				8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */,
 				3973B15F1FD8EBF700106C05 /* ExhibitionDetailViewController.h */,
 				3973B1601FD8EBF700106C05 /* ExhibitionDetailViewController.m */,
+				39E84C16208F038100FA6318 /* MoreExhibitionsCollectionViewController.h */,
+				39E84C17208F038100FA6318 /* MoreExhibitionsCollectionViewController.m */,
 			);
 			path = mainPage;
 			sourceTree = "<group>";
@@ -1026,6 +1047,8 @@
 			isa = PBXGroup;
 			children = (
 				8E24D1B11FC521E800A437A0 /* hhh.txt */,
+				39E84C14208F022000FA6318 /* BaseCollectionViewController.h */,
+				39E84C13208F022000FA6318 /* BaseCollectionViewController.m */,
 				8E24D1AB1FC5204E00A437A0 /* BaseWebViewController.h */,
 				8E24D1AC1FC5204E00A437A0 /* BaseWebViewController.m */,
 				8EB674BD1F973818008CC196 /* BaseLoadMoreFooterView.h */,
@@ -1086,6 +1109,8 @@
 		8E99A92E1F9068910078C452 /* ext */ = {
 			isa = PBXGroup;
 			children = (
+				39E84C10208EEEA300FA6318 /* NSArray+dictionaryModel.h */,
+				39E84C11208EEEA300FA6318 /* NSArray+dictionaryModel.m */,
 				8E99A92F1F9068910078C452 /* NSDictionary+ext.h */,
 				8E99A9301F9068910078C452 /* NSDictionary+ext.m */,
 				8E99A9311F9068910078C452 /* NSObject+SwizzleClasses.h */,
@@ -1225,6 +1250,12 @@
 				3973B1661FD8F10C00106C05 /* ExhiDetailInfoTableViewCell.m */,
 				3973B1681FD8F11C00106C05 /* ExhiDetailDescriptionTableViewCell.h */,
 				3973B1691FD8F11C00106C05 /* ExhiDetailDescriptionTableViewCell.m */,
+				39E84C0B208EEADF00FA6318 /* ExhibitionCollectionViewCell.h */,
+				39E84C0C208EEADF00FA6318 /* ExhibitionCollectionViewCell.m */,
+				39E84C0D208EEADF00FA6318 /* ExhibitionCollectionViewCell.xib */,
+				39E84C19208F1B8000FA6318 /* MoreExhiHeaderView.h */,
+				39E84C1A208F1B8100FA6318 /* MoreExhiHeaderView.m */,
+				39E84C1C208F1BB100FA6318 /* MoreExhiHeaderView.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -1394,7 +1425,6 @@
 				TargetAttributes = {
 					8E99A8C91F90664D0078C452 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9J7GGU5G9G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1450,6 +1480,7 @@
 				8E31F4631FC7B4F100373437 /* LaunchScreen.storyboard in Resources */,
 				8E6C73FB1F9D99B6004B33D1 /* TitleTextFieldTableViewCell.xib in Resources */,
 				8E2E40961F945A2E00B42477 /* NothingFooterCell.xib in Resources */,
+				39E84C1D208F1BB100FA6318 /* MoreExhiHeaderView.xib in Resources */,
 				3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */,
 				3928E1401FEE5FCD00D23203 /* la_logo@2x.png in Resources */,
 				3928E1351FEE5FB800D23203 /* la_center@2x.png in Resources */,
@@ -1461,6 +1492,7 @@
 				8E6C74031F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.xib in Resources */,
 				8EB674DF1F99E83F008CC196 /* MainPage.storyboard in Resources */,
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
+				39E84C0F208EEADF00FA6318 /* ExhibitionCollectionViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
 				8E31F4681FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib in Resources */,
@@ -1505,6 +1537,7 @@
 				3955BBD41FD67C7100239336 /* PayOrderCountDownHeaderView.m in Sources */,
 				3955BBCB1FD6791400239336 /* PayOrderModel.m in Sources */,
 				8E99AAC31F9069AC0078C452 /* NaviController.m in Sources */,
+				39E84C15208F022000FA6318 /* BaseCollectionViewController.m in Sources */,
 				8E72E9E41FB2ECDF001FCD31 /* CustomOrderPagerViewController.m in Sources */,
 				8E99AACA1F906E660078C452 /* AdvertiseView.m in Sources */,
 				394A24411FDE75860041D185 /* YaoyueOrderDetailViewController.m in Sources */,
@@ -1523,7 +1556,9 @@
 				39FD68BD1FE2183F004996D4 /* UINavigationController+Children.m in Sources */,
 				8E6C741D1F9DF0E2004B33D1 /* OnlineRentTableViewController.m in Sources */,
 				8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */,
+				39E84C12208EEEA400FA6318 /* NSArray+dictionaryModel.m in Sources */,
 				3973B1611FD8EBF700106C05 /* ExhibitionDetailViewController.m in Sources */,
+				39E84C1B208F1B8100FA6318 /* MoreExhiHeaderView.m in Sources */,
 				8E721AE91FB58195001BD401 /* HuiyiFormTableViewController.m in Sources */,
 				8E4E23D81FBBF0CB00C394E0 /* MainPageHttpTool.m in Sources */,
 				398513901FD0F42A0056FB7F /* MyPersonalInfoViewController.m in Sources */,
@@ -1635,10 +1670,12 @@
 				8EA9E55B1FB19368003815B7 /* RentActionEditView.m in Sources */,
 				8E6C740C1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.m in Sources */,
 				8E31F4721FC7FF9200373437 /* TravellingHttpTool.m in Sources */,
+				39E84C0E208EEADF00FA6318 /* ExhibitionCollectionViewCell.m in Sources */,
 				8E99AA461F9068920078C452 /* NSDictionary+ext.m in Sources */,
 				8E99AA471F9068920078C452 /* NSObject+SwizzleClasses.m in Sources */,
 				8E9B0CEB1FAAC4B600770F8D /* OrderTypeBaseModel.m in Sources */,
 				8E99AA4A1F9068920078C452 /* UIView+ext.m in Sources */,
+				39E84C18208F038100FA6318 /* MoreExhibitionsCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1752,7 +1789,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9J7GGU5G9G;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1775,7 +1812,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9J7GGU5G9G;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
