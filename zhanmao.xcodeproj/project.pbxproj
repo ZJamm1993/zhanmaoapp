@@ -48,6 +48,7 @@
 		3985139B1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139A1FD126D50056FB7F /* MyPageOneTextFieldTableViewController.m */; };
 		3985139E1FD139A80056FB7F /* MyHelpCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */; };
 		398513A41FD140FB0056FB7F /* MyFeedBackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */; };
+		39969F7B209051E60074EFD9 /* address.txt in Resources */ = {isa = PBXBuildFile; fileRef = 39969F7A209051E50074EFD9 /* address.txt */; };
 		39CDDEC41FDB8F390079A49D /* MyOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CDDEC31FDB8F390079A49D /* MyOrder.storyboard */; };
 		39CDDEC71FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */; };
 		39CDDECA1FDBB5E20079A49D /* TransportOrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CDDEC91FDBB5E20079A49D /* TransportOrderDetailTableViewController.m */; };
@@ -309,6 +310,7 @@
 		3985139D1FD139A80056FB7F /* MyHelpCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpCenterTableViewController.m; sourceTree = "<group>"; };
 		398513A21FD140FB0056FB7F /* MyFeedBackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFeedBackTableViewController.h; sourceTree = "<group>"; };
 		398513A31FD140FB0056FB7F /* MyFeedBackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFeedBackTableViewController.m; sourceTree = "<group>"; };
+		39969F7A209051E50074EFD9 /* address.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = address.txt; sourceTree = "<group>"; };
 		39CDDEC31FDB8F390079A49D /* MyOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyOrder.storyboard; sourceTree = "<group>"; };
 		39CDDEC51FDBB3AB0079A49D /* CleanOrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CleanOrderDetailTableViewController.h; sourceTree = "<group>"; };
 		39CDDEC61FDBB3AB0079A49D /* CleanOrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CleanOrderDetailTableViewController.m; sourceTree = "<group>"; };
@@ -1102,6 +1104,7 @@
 				8E69ECAB1FC1642400EEEC67 /* CitySelectionPicker.m */,
 				8E69ECAD1FC16A9600EEEC67 /* cityJson.txt */,
 				394A242A1FDE31B00041D185 /* cityJson2.txt */,
+				39969F7A209051E50074EFD9 /* address.txt */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -1496,6 +1499,7 @@
 				39E84C0F208EEADF00FA6318 /* ExhibitionCollectionViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
+				39969F7B209051E60074EFD9 /* address.txt in Resources */,
 				8E31F4681FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1790,7 +1794,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9J7GGU5G9G;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1804,6 +1810,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1812,8 +1820,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 9J7GGU5G9G;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1827,6 +1837,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

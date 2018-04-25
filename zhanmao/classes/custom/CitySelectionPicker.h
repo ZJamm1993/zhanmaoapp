@@ -11,7 +11,8 @@
 @interface DistrictModel : ZZModel
 
 @property (nonatomic,strong) NSString* name;
-@property (nonatomic,strong) NSString* zipcode;
+@property (nonatomic,strong) NSString* id;
+@property (nonatomic,strong) NSArray* childs;
 
 @end
 
@@ -19,14 +20,15 @@
 
 @property (nonatomic,strong) NSString* id;
 @property (nonatomic,strong) NSString* name;
-@property (nonatomic,strong) NSArray* districts;
+@property (nonatomic,strong) NSArray* childs;
 
 @end
 
 @interface ProvinceModel : ZZModel
 
+@property (nonatomic,strong) NSString* id;
 @property (nonatomic,strong) NSString* name;
-@property (nonatomic,strong) NSArray* citys;
+@property (nonatomic,strong) NSArray* childs;
 
 @end
 

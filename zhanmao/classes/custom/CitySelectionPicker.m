@@ -17,8 +17,8 @@
     self=[super initWithDictionary:dictionary];
     if (self) {
         self.name=[dictionary valueForKey:@"name"];
-        //NSLog(@"            3:%@",self.name);
-//        self.zipcode=[dictionary valueForKey:@"zipcode"];
+        self.id=[dictionary valueForKey:@"id"];
+        NSArray* arr=[dictionary valueForKey:@"child"];
     }
     return self;
 }
@@ -33,8 +33,7 @@
     if (self) {
         self.name=[dictionary valueForKey:@"name"];
         self.id=[dictionary valueForKey:@"id"];
-        //NSLog(@"        2:%@",self.name);
-        NSArray* arr=[dictionary valueForKey:@"regions"];
+        NSArray* arr=[dictionary valueForKey:@"child"];
         NSMutableArray* rrm=[NSMutableArray array];
         if ([arr respondsToSelector:@selector(lastObject)]) {
             for (NSDictionary* dic in arr) {
@@ -48,7 +47,7 @@
             [rrm addObject:m];
         }
         
-        self.districts=rrm;
+        self.childs=rrm;
     }
     return self;
 }
@@ -62,8 +61,9 @@
     self=[super initWithDictionary:dictionary];
     if (self) {
         self.name=[dictionary valueForKey:@"name"];
+        self.id=[dictionary valueForKey:@"id"];
         //NSLog(@"1:%@",self.name);
-        NSArray* arr=[dictionary valueForKey:@"regions"];
+        NSArray* arr=[dictionary valueForKey:@"child"];
         NSMutableArray* rrm=[NSMutableArray array];
         if ([arr respondsToSelector:@selector(lastObject)]) {
             for (NSDictionary* dic in arr) {
@@ -76,7 +76,7 @@
             CityModel* m=[[CityModel alloc]initWithDictionary:(NSDictionary*)arr];
             [rrm addObject:m];
         }
-        self.citys=rrm;
+        self.childs=rrm;
     }
     return self;
 }
@@ -118,14 +118,14 @@
 {
     if (_provinces==nil) {
         _provinces=[NSMutableArray array];
-        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"cityJson2.txt"];
+        NSString *filePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"address.txt"];
         NSError* err=nil;
         NSString* json=[NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&err];
         NSData * data2 = [json dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary* result=[NSJSONSerialization JSONObjectWithData:data2 options:NSJSONReadingMutableLeaves error:nil];
         
-        NSArray* root=[result valueForKey:@"regions"];
-        NSArray* pros=[root.firstObject valueForKey:@"regions"];
+        NSArray* root=[result valueForKey:@"address"];
+        NSArray* pros=root;
         for (NSDictionary* pm in pros) {
             ProvinceModel* p=[[ProvinceModel alloc]initWithDictionary:pm];
             [_provinces addObject:p];
@@ -168,15 +168,15 @@
         {
             NSInteger se=[self selectedRowInComponent:0];
             ProvinceModel* pro=[self.provinces objectAtIndex:se];
-            [arr addObject:[pro.citys objectAtIndex:selectedRowInComponent]];
+            [arr addObject:[pro.childs objectAtIndex:selectedRowInComponent]];
         }
         else if(i==2)
         {
             NSInteger se=[self selectedRowInComponent:0];
             ProvinceModel* pro=[self.provinces objectAtIndex:se];
             se=[self selectedRowInComponent:1];
-            CityModel* cit=[pro.citys objectAtIndex:se];
-            [arr addObject:[cit.districts objectAtIndex:selectedRowInComponent]];
+            CityModel* cit=[pro.childs objectAtIndex:se];
+            [arr addObject:[cit.childs objectAtIndex:selectedRowInComponent]];
         }
     }
     //    return nil;
@@ -198,15 +198,15 @@
     {
         NSInteger se=[self selectedRowInComponent:0];
         ProvinceModel* pro=[self.provinces objectAtIndex:se];
-        return pro.citys.count;
+        return pro.childs.count;
     }
     else if(component==2)
     {
         NSInteger se=[self selectedRowInComponent:0];
         ProvinceModel* pro=[self.provinces objectAtIndex:se];
         se=[self selectedRowInComponent:1];
-        CityModel* cit=[pro.citys objectAtIndex:se];
-        return cit.districts.count;
+        CityModel* cit=[pro.childs objectAtIndex:se];
+        return cit.childs.count;
     }
     return 0;
 }
@@ -221,15 +221,15 @@
     {
         NSInteger se=[self selectedRowInComponent:0];
         ProvinceModel* pro=[self.provinces objectAtIndex:se];
-        return [[pro.citys objectAtIndex:row]name];
+        return [[pro.childs objectAtIndex:row]name];
     }
     else if(component==2)
     {
         NSInteger se=[self selectedRowInComponent:0];
         ProvinceModel* pro=[self.provinces objectAtIndex:se];
         se=[self selectedRowInComponent:1];
-        CityModel* cit=[pro.citys objectAtIndex:se];
-        return [[cit.districts objectAtIndex:row]name];
+        CityModel* cit=[pro.childs objectAtIndex:se];
+        return [[cit.childs objectAtIndex:row]name];
     }
     return 0;
 }
