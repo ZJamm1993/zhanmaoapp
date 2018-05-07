@@ -189,6 +189,7 @@
         self.return_date=[dictionary valueForKey:@"return_date"];
         self.recover_date=[dictionary valueForKey:@"recover_date"];
         self.emergency_phone=[dictionary valueForKey:@"emergency_phone"];
+        self.remark=[dictionary valueForKey:@"remark"];
         
         //the "pay uses the same dictionary
         self.pay=[[PayOrderModel alloc]initWithDictionary:dictionary];
@@ -384,11 +385,11 @@
     }
     else if(type==CustomOrderTypeWutai)
     {
-        return @"舞台";
+        return @"论坛";
     }
     else if(type==CustomOrderTypeYanyi)
     {
-        return @"演艺";
+        return @"活动";
     }
     else if(type==CustomOrderTypeYaoyue)
     {

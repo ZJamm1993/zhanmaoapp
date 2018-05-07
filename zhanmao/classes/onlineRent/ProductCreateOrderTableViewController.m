@@ -22,8 +22,8 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     ProductCreateOrderSectionInfos,
     ProductCreateOrderSectionGoods,
     ProductCreateOrderSectionCycle,
+    ProductCreateOrderSectionRemark,
     ProductCreateOrderSectionPrices,
-    
     ProductCreateOrderSectionTotalCount
 };
 
@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     NSArray* infosSectionArray;
     NSArray* goodsSectionArray;
     NSArray* cycleSectionArray;
+    NSArray* remarkSectionArray;
     NSArray* pricesSectionArray;
     
     NSArray* nibsToRegister;
@@ -85,6 +86,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     infosSectionArray=[self infosSectionArray];
     goodsSectionArray=[self goodsSectionArray];
     cycleSectionArray=[self cycleSectionArray];
+    remarkSectionArray=[self remarkSectionArray];
     pricesSectionArray=[self priceSectionArray];
     
     [self calculatePrices];
@@ -238,6 +240,16 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     return [NSArray arrayWithObject:form];
 }
 
+-(NSArray*)remarkSectionArray;
+{
+    BaseFormModel* form=[[BaseFormModel alloc]init];
+    form.type=BaseFormTypeLargeField;
+    form.name=@"备注";
+    form.required=NO;
+    form.field=@"remark";
+    return [NSArray arrayWithObject:form];
+}
+
 -(NSArray*)priceSectionArray
 {
     return [NSArray arrayWithObject:[NSNumber numberWithInt:0]];
@@ -270,6 +282,10 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     else if(section==ProductCreateOrderSectionPrices)
     {
         return pricesSectionArray.count;
+    }
+    else if(section==ProductCreateOrderSectionRemark)
+    {
+        return remarkSectionArray.count;
     }
     return 0;
 }
@@ -310,6 +326,10 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
         else if(section==ProductCreateOrderSectionCycle)
         {
             arr=cycleSectionArray;
+        }
+        else if(section==ProductCreateOrderSectionRemark)
+        {
+            arr=remarkSectionArray;
         }
         if (arr.count>0) {
             BaseFormModel* formModel=[arr objectAtIndex:row];
@@ -462,7 +482,7 @@ typedef NS_ENUM(NSInteger,ProductCreateOrderSection)
     
     NSMutableArray* arr=[NSMutableArray array];
     
-    NSArray* arrs=[NSArray arrayWithObjects:addressSectionArray,infosSectionArray,cycleSectionArray, nil];
+    NSArray* arrs=[NSArray arrayWithObjects:addressSectionArray,infosSectionArray,cycleSectionArray,remarkSectionArray, nil];
     for (NSArray* a in arrs) {
         for (BaseFormModel* mo in a) {
             [self findModels:arr inModel:mo];

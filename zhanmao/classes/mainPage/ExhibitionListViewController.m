@@ -27,6 +27,22 @@
 //    self.title=[NSString stringWithFormat:@"%ldxx案例",(long)self.type];;
     // Do any additional setup after loading the view.
     [self refresh];
+    
+    UIImageView* head=[[UIImageView alloc]initWithFrame:CGRectMake(0,0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.width/2.27)];
+    [self.tableView setTableHeaderView:head];
+    
+    if ([self.title containsString:@"论坛"]||[self.title containsString:@"活动"]) {
+        head.image=[UIImage imageNamed:@"论坛-活动.gif"];
+    }
+    else if ([self.title containsString:@"展台"]) {
+        head.image=[UIImage imageNamed:@"展台.jpg"];
+    }
+    else if ([self.title containsString:@"展厅"]) {
+        head.image=[UIImage imageNamed:@"展厅.jpg"];
+    }
+    else if ([self.title containsString:@"主场"]) {
+        head.image=[UIImage imageNamed:@"主场.jpg"];
+    }
 }
 
 -(void)refresh

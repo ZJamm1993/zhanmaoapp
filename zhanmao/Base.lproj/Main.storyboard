@@ -224,9 +224,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="buildings" translatesAutoresizingMaskIntoConstraints="NO" id="GkZ-CE-7bh">
                                                     <rect key="frame" x="0.0" y="91.5" width="320" height="66.5"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="展贸在线，更自由的展览和贸易" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dqN-jg-QMQ">
-                                                    <rect key="frame" x="20" y="25" width="280" height="27.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="23"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更自由的展览和贸易" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dqN-jg-QMQ">
+                                                    <rect key="frame" x="20" y="26" width="280" height="27"/>
+                                                    <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="23"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -252,8 +252,8 @@
                                                         <constraint firstAttribute="height" constant="0.5" id="l3d-4B-6JJ"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利用&quot;互联网+&quot;会展贸易模式，实现线下+线上会展自由贸易" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="cVk-bo-Ook">
-                                                    <rect key="frame" x="31" y="85.5" width="258" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="互联网+会展贸易模式，实现线下+线上会展自由贸易" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="cVk-bo-Ook">
+                                                    <rect key="frame" x="31" y="85.5" width="259" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -419,7 +419,7 @@
                                 <rect key="frame" x="0.0" y="660.5" width="320" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bn9-sh-Un7" id="yyH-8K-ycQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="193"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="192.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mWm-4k-vvc" customClass="CorneredImageView">
@@ -500,7 +500,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-TV-j4w" userLabel="footer">
-                                            <rect key="frame" x="0.0" y="180.5" width="320" height="12"/>
+                                            <rect key="frame" x="0.0" y="180" width="320" height="12"/>
                                             <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="12" id="OmB-k1-kvZ"/>

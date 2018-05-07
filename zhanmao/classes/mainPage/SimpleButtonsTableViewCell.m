@@ -155,7 +155,7 @@ const NSInteger simpleButtonRowCount=4;
 +(NSArray*)exampleButtonModelsWithTypes:(NSArray *)types
 {
     NSMutableArray* array=[NSMutableArray array];
-    NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"舞台",@"演艺",@"邀约",@"保洁",@"物流",@"",@"", nil];
+    NSArray* titles=[NSArray arrayWithObjects:@"主场",@"展台",@"展厅",@"论坛",@"活动",@"邀约",@"保洁",@"物流",@"",@"", nil];
     NSArray* images=[NSArray arrayWithObjects:@"zhuchang",@"zhantai",@"zhanting",@"wutai",@"yanyi",@"yaoyue",@"baojie",@"wuliu",@"",@"", nil];
     NSArray* identis=[NSArray arrayWithObjects:
                       @"ExhibitionListViewController",@"ExhibitionListViewController",

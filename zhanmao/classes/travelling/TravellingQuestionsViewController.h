@@ -11,5 +11,6 @@
 @interface TravellingQuestionsViewController : BaseFormTableViewController
 
 @property (nonatomic,copy) void(^completionBlock)();
+@property (nonatomic,strong) NSString* showingTitle;
 
 @end

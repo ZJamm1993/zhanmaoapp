@@ -100,7 +100,13 @@
 -(void)countingDown
 {
     if (self.rentModel.pay_status==PayStatusNotYet) {
-        [self.tableView reloadData];
+        NSArray* indexPaths=[self.tableView indexPathsForVisibleRows];
+        for (NSIndexPath* ip in indexPaths) {
+            if (ip.section==0&&ip.row==0) {
+                [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }
+        
     }
 }
 
@@ -206,6 +212,10 @@
             if (self.rentModel.recover_date.length>0) {
                 detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"回收时间：",self.rentModel.recover_date];
             }
+            if (self.rentModel.remark.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"备注：",self.rentModel.remark];
+            }
+            
             longDetailCell.label.text=detailString;
             return longDetailCell;
         }

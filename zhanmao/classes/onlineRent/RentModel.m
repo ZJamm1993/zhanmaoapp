@@ -21,6 +21,7 @@
         self.rent=[[dictionary valueForKey:@"rent"]doubleValue];
         self.deposit=[[dictionary valueForKey:@"deposit"]doubleValue];
         self.rent_o=[[dictionary valueForKey:@"rent_o"]doubleValue];
+        self.is_sale=[[dictionary valueForKey:@"is_sale"]boolValue];
     }
     return self;
 }

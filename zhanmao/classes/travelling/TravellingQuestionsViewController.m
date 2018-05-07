@@ -26,6 +26,9 @@
 {
     [TravellingHttpTool getTravelQuestionnaire:^(BaseFormStepsModel *steps) {
         self.formSteps=steps;
+        if (self.showingTitle) {
+            self.title=self.showingTitle;
+        }
         [self.tableView reloadData];
     } cache:NO failure:^(NSError *error) {
         

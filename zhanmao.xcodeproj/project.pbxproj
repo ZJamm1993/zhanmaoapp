@@ -60,6 +60,10 @@
 		39E84C18208F038100FA6318 /* MoreExhibitionsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E84C17208F038100FA6318 /* MoreExhibitionsCollectionViewController.m */; };
 		39E84C1B208F1B8100FA6318 /* MoreExhiHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E84C1A208F1B8100FA6318 /* MoreExhiHeaderView.m */; };
 		39E84C1D208F1BB100FA6318 /* MoreExhiHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E84C1C208F1BB100FA6318 /* MoreExhiHeaderView.xib */; };
+		39EBD7D0209D7E9E002A9557 /* 展台.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39EBD7CC209D7E9D002A9557 /* 展台.jpg */; };
+		39EBD7D1209D7E9E002A9557 /* 主场.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39EBD7CD209D7E9E002A9557 /* 主场.jpg */; };
+		39EBD7D2209D7E9E002A9557 /* 论坛-活动.gif in Resources */ = {isa = PBXBuildFile; fileRef = 39EBD7CE209D7E9E002A9557 /* 论坛-活动.gif */; };
+		39EBD7D3209D7E9E002A9557 /* 展厅.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39EBD7CF209D7E9E002A9557 /* 展厅.jpg */; };
 		39FD68BD1FE2183F004996D4 /* UINavigationController+Children.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD68BC1FE2183F004996D4 /* UINavigationController+Children.m */; };
 		39FD68C01FE2239D004996D4 /* MyAboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FD68BF1FE2239D004996D4 /* MyAboutUsViewController.m */; };
 		39FD68C21FE22575004996D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FD68C11FE22575004996D4 /* Assets.xcassets */; };
@@ -330,6 +334,10 @@
 		39E84C19208F1B8000FA6318 /* MoreExhiHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreExhiHeaderView.h; sourceTree = "<group>"; };
 		39E84C1A208F1B8100FA6318 /* MoreExhiHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreExhiHeaderView.m; sourceTree = "<group>"; };
 		39E84C1C208F1BB100FA6318 /* MoreExhiHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreExhiHeaderView.xib; sourceTree = "<group>"; };
+		39EBD7CC209D7E9D002A9557 /* 展台.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "展台.jpg"; sourceTree = "<group>"; };
+		39EBD7CD209D7E9E002A9557 /* 主场.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "主场.jpg"; sourceTree = "<group>"; };
+		39EBD7CE209D7E9E002A9557 /* 论坛-活动.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "论坛-活动.gif"; sourceTree = "<group>"; };
+		39EBD7CF209D7E9E002A9557 /* 展厅.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "展厅.jpg"; sourceTree = "<group>"; };
 		39FD68BB1FE2183F004996D4 /* UINavigationController+Children.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Children.h"; sourceTree = "<group>"; };
 		39FD68BC1FE2183F004996D4 /* UINavigationController+Children.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Children.m"; sourceTree = "<group>"; };
 		39FD68BE1FE2239D004996D4 /* MyAboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAboutUsViewController.h; sourceTree = "<group>"; };
@@ -1015,6 +1023,10 @@
 				3928E1391FEE5FCD00D23203 /* la_bg@3x.png */,
 				3928E13A1FEE5FCD00D23203 /* la_logo@2x.png */,
 				3928E13B1FEE5FCD00D23203 /* la_logo@3x.png */,
+				39EBD7CE209D7E9E002A9557 /* 论坛-活动.gif */,
+				39EBD7CC209D7E9D002A9557 /* 展台.jpg */,
+				39EBD7CF209D7E9E002A9557 /* 展厅.jpg */,
+				39EBD7CD209D7E9E002A9557 /* 主场.jpg */,
 				8E99A8E41F9068910078C452 /* classes */,
 				8E99A8CD1F90664D0078C452 /* Supporting Files */,
 			);
@@ -1428,7 +1440,7 @@
 				TargetAttributes = {
 					8E99A8C91F90664D0078C452 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 9J7GGU5G9G;
+						DevelopmentTeam = 4NU738LHQ7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1464,8 +1476,10 @@
 				3928E13C1FEE5FCD00D23203 /* la_bottomText@2x.png in Resources */,
 				3928E13F1FEE5FCD00D23203 /* la_bg@3x.png in Resources */,
 				8EA6807A1FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.xib in Resources */,
+				39EBD7D0209D7E9E002A9557 /* 展台.jpg in Resources */,
 				8EFC80311FBC4564001CF3BF /* TitleAddressSeletectTableViewCell.xib in Resources */,
 				8ED401571FBA86740097A395 /* CalculateFeesView.xib in Resources */,
+				39EBD7D3209D7E9E002A9557 /* 展厅.jpg in Resources */,
 				8E721AF41FB58EE2001BD401 /* TitleMutiSelectionTableViewCell.xib in Resources */,
 				394A242B1FDE31B00041D185 /* cityJson2.txt in Resources */,
 				8E24D1B21FC521E900A437A0 /* hhh.txt in Resources */,
@@ -1473,6 +1487,7 @@
 				39FD68C21FE22575004996D4 /* Assets.xcassets in Resources */,
 				8E99AAA01F9068920078C452 /* Checkmark@3x.png in Resources */,
 				398513951FD0F9DC0056FB7F /* MyPageSimpleImageTableViewCell.xib in Resources */,
+				39EBD7D2209D7E9E002A9557 /* 论坛-活动.gif in Resources */,
 				8E2E40981F945A2E00B42477 /* NothingWarningView.xib in Resources */,
 				3928E13E1FEE5FCD00D23203 /* la_bg@2x.png in Resources */,
 				8E6C74A11FA06B45004B33D1 /* OnlineRent.storyboard in Resources */,
@@ -1498,6 +1513,7 @@
 				8E6C740D1F9D9FE6004B33D1 /* TitleTextViewTableViewCell.xib in Resources */,
 				39E84C0F208EEADF00FA6318 /* ExhibitionCollectionViewCell.xib in Resources */,
 				8E99AA9E1F9068920078C452 /* Checkmark.png in Resources */,
+				39EBD7D1209D7E9E002A9557 /* 主场.jpg in Resources */,
 				8EB674EE1F99F523008CC196 /* MyPageSimpleTableViewCell.xib in Resources */,
 				39969F7B209051E60074EFD9 /* address.txt in Resources */,
 				8E31F4681FC7BD5C00373437 /* TitleNoneImageTableViewCell.xib in Resources */,
@@ -1796,7 +1812,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4NU738LHQ7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1808,7 +1824,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao.jam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1823,7 +1839,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4NU738LHQ7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1835,7 +1851,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao.jam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

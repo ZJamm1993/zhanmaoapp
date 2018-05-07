@@ -47,7 +47,12 @@
 -(void)countingDown
 {
     if (shouldPay) {
-        [self.tableView reloadData];
+        NSArray* indexPaths=[self.tableView indexPathsForVisibleRows];
+        for (NSIndexPath* ip in indexPaths) {
+            if (ip.section==0&&ip.row==0) {
+                [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:ip] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }
     }
 }
 

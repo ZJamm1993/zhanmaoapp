@@ -16,7 +16,6 @@
 
 @interface ProductWebDetailViewController ()<RentActionEditViewDelegate>
 {
-    
 }
 @property (nonatomic,strong) RentProductModel* detailedModel;
 @end
@@ -30,19 +29,9 @@
     self.idd=self.goodModel.idd.integerValue;
     [super viewDidLoad];
     
-    UIButton* sub=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomBgBounds.size.width-20, self.bottomBgBounds.size.height-20)];
-    [sub setTitle:@"加入租赁车" forState:UIControlStateNormal];
-    sub.backgroundColor=_mainColor;
-    [sub setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [sub setImage:[UIImage imageNamed:@"cartSmall"] forState:UIControlStateNormal];
-    [sub setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
-    [sub addTarget:self action:@selector(addToCart:) forControlEvents:UIControlEventTouchUpInside];
-    [sub.layer setCornerRadius:4];
-    [sub.layer setMasksToBounds:YES];
+    [self getDetailGoodModel:nil];
     
-    UIView* subBg=[[UIView alloc]initWithFrame:self.bottomBgBounds];
-    [subBg addSubview:sub];
-    self.bottomView=subBg;
+    [self resetBottonView];
     
     self.title=@"产品详情";
 }
@@ -58,9 +47,27 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)resetBottonView
+{
+    if (self.detailedModel) {
+        self.goodModel=self.detailedModel;
+    }
+    UIButton* sub=[[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.bottomBgBounds.size.width-20, self.bottomBgBounds.size.height-20)];
+    [sub setTitle:@"加入租赁车" forState:UIControlStateNormal];
+    if (self.goodModel.is_sale) {
+        [sub setTitle:@"加入购物车" forState:UIControlStateNormal];
+    }
+    sub.backgroundColor=_mainColor;
+    [sub setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [sub setImage:[UIImage imageNamed:@"cartSmall"] forState:UIControlStateNormal];
+    [sub setImageEdgeInsets:UIEdgeInsetsMake(0.0, -10, 0.0, 0.0)];
+    [sub addTarget:self action:@selector(addToCart:) forControlEvents:UIControlEventTouchUpInside];
+    [sub.layer setCornerRadius:4];
+    [sub.layer setMasksToBounds:YES];
+    
+    UIView* subBg=[[UIView alloc]initWithFrame:self.bottomBgBounds];
+    [subBg addSubview:sub];
+    self.bottomView=subBg;
 }
 
 #pragma mark actions
@@ -88,6 +95,11 @@
 //        car.days=1;
         action.cartModel=car;
         [action showWithBottomInset:self.bottomSafeInset];
+        
+        if (self.goodModel.is_sale) {
+            [action.addToCartButton setTitle:@"加入购物车" forState:UIControlStateNormal];
+            [action.rentNowButton setTitle:@"立即购买" forState:UIControlStateNormal];
+        }
     }];
     [self performSelector:@selector(reEnableButton:) withObject:button afterDelay:1];
 }
@@ -157,7 +169,7 @@
                return;
            }
            self.detailedModel=result;
-           
+           [self resetBottonView];
            if (success) {
                success(self.detailedModel);
            }

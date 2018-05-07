@@ -20,6 +20,7 @@
 @property (nonatomic,assign) CGFloat rent;
 @property (nonatomic,assign) CGFloat rent_o;
 @property (nonatomic,assign) CGFloat deposit;
+@property (nonatomic,assign) BOOL is_sale;
 
 @end
 

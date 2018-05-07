@@ -167,7 +167,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     sec=sec-TravellingSectionTotalCount;
     if (sec>=0&&sec<self.dataSource.count) {
         TravellingModel* mo=[self.dataSource objectAtIndex:sec];
-        [self gotoUrl:mo.url];
+        [self gotoUrl:mo.url title:mo.name];
     }
 }
 
@@ -175,24 +175,25 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 
 -(void)advertiseView:(AdvertiseView *)adver didSelectedIndex:(NSInteger)index
 {
-    TravellingModel* mo=[self.advsArray objectAtIndex:index];
-    [self gotoUrl:mo.url];
+//    TravellingModel* mo=[self.advsArray objectAtIndex:index];
+//    [self gotoUrl:mo.url title:mo.name];
 }
 
 #pragma mark simplebuttonstableviewcell delegate
 
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
-    [self gotoUrl:model.identifier];
+    [self gotoUrl:model.identifier title:model.title];
 }
 
 #pragma mark actions
 
--(void)gotoUrl:(NSString*)url
+-(void)gotoUrl:(NSString*)url title:(NSString*)title
 {
     NSLog(@"url%@",url);
     if (url.length>0) {
         TravellingQuestionsViewController* ques=[[TravellingQuestionsViewController alloc]init];
+        ques.showingTitle=title;
         ques.completionBlock=^(){
             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
         };
