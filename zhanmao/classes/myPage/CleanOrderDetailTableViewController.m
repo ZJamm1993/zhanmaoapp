@@ -202,6 +202,9 @@
             if (self.cleanModel.date.length>0) {
                 detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"服务时间：",self.cleanModel.date];
             }
+            if (self.cleanModel.remark.length>0) {
+                detailString=[NSString stringWithFormat:@"%@\n%@%@",detailString,@"备注：",self.cleanModel.remark];
+            }
             longDetailCell.label.text=detailString;
             return longDetailCell;
         }

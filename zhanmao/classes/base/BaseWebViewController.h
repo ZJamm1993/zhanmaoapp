@@ -31,4 +31,6 @@
 
 @property (nonatomic,strong) NSMutableDictionary* params;
 
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+
 @end

@@ -36,6 +36,7 @@
 @property (nonatomic,assign) BOOL circledImage;
 @property (nonatomic,strong) UIColor* titleColor;
 @property (nonatomic,strong) UIColor* circleColor;
+@property (nonatomic,strong) NSObject* ass_obj;
 
 
 -(instancetype)initWithTitle:(NSString*)title imageName:(NSString*)imageName identifier:(NSString*)identifier type:(NSInteger)type;

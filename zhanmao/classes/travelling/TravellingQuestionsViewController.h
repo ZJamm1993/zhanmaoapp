@@ -12,5 +12,6 @@
 
 @property (nonatomic,copy) void(^completionBlock)();
 @property (nonatomic,strong) NSString* showingTitle;
+@property (nonatomic,strong) NSString* showingImageUrl;
 
 @end

@@ -55,6 +55,8 @@
         _paytime=[dictionary valueForKey:@"paytime"];
         
         _post_modified=[dictionary valueForKey:@"post_modified"];
+        
+        _remark=[dictionary valueForKey:@"remark"];
     }
     return self;
 }
@@ -189,7 +191,6 @@
         self.return_date=[dictionary valueForKey:@"return_date"];
         self.recover_date=[dictionary valueForKey:@"recover_date"];
         self.emergency_phone=[dictionary valueForKey:@"emergency_phone"];
-        self.remark=[dictionary valueForKey:@"remark"];
         
         //the "pay uses the same dictionary
         self.pay=[[PayOrderModel alloc]initWithDictionary:dictionary];

@@ -13,8 +13,9 @@
 #import "RentActionEditView.h"
 #import "ImageBadgeBarButtonItem.h"
 #import "ZZPayTool.h"
+#import "PhotoSliderView.h"
 
-@interface ProductWebDetailViewController ()<RentActionEditViewDelegate>
+@interface ProductWebDetailViewController ()<RentActionEditViewDelegate,UIWebViewDelegate>
 {
 }
 @property (nonatomic,strong) RentProductModel* detailedModel;
@@ -68,6 +69,28 @@
     UIView* subBg=[[UIView alloc]initWithFrame:self.bottomBgBounds];
     [subBg addSubview:sub];
     self.bottomView=subBg;
+}
+
+#pragma mark webview delegate
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    /*
+     http://zhanmao.bangju.com//themes/simplebootx/Mall/theImageUrl=http://zhanmao.bangju.com/data/upload/mall/20180321/5ab230a176f87.jpg
+     */
+    NSString* url=[[request URL]absoluteString];
+    if ([url containsString:@".jpg"]) {
+        NSString* imgUrl=[[url componentsSeparatedByString:@"="]lastObject];
+        UINavigationController* photoNav=[PhotoSliderViewController navgationControllerWithPhotoSlider:^(PhotoSliderViewController *sliderController) {
+            sliderController.images=[NSArray arrayWithObject:imgUrl];
+        }];
+        [self presentViewController:photoNav animated:YES completion:nil];
+        return NO;
+    }
+    if ([super respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+        return [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    }
+    return YES;
 }
 
 #pragma mark actions

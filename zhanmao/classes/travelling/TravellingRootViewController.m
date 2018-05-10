@@ -63,6 +63,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
             sim.identifier=mo.url;
             sim.imageName=[ZZUrlTool fullUrlWithTail:mo.thumb];
             sim.title=mo.name;
+            sim.ass_obj=mo;
             [models addObject:sim];
         }
         arrayWithSimpleButtons=models;
@@ -167,7 +168,7 @@ typedef NS_ENUM(NSInteger,TravellingSection)
     sec=sec-TravellingSectionTotalCount;
     if (sec>=0&&sec<self.dataSource.count) {
         TravellingModel* mo=[self.dataSource objectAtIndex:sec];
-        [self gotoUrl:mo.url title:mo.name];
+        [self gotoUrl:mo.url title:mo.name imageUrl:mo.smeta_image];
     }
 }
 
@@ -183,17 +184,18 @@ typedef NS_ENUM(NSInteger,TravellingSection)
 
 -(void)simpleButtonsTableViewCell:(SimpleButtonsTableViewCell *)cell didSelectedModel:(SimpleButtonModel *)model
 {
-    [self gotoUrl:model.identifier title:model.title];
+    [self gotoUrl:model.identifier title:model.title imageUrl:((TravellingModel*)(model.ass_obj)).smeta_image];
 }
 
 #pragma mark actions
 
--(void)gotoUrl:(NSString*)url title:(NSString*)title
+-(void)gotoUrl:(NSString*)url title:(NSString*)title imageUrl:(NSString*)imgUrl
 {
     NSLog(@"url%@",url);
     if (url.length>0) {
         TravellingQuestionsViewController* ques=[[TravellingQuestionsViewController alloc]init];
         ques.showingTitle=title;
+        ques.showingImageUrl=imgUrl;
         ques.completionBlock=^(){
             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
         };

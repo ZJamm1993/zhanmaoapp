@@ -246,6 +246,12 @@
 
 #pragma mark --old uiwebview delegate
 
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSLog(@"%@",request.URL.absoluteString);
+    return YES;
+}
+
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
     [loadingIndicator startAnimating];

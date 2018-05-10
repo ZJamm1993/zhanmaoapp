@@ -14,4 +14,6 @@
 @property (nonatomic,strong) NSString* service_id;
 @property (nonatomic,strong) NSString* provider;
 
+@property (nonatomic,strong) NSString* smeta_image;
+
 @end

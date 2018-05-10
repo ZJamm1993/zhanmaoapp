@@ -125,6 +125,9 @@ typedef NS_ENUM(NSInteger,CustomOrderStatus)
 
 @property (nonatomic,strong) NSString* post_modified;
 
+
+@property (nonatomic,strong) NSString* remark;
+
 @end
 
 /***
@@ -139,7 +142,6 @@ typedef NS_ENUM(NSInteger,CustomOrderStatus)
 @property (nonatomic,strong) NSString* recover_date;
 
 @property (nonatomic,strong) NSString* emergency_phone;
-@property (nonatomic,strong) NSString* remark;
 
 @property (nonatomic,strong) PayOrderModel* pay;
 @property (nonatomic,strong) AddressModel* address;

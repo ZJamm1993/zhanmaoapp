@@ -17,6 +17,7 @@
         _service_id=[dictionary valueForKey:@"service_id"];
         _provider=[dictionary valueForKey:@"provider"];
         _url=[dictionary valueForKey:@"url"];
+        _smeta_image=[dictionary valueForKey:@"smeta"];
     }
     return self;
 }

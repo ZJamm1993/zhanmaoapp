@@ -38,6 +38,7 @@
 		3955BBD41FD67C7100239336 /* PayOrderCountDownHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBD31FD67C7100239336 /* PayOrderCountDownHeaderView.m */; };
 		3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3955BBD51FD67C8600239336 /* PayOrderCountDownHeaderView.xib */; };
 		3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */; };
+		396DFBEB20A47D51007E1A6E /* PhotoSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 396DFBE920A47D51007E1A6E /* PhotoSliderView.m */; };
 		3973B1611FD8EBF700106C05 /* ExhibitionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3973B1601FD8EBF700106C05 /* ExhibitionDetailViewController.m */; };
 		3973B1641FD8F0C800106C05 /* ExhiDetailTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3973B1631FD8F0C800106C05 /* ExhiDetailTitleTableViewCell.m */; };
 		3973B1671FD8F10C00106C05 /* ExhiDetailInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3973B1661FD8F10C00106C05 /* ExhiDetailInfoTableViewCell.m */; };
@@ -131,7 +132,6 @@
 		8E6C74251F9DF537004B33D1 /* MenuHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74241F9DF537004B33D1 /* MenuHeaderTableViewCell.m */; };
 		8E6C74291F9ED49D004B33D1 /* SimpleTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */; };
 		8E6C742E1F9EDB68004B33D1 /* GoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */; };
-		8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */; };
 		8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */; };
 		8E6C74741F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C74721F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.m */; };
 		8E6C747B1F9F40CD004B33D1 /* ExhibitionPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6C747A1F9F40CD004B33D1 /* ExhibitionPictureViewController.m */; };
@@ -295,6 +295,8 @@
 		3955BBD51FD67C8600239336 /* PayOrderCountDownHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayOrderCountDownHeaderView.xib; sourceTree = "<group>"; };
 		3967A97D1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDesignableOnePixelConstant.h; sourceTree = "<group>"; };
 		3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDesignableOnePixelConstant.m; sourceTree = "<group>"; };
+		396DFBE920A47D51007E1A6E /* PhotoSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoSliderView.m; path = ../../../../ZhuangBeiDaQuan/ZhuangBeiDaQuan/classes/custom/PhotoSliderView.m; sourceTree = "<group>"; };
+		396DFBEA20A47D51007E1A6E /* PhotoSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoSliderView.h; path = ../../../../ZhuangBeiDaQuan/ZhuangBeiDaQuan/classes/custom/PhotoSliderView.h; sourceTree = "<group>"; };
 		3973B15F1FD8EBF700106C05 /* ExhibitionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionDetailViewController.h; sourceTree = "<group>"; };
 		3973B1601FD8EBF700106C05 /* ExhibitionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionDetailViewController.m; sourceTree = "<group>"; };
 		3973B1621FD8F0C800106C05 /* ExhiDetailTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhiDetailTitleTableViewCell.h; sourceTree = "<group>"; };
@@ -446,8 +448,6 @@
 		8E6C74271F9ED49D004B33D1 /* SimpleTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTitleTableViewCell.m; sourceTree = "<group>"; };
 		8E6C742B1F9EDB68004B33D1 /* GoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsTableViewCell.h; sourceTree = "<group>"; };
 		8E6C742C1F9EDB68004B33D1 /* GoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsTableViewCell.m; sourceTree = "<group>"; };
-		8E6C746B1F9F2B23004B33D1 /* PhotoSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSliderView.h; sourceTree = "<group>"; };
-		8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSliderView.m; sourceTree = "<group>"; };
 		8E6C746E1F9F3020004B33D1 /* ExhibitionExamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionExamplesViewController.h; sourceTree = "<group>"; };
 		8E6C746F1F9F3020004B33D1 /* ExhibitionExamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionExamplesViewController.m; sourceTree = "<group>"; };
 		8E6C74711F9F333F004B33D1 /* ExhibitionLargeRectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionLargeRectTableViewCell.h; sourceTree = "<group>"; };
@@ -1088,6 +1088,8 @@
 		8E99A9151F9068910078C452 /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				396DFBEA20A47D51007E1A6E /* PhotoSliderView.h */,
+				396DFBE920A47D51007E1A6E /* PhotoSliderView.m */,
 				8E9B002A1FB4578300B29188 /* PickerShadowContainer.h */,
 				8E9B002B1FB4578300B29188 /* PickerShadowContainer.m */,
 				8E2E408F1F945A2E00B42477 /* NothingFooterCell.h */,
@@ -1104,8 +1106,6 @@
 				8E99A92D1F9068910078C452 /* ZZSearchBar.m */,
 				8EB674D61F99D003008CC196 /* CorneredImageView.h */,
 				8EB674D71F99D003008CC196 /* CorneredImageView.m */,
-				8E6C746B1F9F2B23004B33D1 /* PhotoSliderView.h */,
-				8E6C746C1F9F2B23004B33D1 /* PhotoSliderView.m */,
 				8E6C73F31F9D9280004B33D1 /* ImageTitleBarButtonItem.h */,
 				8E6C73F41F9D9280004B33D1 /* ImageTitleBarButtonItem.m */,
 				8E6C749A1FA041C0004B33D1 /* ZZStepper.h */,
@@ -1440,7 +1440,7 @@
 				TargetAttributes = {
 					8E99A8C91F90664D0078C452 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 4NU738LHQ7;
+						DevelopmentTeam = 9J7GGU5G9G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1597,7 +1597,6 @@
 				8E6C74981FA03E9B004B33D1 /* ProductParameterTableViewCell.m in Sources */,
 				8E31F4921FC8FD2B00373437 /* ZZPayTool.m in Sources */,
 				8E72E9DD1FB2D744001FCD31 /* AddressModel.m in Sources */,
-				8E6C746D1F9F2B23004B33D1 /* PhotoSliderView.m in Sources */,
 				8EDCF5C41FA6DB4F00AA4359 /* MyInvoiceTableViewCell.m in Sources */,
 				8EDBF4F41FA1E5660073F37D /* ProductSearchTableViewController.m in Sources */,
 				8EB674D81F99D003008CC196 /* CorneredImageView.m in Sources */,
@@ -1654,6 +1653,7 @@
 				8EA680791FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m in Sources */,
 				3955BBCE1FD6795F00239336 /* PayOrderTableViewController.m in Sources */,
 				3955BBD11FD67B9D00239336 /* PayOrderTableViewCell.m in Sources */,
+				396DFBEB20A47D51007E1A6E /* PhotoSliderView.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				8E6C74021F9D9CA0004B33D1 /* TitleSingleSelectionTableViewCell.m in Sources */,
 				8EDCF5C01FA6D76B00AA4359 /* InvoiceModel.m in Sources */,
@@ -1812,7 +1812,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4NU738LHQ7;
+				DEVELOPMENT_TEAM = 9J7GGU5G9G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1824,7 +1824,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao.jam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1839,7 +1839,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 4NU738LHQ7;
+				DEVELOPMENT_TEAM = 9J7GGU5G9G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1851,7 +1851,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao.jam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bangju.zhanmao;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

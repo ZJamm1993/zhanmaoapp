@@ -18,7 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    if(self.showingImageUrl)
+    {
+        if (![self.showingImageUrl containsString:[ZZUrlTool main]]) {
+            self.showingImageUrl=[ZZUrlTool fullUrlWithTail:self.showingImageUrl];
+        }
+        UIImageView* head=[[UIImageView alloc]initWithFrame:CGRectMake(0,0, [[UIScreen mainScreen]bounds].size.width, [[UIScreen mainScreen]bounds].size.width/2.27)];
+        [self.tableView setTableHeaderView:head];
+        [head sd_setImageWithURL:[NSURL URLWithString:self.showingImageUrl]];
+    }
     // Do any additional setup after loading the view.
 }
 
