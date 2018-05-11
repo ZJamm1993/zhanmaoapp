@@ -15,6 +15,7 @@
 #import "MainPageHttpTool.h"
 
 #import "MyLoginViewController.h"
+#import "UIImage+GIF.h"
 
 @interface ExhibitionListViewController ()
 
@@ -32,17 +33,37 @@
     [self.tableView setTableHeaderView:head];
     
     if ([self.title containsString:@"论坛"]||[self.title containsString:@"活动"]) {
-        head.image=[UIImage imageNamed:@"论坛-活动.gif"];
+//        head.image=[UIImage imageNamed:@"论坛-活动.gif"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"somegif" ofType:@"gif"];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        UIImage* gifImage=[UIImage sd_animatedGIFWithData:data];
+        head.image = gifImage;
+        
+//        //读取gif图片数据
+//        NSData *gifData = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"somegif" ofType:@"gif"]];
+//        //UIWebView生成
+//        UIWebView *imageWebView = [[UIWebView alloc] initWithFrame:head.frame];
+//        imageWebView.contentMode=UIViewContentModeScaleToFill;
+//        //用户不可交互
+//        imageWebView.userInteractionEnabled = NO;
+//        //加载gif数据
+//        [imageWebView loadData:gifData MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+//        //视图添加此gif控件
+//        [self.tableView setTableHeaderView:imageWebView];
     }
-    else if ([self.title containsString:@"展台"]) {
-        head.image=[UIImage imageNamed:@"展台.jpg"];
+    else
+    {
+        head.image=[UIImage imageNamed:@"somejpg.jpg"];
     }
-    else if ([self.title containsString:@"展厅"]) {
-        head.image=[UIImage imageNamed:@"展厅.jpg"];
-    }
-    else if ([self.title containsString:@"主场"]) {
-        head.image=[UIImage imageNamed:@"主场.jpg"];
-    }
+//    else if ([self.title containsString:@"展台"]) {
+//        head.image=[UIImage imageNamed:@"展台.jpg"];
+//    }
+//    else if ([self.title containsString:@"展厅"]) {
+//        head.image=[UIImage imageNamed:@"展厅.jpg"];
+//    }
+//    else if ([self.title containsString:@"主场"]) {
+//        head.image=[UIImage imageNamed:@"主场.jpg"];
+//    }
 }
 
 -(void)refresh

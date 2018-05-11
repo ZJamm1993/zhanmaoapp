@@ -37,22 +37,22 @@
     version=[NSString stringWithFormat:@"v%@",version];
     _versionLabel.text=version;
     
-    _emailLabel.text=@"2248672072@qq.com";
-    //#warning  wechat ?
-    _wechatLabel.text=@"ZMonline168";
-//    _websiteLabel.text=[config valueForKey:@"website"];
-    [self.tableView reloadData];
-    
-//    [MyPageHttpTool getStandardConfigCache:YES success:^(NSDictionary *config) {
-//        if (config) {
-//            _emailLabel.text=[config valueForKey:@"site_admin_email"];
-//            //#warning  wechat ?
-//            _wechatLabel.text=[config valueForKey:@"gongzhonghao"];
-//            _websiteLabel.text=[config valueForKey:@"website"];
-//            [self.tableView reloadData];
-//        }
-//    }];
+//    _emailLabel.text=@"2248672072@qq.com";
+//    //#warning  wechat ?
+//    _wechatLabel.text=@"ZMonline168";
+////    _websiteLabel.text=[config valueForKey:@"website"];
 //    [self.tableView reloadData];
+    
+    [MyPageHttpTool getStandardConfigCache:NO success:^(NSDictionary *config) {
+        if (config) {
+            _emailLabel.text=[config valueForKey:@"site_admin_email"];
+            //#warning  wechat ?
+            _wechatLabel.text=[config valueForKey:@"gongzhonghao"];
+            _websiteLabel.text=[config valueForKey:@"website"];
+            [self.tableView reloadData];
+        }
+    }];
+    [self.tableView reloadData];
 }
 
 #pragma mark tableviews

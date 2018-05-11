@@ -22,6 +22,11 @@
         self.areaClickBlock(self);
     }
 }
+- (IBAction)resetClick:(id)sender {
+    if (self.resetClickBlock) {
+        self.resetClickBlock(self);
+    }
+}
 
 - (IBAction)dateClick:(id)sender {
     if (self.dateClickBlock) {

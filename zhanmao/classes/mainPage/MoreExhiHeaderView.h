@@ -15,5 +15,6 @@
 
 @property (nonatomic,copy) void(^areaClickBlock)(MoreExhiHeaderView* view);
 @property (nonatomic,copy) void(^dateClickBlock)(MoreExhiHeaderView* view);
+@property (nonatomic,copy) void(^resetClickBlock)(MoreExhiHeaderView* view);
 
 @end

@@ -166,6 +166,9 @@ typedef NS_ENUM(NSInteger,MainPageSection)
         exhibitionArray=[NSArray modelsWithDictionaries:list modelCreate:^id(NSInteger index, NSDictionary *dict) {
             return [[ExhibitionModel alloc]initWithDictionary:dict];
         }];
+        if (exhibitionArray.count>2) {
+            [exhibitionArray removeObjectsInRange:NSMakeRange(2, exhibitionArray.count-2)];
+        }
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:MainPageSectionExhibitions] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^(NSError *err) {
         

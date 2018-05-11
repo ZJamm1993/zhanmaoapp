@@ -20,16 +20,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tai-Dx-Zx8" userLabel="sub">
-                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="63.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="124.5" height="63.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeJ-3C-82W">
-                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="63.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="124.5" height="63.5"/>
                                     <connections>
                                         <action selector="areaClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="FvB-VL-ge8"/>
                                     </connections>
                                 </button>
                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLr-O2-JGH">
-                                    <rect key="frame" x="72" y="23.5" width="44" height="17.5"/>
+                                    <rect key="frame" x="40.5" y="23.5" width="44" height="17.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="区域" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaV-vC-RHT">
                                             <rect key="frame" x="0.0" y="0.0" width="31" height="18"/>
@@ -67,16 +67,16 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qym-z2-0GA" userLabel="sub">
-                            <rect key="frame" x="188" y="0.0" width="187" height="63.5"/>
+                            <rect key="frame" x="125" y="0.0" width="125" height="63.5"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-xZ-SOe">
-                                    <rect key="frame" x="0.0" y="0.0" width="187" height="63.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="63.5"/>
                                     <connections>
                                         <action selector="dateClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="PB9-Kg-Uiv"/>
                                     </connections>
                                 </button>
                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNf-eM-gmo">
-                                    <rect key="frame" x="72" y="23.5" width="44" height="17.5"/>
+                                    <rect key="frame" x="41" y="23.5" width="44" height="17.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdJ-6W-swp">
                                             <rect key="frame" x="0.0" y="0.0" width="31" height="18"/>
@@ -111,6 +111,45 @@
                                 <constraint firstItem="FVg-xZ-SOe" firstAttribute="leading" secondItem="qym-z2-0GA" secondAttribute="leading" id="MdC-71-WQh"/>
                                 <constraint firstItem="jNf-eM-gmo" firstAttribute="centerY" secondItem="qym-z2-0GA" secondAttribute="centerY" id="Uls-kY-OF9"/>
                                 <constraint firstAttribute="bottom" secondItem="FVg-xZ-SOe" secondAttribute="bottom" id="bVi-jz-eBv"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZE-9i-Xi5" userLabel="sub">
+                            <rect key="frame" x="250.5" y="0.0" width="124.5" height="63.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9z-cn-j1D">
+                                    <rect key="frame" x="0.0" y="0.0" width="124.5" height="63.5"/>
+                                    <connections>
+                                        <action selector="resetClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="o0B-Nm-8vX"/>
+                                    </connections>
+                                </button>
+                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myp-hS-mvb">
+                                    <rect key="frame" x="47" y="23.5" width="31" height="17.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="重置" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgi-dd-JhP">
+                                            <rect key="frame" x="0.0" y="0.0" width="31" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.20000000000000001" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="Wgi-dd-JhP" firstAttribute="centerY" secondItem="Myp-hS-mvb" secondAttribute="centerY" id="5cf-mO-Uwo"/>
+                                        <constraint firstItem="Wgi-dd-JhP" firstAttribute="leading" secondItem="Myp-hS-mvb" secondAttribute="leading" id="UDe-Tx-AsH"/>
+                                        <constraint firstItem="Wgi-dd-JhP" firstAttribute="top" secondItem="Myp-hS-mvb" secondAttribute="top" id="WKU-zm-205"/>
+                                        <constraint firstAttribute="bottom" secondItem="Wgi-dd-JhP" secondAttribute="bottom" id="eiM-kk-W2k"/>
+                                        <constraint firstAttribute="trailing" secondItem="Wgi-dd-JhP" secondAttribute="trailing" id="zXE-h8-Z11"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="V9z-cn-j1D" firstAttribute="top" secondItem="oZE-9i-Xi5" secondAttribute="top" id="BvS-uM-Rnt"/>
+                                <constraint firstItem="Myp-hS-mvb" firstAttribute="centerY" secondItem="oZE-9i-Xi5" secondAttribute="centerY" id="CEk-3f-iFi"/>
+                                <constraint firstAttribute="trailing" secondItem="V9z-cn-j1D" secondAttribute="trailing" id="FCY-8X-ZPy"/>
+                                <constraint firstAttribute="bottom" secondItem="V9z-cn-j1D" secondAttribute="bottom" id="Gtb-1g-j2c"/>
+                                <constraint firstItem="Myp-hS-mvb" firstAttribute="centerX" secondItem="oZE-9i-Xi5" secondAttribute="centerX" id="M7x-fs-qSY"/>
+                                <constraint firstItem="V9z-cn-j1D" firstAttribute="leading" secondItem="oZE-9i-Xi5" secondAttribute="leading" id="pzb-Cw-pSX"/>
                             </constraints>
                         </view>
                     </subviews>

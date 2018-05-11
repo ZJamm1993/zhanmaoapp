@@ -57,6 +57,11 @@
                     CityModel* city=[models objectAtIndex:1];
                     weself.exhibition_city=city.id;
                     view.areaLabel.text=city.name;
+                    
+                    //排斥
+                    weself.date=nil;
+                    view.dateLabel.text=@"时间";
+                    
                     [weself refresh];
                 }
             }];
@@ -71,7 +76,19 @@
                 NSString* dataString=[fora stringFromDate:dat.date];
                 weself.date=dataString;
                 view.dateLabel.text=dataString;
+                
+                weself.exhibition_city=nil;
+                view.areaLabel.text=@"区域";
+                
+                [weself refresh];
             }];
+        };
+        self.headerView.resetClickBlock = ^(MoreExhiHeaderView *view) {
+            weself.date=nil;
+            weself.exhibition_city=nil;
+            view.areaLabel.text=@"区域";
+            view.dateLabel.text=@"时间";
+            [weself refresh];
         };
         
         [self refresh];
