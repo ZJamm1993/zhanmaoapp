@@ -50,9 +50,9 @@
 +(NSString*)token
 {
 //    #warning test user token
-#if DEBUG
-    return @"123";
-#endif
+//#if DEBUG
+//    return @"123";
+//#endif
     NSString* to=[[NSUserDefaults standardUserDefaults]valueForKey:UserTokenKey];
     return to;
 }

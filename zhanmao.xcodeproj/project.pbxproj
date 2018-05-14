@@ -51,6 +51,7 @@
 		394A243E1FDE75760041D185 /* YanyiOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A243D1FDE75760041D185 /* YanyiOrderDetailViewController.m */; };
 		394A24411FDE75860041D185 /* YaoyueOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394A24401FDE75860041D185 /* YaoyueOrderDetailViewController.m */; };
 		394A24431FDF744B0041D185 /* MyCustomOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394A24421FDF744B0041D185 /* MyCustomOrder.storyboard */; };
+		3954180020A947D70087BEE9 /* PhotoSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 395417FE20A947D60087BEE9 /* PhotoSliderView.m */; };
 		3955BBC51FD5485200239336 /* MyPageHelpHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */; };
 		3955BBC81FD6381600239336 /* MyNewUserFixInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBC71FD6381600239336 /* MyNewUserFixInfoViewController.m */; };
 		3955BBCB1FD6791400239336 /* PayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBCA1FD6791400239336 /* PayOrderModel.m */; };
@@ -59,7 +60,6 @@
 		3955BBD41FD67C7100239336 /* PayOrderCountDownHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955BBD31FD67C7100239336 /* PayOrderCountDownHeaderView.m */; };
 		3955BBD61FD67C8600239336 /* PayOrderCountDownHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3955BBD51FD67C8600239336 /* PayOrderCountDownHeaderView.xib */; };
 		3967A97F1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */; };
-		396DFBEB20A47D51007E1A6E /* PhotoSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 396DFBE920A47D51007E1A6E /* PhotoSliderView.m */; };
 		3973B1611FD8EBF700106C05 /* ExhibitionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3973B1601FD8EBF700106C05 /* ExhibitionDetailViewController.m */; };
 		3973B1641FD8F0C800106C05 /* ExhiDetailTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3973B1631FD8F0C800106C05 /* ExhiDetailTitleTableViewCell.m */; };
 		3973B1671FD8F10C00106C05 /* ExhiDetailInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3973B1661FD8F10C00106C05 /* ExhiDetailInfoTableViewCell.m */; };
@@ -338,6 +338,8 @@
 		394A243F1FDE75860041D185 /* YaoyueOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YaoyueOrderDetailViewController.h; sourceTree = "<group>"; };
 		394A24401FDE75860041D185 /* YaoyueOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YaoyueOrderDetailViewController.m; sourceTree = "<group>"; };
 		394A24421FDF744B0041D185 /* MyCustomOrder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyCustomOrder.storyboard; sourceTree = "<group>"; };
+		395417FE20A947D60087BEE9 /* PhotoSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoSliderView.m; sourceTree = "<group>"; };
+		395417FF20A947D70087BEE9 /* PhotoSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoSliderView.h; sourceTree = "<group>"; };
 		3955BBC31FD5485200239336 /* MyPageHelpHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageHelpHeaderCell.h; sourceTree = "<group>"; };
 		3955BBC41FD5485200239336 /* MyPageHelpHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageHelpHeaderCell.m; sourceTree = "<group>"; };
 		3955BBC61FD6381600239336 /* MyNewUserFixInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNewUserFixInfoViewController.h; sourceTree = "<group>"; };
@@ -353,8 +355,6 @@
 		3955BBD51FD67C8600239336 /* PayOrderCountDownHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayOrderCountDownHeaderView.xib; sourceTree = "<group>"; };
 		3967A97D1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBDesignableOnePixelConstant.h; sourceTree = "<group>"; };
 		3967A97E1FCFEA8A001F7F8F /* IBDesignableOnePixelConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBDesignableOnePixelConstant.m; sourceTree = "<group>"; };
-		396DFBE920A47D51007E1A6E /* PhotoSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoSliderView.m; path = ../../../../ZhuangBeiDaQuan/ZhuangBeiDaQuan/classes/custom/PhotoSliderView.m; sourceTree = "<group>"; };
-		396DFBEA20A47D51007E1A6E /* PhotoSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoSliderView.h; path = ../../../../ZhuangBeiDaQuan/ZhuangBeiDaQuan/classes/custom/PhotoSliderView.h; sourceTree = "<group>"; };
 		3973B15F1FD8EBF700106C05 /* ExhibitionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhibitionDetailViewController.h; sourceTree = "<group>"; };
 		3973B1601FD8EBF700106C05 /* ExhibitionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExhibitionDetailViewController.m; sourceTree = "<group>"; };
 		3973B1621FD8F0C800106C05 /* ExhiDetailTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExhiDetailTitleTableViewCell.h; sourceTree = "<group>"; };
@@ -1186,8 +1186,8 @@
 		8E99A9151F9068910078C452 /* custom */ = {
 			isa = PBXGroup;
 			children = (
-				396DFBEA20A47D51007E1A6E /* PhotoSliderView.h */,
-				396DFBE920A47D51007E1A6E /* PhotoSliderView.m */,
+				395417FF20A947D70087BEE9 /* PhotoSliderView.h */,
+				395417FE20A947D60087BEE9 /* PhotoSliderView.m */,
 				8E9B002A1FB4578300B29188 /* PickerShadowContainer.h */,
 				8E9B002B1FB4578300B29188 /* PickerShadowContainer.m */,
 				8E2E408F1F945A2E00B42477 /* NothingFooterCell.h */,
@@ -1733,6 +1733,7 @@
 				8EB674E31F99E9EA008CC196 /* MyPageTableViewController.m in Sources */,
 				8EB674C91F97416B008CC196 /* MessageSmallTableViewCell.m in Sources */,
 				39FD68C01FE2239D004996D4 /* MyAboutUsViewController.m in Sources */,
+				3954180020A947D70087BEE9 /* PhotoSliderView.m in Sources */,
 				8E24D1B01FC5210300A437A0 /* UserModel.m in Sources */,
 				8E9B0CB91FA9614800770F8D /* MyAddressesTableViewController.m in Sources */,
 				8E6C74701F9F3020004B33D1 /* ExhibitionExamplesViewController.m in Sources */,
@@ -1761,7 +1762,6 @@
 				8EA680791FB6AAD800EF5FC8 /* TitleDescriptionTableViewCell.m in Sources */,
 				3955BBCE1FD6795F00239336 /* PayOrderTableViewController.m in Sources */,
 				3955BBD11FD67B9D00239336 /* PayOrderTableViewCell.m in Sources */,
-				396DFBEB20A47D51007E1A6E /* PhotoSliderView.m in Sources */,
 				3902103720A5AF3400923853 /* UIView+WebCacheOperation.m in Sources */,
 				8E2E409B1F945AB700B42477 /* MainPageTableViewController.m in Sources */,
 				3902102D20A5AF3400923853 /* UIImage+GIF.m in Sources */,
